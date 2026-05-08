@@ -1,0 +1,41 @@
+{
+  "start_time": "2026-01-25T06:30:07.452256",
+  "end_time": "2026-01-25T06:30:16.446711",
+  "duration_seconds": 8.994455,
+  "overall_status": "warning",
+  "stages": [
+    {
+      "name": "Code Quality",
+      "status": "warning",
+      "duration": 0.41970396041870117,
+      "errors": [],
+      "warnings": [
+        "Code formatting issues detected",
+        "Ruff linting warnings",
+        "Type checking warnings",
+        "Security warnings found"
+      ],
+      "metrics": {}
+    },
+    {
+      "name": "Unit Tests",
+      "status": "passed",
+      "duration": 8.512486934661865,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "tests_run": 293,
+        "tests_passed": 293,
+        "tests_failed": 0
+      }
+    },
+    {
+      "name": "Physics Validation",
+      "status": "passed",
+      "duration": 0.06196713447570801,
+      "errors": [],
+      "warnings": [],
+      "metrics": {}
+    }
+  ]
+}

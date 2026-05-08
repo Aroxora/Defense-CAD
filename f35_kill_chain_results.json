@@ -1,0 +1,1145 @@
+{
+  "timestamp": "2026-01-15T19:29:18.148478+00:00",
+  "analysis": "F-35 Kill Chain Optimization",
+  "variants": {
+    "F-35A CTOL": {
+      "scenario": "F-35A CTOL",
+      "target": "F-35A",
+      "sensors": [
+        {
+          "name": "KJ-500",
+          "detection_range_km": 130.0,
+          "detected": "False",
+          "track_quality": 0.0
+        },
+        {
+          "name": "KJ-2000",
+          "detection_range_km": 145.0,
+          "detected": "True",
+          "track_quality": 0.7
+        },
+        {
+          "name": "JY-27A",
+          "detection_range_km": 500,
+          "detected": true,
+          "track_quality": 0.65
+        },
+        {
+          "name": "YLC-8E",
+          "detection_range_km": 465.0,
+          "detected": "False",
+          "track_quality": 0.0
+        },
+        {
+          "name": "Type 1475 AESA",
+          "detection_range_km": 155.0,
+          "detected": "True",
+          "track_quality": 0.85
+        }
+      ],
+      "engagements": [
+        {
+          "aspect_deg": 0,
+          "maneuvering": false,
+          "jamming": false,
+          "single_pk": 0.017109377999999998,
+          "salvo_pk": 0.054542803324151956,
+          "track_quality": 0.8143209728960027,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.029324999999999997,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.017109377999999998
+          }
+        },
+        {
+          "aspect_deg": 0,
+          "maneuvering": false,
+          "jamming": true,
+          "single_pk": 0.4696692,
+          "salvo_pk": 0.8727149892285144,
+          "track_quality": 0.8143209728960027,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.8049999999999999,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.4696692
+          }
+        },
+        {
+          "aspect_deg": 0,
+          "maneuvering": true,
+          "jamming": false,
+          "single_pk": 0.01036186705125,
+          "salvo_pk": 0.03328519639030081,
+          "track_quality": 0.8143209728960027,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.029324999999999997,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.01036186705125
+          }
+        },
+        {
+          "aspect_deg": 0,
+          "maneuvering": true,
+          "jamming": true,
+          "single_pk": 0.28444340925000006,
+          "salvo_pk": 0.6630286675601549,
+          "track_quality": 0.8143209728960027,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.8049999999999999,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.28444340925000006
+          }
+        },
+        {
+          "aspect_deg": 30,
+          "maneuvering": false,
+          "jamming": false,
+          "single_pk": 0.06811366065510256,
+          "salvo_pk": 0.2048856848192162,
+          "track_quality": 0.7753859427459283,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.11674492776481309,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.06811366065510256
+          }
+        },
+        {
+          "aspect_deg": 30,
+          "maneuvering": false,
+          "jamming": true,
+          "single_pk": 0.4696692,
+          "salvo_pk": 0.8727149892285144,
+          "track_quality": 0.7753859427459283,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.8049999999999999,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.4696692
+          }
+        },
+        {
+          "aspect_deg": 30,
+          "maneuvering": true,
+          "jamming": false,
+          "single_pk": 0.04125133573424649,
+          "salvo_pk": 0.127951762520777,
+          "track_quality": 0.7753859427459283,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.11674492776481309,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.04125133573424649
+          }
+        },
+        {
+          "aspect_deg": 30,
+          "maneuvering": true,
+          "jamming": true,
+          "single_pk": 0.28444340925000006,
+          "salvo_pk": 0.6630286675601549,
+          "track_quality": 0.7753859427459283,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.8049999999999999,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.28444340925000006
+          }
+        },
+        {
+          "aspect_deg": 45,
+          "maneuvering": false,
+          "jamming": false,
+          "single_pk": 0.17109378,
+          "salvo_pk": 0.45657133223602964,
+          "track_quality": 0.8764995434277485,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.29324999999999996,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.17109378
+          }
+        },
+        {
+          "aspect_deg": 45,
+          "maneuvering": false,
+          "jamming": true,
+          "single_pk": 0.4696692,
+          "salvo_pk": 0.8727149892285144,
+          "track_quality": 0.8764995434277485,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.8049999999999999,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.4696692
+          }
+        },
+        {
+          "aspect_deg": 45,
+          "maneuvering": true,
+          "jamming": false,
+          "single_pk": 0.1036186705125,
+          "salvo_pk": 0.2991878752410224,
+          "track_quality": 0.8764995434277485,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.29324999999999996,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.1036186705125
+          }
+        },
+        {
+          "aspect_deg": 45,
+          "maneuvering": true,
+          "jamming": true,
+          "single_pk": 0.28444340925000006,
+          "salvo_pk": 0.6630286675601549,
+          "track_quality": 0.8764995434277485,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.8049999999999999,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.28444340925000006
+          }
+        },
+        {
+          "aspect_deg": 60,
+          "maneuvering": false,
+          "jamming": false,
+          "single_pk": 0.30425254615972924,
+          "salvo_pk": 0.6924131366113835,
+          "track_quality": 0.7759016633596604,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.521480436993914,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.30425254615972924
+          }
+        },
+        {
+          "aspect_deg": 60,
+          "maneuvering": false,
+          "jamming": true,
+          "single_pk": 0.4696692,
+          "salvo_pk": 0.8727149892285144,
+          "track_quality": 0.7759016633596604,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.8049999999999999,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.4696692
+          }
+        },
+        {
+          "aspect_deg": 60,
+          "maneuvering": true,
+          "jamming": false,
+          "single_pk": 0.184262948267986,
+          "salvo_pk": 0.48413256402795546,
+          "track_quality": 0.7759016633596604,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.521480436993914,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.184262948267986
+          }
+        },
+        {
+          "aspect_deg": 60,
+          "maneuvering": true,
+          "jamming": true,
+          "single_pk": 0.28444340925000006,
+          "salvo_pk": 0.6630286675601549,
+          "track_quality": 0.7759016633596604,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.8049999999999999,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.28444340925000006
+          }
+        },
+        {
+          "aspect_deg": 90,
+          "maneuvering": false,
+          "jamming": false,
+          "single_pk": 0.5410460382877635,
+          "salvo_pk": 0.9204299465220482,
+          "track_quality": 0.8468351509398871,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.9273379238443772,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.5410460382877635
+          }
+        },
+        {
+          "aspect_deg": 90,
+          "maneuvering": false,
+          "jamming": true,
+          "single_pk": 0.5410460382877635,
+          "salvo_pk": 0.9204299465220482,
+          "track_quality": 0.8468351509398871,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.9273379238443772,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.5410460382877635
+          }
+        },
+        {
+          "aspect_deg": 90,
+          "maneuvering": true,
+          "jamming": false,
+          "single_pk": 0.3276710069380268,
+          "salvo_pk": 0.7248047207803819,
+          "track_quality": 0.8468351509398871,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.9273379238443772,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.3276710069380268
+          }
+        },
+        {
+          "aspect_deg": 90,
+          "maneuvering": true,
+          "jamming": true,
+          "single_pk": 0.3276710069380268,
+          "salvo_pk": 0.7248047207803819,
+          "track_quality": 0.8468351509398871,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.9273379238443772,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.3276710069380268
+          }
+        }
+      ],
+      "optimized_pk": 0.9204299465220482,
+      "best_config": {
+        "aspect_deg": 90,
+        "maneuvering": false,
+        "jamming": false,
+        "single_pk": 0.5410460382877635,
+        "salvo_pk": 0.9204299465220482,
+        "track_quality": 0.8468351509398871,
+        "breakdown": {
+          "p_reach_acquisition": 0.8666666666666667,
+          "p_seeker_acquire": 0.9273379238443772,
+          "p_guidance": 0.8800000000000001,
+          "p_fuze": 0.9,
+          "p_warhead": 0.85,
+          "pk_total": 0.5410460382877635
+        }
+      }
+    },
+    "F-35B STOVL": {
+      "scenario": "F-35B STOVL",
+      "target": "F-35B",
+      "sensors": [
+        {
+          "name": "KJ-500",
+          "detection_range_km": 151.0,
+          "detected": "False",
+          "track_quality": 0.0
+        },
+        {
+          "name": "KJ-2000",
+          "detection_range_km": 169.0,
+          "detected": "False",
+          "track_quality": 0.0
+        },
+        {
+          "name": "JY-27A",
+          "detection_range_km": 500,
+          "detected": true,
+          "track_quality": 0.65
+        },
+        {
+          "name": "YLC-8E",
+          "detection_range_km": 499.0,
+          "detected": "True",
+          "track_quality": 0.65
+        },
+        {
+          "name": "Type 1475 AESA",
+          "detection_range_km": 180.0,
+          "detected": "True",
+          "track_quality": 0.85
+        }
+      ],
+      "engagements": [
+        {
+          "aspect_deg": 0,
+          "maneuvering": false,
+          "jamming": false,
+          "single_pk": 0.021539430744192067,
+          "salvo_pk": 0.06832204680628418,
+          "track_quality": 0.7753859427459283,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.036917987700863956,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.021539430744192067
+          }
+        },
+        {
+          "aspect_deg": 0,
+          "maneuvering": false,
+          "jamming": true,
+          "single_pk": 0.4696692,
+          "salvo_pk": 0.8727149892285144,
+          "track_quality": 0.7753859427459283,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.8049999999999999,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.4696692
+          }
+        },
+        {
+          "aspect_deg": 0,
+          "maneuvering": true,
+          "jamming": false,
+          "single_pk": 0.013044817744451324,
+          "salvo_pk": 0.041776862554159466,
+          "track_quality": 0.7753859427459283,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.036917987700863956,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.013044817744451324
+          }
+        },
+        {
+          "aspect_deg": 0,
+          "maneuvering": true,
+          "jamming": true,
+          "single_pk": 0.28444340925000006,
+          "salvo_pk": 0.6630286675601549,
+          "track_quality": 0.7753859427459283,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.8049999999999999,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.28444340925000006
+          }
+        },
+        {
+          "aspect_deg": 30,
+          "maneuvering": false,
+          "jamming": false,
+          "single_pk": 0.0857500182890331,
+          "salvo_pk": 0.2527582634500791,
+          "track_quality": 0.8143209728960027,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.14697315626119756,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.0857500182890331
+          }
+        },
+        {
+          "aspect_deg": 30,
+          "maneuvering": false,
+          "jamming": true,
+          "single_pk": 0.4696692,
+          "salvo_pk": 0.8727149892285144,
+          "track_quality": 0.8143209728960027,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.8049999999999999,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.4696692
+          }
+        },
+        {
+          "aspect_deg": 30,
+          "maneuvering": true,
+          "jamming": false,
+          "single_pk": 0.05193235482629568,
+          "salvo_pk": 0.15913203311446966,
+          "track_quality": 0.8143209728960027,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.14697315626119756,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.05193235482629568
+          }
+        },
+        {
+          "aspect_deg": 30,
+          "maneuvering": true,
+          "jamming": true,
+          "single_pk": 0.28444340925000006,
+          "salvo_pk": 0.6630286675601549,
+          "track_quality": 0.8143209728960027,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.8049999999999999,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.28444340925000006
+          }
+        },
+        {
+          "aspect_deg": 45,
+          "maneuvering": false,
+          "jamming": false,
+          "single_pk": 0.21539430744192067,
+          "salvo_pk": 0.5454127738590053,
+          "track_quality": 0.8547119999946188,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.3691798770086395,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.21539430744192067
+          }
+        },
+        {
+          "aspect_deg": 45,
+          "maneuvering": false,
+          "jamming": true,
+          "single_pk": 0.4696692,
+          "salvo_pk": 0.8727149892285144,
+          "track_quality": 0.8547119999946188,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.8049999999999999,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.4696692
+          }
+        },
+        {
+          "aspect_deg": 45,
+          "maneuvering": true,
+          "jamming": false,
+          "single_pk": 0.13044817744451323,
+          "salvo_pk": 0.3650927643196453,
+          "track_quality": 0.8547119999946188,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.3691798770086395,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.13044817744451323
+          }
+        },
+        {
+          "aspect_deg": 45,
+          "maneuvering": true,
+          "jamming": true,
+          "single_pk": 0.28444340925000006,
+          "salvo_pk": 0.6630286675601549,
+          "track_quality": 0.8547119999946188,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.8049999999999999,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.28444340925000006
+          }
+        },
+        {
+          "aspect_deg": 60,
+          "maneuvering": false,
+          "jamming": false,
+          "single_pk": 0.4297681444976852,
+          "salvo_pk": 0.8388733809987947,
+          "track_quality": 0.8764995434277485,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.7366106960401843,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.4297681444976852
+          }
+        },
+        {
+          "aspect_deg": 60,
+          "maneuvering": false,
+          "jamming": true,
+          "single_pk": 0.4696692,
+          "salvo_pk": 0.8727149892285144,
+          "track_quality": 0.8764995434277485,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.8049999999999999,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.4696692
+          }
+        },
+        {
+          "aspect_deg": 60,
+          "maneuvering": true,
+          "jamming": false,
+          "single_pk": 0.2602783325114106,
+          "salvo_pk": 0.6246191572860749,
+          "track_quality": 0.8764995434277485,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.7366106960401843,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.2602783325114106
+          }
+        },
+        {
+          "aspect_deg": 60,
+          "maneuvering": true,
+          "jamming": true,
+          "single_pk": 0.28444340925000006,
+          "salvo_pk": 0.6630286675601549,
+          "track_quality": 0.8764995434277485,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.8049999999999999,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.28444340925000006
+          }
+        },
+        {
+          "aspect_deg": 90,
+          "maneuvering": false,
+          "jamming": false,
+          "single_pk": 0.49592400000000003,
+          "salvo_pk": 0.8920774828401398,
+          "track_quality": 0.8270022087431537,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.85,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.49592400000000003
+          }
+        },
+        {
+          "aspect_deg": 90,
+          "maneuvering": false,
+          "jamming": true,
+          "single_pk": 0.49592400000000003,
+          "salvo_pk": 0.8920774828401398,
+          "track_quality": 0.8270022087431537,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.85,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.49592400000000003
+          }
+        },
+        {
+          "aspect_deg": 90,
+          "maneuvering": true,
+          "jamming": false,
+          "single_pk": 0.30034397250000006,
+          "salvo_pk": 0.6867616809624638,
+          "track_quality": 0.8270022087431537,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.85,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.30034397250000006
+          }
+        },
+        {
+          "aspect_deg": 90,
+          "maneuvering": true,
+          "jamming": true,
+          "single_pk": 0.30034397250000006,
+          "salvo_pk": 0.6867616809624638,
+          "track_quality": 0.8270022087431537,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.85,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.30034397250000006
+          }
+        }
+      ],
+      "optimized_pk": 0.8920774828401398,
+      "best_config": {
+        "aspect_deg": 90,
+        "maneuvering": false,
+        "jamming": false,
+        "single_pk": 0.49592400000000003,
+        "salvo_pk": 0.8920774828401398,
+        "track_quality": 0.8270022087431537,
+        "breakdown": {
+          "p_reach_acquisition": 0.8666666666666667,
+          "p_seeker_acquire": 0.85,
+          "p_guidance": 0.8800000000000001,
+          "p_fuze": 0.9,
+          "p_warhead": 0.85,
+          "pk_total": 0.49592400000000003
+        }
+      }
+    },
+    "F-35C CV": {
+      "scenario": "F-35C CV",
+      "target": "F-35C",
+      "sensors": [
+        {
+          "name": "KJ-500",
+          "detection_range_km": 144.0,
+          "detected": "True",
+          "track_quality": 0.7
+        },
+        {
+          "name": "KJ-2000",
+          "detection_range_km": 161.0,
+          "detected": "False",
+          "track_quality": 0.0
+        },
+        {
+          "name": "JY-27A",
+          "detection_range_km": 500,
+          "detected": true,
+          "track_quality": 0.65
+        },
+        {
+          "name": "YLC-8E",
+          "detection_range_km": 482.0,
+          "detected": "True",
+          "track_quality": 0.65
+        },
+        {
+          "name": "Type 1475 AESA",
+          "detection_range_km": 180.0,
+          "detected": "True",
+          "track_quality": 0.85
+        }
+      ],
+      "engagements": [
+        {
+          "aspect_deg": 0,
+          "maneuvering": false,
+          "jamming": false,
+          "single_pk": 0.017109377999999998,
+          "salvo_pk": 0.054542803324151956,
+          "track_quality": 0.8143209728960027,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.029324999999999997,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.017109377999999998
+          }
+        },
+        {
+          "aspect_deg": 0,
+          "maneuvering": false,
+          "jamming": true,
+          "single_pk": 0.4696692,
+          "salvo_pk": 0.8727149892285144,
+          "track_quality": 0.8143209728960027,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.8049999999999999,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.4696692
+          }
+        },
+        {
+          "aspect_deg": 0,
+          "maneuvering": true,
+          "jamming": false,
+          "single_pk": 0.01036186705125,
+          "salvo_pk": 0.03328519639030081,
+          "track_quality": 0.8143209728960027,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.029324999999999997,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.01036186705125
+          }
+        },
+        {
+          "aspect_deg": 0,
+          "maneuvering": true,
+          "jamming": true,
+          "single_pk": 0.28444340925000006,
+          "salvo_pk": 0.6630286675601549,
+          "track_quality": 0.8143209728960027,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.8049999999999999,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.28444340925000006
+          }
+        },
+        {
+          "aspect_deg": 30,
+          "maneuvering": false,
+          "jamming": false,
+          "single_pk": 0.09621310297702605,
+          "salvo_pk": 0.28019537590817256,
+          "track_quality": 0.7759016633596604,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.16490659361206986,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.09621310297702605
+          }
+        },
+        {
+          "aspect_deg": 30,
+          "maneuvering": false,
+          "jamming": true,
+          "single_pk": 0.4696692,
+          "salvo_pk": 0.8727149892285144,
+          "track_quality": 0.7759016633596604,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.8049999999999999,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.4696692
+          }
+        },
+        {
+          "aspect_deg": 30,
+          "maneuvering": true,
+          "jamming": false,
+          "single_pk": 0.0582690604904614,
+          "salvo_pk": 0.17726073106812779,
+          "track_quality": 0.7759016633596604,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.16490659361206986,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.0582690604904614
+          }
+        },
+        {
+          "aspect_deg": 30,
+          "maneuvering": true,
+          "jamming": true,
+          "single_pk": 0.28444340925000006,
+          "salvo_pk": 0.6630286675601549,
+          "track_quality": 0.7759016633596604,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.8049999999999999,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.28444340925000006
+          }
+        },
+        {
+          "aspect_deg": 45,
+          "maneuvering": false,
+          "jamming": false,
+          "single_pk": 0.21015338078384851,
+          "salvo_pk": 0.5354697699944204,
+          "track_quality": 0.7175818501045947,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.3601970738788024,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.21015338078384851
+          }
+        },
+        {
+          "aspect_deg": 45,
+          "maneuvering": false,
+          "jamming": true,
+          "single_pk": 0.40840800000000005,
+          "salvo_pk": 0.8184181441240548,
+          "track_quality": 0.7175818501045947,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.7,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.40840800000000005
+          }
+        },
+        {
+          "aspect_deg": 45,
+          "maneuvering": true,
+          "jamming": false,
+          "single_pk": 0.12727414123721822,
+          "salvo_pk": 0.3575297919643897,
+          "track_quality": 0.7175818501045947,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.3601970738788024,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.12727414123721822
+          }
+        },
+        {
+          "aspect_deg": 45,
+          "maneuvering": true,
+          "jamming": true,
+          "single_pk": 0.24734209500000004,
+          "salvo_pk": 0.6028612278993686,
+          "track_quality": 0.7175818501045947,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.7,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.24734209500000004
+          }
+        },
+        {
+          "aspect_deg": 60,
+          "maneuvering": false,
+          "jamming": false,
+          "single_pk": 0.4297681444976852,
+          "salvo_pk": 0.8388733809987947,
+          "track_quality": 0.849972229708934,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.7366106960401843,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.4297681444976852
+          }
+        },
+        {
+          "aspect_deg": 60,
+          "maneuvering": false,
+          "jamming": true,
+          "single_pk": 0.4696692,
+          "salvo_pk": 0.8727149892285144,
+          "track_quality": 0.849972229708934,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.8049999999999999,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.4696692
+          }
+        },
+        {
+          "aspect_deg": 60,
+          "maneuvering": true,
+          "jamming": false,
+          "single_pk": 0.2602783325114106,
+          "salvo_pk": 0.6246191572860749,
+          "track_quality": 0.849972229708934,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.7366106960401843,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.2602783325114106
+          }
+        },
+        {
+          "aspect_deg": 60,
+          "maneuvering": true,
+          "jamming": true,
+          "single_pk": 0.28444340925000006,
+          "salvo_pk": 0.6630286675601549,
+          "track_quality": 0.849972229708934,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.8049999999999999,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.28444340925000006
+          }
+        },
+        {
+          "aspect_deg": 90,
+          "maneuvering": false,
+          "jamming": false,
+          "single_pk": 0.5542680000000001,
+          "salvo_pk": 0.9276414432749277,
+          "track_quality": 0.8546204890738485,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.95,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.5542680000000001
+          }
+        },
+        {
+          "aspect_deg": 90,
+          "maneuvering": false,
+          "jamming": true,
+          "single_pk": 0.5542680000000001,
+          "salvo_pk": 0.9276414432749277,
+          "track_quality": 0.8546204890738485,
+          "breakdown": {
+            "p_reach_acquisition": 0.8666666666666667,
+            "p_seeker_acquire": 0.95,
+            "p_guidance": 0.8800000000000001,
+            "p_fuze": 0.9,
+            "p_warhead": 0.85,
+            "pk_total": 0.5542680000000001
+          }
+        },
+        {
+          "aspect_deg": 90,
+          "maneuvering": true,
+          "jamming": false,
+          "single_pk": 0.33567855750000003,
+          "salvo_pk": 0.7353149700440216,
+          "track_quality": 0.8546204890738485,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.95,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.33567855750000003
+          }
+        },
+        {
+          "aspect_deg": 90,
+          "maneuvering": true,
+          "jamming": true,
+          "single_pk": 0.33567855750000003,
+          "salvo_pk": 0.7353149700440216,
+          "track_quality": 0.8546204890738485,
+          "breakdown": {
+            "p_reach_acquisition": 0.7366666666666667,
+            "p_seeker_acquire": 0.95,
+            "p_guidance": 0.6600000000000001,
+            "p_fuze": 0.855,
+            "p_warhead": 0.85,
+            "pk_total": 0.33567855750000003
+          }
+        }
+      ],
+      "optimized_pk": 0.9276414432749277,
+      "best_config": {
+        "aspect_deg": 90,
+        "maneuvering": false,
+        "jamming": false,
+        "single_pk": 0.5542680000000001,
+        "salvo_pk": 0.9276414432749277,
+        "track_quality": 0.8546204890738485,
+        "breakdown": {
+          "p_reach_acquisition": 0.8666666666666667,
+          "p_seeker_acquire": 0.95,
+          "p_guidance": 0.8800000000000001,
+          "p_fuze": 0.9,
+          "p_warhead": 0.85,
+          "pk_total": 0.5542680000000001
+        }
+      }
+    }
+  },
+  "summary": {
+    "f35a_max_pk": 0.9204299465220482,
+    "f35b_max_pk": 0.8920774828401398,
+    "f35c_max_pk": 0.9276414432749277,
+    "average_max_pk": 0.9133829575457053,
+    "key_findings": [
+      "VHF/UHF ground radar provides early warning against stealth",
+      "Off-boresight aspects significantly increase detection and Pk",
+      "Multi-sensor fusion improves track quality by 15-25%",
+      "PL-15 datalink + AWACS cueing critical for BVR engagement",
+      "Target countermeasures reduce Pk by 25-40%",
+      "100% Pk remains impossible due to fundamental uncertainties"
+    ]
+  }
+}

@@ -1,0 +1,122 @@
+name: Clinical Trial Search - Real-time Tavily
+
+on:
+  workflow_dispatch:
+    inputs:
+      therapy_type:
+        description: 'Therapy type'
+        required: true
+        type: choice
+        options:
+          - CAR-T
+          - mRNA_vaccine
+          - CRISPR
+          - oncolytic_virus
+      cancer_type:
+        description: 'Cancer type (optional)'
+        required: false
+        type: string
+      search_focus:
+        description: 'Search focus'
+        required: false
+        type: choice
+        default: 'clinical_trials'
+        options:
+          - clinical_trials
+          - mechanism
+          - resistance
+          - manufacturing
+          - combinations
+  schedule:
+    # Run weekly on Monday at 6 AM UTC to update clinical trial data
+    - cron: '0 6 * * 1'
+
+env:
+  TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+
+jobs:
+  search-clinical-trials:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build framework
+        run: npm run build
+
+      - name: Search clinical trials
+        run: |
+          node -e "
+            import { createCurativeTools } from './dist/tools/cancer/biotech/curativeTools.js';
+
+            const apiKey = process.env.TAVILY_API_KEY;
+            if (!apiKey) {
+              console.log('TAVILY_API_KEY not set - skipping live search');
+              process.exit(0);
+            }
+
+            const tools = createCurativeTools(apiKey);
+            const searchTool = tools.find(t => t.name === 'SearchCurativeBiotech');
+
+            const therapyType = '${{ inputs.therapy_type }}' || 'CAR-T';
+            const cancerType = '${{ inputs.cancer_type }}' || undefined;
+            const focus = '${{ inputs.search_focus }}' || 'clinical_trials';
+
+            console.log('='.repeat(70));
+            console.log('CLINICAL TRIAL SEARCH REPORT');
+            console.log('Generated:', new Date().toISOString());
+            console.log('='.repeat(70));
+            console.log('');
+            console.log('Search Parameters:');
+            console.log('  Therapy Type:', therapyType);
+            console.log('  Cancer Type:', cancerType || 'All');
+            console.log('  Focus:', focus);
+            console.log('');
+
+            try {
+              const result = await searchTool.handler({
+                therapyType,
+                cancerType,
+                focus,
+              });
+              console.log(result);
+            } catch (error) {
+              console.log('Search error:', error.message);
+            }
+          "
+
+      - name: Generate search report
+        run: |
+          mkdir -p reports
+          cat > reports/clinical-trial-search.md << 'EOF'
+          # Clinical Trial Search Report
+
+          **Generated:** $(date -u)
+          **Therapy Type:** ${{ inputs.therapy_type || 'CAR-T' }}
+          **Cancer Type:** ${{ inputs.cancer_type || 'All' }}
+
+          ## Data Sources
+          - ClinicalTrials.gov
+          - PubMed/NCBI
+          - FDA.gov
+          - Nature Medicine
+          - NEJM
+          - Lancet Oncology
+
+          See workflow logs for detailed search results.
+          EOF
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: clinical-trial-search-${{ github.run_number }}
+          path: reports/
+          retention-days: 90

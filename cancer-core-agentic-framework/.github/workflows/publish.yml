@@ -1,0 +1,85 @@
+name: Publish to npm
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to publish (e.g., 1.0.1)'
+        required: true
+        type: string
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Validate domain models
+        run: |
+          node -e "
+            import('./dist/domain/biotech/index.js').then(m => {
+              if (m.ApprovedCARTProducts.length < 6) {
+                throw new Error('CAR-T products missing');
+              }
+              console.log('✓ Domain models validated');
+            });
+          "
+
+      - name: Publish to npm
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  create-github-release:
+    runs-on: ubuntu-latest
+    needs: publish
+    if: github.event_name == 'workflow_dispatch'
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ inputs.version }}
+          name: Release v${{ inputs.version }}
+          body: |
+            ## Cancer Core Agentic Framework v${{ inputs.version }}
+
+            ### Curative Biotechnologies
+            - CAR-T Cell Therapy (7 FDA-approved products)
+            - mRNA Cancer Vaccines (Phase 2/3 trials)
+            - CRISPR Gene Editing (Phase 1/2 trials)
+            - Oncolytic Virus Therapy (2 approved products)
+
+            ### Tools
+            - Patient matching for curative therapies
+            - Real-time clinical trial search via Tavily
+            - Treatment protocol generation
+            - FDA approval verification
+
+            ### Installation
+            ```bash
+            npm install cancer-core-agentic-framework
+            ```
+          draft: false
+          prerelease: false

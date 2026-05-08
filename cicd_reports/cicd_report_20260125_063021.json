@@ -1,0 +1,16 @@
+{
+  "start_time": "2026-01-25T06:30:21.632775",
+  "end_time": "2026-01-25T06:30:22.184985",
+  "duration_seconds": 0.55221,
+  "overall_status": "passed",
+  "stages": [
+    {
+      "name": "Golden Fleet Validation",
+      "status": "passed",
+      "duration": 0.5520739555358887,
+      "errors": [],
+      "warnings": [],
+      "metrics": {}
+    }
+  ]
+}

@@ -1,0 +1,322 @@
+{
+  "timestamp": "2026-01-15T19:24:25.318711",
+  "scenarios": [
+    {
+      "name": "F-35A vs Multi-Layer Defense",
+      "target": {
+        "type": "5th Gen Fighter",
+        "rcs_dbsm": -30,
+        "speed_mach": 1.6,
+        "altitude_m": 10000
+      },
+      "engagement": {
+        "salvo_size": 4,
+        "correlation": 0.3,
+        "layers": [
+          "HQ-9B",
+          "HQ-16B",
+          "HQ-7B"
+        ]
+      },
+      "results": {
+        "single_shot_pk": 0.06282955092686034,
+        "salvo_pk": 0.1822178696453416,
+        "total_pk": 0.4172380790936612,
+        "confidence": 0.5274870833821822,
+        "pk_range": [
+          0.012864350552274655,
+          0.16907432154418112
+        ]
+      },
+      "phase_probabilities": {
+        "Find": {
+          "probability": 0.700790569415042,
+          "confidence": 0.6,
+          "range": [
+            0.5606324555320337,
+            0.8059091548272983
+          ]
+        },
+        "Fix": {
+          "probability": 0.6117431352501396,
+          "confidence": 0.55,
+          "range": [
+            0.45880735143760465,
+            0.7340917623001675
+          ]
+        },
+        "Track": {
+          "probability": 0.5648323114801563,
+          "confidence": 0.5,
+          "range": [
+            0.3953826180361094,
+            0.7060403893501954
+          ]
+        },
+        "Target": {
+          "probability": 0.5509486832980506,
+          "confidence": 0.55,
+          "range": [
+            0.41321151247353793,
+            0.6611384199576607
+          ]
+        },
+        "Engage": {
+          "probability": 0.4709512131201786,
+          "confidence": 0.45,
+          "range": [
+            0.3061182885281161,
+            0.6122365770562322
+          ]
+        },
+        "Assess": {
+          "probability": 0.75,
+          "confidence": 0.4,
+          "range": [
+            0.5,
+            0.9
+          ]
+        }
+      }
+    },
+    {
+      "name": "F-22 vs Integrated Air Defense",
+      "target": {
+        "type": "5th Gen Fighter",
+        "rcs_dbsm": -35,
+        "speed_mach": 2.0,
+        "altitude_m": 15000
+      },
+      "engagement": {
+        "salvo_size": 6,
+        "correlation": 0.25,
+        "layers": [
+          "HQ-9B",
+          "HQ-22"
+        ]
+      },
+      "results": {
+        "single_shot_pk": 0.03971080423541269,
+        "salvo_pk": 0.17508404693768342,
+        "total_pk": 0.30507070803872927,
+        "confidence": 0.5274870833821822,
+        "pk_range": [
+          0.00813078716720075,
+          0.10686177419749554
+        ]
+      },
+      "phase_probabilities": {
+        "Find": {
+          "probability": 0.5953778843746332,
+          "confidence": 0.6,
+          "range": [
+            0.4763023074997066,
+            0.6846845670308281
+          ]
+        },
+        "Fix": {
+          "probability": 0.5854001128672588,
+          "confidence": 0.55,
+          "range": [
+            0.4390500846504441,
+            0.7024801354407105
+          ]
+        },
+        "Track": {
+          "probability": 0.4593809074496304,
+          "confidence": 0.5,
+          "range": [
+            0.32156663521474127,
+            0.574226134312038
+          ]
+        },
+        "Target": {
+          "probability": 0.5505334838230117,
+          "confidence": 0.55,
+          "range": [
+            0.4129001128672588,
+            0.660640180587614
+          ]
+        },
+        "Engage": {
+          "probability": 0.45051214447009125,
+          "confidence": 0.45,
+          "range": [
+            0.29283289390555933,
+            0.5856657878111187
+          ]
+        },
+        "Assess": {
+          "probability": 0.75,
+          "confidence": 0.4,
+          "range": [
+            0.5,
+            0.9
+          ]
+        }
+      }
+    },
+    {
+      "name": "Tomahawk vs Point Defense",
+      "target": {
+        "type": "Cruise Missile",
+        "rcs_dbsm": -15,
+        "speed_mach": 0.75,
+        "altitude_m": 50
+      },
+      "engagement": {
+        "salvo_size": 8,
+        "correlation": 0.4,
+        "layers": [
+          "HQ-17A",
+          "Type 1130 CIWS"
+        ]
+      },
+      "results": {
+        "single_shot_pk": 0.08434762821420634,
+        "salvo_pk": 0.3675892431593879,
+        "total_pk": 0.5768098954849946,
+        "confidence": 0.5274870833821822,
+        "pk_range": [
+          0.01727017687685875,
+          0.22697946752442927
+        ]
+      },
+      "phase_probabilities": {
+        "Find": {
+          "probability": 0.7044456985250973,
+          "confidence": 0.6,
+          "range": [
+            0.5635565588200778,
+            0.8101125533038619
+          ]
+        },
+        "Fix": {
+          "probability": 0.6708068409882247,
+          "confidence": 0.55,
+          "range": [
+            0.5031051307411686,
+            0.8049682091858696
+          ]
+        },
+        "Track": {
+          "probability": 0.6201036619068117,
+          "confidence": 0.5,
+          "range": [
+            0.4340725633347681,
+            0.7751295773835145
+          ]
+        },
+        "Target": {
+          "probability": 0.5553348382301169,
+          "confidence": 0.55,
+          "range": [
+            0.41650112867258765,
+            0.6664018058761402
+          ]
+        },
+        "Engage": {
+          "probability": 0.5183327564649276,
+          "confidence": 0.45,
+          "range": [
+            0.33691629170220294,
+            0.6738325834044059
+          ]
+        },
+        "Assess": {
+          "probability": 0.75,
+          "confidence": 0.4,
+          "range": [
+            0.5,
+            0.9
+          ]
+        }
+      }
+    },
+    {
+      "name": "B-2 vs Strategic Air Defense",
+      "target": {
+        "type": "Strategic Bomber",
+        "rcs_dbsm": -40,
+        "speed_mach": 0.85,
+        "altitude_m": 12000
+      },
+      "engagement": {
+        "salvo_size": 8,
+        "correlation": 0.35,
+        "layers": [
+          "HQ-9B",
+          "HQ-9B",
+          "HQ-22"
+        ]
+      },
+      "results": {
+        "single_shot_pk": 0.07869241174993971,
+        "salvo_pk": 0.36547929587901573,
+        "total_pk": 0.7002481913054439,
+        "confidence": 0.5274870833821822,
+        "pk_range": [
+          0.016112271305800153,
+          0.2117612800190877
+        ]
+      },
+      "phase_probabilities": {
+        "Find": {
+          "probability": 0.7002499999999999,
+          "confidence": 0.6,
+          "range": [
+            0.5601999999999999,
+            0.8052874999999998
+          ]
+        },
+        "Fix": {
+          "probability": 0.6600037499999999,
+          "confidence": 0.55,
+          "range": [
+            0.4950028124999999,
+            0.7920044999999999
+          ]
+        },
+        "Track": {
+          "probability": 0.6092841999999998,
+          "confidence": 0.5,
+          "range": [
+            0.4264989399999999,
+            0.7616052499999998
+          ]
+        },
+        "Target": {
+          "probability": 0.5503,
+          "confidence": 0.55,
+          "range": [
+            0.412725,
+            0.66036
+          ]
+        },
+        "Engage": {
+          "probability": 0.5078248,
+          "confidence": 0.45,
+          "range": [
+            0.33008612,
+            0.66017224
+          ]
+        },
+        "Assess": {
+          "probability": 0.75,
+          "confidence": 0.4,
+          "range": [
+            0.5,
+            0.9
+          ]
+        }
+      }
+    }
+  ],
+  "summary": {
+    "scenarios_analyzed": 4,
+    "average_pk": 0.49984171848070724,
+    "min_pk": 0.30507070803872927,
+    "max_pk": 0.7002481913054439,
+    "key_finding": "100% kill probability is mathematically impossible"
+  }
+}

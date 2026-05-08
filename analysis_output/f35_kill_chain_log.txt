@@ -1,0 +1,154 @@
+[19:29:18.147] [INFO] ================================================================================
+[19:29:18.148] [INFO] CALCULATION LOGGER INITIALIZED: F35-Kill-Chain
+[19:29:18.148] [INFO] Timestamp: 2026-01-15T19:29:18.148320
+[19:29:18.148] [INFO] Python: 3.14.2 (v3.14.2:df793163d58, Dec  5 2025, 12:18:06) [Clang 16.0.0 (clang-1600.0.26.6)]
+[19:29:18.148] [INFO] NumPy: 2.4.1
+[19:29:18.148] [INFO] CI/CD Mode: False
+[19:29:18.148] [INFO] ================================================================================
+[19:29:18.148] [INFO] 
+[19:29:18.148] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:29:18.148] [INFO] SECTION: Analysis: F-35A CTOL
+[19:29:18.148] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:29:18.148] [CALCULATION] 
+[19:29:18.148] [CALCULATION] CALC: F-35A CTOL Target Characteristics
+[19:29:18.148] [CALCULATION]   Formula: F-35 RCS profile
+[19:29:18.148] [CALCULATION]   Inputs: {'variant': 'F-35A', 'frontal_rcs_dbsm': -40, 'broadside_rcs_dbsm': -10, 'vhf_rcs_m2': 1.0}
+[19:29:18.148] [CALCULATION]   Result: -40 dBsm
+[19:29:18.148] [CALCULATION]   Confidence: 45%
+[19:29:18.148] [CALCULATION]   Status: VALID
+[19:29:18.285] [CALCULATION] 
+[19:29:18.285] [CALCULATION] CALC: F-35A CTOL Optimized Kill Probability
+[19:29:18.285] [CALCULATION]   Formula: Multi-sensor fusion + PL-15 salvo
+[19:29:18.285] [CALCULATION]   Inputs: {'sensors': 5, 'salvo_size': 4, 'best_aspect': 90}
+[19:29:18.285] [CALCULATION]   Result: 0.92043 probability
+[19:29:18.285] [CALCULATION]   Confidence: 45%
+[19:29:18.285] [CALCULATION]   Status: VALID
+[19:29:18.285] [INFO] Section 'Analysis: F-35A CTOL' completed in 137.03 ms
+[19:29:18.285] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:29:18.285] [INFO] 
+[19:29:18.285] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:29:18.285] [INFO] SECTION: Analysis: F-35B STOVL
+[19:29:18.285] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:29:18.285] [CALCULATION] 
+[19:29:18.285] [CALCULATION] CALC: F-35B STOVL Target Characteristics
+[19:29:18.285] [CALCULATION]   Formula: F-35 RCS profile
+[19:29:18.285] [CALCULATION]   Inputs: {'variant': 'F-35B', 'frontal_rcs_dbsm': -38, 'broadside_rcs_dbsm': -8, 'vhf_rcs_m2': 2.0}
+[19:29:18.285] [CALCULATION]   Result: -38 dBsm
+[19:29:18.285] [CALCULATION]   Confidence: 40%
+[19:29:18.285] [CALCULATION]   Status: VALID
+[19:29:18.286] [CALCULATION] 
+[19:29:18.286] [CALCULATION] CALC: F-35B STOVL Optimized Kill Probability
+[19:29:18.286] [CALCULATION]   Formula: Multi-sensor fusion + PL-15 salvo
+[19:29:18.286] [CALCULATION]   Inputs: {'sensors': 5, 'salvo_size': 4, 'best_aspect': 90}
+[19:29:18.286] [CALCULATION]   Result: 0.892077 probability
+[19:29:18.286] [CALCULATION]   Confidence: 45%
+[19:29:18.286] [CALCULATION]   Status: VALID
+[19:29:18.286] [INFO] Section 'Analysis: F-35B STOVL' completed in 0.53 ms
+[19:29:18.286] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:29:18.286] [INFO] 
+[19:29:18.286] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:29:18.286] [INFO] SECTION: Analysis: F-35C CV
+[19:29:18.286] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:29:18.286] [CALCULATION] 
+[19:29:18.286] [CALCULATION] CALC: F-35C CV Target Characteristics
+[19:29:18.286] [CALCULATION]   Formula: F-35 RCS profile
+[19:29:18.286] [CALCULATION]   Inputs: {'variant': 'F-35C', 'frontal_rcs_dbsm': -40, 'broadside_rcs_dbsm': -8, 'vhf_rcs_m2': 1.5}
+[19:29:18.286] [CALCULATION]   Result: -40 dBsm
+[19:29:18.286] [CALCULATION]   Confidence: 42%
+[19:29:18.286] [CALCULATION]   Status: VALID
+[19:29:18.286] [CALCULATION] 
+[19:29:18.286] [CALCULATION] CALC: F-35C CV Optimized Kill Probability
+[19:29:18.286] [CALCULATION]   Formula: Multi-sensor fusion + PL-15 salvo
+[19:29:18.287] [CALCULATION]   Inputs: {'sensors': 5, 'salvo_size': 4, 'best_aspect': 90}
+[19:29:18.287] [CALCULATION]   Result: 0.927641 probability
+[19:29:18.287] [CALCULATION]   Confidence: 45%
+[19:29:18.287] [CALCULATION]   Status: VALID
+[19:29:18.287] [INFO] Section 'Analysis: F-35C CV' completed in 0.62 ms
+[19:29:18.287] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:29:18.287] [INFO] 
+[19:29:18.287] [INFO] ════════════════════════════════════════════════════════════════════════════════
+[19:29:18.287] [INFO] SESSION COMPLETE
+[19:29:18.287] [INFO] ════════════════════════════════════════════════════════════════════════════════
+[19:29:18.287] [INFO] Total Runtime: 139.54 ms
+[19:29:18.287] [INFO] Algorithms: 0
+[19:29:18.287] [INFO] Calculations: 6
+[19:29:18.287] [INFO] Validations: 0 (0 passed)
+[19:29:18.287] [INFO] Errors: 0
+[19:29:18.287] [INFO] ════════════════════════════════════════════════════════════════════════════════
+[19:56:45.032] [INFO] ================================================================================
+[19:56:45.033] [INFO] CALCULATION LOGGER INITIALIZED: F35-Kill-Chain
+[19:56:45.033] [INFO] Timestamp: 2026-01-15T19:56:45.033396
+[19:56:45.033] [INFO] Python: 3.14.2 (v3.14.2:df793163d58, Dec  5 2025, 12:18:06) [Clang 16.0.0 (clang-1600.0.26.6)]
+[19:56:45.033] [INFO] NumPy: 2.4.1
+[19:56:45.033] [INFO] CI/CD Mode: False
+[19:56:45.033] [INFO] ================================================================================
+[19:56:45.033] [INFO] 
+[19:56:45.033] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:56:45.033] [INFO] SECTION: Analysis: F-35A CTOL
+[19:56:45.033] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:56:45.033] [CALCULATION] 
+[19:56:45.033] [CALCULATION] CALC: F-35A CTOL Target Characteristics
+[19:56:45.033] [CALCULATION]   Formula: F-35 RCS profile
+[19:56:45.033] [CALCULATION]   Inputs: {'variant': 'F-35A', 'frontal_rcs_dbsm': -40, 'broadside_rcs_dbsm': -10, 'vhf_rcs_m2': 1.0}
+[19:56:45.033] [CALCULATION]   Result: -40 dBsm
+[19:56:45.033] [CALCULATION]   Confidence: 45%
+[19:56:45.033] [CALCULATION]   Status: VALID
+[19:56:45.311] [CALCULATION] 
+[19:56:45.311] [CALCULATION] CALC: F-35A CTOL Optimized Kill Probability
+[19:56:45.311] [CALCULATION]   Formula: Multi-sensor fusion + PL-15 salvo
+[19:56:45.311] [CALCULATION]   Inputs: {'sensors': 5, 'salvo_size': 4, 'best_aspect': 90}
+[19:56:45.311] [CALCULATION]   Result: 0.873342 probability
+[19:56:45.311] [CALCULATION]   Confidence: 45%
+[19:56:45.311] [CALCULATION]   Status: VALID
+[19:56:45.311] [INFO] Section 'Analysis: F-35A CTOL' completed in 277.69 ms
+[19:56:45.311] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:56:45.311] [INFO] 
+[19:56:45.311] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:56:45.311] [INFO] SECTION: Analysis: F-35B STOVL
+[19:56:45.311] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:56:45.311] [CALCULATION] 
+[19:56:45.311] [CALCULATION] CALC: F-35B STOVL Target Characteristics
+[19:56:45.311] [CALCULATION]   Formula: F-35 RCS profile
+[19:56:45.311] [CALCULATION]   Inputs: {'variant': 'F-35B', 'frontal_rcs_dbsm': -38, 'broadside_rcs_dbsm': -8, 'vhf_rcs_m2': 2.0}
+[19:56:45.311] [CALCULATION]   Result: -38 dBsm
+[19:56:45.311] [CALCULATION]   Confidence: 40%
+[19:56:45.311] [CALCULATION]   Status: VALID
+[19:56:45.311] [CALCULATION] 
+[19:56:45.311] [CALCULATION] CALC: F-35B STOVL Optimized Kill Probability
+[19:56:45.311] [CALCULATION]   Formula: Multi-sensor fusion + PL-15 salvo
+[19:56:45.311] [CALCULATION]   Inputs: {'sensors': 5, 'salvo_size': 4, 'best_aspect': 90}
+[19:56:45.311] [CALCULATION]   Result: 0.927641 probability
+[19:56:45.311] [CALCULATION]   Confidence: 45%
+[19:56:45.312] [CALCULATION]   Status: VALID
+[19:56:45.312] [INFO] Section 'Analysis: F-35B STOVL' completed in 0.51 ms
+[19:56:45.312] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:56:45.312] [INFO] 
+[19:56:45.312] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:56:45.312] [INFO] SECTION: Analysis: F-35C CV
+[19:56:45.312] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:56:45.312] [CALCULATION] 
+[19:56:45.312] [CALCULATION] CALC: F-35C CV Target Characteristics
+[19:56:45.312] [CALCULATION]   Formula: F-35 RCS profile
+[19:56:45.312] [CALCULATION]   Inputs: {'variant': 'F-35C', 'frontal_rcs_dbsm': -40, 'broadside_rcs_dbsm': -8, 'vhf_rcs_m2': 1.5}
+[19:56:45.312] [CALCULATION]   Result: -40 dBsm
+[19:56:45.312] [CALCULATION]   Confidence: 42%
+[19:56:45.312] [CALCULATION]   Status: VALID
+[19:56:45.312] [CALCULATION] 
+[19:56:45.312] [CALCULATION] CALC: F-35C CV Optimized Kill Probability
+[19:56:45.312] [CALCULATION]   Formula: Multi-sensor fusion + PL-15 salvo
+[19:56:45.312] [CALCULATION]   Inputs: {'sensors': 5, 'salvo_size': 4, 'best_aspect': 90}
+[19:56:45.312] [CALCULATION]   Result: 0.927641 probability
+[19:56:45.312] [CALCULATION]   Confidence: 45%
+[19:56:45.312] [CALCULATION]   Status: VALID
+[19:56:45.312] [INFO] Section 'Analysis: F-35C CV' completed in 0.54 ms
+[19:56:45.312] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:56:45.312] [INFO] 
+[19:56:45.312] [INFO] ════════════════════════════════════════════════════════════════════════════════
+[19:56:45.313] [INFO] SESSION COMPLETE
+[19:56:45.313] [INFO] ════════════════════════════════════════════════════════════════════════════════
+[19:56:45.313] [INFO] Total Runtime: 280.33 ms
+[19:56:45.313] [INFO] Algorithms: 0
+[19:56:45.313] [INFO] Calculations: 6
+[19:56:45.313] [INFO] Validations: 0 (0 passed)
+[19:56:45.313] [INFO] Errors: 0
+[19:56:45.313] [INFO] ════════════════════════════════════════════════════════════════════════════════

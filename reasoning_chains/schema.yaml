@@ -1,0 +1,187 @@
+# Reasoning Chain Schema
+# Defines the structure of a valid deductive reasoning chain
+# for Computer-Aided Deduction (CAD)
+
+version: "1.0"
+description: "Formal schema for deductive reasoning chains in military systems analysis"
+
+# A reasoning chain consists of:
+# 1. Observable facts (cannot be disputed)
+# 2. Physical laws (cannot be violated)
+# 3. Engineering constraints (technology limits)
+# 4. Economic constraints (cost optimization)
+# 5. Logical steps (each follows necessarily from previous)
+# 6. Conclusion (derived value with uncertainty)
+
+reasoning_chain:
+  required_fields:
+    - parameter_name
+    - conclusion_value
+    - conclusion_uncertainty
+    - confidence_level
+    - observable_facts
+    - physical_laws
+    - logical_steps
+
+  optional_fields:
+    - engineering_constraints
+    - economic_constraints
+    - technology_generation
+    - validation_checks
+    - alternative_paths
+
+# Observable Facts: Things that can be directly measured or photographed
+observable_fact:
+  required:
+    - fact_description      # What was observed
+    - source                # Where/how observed (photo, testimony, etc.)
+    - certainty             # 100% for direct observation
+  optional:
+    - measurement_value     # If quantitative
+    - measurement_unit      # Units
+    - date_observed         # When
+
+# Physical Laws: Fundamental physics that cannot be violated
+physical_law:
+  required:
+    - law_name              # e.g., "Diffraction limit", "Friis equation"
+    - equation              # Mathematical form
+    - variables             # What each variable means
+    - source                # Textbook/paper reference
+  optional:
+    - assumptions           # Conditions where law applies
+    - accuracy_limits       # Known limitations (±%)
+
+# Engineering Constraints: Technology limits based on materials/physics
+engineering_constraint:
+  required:
+    - constraint_type       # thermal, power, size, cooling, etc.
+    - limit_value           # Maximum/minimum value
+    - basis                 # Why this limit exists
+  optional:
+    - technology_node       # e.g., "2015 GaN technology"
+    - source                # Reference to similar systems
+
+# Economic Constraints: Cost optimization curves
+economic_constraint:
+  required:
+    - cost_curve_shape      # U-curve, exponential, etc.
+    - optimal_value         # Cost-minimizing choice
+    - reasoning             # Why this is optimal
+  optional:
+    - budget_limit          # If known
+    - comparable_systems    # What others chose
+
+# Logical Step: One step in deductive chain
+logical_step:
+  required:
+    - step_number           # Order in chain
+    - premise               # What we know at this step
+    - inference_rule        # How we proceed (modus ponens, etc.)
+    - conclusion            # What this step proves
+    - certainty_reduction   # How much uncertainty increases (%)
+  optional:
+    - calculation           # Python code block if quantitative
+    - alternative_path      # Other valid approaches
+
+# Conclusion: Final derived value
+conclusion:
+  required:
+    - parameter_name        # What we're estimating
+    - value                 # Best estimate (single value)
+    - uncertainty_range     # min/max or ± range
+    - confidence_level      # Overall confidence (%)
+    - precision             # Precision achieved (±%)
+  required_validation:
+    - unit_check            # Dimensional analysis
+    - sanity_bounds         # Must be physically possible
+    - comparison_to_known   # Compare to similar systems
+
+# Validation Rules
+validation_rules:
+  certainty_propagation:
+    - "Observable facts: 100% certainty"
+    - "Each logical step: multiply certainties"
+    - "Final confidence ≤ product of all certainties"
+
+  physical_consistency:
+    - "All values must satisfy physical laws"
+    - "Cannot violate thermodynamics"
+    - "Cannot exceed speed of light, etc."
+
+  uncertainty_quantification:
+    - "Must provide ± range or min/max"
+    - "Uncertainty must be ≥ sum of input uncertainties"
+    - "Irreducible uncertainty ≥ 10% for complex systems"
+
+  logical_validity:
+    - "Each step must follow from previous"
+    - "No circular reasoning"
+    - "No unstated assumptions"
+    - "Inference rules must be valid (modus ponens, etc.)"
+
+# Example chain structure (YAML format):
+example:
+  parameter_name: "MADL_sidelobe_level"
+
+  observable_facts:
+    - fact: "Antenna aperture 15 cm"
+      source: "F-35 photos (public)"
+      certainty: 100
+
+  physical_laws:
+    - law: "Diffraction limit"
+      equation: "θ = λ/D"
+      variables:
+        lambda: "wavelength"
+        D: "aperture size"
+        theta: "beamwidth"
+      source: "Born & Wolf, Principles of Optics"
+
+  engineering_constraints:
+    - type: "conformal_array_limit"
+      limit: "-35 dB maximum achievable"
+      basis: "Curved surface prevents perfect phase coherence"
+
+  economic_constraints:
+    - type: "cost_curve"
+      optimal: "-30 dB"
+      reasoning: "Diminishing returns beyond this point"
+
+  logical_steps:
+    - step: 1
+      premise: "15 cm aperture at 14.4 GHz"
+      inference: "Physics constrains element count"
+      conclusion: "14 elements per row (λ/2 spacing)"
+      certainty: 100
+
+    - step: 2
+      premise: "14×14 = 196 elements total"
+      inference: "Array theory: sidelobes = f(N, weighting)"
+      conclusion: "Range -25 dB (uniform) to -35 dB (optimal)"
+      certainty: 90
+      calculation: |
+        import numpy as np
+        N = 196
+        sidelobe_uniform = -13 - 10*np.log10(N)  # -36 dB
+        sidelobe_taylor = sidelobe_uniform - 15  # -51 dB ideal
+        sidelobe_conformal = sidelobe_taylor + 20  # +20 dB penalty
+        # Result: -31 dB
+
+    - step: 3
+      premise: "Range -25 to -35 dB, cost-optimal at -30 dB"
+      inference: "LPI requirement forces ≥ -25 dB"
+      conclusion: "-30 dB ± 3 dB most likely"
+      certainty: 70
+
+  conclusion:
+    value: -30.0
+    unit: "dB"
+    uncertainty: "± 3 dB"
+    confidence: 70
+    precision: "± 10%"
+
+  validation:
+    unit_check: "dB (dimensionless ratio) ✓"
+    sanity_bounds: "-40 dB < value < -20 dB ✓"
+    comparison: "Similar to TTNT (-28 dB), Link 16 (-32 dB) ✓"

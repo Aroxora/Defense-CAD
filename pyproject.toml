@@ -1,0 +1,238 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pla-defense-cad"
+version = "1.0.0"
+description = "Defense CAD simulation and modeling system"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "Proprietary"}
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "numpy>=1.24.0,<2.0.0",
+    "scipy>=1.10.0,<2.0.0",
+    "matplotlib>=3.7.0,<4.0.0",
+    "networkx>=3.0,<4.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+    "pylint>=2.17.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = ["venv*", "tests*"]
+
+# ============================================
+# Black Configuration
+# ============================================
+[tool.black]
+line-length = 120
+target-version = ['py39', 'py310', 'py311', 'py312']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+# ============================================
+# Ruff Configuration
+# ============================================
+[tool.ruff]
+line-length = 120
+target-version = "py39"
+exclude = [
+    ".git",
+    ".mypy_cache",
+    ".ruff_cache",
+    ".venv",
+    "venv",
+    "__pycache__",
+    "build",
+    "dist",
+    "analysis_output",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",      # pycodestyle errors
+    "W",      # pycodestyle warnings
+    "F",      # Pyflakes
+    "I",      # isort
+    "B",      # flake8-bugbear
+    "C4",     # flake8-comprehensions
+    "UP",     # pyupgrade
+    "S",      # flake8-bandit (security)
+    "SIM",    # flake8-simplify
+]
+ignore = [
+    "E501",   # line too long (handled by black)
+    "B008",   # function call in default argument
+    "S101",   # use of assert
+    "S311",   # pseudo-random generators
+    "I001",   # import sorting (handled by IDE)
+    "E741",   # ambiguous variable names (too strict)
+    "F541",   # f-string without placeholders
+    "B007",   # unused loop variable (using _ convention)
+    "SIM118", # key in dict.keys() (explicit is fine)
+    "UP035",  # deprecated typing (compatibility)
+    "UP006",  # use list instead of List (compatibility)
+    "F401",   # unused imports (may be for re-export)
+    "F841",   # unused local variables
+    "SIM108", # ternary operator (readability preference)
+    "SIM102", # nested if statements (readability)
+    "B023",   # function binding loop variable
+    "B028",   # stacklevel in warnings
+    "C401",   # unnecessary generator
+    "S324",   # md5 hash (used for checksums, not security)
+    "S110",   # try-except-pass
+    "E722",   # bare except
+    "UP015",  # unnecessary mode argument
+]
+
+[tool.ruff.lint.per-file-ignores]
+"test_*.py" = ["S101", "S105", "S106"]
+"*_test.py" = ["S101", "S105", "S106"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["pla_defense_cad"]
+
+# ============================================
+# MyPy Configuration
+# ============================================
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+exclude = [
+    "venv",
+    ".venv",
+    "build",
+    "dist",
+]
+
+[[tool.mypy.overrides]]
+module = [
+    "numpy.*",
+    "scipy.*",
+    "matplotlib.*",
+    "networkx.*",
+]
+ignore_missing_imports = true
+
+# ============================================
+# Pytest Configuration
+# ============================================
+[tool.pytest.ini_options]
+testpaths = ["."]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "-v",
+    "--tb=short",
+    "--strict-markers",
+]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks integration tests",
+    "contractor: marks contractor-specific tests",
+    "simulation: marks simulation tests",
+]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::PendingDeprecationWarning",
+]
+
+# ============================================
+# Coverage Configuration
+# ============================================
+[tool.coverage.run]
+source = ["."]
+branch = true
+omit = [
+    "venv/*",
+    ".venv/*",
+    "test_*.py",
+    "*_test.py",
+    "setup.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+]
+fail_under = 0
+show_missing = true
+
+[tool.coverage.html]
+directory = "htmlcov"
+
+# ============================================
+# isort Configuration
+# ============================================
+[tool.isort]
+profile = "black"
+line_length = 120
+known_first_party = ["pla_defense_cad"]
+skip = [".venv", "venv", "build", "dist"]
+
+# ============================================
+# Pylint Configuration
+# ============================================
+[tool.pylint.main]
+ignore = ["venv", ".venv"]
+jobs = 0
+py-version = "3.9"
+
+[tool.pylint.messages_control]
+disable = [
+    "C0114",  # missing-module-docstring
+    "C0115",  # missing-class-docstring
+    "C0116",  # missing-function-docstring
+    "R0903",  # too-few-public-methods
+    "R0913",  # too-many-arguments
+    "W0511",  # fixme
+]
+
+[tool.pylint.format]
+max-line-length = 120
+
+# ============================================
+# Bandit Configuration
+# ============================================
+[tool.bandit]
+exclude_dirs = ["venv", ".venv", "tests"]
+skips = ["B101", "B311"]

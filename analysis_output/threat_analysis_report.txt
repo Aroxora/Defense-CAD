@@ -1,0 +1,724 @@
+====================================================================================================
+COMPREHENSIVE THREAT ANALYSIS REPORT
+Chinese National Security Threat Assessment
+Generated: 2026-01-15T19:56:45.496844+00:00
+Classification: UNCLASSIFIED // FOR ACADEMIC/RESEARCH USE
+====================================================================================================
+
+====================================================================================================
+EXECUTIVE SUMMARY
+====================================================================================================
+
+Total Threats Analyzed: 17
+  Critical: 12
+  High: 5
+  Medium/Low: 0
+
+Average Integrated Pk vs Air Threats: 68.9%
+Average Integrated Pk vs Submarine Threats: 51.4%
+Average Integrated Pk vs Surface Threats: 55.5%
+
+====================================================================================================
+THREAT CATEGORY: 5th Generation Fighter
+====================================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+PLATFORM: F-22 Raptor (F-22A)
+Threat Level: Critical
+────────────────────────────────────────────────────────────────────────────────
+
+  PHYSICAL CHARACTERISTICS:
+    Length: 18.9 m
+
+  SIGNATURES:
+    RCS (frontal): -40 dBsm
+    RCS (broadside): -20 dBsm
+    IR Signature: 80.0 kW
+
+  PRIMARY WEAPONS:
+    • AIM-120D AMRAAM (6)
+    • AIM-9X Sidewinder (2)
+    • GBU-32 JDAM
+
+  DETECTION VULNERABILITIES:
+    • VHF/UHF radar
+    • IR from supercruise
+    • Limited numbers (186)
+    • High operational cost
+
+  RECOMMENDED ENGAGEMENT SYSTEMS:
+    • J-20 with PL-15
+    • HQ-9B SAM
+    • JY-27A VHF radar
+
+  KILL PROBABILITY ASSESSMENT:
+    Air Defense Pk: 65.0%
+    Submarine Pk: 0.0%
+    Surface Pk: 0.0%
+    INTEGRATED Pk: 65.0%
+    Assessment Confidence: 40.0%
+
+────────────────────────────────────────────────────────────────────────────────
+PLATFORM: F-35 Lightning II (F-35A) (F-35A)
+Threat Level: Critical
+────────────────────────────────────────────────────────────────────────────────
+
+  PHYSICAL CHARACTERISTICS:
+    Length: 15.7 m
+
+  SIGNATURES:
+    RCS (frontal): -40 dBsm
+    RCS (broadside): -10 dBsm
+    IR Signature: 70.0 kW
+
+  PRIMARY WEAPONS:
+    • AIM-120D AMRAAM
+    • AIM-9X Sidewinder
+    • GBU-31/32 JDAM
+    • JSM/JASSM
+
+  DETECTION VULNERABILITIES:
+    • VHF/UHF resonance
+    • IR from exhaust
+    • Air Force conventional specific signatures
+    • Radar emissions when active
+
+  RECOMMENDED ENGAGEMENT SYSTEMS:
+    • J-20 + PL-15
+    • HQ-9B
+    • JY-27A + YLC-8E
+    • Passive ESM network
+
+  KILL PROBABILITY ASSESSMENT:
+    Air Defense Pk: 70.0%
+    Submarine Pk: 0.0%
+    Surface Pk: 0.0%
+    INTEGRATED Pk: 70.0%
+    Assessment Confidence: 45.0%
+
+────────────────────────────────────────────────────────────────────────────────
+PLATFORM: F-35 Lightning II (F-35B) (F-35B)
+Threat Level: Critical
+────────────────────────────────────────────────────────────────────────────────
+
+  PHYSICAL CHARACTERISTICS:
+    Length: 15.7 m
+
+  SIGNATURES:
+    RCS (frontal): -38 dBsm
+    RCS (broadside): -8 dBsm
+    IR Signature: 70.0 kW
+
+  PRIMARY WEAPONS:
+    • AIM-120D AMRAAM
+    • AIM-9X Sidewinder
+    • GBU-31/32 JDAM
+    • JSM/JASSM
+
+  DETECTION VULNERABILITIES:
+    • VHF/UHF resonance
+    • IR from exhaust
+    • Marine Corps STOVL specific signatures
+    • Radar emissions when active
+
+  RECOMMENDED ENGAGEMENT SYSTEMS:
+    • J-20 + PL-15
+    • HQ-9B
+    • JY-27A + YLC-8E
+    • Passive ESM network
+
+  KILL PROBABILITY ASSESSMENT:
+    Air Defense Pk: 70.0%
+    Submarine Pk: 0.0%
+    Surface Pk: 0.0%
+    INTEGRATED Pk: 70.0%
+    Assessment Confidence: 45.0%
+
+────────────────────────────────────────────────────────────────────────────────
+PLATFORM: F-35 Lightning II (F-35C) (F-35C)
+Threat Level: Critical
+────────────────────────────────────────────────────────────────────────────────
+
+  PHYSICAL CHARACTERISTICS:
+    Length: 15.7 m
+
+  SIGNATURES:
+    RCS (frontal): -40 dBsm
+    RCS (broadside): -8 dBsm
+    IR Signature: 70.0 kW
+
+  PRIMARY WEAPONS:
+    • AIM-120D AMRAAM
+    • AIM-9X Sidewinder
+    • GBU-31/32 JDAM
+    • JSM/JASSM
+
+  DETECTION VULNERABILITIES:
+    • VHF/UHF resonance
+    • IR from exhaust
+    • Navy carrier variant specific signatures
+    • Radar emissions when active
+
+  RECOMMENDED ENGAGEMENT SYSTEMS:
+    • J-20 + PL-15
+    • HQ-9B
+    • JY-27A + YLC-8E
+    • Passive ESM network
+
+  KILL PROBABILITY ASSESSMENT:
+    Air Defense Pk: 70.0%
+    Submarine Pk: 0.0%
+    Surface Pk: 0.0%
+    INTEGRATED Pk: 70.0%
+    Assessment Confidence: 45.0%
+
+====================================================================================================
+THREAT CATEGORY: Strategic Bomber
+====================================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+PLATFORM: B-2 Spirit (B-2A)
+Threat Level: Critical
+────────────────────────────────────────────────────────────────────────────────
+
+  PHYSICAL CHARACTERISTICS:
+    Length: 21 m
+
+  SIGNATURES:
+    RCS (frontal): -40 dBsm
+    RCS (broadside): -30 dBsm
+    IR Signature: 50.0 kW
+
+  PRIMARY WEAPONS:
+    • B61 nuclear bomb
+    • B83 nuclear bomb
+    • GBU-57 MOP
+    • JASSM-ER
+    • GBU-31 JDAM
+
+  DETECTION VULNERABILITIES:
+    • VHF/UHF radar detection
+    • Infrared exhaust signature
+    • Predictable flight corridors
+    • Tanker support requirements
+    • Limited numbers (20 aircraft)
+
+  RECOMMENDED ENGAGEMENT SYSTEMS:
+    • JY-27A VHF radar
+    • HQ-9B long-range SAM
+    • J-20 with PL-15
+    • Passive detection networks
+
+  KILL PROBABILITY ASSESSMENT:
+    Air Defense Pk: 70.0%
+    Submarine Pk: 0.0%
+    Surface Pk: 0.0%
+    INTEGRATED Pk: 70.0%
+    Assessment Confidence: 40.0%
+
+────────────────────────────────────────────────────────────────────────────────
+PLATFORM: B-21 Raider (B-21A)
+Threat Level: Critical
+────────────────────────────────────────────────────────────────────────────────
+
+  PHYSICAL CHARACTERISTICS:
+    Length: 16 m
+
+  SIGNATURES:
+    RCS (frontal): -50 dBsm
+    RCS (broadside): -40 dBsm
+    IR Signature: 30.0 kW
+
+  PRIMARY WEAPONS:
+    • B61-12 nuclear bomb
+    • JASSM-ER
+    • LRSO cruise missile
+    • Hypersonic weapons (future)
+
+  DETECTION VULNERABILITIES:
+    • VHF/UHF resonance detection
+    • Space-based IR detection
+    • Network analysis
+    • Tanker tracking
+    • Development timeline uncertainty
+
+  RECOMMENDED ENGAGEMENT SYSTEMS:
+    • Next-gen VHF radar arrays
+    • Space-based sensor cueing
+    • J-20/J-35 intercept
+    • HQ-19 high-altitude SAM
+
+  KILL PROBABILITY ASSESSMENT:
+    Air Defense Pk: 55.0%
+    Submarine Pk: 0.0%
+    Surface Pk: 0.0%
+    INTEGRATED Pk: 55.0%
+    Assessment Confidence: 30.0%
+
+────────────────────────────────────────────────────────────────────────────────
+PLATFORM: B-1B Lancer (B-1B)
+Threat Level: High
+────────────────────────────────────────────────────────────────────────────────
+
+  PHYSICAL CHARACTERISTICS:
+    Length: 44.5 m
+
+  SIGNATURES:
+    RCS (frontal): 10 dBsm
+    RCS (broadside): 25 dBsm
+    IR Signature: 500.0 kW
+
+  PRIMARY WEAPONS:
+    • JASSM-ER (24)
+    • LRASM (24)
+    • GBU-31 JDAM
+    • Mines
+
+  DETECTION VULNERABILITIES:
+    • Higher radar signature
+    • Large IR signature
+    • Afterburner use detectable
+    • Aging airframe
+
+  RECOMMENDED ENGAGEMENT SYSTEMS:
+    • HQ-9B/HQ-22 SAM
+    • J-11B/J-16 intercept
+    • Fighter CAP
+
+  KILL PROBABILITY ASSESSMENT:
+    Air Defense Pk: 80.0%
+    Submarine Pk: 0.0%
+    Surface Pk: 0.0%
+    INTEGRATED Pk: 80.0%
+    Assessment Confidence: 55.0%
+
+====================================================================================================
+THREAT CATEGORY: Attack Submarine
+====================================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+PLATFORM: Virginia Class SSN (SSN-774)
+Threat Level: Critical
+────────────────────────────────────────────────────────────────────────────────
+
+  PHYSICAL CHARACTERISTICS:
+    Length: 115 m
+    Displacement: 7900 tons
+
+  SIGNATURES:
+    Acoustic: 95 dB
+
+  PRIMARY WEAPONS:
+    • Mk 48 ADCAP torpedo
+    • Tomahawk TLAM
+    • Harpoon (legacy boats)
+    • UUV deployment
+
+  DETECTION VULNERABILITIES:
+    • Periscope depth operations
+    • Communication mast exposure
+    • Thermal layer crossing
+    • Approaching shallow water
+    • High-speed transit noise
+
+  RECOMMENDED ENGAGEMENT SYSTEMS:
+    • Type 093B SSN hunter-killer
+    • Y-8Q maritime patrol aircraft
+    • Type 056A corvette with towed array
+    • Shore-based SOSUS-type arrays
+    • Helicopter dipping sonar
+
+  KILL PROBABILITY ASSESSMENT:
+    Air Defense Pk: 0.0%
+    Submarine Pk: 35.0%
+    Surface Pk: 20.0%
+    INTEGRATED Pk: 45.0%
+    Assessment Confidence: 35.0%
+
+────────────────────────────────────────────────────────────────────────────────
+PLATFORM: Seawolf Class SSN (SSN-21)
+Threat Level: Critical
+────────────────────────────────────────────────────────────────────────────────
+
+  PHYSICAL CHARACTERISTICS:
+    Length: 107 m
+    Displacement: 9138 tons
+
+  SIGNATURES:
+    Acoustic: 90 dB
+
+  PRIMARY WEAPONS:
+    • Mk 48 ADCAP torpedo
+    • Tomahawk TLAM
+    • Harpoon
+    • Mines
+
+  DETECTION VULNERABILITIES:
+    • Limited numbers (only 3 built)
+    • Periscope operations
+    • Shallow water limitations
+    • Arctic operations noise
+
+  RECOMMENDED ENGAGEMENT SYSTEMS:
+    • Type 095 SSN
+    • Deep-water SOSUS arrays
+    • Maritime patrol coordination
+
+  KILL PROBABILITY ASSESSMENT:
+    Air Defense Pk: 0.0%
+    Submarine Pk: 30.0%
+    Surface Pk: 15.0%
+    INTEGRATED Pk: 40.0%
+    Assessment Confidence: 30.0%
+
+────────────────────────────────────────────────────────────────────────────────
+PLATFORM: Ohio Class SSGN (SSGN-726)
+Threat Level: High
+────────────────────────────────────────────────────────────────────────────────
+
+  PHYSICAL CHARACTERISTICS:
+    Length: 170 m
+    Displacement: 18750 tons
+
+  SIGNATURES:
+    Acoustic: 100 dB
+
+  PRIMARY WEAPONS:
+    • Tomahawk TLAM (154 missiles)
+    • Special operations capability
+    • Mk 48 torpedo
+
+  DETECTION VULNERABILITIES:
+    • Larger acoustic signature
+    • Predictable patrol patterns
+    • SOF insertion operations
+
+  RECOMMENDED ENGAGEMENT SYSTEMS:
+    • Type 093 SSN
+    • Maritime patrol aircraft
+    • Coastal ASW network
+
+  KILL PROBABILITY ASSESSMENT:
+    Air Defense Pk: 0.0%
+    Submarine Pk: 40.0%
+    Surface Pk: 25.0%
+    INTEGRATED Pk: 50.0%
+    Assessment Confidence: 40.0%
+
+────────────────────────────────────────────────────────────────────────────────
+PLATFORM: Los Angeles Class SSN (SSN-688)
+Threat Level: High
+────────────────────────────────────────────────────────────────────────────────
+
+  PHYSICAL CHARACTERISTICS:
+    Length: 110 m
+    Displacement: 6900 tons
+
+  SIGNATURES:
+    Acoustic: 105 dB
+
+  PRIMARY WEAPONS:
+    • Mk 48 ADCAP
+    • Tomahawk
+    • Harpoon
+
+  DETECTION VULNERABILITIES:
+    • Higher acoustic signature
+    • Aging platform
+    • Reactor noise
+
+  RECOMMENDED ENGAGEMENT SYSTEMS:
+    • Type 039B AIP submarine
+    • Y-8Q/Y-9 MPA
+    • Surface ASW groups
+
+  KILL PROBABILITY ASSESSMENT:
+    Air Defense Pk: 0.0%
+    Submarine Pk: 45.0%
+    Surface Pk: 30.0%
+    INTEGRATED Pk: 55.0%
+    Assessment Confidence: 45.0%
+
+====================================================================================================
+THREAT CATEGORY: Ballistic Missile Submarine
+====================================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+PLATFORM: Columbia Class SSBN (SSBN-826)
+Threat Level: Critical
+────────────────────────────────────────────────────────────────────────────────
+
+  PHYSICAL CHARACTERISTICS:
+    Length: 171 m
+    Displacement: 20810 tons
+
+  SIGNATURES:
+    Acoustic: 88 dB
+
+  PRIMARY WEAPONS:
+    • Trident II D5LE SLBM (16 tubes)
+    • W76-1/W88 warheads
+
+  DETECTION VULNERABILITIES:
+    • Departure/return from port
+    • Transit choke points
+    • Patrol area prediction
+    • Very deep operations limited
+
+  RECOMMENDED ENGAGEMENT SYSTEMS:
+    • Type 095/096 SSN patrol
+    • Deep-ocean surveillance network
+    • Attack during transit
+
+  KILL PROBABILITY ASSESSMENT:
+    Air Defense Pk: 0.0%
+    Submarine Pk: 15.0%
+    Surface Pk: 5.0%
+    INTEGRATED Pk: 20.0%
+    Assessment Confidence: 25.0%
+
+====================================================================================================
+THREAT CATEGORY: Surface Combatant
+====================================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+PLATFORM: Arleigh Burke Class DDG (DDG-51)
+Threat Level: High
+────────────────────────────────────────────────────────────────────────────────
+
+  PHYSICAL CHARACTERISTICS:
+    Length: 155 m
+    Displacement: 9700 tons
+
+  SIGNATURES:
+    RCS (frontal): 35 dBsm
+    RCS (broadside): 0 dBsm
+    IR Signature: 2000.0 kW
+
+  PRIMARY WEAPONS:
+    • SM-2/SM-6 SAM (96 VLS)
+    • Tomahawk TLAM
+    • Harpoon SSM
+    • Mk 46/54 torpedo
+
+  DETECTION VULNERABILITIES:
+    • Large radar signature
+    • Persistent emissions
+    • Wake signature
+    • Helicopter operations
+
+  RECOMMENDED ENGAGEMENT SYSTEMS:
+    • YJ-12 supersonic ASCM
+    • YJ-18 ASCM
+    • DF-21D ASBM
+    • Type 093 SSN torpedo
+
+  KILL PROBABILITY ASSESSMENT:
+    Air Defense Pk: 0.0%
+    Submarine Pk: 55.0%
+    Surface Pk: 65.0%
+    INTEGRATED Pk: 75.0%
+    Assessment Confidence: 50.0%
+
+====================================================================================================
+THREAT CATEGORY: Cruise Missile
+====================================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+PLATFORM: Tomahawk TLAM (BGM-109)
+Threat Level: High
+────────────────────────────────────────────────────────────────────────────────
+
+  PHYSICAL CHARACTERISTICS:
+    Length: 6.25 m
+
+  SIGNATURES:
+    RCS (frontal): -20 dBsm
+    RCS (broadside): 0 dBsm
+    IR Signature: 5.0 kW
+
+  PRIMARY WEAPONS:
+    • 1000 lb warhead or W80 nuclear
+
+  DETECTION VULNERABILITIES:
+    • Low-altitude flight detectable by OTH
+    • Predictable terrain corridors
+    • Launch platform vulnerability
+    • Terminal pop-up detectable
+
+  RECOMMENDED ENGAGEMENT SYSTEMS:
+    • HQ-7B point defense
+    • Type 1130 CIWS
+    • J-10C intercept
+    • YLC-8E radar detection
+
+  KILL PROBABILITY ASSESSMENT:
+    Air Defense Pk: 75.0%
+    Submarine Pk: 0.0%
+    Surface Pk: 60.0%
+    INTEGRATED Pk: 80.0%
+    Assessment Confidence: 55.0%
+
+────────────────────────────────────────────────────────────────────────────────
+PLATFORM: JASSM-ER (AGM-158B)
+Threat Level: Critical
+────────────────────────────────────────────────────────────────────────────────
+
+  PHYSICAL CHARACTERISTICS:
+    Length: 4.27 m
+
+  SIGNATURES:
+    RCS (frontal): -30 dBsm
+    RCS (broadside): 0 dBsm
+    IR Signature: 3.0 kW
+
+  PRIMARY WEAPONS:
+    • 1000 lb penetrator warhead
+
+  DETECTION VULNERABILITIES:
+    • Aircraft launch platform
+    • IR signature in terminal
+    • Predictable approach corridors
+
+  RECOMMENDED ENGAGEMENT SYSTEMS:
+    • HQ-17A short-range
+    • PHL-03 gun system
+    • Radar-guided AAA
+
+  KILL PROBABILITY ASSESSMENT:
+    Air Defense Pk: 55.0%
+    Submarine Pk: 0.0%
+    Surface Pk: 45.0%
+    INTEGRATED Pk: 60.0%
+    Assessment Confidence: 45.0%
+
+────────────────────────────────────────────────────────────────────────────────
+PLATFORM: LRASM (AGM-158C)
+Threat Level: Critical
+────────────────────────────────────────────────────────────────────────────────
+
+  PHYSICAL CHARACTERISTICS:
+    Length: 4.27 m
+
+  SIGNATURES:
+    RCS (frontal): -30 dBsm
+    RCS (broadside): 0 dBsm
+    IR Signature: 3.5 kW
+
+  PRIMARY WEAPONS:
+    • 1000 lb penetrator - anti-ship
+
+  DETECTION VULNERABILITIES:
+    • Launch platform (B-1B, F-18, P-8)
+    • Sea-skimming trajectory
+    • Final pop-up maneuver
+
+  RECOMMENDED ENGAGEMENT SYSTEMS:
+    • HQ-10 shipborne SAM
+    • Type 1130 CIWS
+    • FL-3000N
+    • Shipborne EW
+
+  KILL PROBABILITY ASSESSMENT:
+    Air Defense Pk: 0.0%
+    Submarine Pk: 0.0%
+    Surface Pk: 50.0%
+    INTEGRATED Pk: 55.0%
+    Assessment Confidence: 40.0%
+
+====================================================================================================
+THREAT CATEGORY: Carrier Strike Group
+====================================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+PLATFORM: Carrier Strike Group (CSG)
+Threat Level: Critical
+────────────────────────────────────────────────────────────────────────────────
+
+  PHYSICAL CHARACTERISTICS:
+    Length: 337 m
+    Displacement: 100000 tons
+
+  SIGNATURES:
+    RCS (frontal): 55 dBsm
+    RCS (broadside): 0 dBsm
+    IR Signature: 5000.0 kW
+
+  PRIMARY WEAPONS:
+    • F/A-18E/F air wing (44)
+    • F-35C (planned)
+    • E-2D Hawkeye
+    • Escort ship weapons
+
+  DETECTION VULNERABILITIES:
+    • Massive radar/IR signature
+    • Air operations emit
+    • Predictable patterns
+    • Satellite tracking
+
+  RECOMMENDED ENGAGEMENT SYSTEMS:
+    • DF-21D/DF-26 ASBM
+    • H-6K with YJ-12
+    • Type 093 submarine
+    • Coordinated saturation
+
+  KILL PROBABILITY ASSESSMENT:
+    Air Defense Pk: 0.0%
+    Submarine Pk: 40.0%
+    Surface Pk: 55.0%
+    INTEGRATED Pk: 75.0%
+    Assessment Confidence: 40.0%
+
+====================================================================================================
+KEY FINDINGS AND RECOMMENDATIONS
+====================================================================================================
+
+1. SUBMARINE THREATS (Most Difficult to Counter):
+   - Virginia/Seawolf SSNs pose significant ASW challenge
+   - Columbia SSBN extremely difficult to detect and track
+   - Recommended: Expand deep-water SOSUS arrays, increase SSN patrols
+   - Average Pk: 35-45% (significant uncertainty)
+
+2. 5TH GENERATION FIGHTER THREATS:
+   - F-22/F-35 require VHF/UHF radar for reliable detection
+   - Off-boresight engagements significantly increase Pk
+   - Recommended: Multi-sensor fusion, J-20 counter-air
+   - Average Pk: 65-70% with optimal conditions
+
+3. STRATEGIC BOMBER THREATS:
+   - B-2/B-21 require specialized detection methods
+   - B-1B conventional threats more detectable
+   - Recommended: VHF radar arrays, space-based IR
+   - Average Pk: 55-80% depending on platform
+
+4. CRUISE MISSILE THREATS:
+   - Saturation attacks difficult to defeat completely
+   - JASSM-ER/LRASM stealth significant challenge
+   - Recommended: Multi-layer point defense, hardening
+   - Average Pk: 55-80% per missile
+
+5. CARRIER STRIKE GROUP THREATS:
+   - Detection relatively easy, engagement complex
+   - Aegis defense layers reduce ASBM effectiveness
+   - Recommended: Large salvos (12+), coordinated attacks
+   - Average Pk: 70-75% with optimal conditions
+
+OVERALL ASSESSMENT:
+- No threat can be countered with 100% probability
+- Multi-domain, integrated defense essential
+- Continued investment in detection systems required
+- Uncertainty in estimates ranges 25-55%
+
+
+====================================================================================================
+ANALYSIS LIMITATIONS
+====================================================================================================
+
+1. All signatures are estimates from open sources
+2. Actual capabilities may differ significantly
+3. Electronic warfare effects not fully modeled
+4. Human factors and training not quantified
+5. Environmental conditions simplified
+6. Operational tactics may invalidate assumptions
+7. Classified capabilities unknown
+8. Future upgrades not considered

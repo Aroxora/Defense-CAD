@@ -1,0 +1,110 @@
+name: Daily Research Updates
+
+on:
+  schedule:
+    # Run daily at 7 AM UTC
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+
+env:
+  TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+
+jobs:
+  fetch-research-updates:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        therapy:
+          - name: CAR-T
+            type: CAR-T
+          - name: mRNA Vaccines
+            type: mRNA_vaccine
+          - name: CRISPR
+            type: CRISPR
+          - name: Oncolytic Virus
+            type: oncolytic_virus
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build framework
+        run: npm run build
+
+      - name: Fetch ${{ matrix.therapy.name }} updates
+        run: |
+          node -e "
+            import { createResearchTools } from './dist/tools/cancer/research/researchTools.js';
+
+            const apiKey = process.env.TAVILY_API_KEY;
+            if (!apiKey) {
+              console.log('TAVILY_API_KEY not set - skipping');
+              process.exit(0);
+            }
+
+            const tools = createResearchTools(apiKey);
+            const newsTool = tools.find(t => t.name === 'GetLatestResearchNews');
+
+            console.log('='.repeat(60));
+            console.log('${{ matrix.therapy.name }} RESEARCH UPDATE');
+            console.log('Date:', new Date().toISOString().split('T')[0]);
+            console.log('='.repeat(60));
+            console.log('');
+
+            try {
+              const result = await newsTool.handler({
+                topic: '${{ matrix.therapy.name }} cancer therapy breakthrough',
+              });
+              console.log(result);
+            } catch (error) {
+              console.log('Error:', error.message);
+            }
+          " > ${{ matrix.therapy.type }}-update.md
+
+      - name: Upload update
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-update-${{ matrix.therapy.type }}-${{ github.run_number }}
+          path: ${{ matrix.therapy.type }}-update.md
+          retention-days: 30
+
+  compile-digest:
+    runs-on: ubuntu-latest
+    needs: fetch-research-updates
+    steps:
+      - name: Download all updates
+        uses: actions/download-artifact@v4
+        with:
+          pattern: research-update-*
+          merge-multiple: true
+
+      - name: Compile research digest
+        run: |
+          echo "# Daily Cancer Research Digest" > digest.md
+          echo "" >> digest.md
+          echo "**Date:** $(date -u '+%Y-%m-%d')" >> digest.md
+          echo "" >> digest.md
+          echo "## Curative Biotechnology Updates" >> digest.md
+          echo "" >> digest.md
+          for file in *.md; do
+            if [ "$file" != "digest.md" ]; then
+              cat "$file" >> digest.md
+              echo "" >> digest.md
+              echo "---" >> digest.md
+              echo "" >> digest.md
+            fi
+          done
+
+      - name: Upload digest
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-digest-${{ github.run_number }}
+          path: digest.md
+          retention-days: 90

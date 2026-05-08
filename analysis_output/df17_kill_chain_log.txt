@@ -1,0 +1,613 @@
+# PLA CAD Calculation Report
+
+**Generated:** 2026-01-15T19:56:44.936090
+**Total Runtime:** 21.28 ms
+
+## Summary
+
+- Algorithms Run: 0
+- Calculations: 597
+- Validations: 0 (0 passed)
+- Errors: 0
+
+## Calculations
+
+| Name | Formula | Result | Unit | Confidence |
+|------|---------|--------|------|------------|
+| Maritime Target Track (Satellite+OTH+Drone) | `1 - (1-P_sat)(1-P_oth)(1-P_drone) × track_quality` | 0.8919 | probability | 100% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.946403 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.833 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.631379 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.9 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs USS Gerald R. Ford (CVN-78) Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.37198 | probability | 4500% |
+| Maritime Target Track (Satellite+OTH+Drone) | `1 - (1-P_sat)(1-P_oth)(1-P_drone) × track_quality` | 0.8919 | probability | 100% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.946403 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.833 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.631379 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.9 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs USS Gerald R. Ford (CVN-78) Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.37198 | probability | 4500% |
+| Maritime Target Track (Satellite+OTH+Drone) | `1 - (1-P_sat)(1-P_oth)(1-P_drone) × track_quality` | 0.8919 | probability | 100% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.946403 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.833 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.631379 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.9 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs USS Gerald R. Ford (CVN-78) Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.37198 | probability | 4500% |
+| Maritime Target Track (Satellite+OTH+Drone) | `1 - (1-P_sat)(1-P_oth)(1-P_drone) × track_quality` | 0.8919 | probability | 100% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.946403 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.833 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.631379 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.9 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs USS Gerald R. Ford (CVN-78) Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.37198 | probability | 4500% |
+| Maritime Target Track (Satellite+OTH+Drone) | `1 - (1-P_sat)(1-P_oth)(1-P_drone) × track_quality` | 0.8919 | probability | 100% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.946403 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.833 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.631379 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.9 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs USS Gerald R. Ford (CVN-78) Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.37198 | probability | 4500% |
+| Maritime Target Track (Satellite+OTH+Drone) | `1 - (1-P_sat)(1-P_oth)(1-P_drone) × track_quality` | 0.8919 | probability | 100% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.946403 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.833 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.631379 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.9 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs USS Gerald R. Ford (CVN-78) Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.37198 | probability | 4500% |
+| Maritime Target Track (Satellite+OTH+Drone) | `1 - (1-P_sat)(1-P_oth)(1-P_drone) × track_quality` | 0.8919 | probability | 100% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.946403 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.833 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.631379 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.9 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs USS Gerald R. Ford (CVN-78) Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.37198 | probability | 4500% |
+| Maritime Target Track (Satellite+OTH+Drone) | `1 - (1-P_sat)(1-P_oth)(1-P_drone) × track_quality` | 0.8919 | probability | 100% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.946403 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.833 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.631379 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.9 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs USS Gerald R. Ford (CVN-78) Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.37198 | probability | 4500% |
+| Maritime Target Track (Satellite+OTH+Drone) | `1 - (1-P_sat)(1-P_oth)(1-P_drone) × track_quality` | 0.8919 | probability | 100% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.946403 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.833 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.631379 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.9 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs USS Gerald R. Ford (CVN-78) Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.37198 | probability | 4500% |
+| Maritime Target Track (Satellite+OTH+Drone) | `1 - (1-P_sat)(1-P_oth)(1-P_drone) × track_quality` | 0.8919 | probability | 100% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.946403 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.833 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.631379 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.9 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs USS Gerald R. Ford (CVN-78) Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.37198 | probability | 4500% |
+| Maritime Target Track (Satellite+OTH+Drone) | `1 - (1-P_sat)(1-P_oth)(1-P_drone) × track_quality` | 0.8919 | probability | 100% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.946403 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.833 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.631379 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.9 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs USS Gerald R. Ford (CVN-78) Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.37198 | probability | 4500% |
+| Maritime Target Track (Satellite+OTH+Drone) | `1 - (1-P_sat)(1-P_oth)(1-P_drone) × track_quality` | 0.8919 | probability | 100% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.946403 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.833 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.631379 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.9 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs USS Gerald R. Ford (CVN-78) Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.37198 | probability | 4500% |
+| Maritime Target Track (Satellite+OTH+Drone) | `1 - (1-P_sat)(1-P_oth)(1-P_drone) × track_quality` | 0.8919 | probability | 100% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.946403 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.833 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.695203 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.9 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs Nimitz Class CVN Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.409582 | probability | 4500% |
+| Maritime Target Track (Satellite+OTH+Drone) | `1 - (1-P_sat)(1-P_oth)(1-P_drone) × track_quality` | 0.8919 | probability | 100% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.946403 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.833 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.695203 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.9 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs Nimitz Class CVN Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.409582 | probability | 4500% |
+| Maritime Target Track (Satellite+OTH+Drone) | `1 - (1-P_sat)(1-P_oth)(1-P_drone) × track_quality` | 0.8919 | probability | 100% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.946403 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.833 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.695203 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.9 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs Nimitz Class CVN Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.409582 | probability | 4500% |
+| Maritime Target Track (Satellite+OTH+Drone) | `1 - (1-P_sat)(1-P_oth)(1-P_drone) × track_quality` | 0.8919 | probability | 100% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.946403 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.833 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.695203 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.9 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs Nimitz Class CVN Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.409582 | probability | 4500% |
+| Maritime Target Track (Satellite+OTH+Drone) | `1 - (1-P_sat)(1-P_oth)(1-P_drone) × track_quality` | 0.8919 | probability | 100% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.946403 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.833 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.695203 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.9 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs Nimitz Class CVN Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.409582 | probability | 4500% |
+| Maritime Target Track (Satellite+OTH+Drone) | `1 - (1-P_sat)(1-P_oth)(1-P_drone) × track_quality` | 0.8919 | probability | 100% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.946403 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.833 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.695203 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.9 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs Nimitz Class CVN Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.409582 | probability | 4500% |
+| Maritime Target Track (Satellite+OTH+Drone) | `1 - (1-P_sat)(1-P_oth)(1-P_drone) × track_quality` | 0.8919 | probability | 100% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.946403 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.833 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.695203 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.9 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs Nimitz Class CVN Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.409582 | probability | 4500% |
+| Maritime Target Track (Satellite+OTH+Drone) | `1 - (1-P_sat)(1-P_oth)(1-P_drone) × track_quality` | 0.8919 | probability | 100% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.946403 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.833 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.695203 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.9 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs Nimitz Class CVN Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.409582 | probability | 4500% |
+| Maritime Target Track (Satellite+OTH+Drone) | `1 - (1-P_sat)(1-P_oth)(1-P_drone) × track_quality` | 0.8919 | probability | 100% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.946403 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.833 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.695203 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.9 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs Nimitz Class CVN Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.409582 | probability | 4500% |
+| Maritime Target Track (Satellite+OTH+Drone) | `1 - (1-P_sat)(1-P_oth)(1-P_drone) × track_quality` | 0.8919 | probability | 100% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.946403 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.833 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.695203 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.9 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs Nimitz Class CVN Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.409582 | probability | 4500% |
+| Maritime Target Track (Satellite+OTH+Drone) | `1 - (1-P_sat)(1-P_oth)(1-P_drone) × track_quality` | 0.8919 | probability | 100% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.946403 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.833 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.695203 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.9 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs Nimitz Class CVN Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.409582 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.95 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.683352 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.0709059 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.867227 | probability | 100% |
+| DF-17 vs THAAD Battery Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.0351379 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.95 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.683352 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.0709059 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.867227 | probability | 100% |
+| DF-17 vs THAAD Battery Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.0351379 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.683352 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.0709059 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.867227 | probability | 100% |
+| DF-17 vs THAAD Battery Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.0362475 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.683352 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.0709059 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.867227 | probability | 100% |
+| DF-17 vs THAAD Battery Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.0362475 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.683352 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.0709059 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.867227 | probability | 100% |
+| DF-17 vs THAAD Battery Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.0362475 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.683352 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.0709059 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.867227 | probability | 100% |
+| DF-17 vs THAAD Battery Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.0362475 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.683352 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.0709059 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.867227 | probability | 100% |
+| DF-17 vs THAAD Battery Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.0362475 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.683352 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.0709059 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.867227 | probability | 100% |
+| DF-17 vs THAAD Battery Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.0362475 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.683352 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.0709059 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.867227 | probability | 100% |
+| DF-17 vs THAAD Battery Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.0362475 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.683352 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.0709059 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.867227 | probability | 100% |
+| DF-17 vs THAAD Battery Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.0362475 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.683352 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.0709059 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.867227 | probability | 100% |
+| DF-17 vs THAAD Battery Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.0362475 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.683352 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.0709059 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.867227 | probability | 100% |
+| DF-17 vs THAAD Battery Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.0362475 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.683352 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.0709059 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.867227 | probability | 100% |
+| DF-17 vs THAAD Battery Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.0362475 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.683352 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.0709059 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.867227 | probability | 100% |
+| DF-17 vs THAAD Battery Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.0362475 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.683352 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.0709059 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.867227 | probability | 100% |
+| DF-17 vs THAAD Battery Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.0362475 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.683352 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.0709059 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.867227 | probability | 100% |
+| DF-17 vs THAAD Battery Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.0362475 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.683352 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.0709059 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.867227 | probability | 100% |
+| DF-17 vs THAAD Battery Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.0362475 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.683352 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.0709059 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.867227 | probability | 100% |
+| DF-17 vs THAAD Battery Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.0362475 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.550376 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.913836 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.671751 | probability | 100% |
+| DF-17 vs Aegis Ashore (Romania/Poland type) Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.291444 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.550376 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.913836 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.671751 | probability | 100% |
+| DF-17 vs Aegis Ashore (Romania/Poland type) Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.291444 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.550376 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.913836 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.671751 | probability | 100% |
+| DF-17 vs Aegis Ashore (Romania/Poland type) Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.291444 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.550376 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.913836 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.671751 | probability | 100% |
+| DF-17 vs Aegis Ashore (Romania/Poland type) Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.291444 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.550376 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.913836 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.671751 | probability | 100% |
+| DF-17 vs Aegis Ashore (Romania/Poland type) Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.291444 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.550376 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.913836 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.671751 | probability | 100% |
+| DF-17 vs Aegis Ashore (Romania/Poland type) Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.291444 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.550376 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.913836 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.671751 | probability | 100% |
+| DF-17 vs Aegis Ashore (Romania/Poland type) Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.291444 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.550376 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.913836 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.671751 | probability | 100% |
+| DF-17 vs Aegis Ashore (Romania/Poland type) Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.291444 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.550376 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.913836 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.671751 | probability | 100% |
+| DF-17 vs Aegis Ashore (Romania/Poland type) Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.291444 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.550376 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.913836 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.671751 | probability | 100% |
+| DF-17 vs Aegis Ashore (Romania/Poland type) Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.291444 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.550376 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.913836 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.671751 | probability | 100% |
+| DF-17 vs Aegis Ashore (Romania/Poland type) Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.291444 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.550376 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.913836 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.671751 | probability | 100% |
+| DF-17 vs Aegis Ashore (Romania/Poland type) Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.291444 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.550376 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.913836 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.671751 | probability | 100% |
+| DF-17 vs Aegis Ashore (Romania/Poland type) Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.291444 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.550376 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.913836 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.671751 | probability | 100% |
+| DF-17 vs Aegis Ashore (Romania/Poland type) Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.291444 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.550376 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.913836 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.671751 | probability | 100% |
+| DF-17 vs Aegis Ashore (Romania/Poland type) Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.291444 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.95 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.802799 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.624915 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.335876 | probability | 100% |
+| DF-17 vs Hardened Aircraft Shelter Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.140904 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.802799 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.624915 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.335876 | probability | 100% |
+| DF-17 vs Hardened Aircraft Shelter Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.145353 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.802799 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.624915 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.335876 | probability | 100% |
+| DF-17 vs Hardened Aircraft Shelter Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.145353 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.802799 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.624915 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.335876 | probability | 100% |
+| DF-17 vs Hardened Aircraft Shelter Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.145353 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.802799 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.624915 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.335876 | probability | 100% |
+| DF-17 vs Hardened Aircraft Shelter Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.145353 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.802799 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.624915 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.335876 | probability | 100% |
+| DF-17 vs Hardened Aircraft Shelter Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.145353 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.802799 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.624915 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.335876 | probability | 100% |
+| DF-17 vs Hardened Aircraft Shelter Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.145353 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.802799 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.624915 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.335876 | probability | 100% |
+| DF-17 vs Hardened Aircraft Shelter Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.145353 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.802799 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.624915 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.335876 | probability | 100% |
+| DF-17 vs Hardened Aircraft Shelter Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.145353 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.802799 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.624915 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.335876 | probability | 100% |
+| DF-17 vs Hardened Aircraft Shelter Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.145353 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.802799 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.624915 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.335876 | probability | 100% |
+| DF-17 vs Hardened Aircraft Shelter Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.145353 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.802799 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.624915 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.335876 | probability | 100% |
+| DF-17 vs Hardened Aircraft Shelter Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.145353 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.802799 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.624915 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.335876 | probability | 100% |
+| DF-17 vs Hardened Aircraft Shelter Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.145353 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.802799 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.624915 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.335876 | probability | 100% |
+| DF-17 vs Hardened Aircraft Shelter Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.145353 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.802799 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.624915 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.335876 | probability | 100% |
+| DF-17 vs Hardened Aircraft Shelter Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.145353 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.802799 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.624915 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.335876 | probability | 100% |
+| DF-17 vs Hardened Aircraft Shelter Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.145353 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.802799 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.624915 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.335876 | probability | 100% |
+| DF-17 vs Hardened Aircraft Shelter Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.145353 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.802799 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 0.624915 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.335876 | probability | 100% |
+| DF-17 vs Hardened Aircraft Shelter Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.145353 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.95 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.802799 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 1 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs Airbase Runway/Taxiway Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.637744 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.802799 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 1 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs Airbase Runway/Taxiway Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.657883 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.802799 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 1 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs Airbase Runway/Taxiway Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.657883 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.802799 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 1 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs Airbase Runway/Taxiway Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.657883 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.802799 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 1 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs Airbase Runway/Taxiway Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.657883 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.802799 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 1 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs Airbase Runway/Taxiway Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.657883 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.802799 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 1 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs Airbase Runway/Taxiway Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.657883 | probability | 4500% |
+| DF-17 Launch Success | `Range band optimization` | 0.98 | probability | 100% |
+| Beidou Midcourse Guidance | `P(updates) weighted by necessity` | 0.996214 | probability | 100% |
+| Terminal Seeker Acquisition | `P(in_FOV) × P(lock)` | 0.9016 | probability | 100% |
+| Defense Penetration | `(1 - Pk_intercept)^N_interceptors` | 0.802799 | probability | 100% |
+| Hit Probability | `1 - 0.5^((R/CEP)^2)` | 1 | probability | 100% |
+| Kill Given Hit | `base_pk / sqrt(hardening)` | 0.95 | probability | 100% |
+| DF-17 vs Airbase Runway/Taxiway Total Pk | `P(track)×P(launch)×P(beidou)×P(terminal)×P(penetrate)×P(hit)×P(kill|hit)` | 0.657883 | probability | 4500% |

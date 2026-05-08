@@ -1,0 +1,1167 @@
+// CPS Platform Analysis - Clean Engineering Aesthetic
+
+$navy-dark: #0a1628;
+$navy-mid: #12213d;
+$navy-light: #1a2f52;
+$text-primary: #e2e8f0;
+$text-secondary: #94a3b8;
+$text-muted: #64748b;
+$accent-blue: #3498db;
+$accent-green: #2ecc71;
+$accent-orange: #e67e22;
+$accent-red: #e74c3c;
+$accent-gold: #c9a227;
+$warning-color: #e74c3c;
+$success-color: #2ecc71;
+$border-color: #1e3a5f;
+
+.cps-analysis {
+  background: $navy-dark;
+  color: $text-primary;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+// Classification Banner
+.classification-banner {
+  background: #1a5e1a;
+  color: #ffffff;
+  text-align: center;
+  padding: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+// Top Navigation Bar
+.top-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  background: $navy-mid;
+  border-bottom: 1px solid $border-color;
+  margin-bottom: 1rem;
+
+  .nav-brand {
+    .brand-text {
+      font-size: 1rem;
+      font-weight: 700;
+      color: $text-primary;
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 0.25rem;
+
+    .nav-link {
+      padding: 0.4rem 0.75rem;
+      border-radius: 4px;
+      color: $text-secondary;
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: all 0.2s;
+
+      &:hover {
+        color: $text-primary;
+        background: rgba($accent-blue, 0.1);
+      }
+
+      &.active {
+        color: $accent-blue;
+        background: rgba($accent-blue, 0.15);
+      }
+    }
+  }
+}
+
+// Header
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid $border-color;
+
+  h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: $text-primary;
+    margin: 0 0 0.5rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    color: $text-secondary;
+    margin: 0;
+  }
+}
+
+// Section Nav
+.section-nav {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: $navy-mid;
+  border-radius: 8px;
+  border: 1px solid $border-color;
+
+  button {
+    padding: 0.5rem 1rem;
+    border: 1px solid $border-color;
+    border-radius: 6px;
+    background: transparent;
+    color: $text-secondary;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+
+    &:hover {
+      color: $text-primary;
+      border-color: $accent-blue;
+    }
+
+    &.active {
+      background: $accent-blue;
+      color: white;
+      border-color: $accent-blue;
+    }
+  }
+}
+
+// Content Sections
+.content-section {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: $navy-mid;
+  border-radius: 8px;
+  border: 1px solid $border-color;
+
+  h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 0.75rem;
+    color: $text-primary;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 1.5rem 0 0.75rem;
+    color: $text-primary;
+  }
+
+  .section-note {
+    color: $text-secondary;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 900px;
+  }
+}
+
+// Tables
+.spec-table, .trade-table, .constraint-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+
+  th {
+    text-align: left;
+    padding: 0.6rem 1rem;
+    background: $navy-light;
+    color: $text-secondary;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid $border-color;
+  }
+
+  td {
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid rgba($border-color, 0.5);
+    color: $text-primary;
+  }
+
+  .param-cell {
+    font-weight: 600;
+    color: $accent-blue;
+    white-space: nowrap;
+  }
+
+  &.compact {
+    font-size: 0.8rem;
+
+    td, th {
+      padding: 0.4rem 0.75rem;
+    }
+  }
+}
+
+.trade-table-wrapper {
+  overflow-x: auto;
+}
+
+.trade-table {
+  .platform-name {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .cells-value {
+    font-weight: 700;
+    color: $accent-orange;
+    font-size: 1rem;
+  }
+}
+
+.constraint-table {
+  .constraint-category {
+    font-weight: 600;
+    color: $accent-blue;
+    white-space: nowrap;
+  }
+}
+
+// Badges
+.survivability-badge {
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  &.survivability-low {
+    background: rgba($accent-red, 0.2);
+    color: $accent-red;
+  }
+
+  &.survivability-moderate {
+    background: rgba($accent-orange, 0.2);
+    color: $accent-orange;
+  }
+
+  &.survivability-high {
+    background: rgba($accent-green, 0.2);
+    color: $accent-green;
+  }
+}
+
+.status-badge {
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  &.status-proven {
+    background: rgba($accent-green, 0.2);
+    color: $accent-green;
+  }
+
+  &.status-in-development {
+    background: rgba($accent-orange, 0.2);
+    color: $accent-orange;
+  }
+
+  &.status-speculative {
+    background: rgba($accent-red, 0.2);
+    color: $accent-red;
+  }
+}
+
+// Flight Profile Diagram
+.flight-profile {
+  margin-top: 1.5rem;
+
+  .profile-diagram {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    background: $navy-dark;
+    border-radius: 8px;
+    border: 1px solid $border-color;
+    overflow-x: auto;
+  }
+
+  .phase {
+    flex: 1;
+    min-width: 140px;
+    text-align: center;
+    padding: 1rem;
+    background: $navy-light;
+    border-radius: 6px;
+    border: 1px solid $border-color;
+
+    .phase-label {
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .phase-desc {
+      font-size: 0.75rem;
+      color: $text-secondary;
+    }
+  }
+
+  .phase-launch { border-left: 3px solid $accent-blue; }
+  .phase-boost { border-left: 3px solid $accent-red; }
+  .phase-glide { border-left: 3px solid $accent-orange; }
+  .phase-terminal { border-left: 3px solid $accent-green; }
+
+  .phase-arrow {
+    color: $text-muted;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+}
+
+// Platform Notes
+.platform-notes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+
+  .note-card {
+    padding: 1rem;
+    background: $navy-dark;
+    border-radius: 6px;
+    border: 1px solid $border-color;
+
+    h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: $accent-blue;
+      margin: 0 0 0.4rem;
+    }
+
+    p {
+      font-size: 0.8rem;
+      color: $text-secondary;
+      line-height: 1.5;
+      margin: 0;
+    }
+  }
+}
+
+// Charts
+.chart-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chart-container {
+  background: $navy-dark;
+  border-radius: 8px;
+  border: 1px solid $border-color;
+  padding: 1rem;
+}
+
+.d3-chart {
+  width: 100%;
+  min-height: 320px;
+
+  &.defense-chart {
+    min-height: 400px;
+    margin-top: 1rem;
+  }
+}
+
+// Concept Grid
+.concept-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+
+  .concept-panel {
+    background: $navy-dark;
+    border-radius: 8px;
+    border: 1px solid $border-color;
+    padding: 1.25rem;
+
+    h3 {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+}
+
+// VLS Loadout Bars
+.loadout-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.loadout-item {
+  .loadout-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .loadout-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    min-width: 120px;
+    color: $text-primary;
+  }
+
+  .loadout-bar {
+    height: 28px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: white;
+    min-width: 30px;
+  }
+
+  .loadout-role {
+    font-size: 0.7rem;
+    color: $text-muted;
+    margin-left: calc(120px + 0.75rem);
+  }
+}
+
+// Cost Summary
+.cost-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+
+  .cost-card {
+    padding: 1.25rem;
+    background: $navy-dark;
+    border-radius: 8px;
+    border: 1px solid $border-color;
+
+    h4 {
+      font-size: 0.85rem;
+      color: $text-secondary;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 0 0 0.5rem;
+    }
+
+    .cost-platform {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: $accent-blue;
+      margin: 0 0 0.5rem;
+    }
+
+    p {
+      font-size: 0.8rem;
+      color: $text-secondary;
+      line-height: 1.5;
+      margin: 0;
+    }
+  }
+}
+
+// Engineering Notes
+.engineering-note {
+  background: $navy-dark;
+  border-radius: 8px;
+  border: 1px solid $border-color;
+  padding: 1.25rem;
+
+  h3 {
+    margin-top: 0;
+  }
+
+  ul {
+    padding-left: 1.25rem;
+    margin: 0;
+
+    li {
+      font-size: 0.85rem;
+      color: $text-secondary;
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+
+      strong {
+        color: $text-primary;
+      }
+    }
+  }
+}
+
+// Timeline
+.timeline-section {
+  margin-top: 2rem;
+  background: $navy-dark;
+  border-radius: 8px;
+  border: 1px solid $border-color;
+  padding: 1.25rem;
+
+  h3 { margin-top: 0; }
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  padding-left: 1.5rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: $border-color;
+  }
+}
+
+.timeline-item {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -1.5rem;
+    top: 0.75rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid $border-color;
+    background: $navy-dark;
+    z-index: 1;
+  }
+
+  &.timeline-success::before {
+    background: $accent-green;
+    border-color: $accent-green;
+  }
+
+  &.timeline-failed::before {
+    background: $accent-red;
+    border-color: $accent-red;
+  }
+
+  &.timeline-planned::before {
+    background: transparent;
+    border-color: $accent-blue;
+    border-style: dashed;
+  }
+
+  .timeline-date {
+    min-width: 110px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: $text-secondary;
+    white-space: nowrap;
+  }
+
+  .timeline-event {
+    font-size: 0.8rem;
+    color: $text-primary;
+    line-height: 1.5;
+  }
+}
+
+// Cold-Gas Analysis
+.cold-gas-section {
+  margin-top: 1.5rem;
+  background: $navy-dark;
+  border-radius: 8px;
+  border: 1px solid $border-color;
+  padding: 1.25rem;
+
+  h3 { margin-top: 0; }
+}
+
+.analysis-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1rem;
+}
+
+.analysis-card {
+  background: $navy-mid;
+  border-radius: 6px;
+  border: 1px solid $border-color;
+  padding: 1rem;
+
+  h4 {
+    font-size: 0.9rem;
+    color: $accent-blue;
+    margin: 0 0 0.4rem;
+  }
+
+  p {
+    font-size: 0.8rem;
+    color: $text-secondary;
+    line-height: 1.5;
+    margin: 0;
+  }
+}
+
+// Original Proposal Analysis
+.proposal-overview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+
+  .proposal-specs, .proposal-weapons {
+    background: $navy-dark;
+    border-radius: 8px;
+    border: 1px solid $border-color;
+    padding: 1.25rem;
+
+    h3 { margin-top: 0; }
+  }
+
+  .assessment-cell {
+    font-size: 0.78rem;
+    color: $text-secondary;
+  }
+}
+
+.issues-section {
+  margin-bottom: 1.5rem;
+
+  .issue-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1rem;
+  }
+
+  .issue-card {
+    background: $navy-dark;
+    border-radius: 8px;
+    padding: 1rem;
+    border-left: 4px solid $text-muted;
+
+    &.severity-critical { border-left-color: $accent-red; }
+    &.severity-moderate { border-left-color: $accent-orange; }
+    &.severity-low { border-left-color: $accent-blue; }
+
+    .issue-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+
+      h4 {
+        margin: 0;
+        font-size: 0.9rem;
+      }
+    }
+
+    p {
+      font-size: 0.8rem;
+      color: $text-secondary;
+      line-height: 1.5;
+      margin: 0;
+    }
+  }
+}
+
+.severity-badge {
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+
+  &.severity-critical {
+    background: rgba($accent-red, 0.2);
+    color: $accent-red;
+  }
+
+  &.severity-moderate {
+    background: rgba($accent-orange, 0.2);
+    color: $accent-orange;
+  }
+
+  &.severity-low {
+    background: rgba($accent-blue, 0.2);
+    color: $accent-blue;
+  }
+}
+
+// Rhetorical Question
+.rhetorical-question {
+  background: $navy-dark;
+  border-radius: 8px;
+  border: 1px solid $accent-blue;
+  padding: 1.5rem 2rem;
+  margin-top: 1.5rem;
+  text-align: center;
+
+  &.header-quote {
+    margin-top: 1.25rem;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  blockquote {
+    font-size: 1.05rem;
+    font-style: italic;
+    color: $text-primary;
+    line-height: 1.6;
+    margin: 0 0 0.75rem;
+    quotes: none;
+  }
+
+  .attribution {
+    font-size: 0.85rem;
+    color: $accent-blue;
+    font-weight: 600;
+    margin: 0;
+  }
+}
+
+// Contract Cards
+.contract-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.contract-card {
+  background: rgba($navy-dark, 0.6);
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  padding: 1rem;
+
+  .contract-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    h4 {
+      margin: 0;
+      color: $accent-blue;
+      font-size: 1rem;
+    }
+
+    .contract-type {
+      background: $accent-gold;
+      color: $navy-dark;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+  }
+}
+
+// Hanwha Section
+.hanwha-section {
+  margin-top: 1.5rem;
+
+  .issues-list {
+    margin: 0;
+    padding-left: 1.25rem;
+
+    li {
+      margin-bottom: 0.5rem;
+      color: $text-secondary;
+
+      &::marker {
+        color: $warning-color;
+      }
+    }
+  }
+}
+
+// CBO Cost Estimates
+.cbo-section {
+  margin-top: 1.5rem;
+}
+
+.cost-estimate-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.cost-estimate-card {
+  background: rgba($navy-dark, 0.6);
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  padding: 1rem;
+
+  h4 {
+    margin: 0 0 0.75rem;
+    color: $text-primary;
+    font-size: 0.95rem;
+  }
+
+  .cost-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba($border-color, 0.5);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    span:first-child {
+      color: $text-secondary;
+    }
+
+    .cost-value {
+      color: $warning-color;
+      font-weight: 600;
+    }
+  }
+}
+
+// Budget Section
+.budget-section {
+  margin-top: 1.5rem;
+}
+
+.budget-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.budget-stat {
+  background: rgba($accent-blue, 0.1);
+  border: 1px solid $accent-blue;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+
+  .stat-value {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: $accent-blue;
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: $text-secondary;
+  }
+
+  &.highlight-bad {
+    background: rgba($warning-color, 0.1);
+    border-color: $warning-color;
+
+    .stat-value {
+      color: $warning-color;
+    }
+  }
+}
+
+// Recommendations Section
+.recommendations-section {
+  margin-top: 1.5rem;
+}
+
+.recommendation-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.recommendation-card {
+  background: rgba($navy-dark, 0.6);
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  padding: 1rem;
+
+  &.recommended {
+    border-color: $success-color;
+    background: rgba($success-color, 0.05);
+  }
+
+  &.not-recommended {
+    border-color: $warning-color;
+    background: rgba($warning-color, 0.05);
+  }
+
+  .rec-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    h4 {
+      margin: 0;
+      color: $text-primary;
+      font-size: 1rem;
+    }
+
+    .verdict-badge {
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+
+      &.good {
+        background: $success-color;
+        color: $navy-dark;
+      }
+
+      &.bad {
+        background: $warning-color;
+        color: $navy-dark;
+      }
+    }
+  }
+
+  .rec-description {
+    color: $text-secondary;
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    h5 {
+      margin: 0 0 0.5rem;
+      font-size: 0.85rem;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1rem;
+      font-size: 0.8rem;
+
+      li {
+        margin-bottom: 0.25rem;
+        color: $text-secondary;
+      }
+    }
+
+    .pros h5 {
+      color: $success-color;
+    }
+
+    .cons h5 {
+      color: $warning-color;
+    }
+  }
+}
+
+// Arsenal Ship CAD Section
+.requirements-box {
+  background: rgba($accent-blue, 0.1);
+  border: 1px solid $accent-blue;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.arsenal-options {
+  margin-top: 1.5rem;
+}
+
+.arsenal-option-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.arsenal-option-card {
+  background: rgba($navy-dark, 0.6);
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  padding: 1rem;
+
+  &.recommended {
+    border-color: $success-color;
+    background: rgba($success-color, 0.05);
+  }
+
+  &.not-recommended {
+    border-color: $warning-color;
+    background: rgba($warning-color, 0.05);
+  }
+
+  &.viable {
+    border-color: $accent-gold;
+    background: rgba($accent-gold, 0.05);
+  }
+
+  .option-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    h4 {
+      margin: 0;
+      color: $accent-blue;
+      font-size: 1.05rem;
+    }
+
+    .verdict-badge {
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      white-space: nowrap;
+
+      &.good {
+        background: $success-color;
+        color: $navy-dark;
+      }
+
+      &.bad {
+        background: $warning-color;
+        color: $navy-dark;
+      }
+
+      &.neutral {
+        background: $accent-gold;
+        color: $navy-dark;
+      }
+    }
+  }
+
+  .option-description {
+    font-size: 0.85rem;
+    color: $text-secondary;
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+
+    h5 {
+      margin: 0 0 0.4rem;
+      font-size: 0.8rem;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1rem;
+      font-size: 0.75rem;
+
+      li {
+        margin-bottom: 0.2rem;
+        color: $text-secondary;
+      }
+    }
+
+    .pros h5 { color: $success-color; }
+    .cons h5 { color: $warning-color; }
+  }
+}
+
+// Power Analysis
+.power-analysis {
+  margin-top: 1.5rem;
+}
+
+// Recommended Architecture
+.recommended-architecture {
+  margin-top: 1.5rem;
+}
+
+.architecture-diagram {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.architecture-tier {
+  background: rgba($navy-dark, 0.6);
+  border: 1px solid $accent-blue;
+  border-radius: 8px;
+  padding: 1rem;
+
+  h4 {
+    margin: 0 0 0.75rem;
+    color: $accent-blue;
+    font-size: 0.95rem;
+    border-bottom: 1px solid $border-color;
+    padding-bottom: 0.5rem;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 1.25rem;
+    font-size: 0.85rem;
+
+    li {
+      margin-bottom: 0.4rem;
+      color: $text-secondary;
+
+      strong {
+        color: $text-primary;
+      }
+    }
+  }
+}
+
+// D3 axis styling
+::ng-deep {
+  .domain, .tick line {
+    stroke: $border-color;
+  }
+}

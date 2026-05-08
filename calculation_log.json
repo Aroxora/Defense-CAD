@@ -1,0 +1,43 @@
+{
+  "timestamp": "2026-01-15T19:24:18.355998",
+  "systems": {
+    "DF-41": {
+      "fineness_ratio": 9.333333333333334,
+      "body_length_m": 18.0,
+      "cross_area_m2": 3.9760782021995817,
+      "est_volume_m3": 71.56940763959247,
+      "surface_area_m2": 158.60636289574848,
+      "triangles": 2784,
+      "ogive_radius_m": 4.5625
+    },
+    "HQ-9B": {
+      "fineness_ratio": 14.46808510638298,
+      "fin_aspect_ratio": 1.2499999999999998,
+      "fin_sweep_rad": 0.8726646259971648,
+      "surface_area_m2": 10.243525142534425,
+      "triangles": 1632
+    },
+    "J-20": {
+      "wing_aspect_ratio": 2.315068493150685,
+      "wing_loading_kg_m2": 273.972602739726,
+      "fuselage_fineness": 6.276923076923077,
+      "surface_area_m2": 269.89865474876524,
+      "triangles": 1164
+    },
+    "Type 055": {
+      "lb_ratio": 9.0,
+      "bd_ratio": 3.0303030303030303,
+      "block_coefficient": 0.533793216720046,
+      "surface_area_m2": 6034.710647390606,
+      "triangles": 291
+    }
+  },
+  "calculations": [],
+  "summary": {
+    "total_systems": 4,
+    "total_triangles": 5871,
+    "total_calculations": 21,
+    "validations_passed": 25,
+    "validations_failed": 0
+  }
+}

@@ -1,0 +1,239 @@
+[19:24:18.355] [INFO] ================================================================================
+[19:24:18.355] [INFO] CALCULATION LOGGER INITIALIZED: CAD-Calculations
+[19:24:18.355] [INFO] Timestamp: 2026-01-15T19:24:18.355707
+[19:24:18.355] [INFO] Python: 3.14.2 (v3.14.2:df793163d58, Dec  5 2025, 12:18:06) [Clang 16.0.0 (clang-1600.0.26.6)]
+[19:24:18.355] [INFO] NumPy: 2.4.1
+[19:24:18.355] [INFO] CI/CD Mode: False
+[19:24:18.355] [INFO] ================================================================================
+[19:24:18.356] [INFO] 
+[19:24:18.356] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:24:18.356] [INFO] SECTION: DF-41 ICBM Calculations
+[19:24:18.356] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:24:18.356] [VALIDATION] VALIDATE: DF-41.total_length = 21.0 [✓ PASS]
+[19:24:18.356] [VALIDATION] VALIDATE: DF-41.body_diameter = 2.25 [✓ PASS]
+[19:24:18.356] [VALIDATION] VALIDATE: DF-41.stage1_length = 8.5 [✓ PASS]
+[19:24:18.356] [VALIDATION] VALIDATE: DF-41.stage2_length = 5.5 [✓ PASS]
+[19:24:18.356] [VALIDATION] VALIDATE: DF-41.stage3_length = 4.0 [✓ PASS]
+[19:24:18.356] [VALIDATION] VALIDATE: DF-41.nose_length = 3.0 [✓ PASS]
+[19:24:18.356] [VALIDATION] VALIDATE: DF-41.nose_fineness = 2.5 [✓ PASS]
+[19:24:18.356] [CALCULATION] 
+[19:24:18.356] [CALCULATION] CALC: DF-41 Fineness Ratio
+[19:24:18.356] [CALCULATION]   Formula: L/D = total_length / diameter
+[19:24:18.356] [CALCULATION]   Inputs: {'total_length': 21.0, 'diameter': 2.25}
+[19:24:18.356] [CALCULATION]   Steps:
+[19:24:18.356] [CALCULATION]     1. {'step': 'L = 21.0 m'}
+[19:24:18.356] [CALCULATION]     2. {'step': 'D = 2.25 m'}
+[19:24:18.356] [CALCULATION]     3. {'step': 'L/D = 21.0/2.25 = 9.33'}
+[19:24:18.356] [CALCULATION]   Result: 9.33333 ratio
+[19:24:18.356] [CALCULATION]   Confidence: 70%
+[19:24:18.356] [CALCULATION]   Status: VALID
+[19:24:18.356] [CALCULATION] 
+[19:24:18.356] [CALCULATION] CALC: DF-41 Body Length
+[19:24:18.356] [CALCULATION]   Formula: body_length = total_length - nose_length
+[19:24:18.356] [CALCULATION]   Inputs: {'total_length': 21.0, 'nose_length': 3.0}
+[19:24:18.356] [CALCULATION]   Result: 18 m
+[19:24:18.356] [CALCULATION]   Confidence: 65%
+[19:24:18.356] [CALCULATION]   Status: VALID
+[19:24:18.356] [CALCULATION] 
+[19:24:18.356] [CALCULATION] CALC: DF-41 Cross-Sectional Area
+[19:24:18.356] [CALCULATION]   Formula: A = π * (D/2)²
+[19:24:18.356] [CALCULATION]   Inputs: {'diameter': 2.25}
+[19:24:18.356] [CALCULATION]   Steps:
+[19:24:18.356] [CALCULATION]     1. {'step': 'radius = 1.125 m'}
+[19:24:18.356] [CALCULATION]     2. {'step': 'A = π × 1.125² = 3.976 m²'}
+[19:24:18.356] [CALCULATION]   Result: 3.97608 m²
+[19:24:18.357] [CALCULATION]   Confidence: 65%
+[19:24:18.357] [CALCULATION]   Status: VALID
+[19:24:18.357] [CALCULATION] 
+[19:24:18.357] [CALCULATION] CALC: DF-41 Estimated Volume
+[19:24:18.357] [CALCULATION]   Formula: V ≈ A × body_length
+[19:24:18.357] [CALCULATION]   Inputs: {'cross_area': 3.9760782021995817, 'body_length': 18.0}
+[19:24:18.357] [CALCULATION]   Result: 71.5694 m³
+[19:24:18.357] [CALCULATION]   Confidence: 50%
+[19:24:18.357] [CALCULATION]   Status: VALID
+[19:24:18.357] [CALCULATION] 
+[19:24:18.357] [CALCULATION] CALC: DF-41 Stage 1 Length Fraction
+[19:24:18.357] [CALCULATION]   Formula: f₁ = stage1_length / body_length
+[19:24:18.357] [CALCULATION]   Inputs: {'stage1_length': 8.5, 'body_length': 18.0}
+[19:24:18.357] [CALCULATION]   Result: 0.472222 ratio
+[19:24:18.357] [CALCULATION]   Confidence: 45%
+[19:24:18.357] [CALCULATION]   Status: VALID
+[19:24:18.357] [CALCULATION] 
+[19:24:18.357] [CALCULATION] CALC: DF-41 Stage 2 Length Fraction
+[19:24:18.357] [CALCULATION]   Formula: f₂ = stage2_length / body_length
+[19:24:18.357] [CALCULATION]   Inputs: {'stage2_length': 5.5, 'body_length': 18.0}
+[19:24:18.357] [CALCULATION]   Result: 0.305556 ratio
+[19:24:18.357] [CALCULATION]   Confidence: 45%
+[19:24:18.357] [CALCULATION]   Status: VALID
+[19:24:18.357] [CALCULATION] 
+[19:24:18.357] [CALCULATION] CALC: DF-41 Stage 3 Length Fraction
+[19:24:18.357] [CALCULATION]   Formula: f₃ = stage3_length / body_length
+[19:24:18.357] [CALCULATION]   Inputs: {'stage3_length': 4.0, 'body_length': 18.0}
+[19:24:18.357] [CALCULATION]   Result: 0.222222 ratio
+[19:24:18.357] [CALCULATION]   Confidence: 45%
+[19:24:18.357] [CALCULATION]   Status: VALID
+[19:24:18.357] [CALCULATION] 
+[19:24:18.357] [CALCULATION] CALC: DF-41 Nose Ogive Radius
+[19:24:18.357] [CALCULATION]   Formula: ρ = (L² + R²) / (2R)
+[19:24:18.358] [CALCULATION]   Inputs: {'nose_length': 3.0, 'base_radius': 1.125}
+[19:24:18.358] [CALCULATION]   Steps:
+[19:24:18.358] [CALCULATION]     1. {'step': 'L² = 9.000'}
+[19:24:18.358] [CALCULATION]     2. {'step': 'R² = 1.266'}
+[19:24:18.358] [CALCULATION]     3. {'step': 'L² + R² = 10.266'}
+[19:24:18.358] [CALCULATION]     4. {'step': '2R = 2.250'}
+[19:24:18.358] [CALCULATION]     5. {'step': 'ρ = 4.562 m'}
+[19:24:18.358] [CALCULATION]   Result: 4.5625 m
+[19:24:18.358] [CALCULATION]   Confidence: 55%
+[19:24:18.358] [CALCULATION]   Status: VALID
+[19:24:18.401] [CALCULATION] 
+[19:24:18.401] [CALCULATION] CALC: DF-41 Actual Surface Area
+[19:24:18.401] [CALCULATION]   Formula: Σ(triangle_areas)
+[19:24:18.401] [CALCULATION]   Inputs: {'triangles': 2784}
+[19:24:18.401] [CALCULATION]   Result: 158.606 m²
+[19:24:18.401] [CALCULATION]   Confidence: 60%
+[19:24:18.402] [CALCULATION]   Status: VALID
+[19:24:18.402] [INFO] PERF: DF-41 CAD Generation
+[19:24:18.402] [INFO]   Time: 50.00 ms
+[19:24:18.402] [INFO]   Triangles: 2784
+[19:24:18.402] [INFO]   Rate: 55680 tri/sec
+[19:24:18.402] [INFO] Section 'DF-41 ICBM Calculations' completed in 46.03 ms
+[19:24:18.402] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:24:18.402] [INFO] 
+[19:24:18.402] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:24:18.402] [INFO] SECTION: HQ-9B SAM Calculations
+[19:24:18.402] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:24:18.402] [VALIDATION] VALIDATE: HQ-9B.total_length = 6.8 [✓ PASS]
+[19:24:18.402] [VALIDATION] VALIDATE: HQ-9B.body_diameter = 0.47 [✓ PASS]
+[19:24:18.402] [VALIDATION] VALIDATE: HQ-9B.nose_length = 1.0 [✓ PASS]
+[19:24:18.402] [VALIDATION] VALIDATE: HQ-9B.fin_span = 0.35 [✓ PASS]
+[19:24:18.402] [VALIDATION] VALIDATE: HQ-9B.fin_root_chord = 0.4 [✓ PASS]
+[19:24:18.402] [VALIDATION] VALIDATE: HQ-9B.fin_sweep_deg = 50.0 [✓ PASS]
+[19:24:18.402] [CALCULATION] 
+[19:24:18.402] [CALCULATION] CALC: HQ-9B Fineness Ratio
+[19:24:18.402] [CALCULATION]   Formula: L/D = total_length / diameter
+[19:24:18.402] [CALCULATION]   Inputs: {'total_length': 6.8, 'diameter': 0.47}
+[19:24:18.402] [CALCULATION]   Result: 14.4681 ratio
+[19:24:18.402] [CALCULATION]   Confidence: 75%
+[19:24:18.402] [CALCULATION]   Status: VALID
+[19:24:18.402] [CALCULATION] 
+[19:24:18.402] [CALCULATION] CALC: HQ-9B Fin Aspect Ratio
+[19:24:18.402] [CALCULATION]   Formula: AR = b² / S
+[19:24:18.402] [CALCULATION]   Inputs: {'fin_span': 0.35, 'fin_area': 0.098}
+[19:24:18.402] [CALCULATION]   Steps:
+[19:24:18.402] [CALCULATION]     1. {'step': 'b = 0.35 m'}
+[19:24:18.403] [CALCULATION]     2. {'step': 'S ≈ 0.0980 m²'}
+[19:24:18.403] [CALCULATION]     3. {'step': 'AR = 0.35² / 0.0980 = 1.25'}
+[19:24:18.403] [CALCULATION]   Result: 1.25 ratio
+[19:24:18.403] [CALCULATION]   Confidence: 55%
+[19:24:18.403] [CALCULATION]   Status: VALID
+[19:24:18.403] [CALCULATION] 
+[19:24:18.403] [CALCULATION] CALC: HQ-9B Fin Sweep (radians)
+[19:24:18.403] [CALCULATION]   Formula: Λ_rad = Λ_deg × π/180
+[19:24:18.403] [CALCULATION]   Inputs: {'sweep_deg': 50.0}
+[19:24:18.403] [CALCULATION]   Result: 0.872665 rad
+[19:24:18.403] [CALCULATION]   Confidence: 60%
+[19:24:18.403] [CALCULATION]   Status: VALID
+[19:24:18.425] [CALCULATION] 
+[19:24:18.425] [CALCULATION] CALC: HQ-9B Surface Area
+[19:24:18.425] [CALCULATION]   Formula: Σ(triangle_areas)
+[19:24:18.425] [CALCULATION]   Inputs: {'triangles': 1632}
+[19:24:18.425] [CALCULATION]   Result: 10.2435 m²
+[19:24:18.425] [CALCULATION]   Confidence: 60%
+[19:24:18.425] [CALCULATION]   Status: VALID
+[19:24:18.425] [INFO] Section 'HQ-9B SAM Calculations' completed in 23.17 ms
+[19:24:18.425] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:24:18.425] [INFO] 
+[19:24:18.425] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:24:18.425] [INFO] SECTION: J-20 Fighter Calculations
+[19:24:18.425] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:24:18.425] [VALIDATION] VALIDATE: J-20.length = 20.4 [✓ PASS]
+[19:24:18.425] [VALIDATION] VALIDATE: J-20.wingspan = 13.0 [✓ PASS]
+[19:24:18.425] [VALIDATION] VALIDATE: J-20.height = 4.45 [✓ PASS]
+[19:24:18.425] [VALIDATION] VALIDATE: J-20.wing_area = 73.0 [✓ PASS]
+[19:24:18.426] [VALIDATION] VALIDATE: J-20.wing_sweep_deg = 45.0 [✓ PASS]
+[19:24:18.426] [VALIDATION] VALIDATE: J-20.canard_span = 4.5 [✓ PASS]
+[19:24:18.426] [VALIDATION] VALIDATE: J-20.vstab_cant_deg = 15.0 [✓ PASS]
+[19:24:18.426] [CALCULATION] 
+[19:24:18.426] [CALCULATION] CALC: J-20 Wing Aspect Ratio
+[19:24:18.426] [CALCULATION]   Formula: AR = b² / S
+[19:24:18.426] [CALCULATION]   Inputs: {'wingspan': 13.0, 'wing_area': 73.0}
+[19:24:18.426] [CALCULATION]   Result: 2.31507 ratio
+[19:24:18.426] [CALCULATION]   Confidence: 55%
+[19:24:18.426] [CALCULATION]   Status: VALID
+[19:24:18.426] [CALCULATION] 
+[19:24:18.426] [CALCULATION] CALC: J-20 Estimated Wing Loading
+[19:24:18.426] [CALCULATION]   Formula: W/S = mass / wing_area
+[19:24:18.426] [CALCULATION]   Inputs: {'est_mass_kg': 20000, 'wing_area': 73.0}
+[19:24:18.426] [CALCULATION]   Result: 273.973 kg/m²
+[19:24:18.426] [CALCULATION]   Confidence: 40%
+[19:24:18.426] [CALCULATION]   Status: VALID
+[19:24:18.426] [CALCULATION] 
+[19:24:18.426] [CALCULATION] CALC: J-20 Fuselage Fineness
+[19:24:18.426] [CALCULATION]   Formula: L_fuse / W_fuse
+[19:24:18.426] [CALCULATION]   Inputs: {'length': 20.4, 'est_fuselage_width': 3.25}
+[19:24:18.426] [CALCULATION]   Result: 6.27692 ratio
+[19:24:18.426] [CALCULATION]   Confidence: 50%
+[19:24:18.426] [CALCULATION]   Status: VALID
+[19:24:18.436] [CALCULATION] 
+[19:24:18.436] [CALCULATION] CALC: J-20 Surface Area
+[19:24:18.436] [CALCULATION]   Formula: Σ(triangle_areas)
+[19:24:18.436] [CALCULATION]   Inputs: {'triangles': 1164}
+[19:24:18.436] [CALCULATION]   Result: 269.899 m²
+[19:24:18.436] [CALCULATION]   Confidence: 55%
+[19:24:18.436] [CALCULATION]   Status: VALID
+[19:24:18.436] [INFO] Section 'J-20 Fighter Calculations' completed in 11.12 ms
+[19:24:18.437] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:24:18.437] [INFO] 
+[19:24:18.437] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:24:18.437] [INFO] SECTION: Type 055 Destroyer Calculations
+[19:24:18.437] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:24:18.437] [VALIDATION] VALIDATE: Type 055.length = 180.0 [✓ PASS]
+[19:24:18.437] [VALIDATION] VALIDATE: Type 055.beam = 20.0 [✓ PASS]
+[19:24:18.437] [VALIDATION] VALIDATE: Type 055.draft = 6.6 [✓ PASS]
+[19:24:18.437] [VALIDATION] VALIDATE: Type 055.displacement = 13000.0 [✓ PASS]
+[19:24:18.437] [VALIDATION] VALIDATE: Type 055.superstructure_height = 25.0 [✓ PASS]
+[19:24:18.437] [CALCULATION] 
+[19:24:18.437] [CALCULATION] CALC: Type 055 Length/Beam Ratio
+[19:24:18.437] [CALCULATION]   Formula: L/B = length / beam
+[19:24:18.437] [CALCULATION]   Inputs: {'length': 180.0, 'beam': 20.0}
+[19:24:18.437] [CALCULATION]   Result: 9 ratio
+[19:24:18.437] [CALCULATION]   Confidence: 85%
+[19:24:18.437] [CALCULATION]   Status: VALID
+[19:24:18.437] [CALCULATION] 
+[19:24:18.437] [CALCULATION] CALC: Type 055 Beam/Draft Ratio
+[19:24:18.437] [CALCULATION]   Formula: B/T = beam / draft
+[19:24:18.437] [CALCULATION]   Inputs: {'beam': 20.0, 'draft': 6.6}
+[19:24:18.437] [CALCULATION]   Result: 3.0303 ratio
+[19:24:18.437] [CALCULATION]   Confidence: 75%
+[19:24:18.437] [CALCULATION]   Status: VALID
+[19:24:18.437] [CALCULATION] 
+[19:24:18.437] [CALCULATION] CALC: Type 055 Block Coefficient
+[19:24:18.437] [CALCULATION]   Formula: Cb = Δ / (ρ × L × B × T)
+[19:24:18.437] [CALCULATION]   Inputs: {'displacement': 13000.0, 'length': 180.0, 'beam': 20.0, 'draft': 6.6}
+[19:24:18.437] [CALCULATION]   Steps:
+[19:24:18.437] [CALCULATION]     1. {'step': 'Δ = 13000.0 tonnes = 13000000.0 kg'}
+[19:24:18.437] [CALCULATION]     2. {'step': 'V_displaced = 12683 m³'}
+[19:24:18.438] [CALCULATION]     3. {'step': 'V_box = L×B×T = 23760 m³'}
+[19:24:18.438] [CALCULATION]     4. {'step': 'Cb = 0.534'}
+[19:24:18.438] [CALCULATION]   Result: 0.533793 ratio
+[19:24:18.438] [CALCULATION]   Confidence: 60%
+[19:24:18.438] [CALCULATION]   Status: VALID
+[19:24:18.440] [CALCULATION] 
+[19:24:18.440] [CALCULATION] CALC: Type 055 Surface Area
+[19:24:18.440] [CALCULATION]   Formula: Σ(triangle_areas)
+[19:24:18.440] [CALCULATION]   Inputs: {'triangles': 291}
+[19:24:18.440] [CALCULATION]   Result: 6034.71 m²
+[19:24:18.440] [CALCULATION]   Confidence: 50%
+[19:24:18.440] [CALCULATION]   Status: VALID
+[19:24:18.440] [INFO] Section 'Type 055 Destroyer Calculations' completed in 3.45 ms
+[19:24:18.440] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:24:18.440] [INFO] 
+[19:24:18.440] [INFO] ════════════════════════════════════════════════════════════════════════════════
+[19:24:18.440] [INFO] SESSION COMPLETE
+[19:24:18.440] [INFO] ════════════════════════════════════════════════════════════════════════════════
+[19:24:18.440] [INFO] Total Runtime: 85.53 ms
+[19:24:18.440] [INFO] Algorithms: 0
+[19:24:18.441] [INFO] Calculations: 21
+[19:24:18.441] [INFO] Validations: 25 (25 passed)
+[19:24:18.441] [INFO] Errors: 0
+[19:24:18.441] [INFO] ════════════════════════════════════════════════════════════════════════════════

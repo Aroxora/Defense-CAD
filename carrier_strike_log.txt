@@ -1,0 +1,57 @@
+[19:31:58.050] [INFO] ================================================================================
+[19:31:58.051] [INFO] CALCULATION LOGGER INITIALIZED: Carrier-Strike
+[19:31:58.051] [INFO] Timestamp: 2026-01-15T19:31:58.051301
+[19:31:58.051] [INFO] Python: 3.14.2 (v3.14.2:df793163d58, Dec  5 2025, 12:18:06) [Clang 16.0.0 (clang-1600.0.26.6)]
+[19:31:58.051] [INFO] NumPy: 2.4.1
+[19:31:58.051] [INFO] CI/CD Mode: False
+[19:31:58.051] [INFO] ================================================================================
+[19:31:58.051] [INFO] 
+[19:31:58.051] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:31:58.051] [INFO] SECTION: Analysis: Ford Class
+[19:31:58.051] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:31:58.051] [CALCULATION] 
+[19:31:58.051] [CALCULATION] CALC: Ford Class Target Profile
+[19:31:58.051] [CALCULATION]   Formula: Carrier detection signature
+[19:31:58.051] [CALCULATION]   Inputs: {'length_m': 337, 'rcs_dbsm': 55, 'ir_signature_mw': 5.0}
+[19:31:58.051] [CALCULATION]   Result: 55 dBsm
+[19:31:58.051] [CALCULATION]   Confidence: 70%
+[19:31:58.051] [CALCULATION]   Status: VALID
+[19:31:58.052] [CALCULATION] 
+[19:31:58.052] [CALCULATION] CALC: Ford Class Optimal Engagement
+[19:31:58.052] [CALCULATION]   Formula: Integrated kill chain
+[19:31:58.052] [CALCULATION]   Inputs: {'weapon': 'DF-21D', 'distance_km': 1000, 'salvo_size': 12}
+[19:31:58.052] [CALCULATION]   Result: 0.735748 probability
+[19:31:58.052] [CALCULATION]   Confidence: 40%
+[19:31:58.052] [CALCULATION]   Status: VALID
+[19:31:58.052] [INFO] Section 'Analysis: Ford Class' completed in 0.73 ms
+[19:31:58.052] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:31:58.052] [INFO] 
+[19:31:58.052] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:31:58.052] [INFO] SECTION: Analysis: Nimitz Class
+[19:31:58.052] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:31:58.052] [CALCULATION] 
+[19:31:58.052] [CALCULATION] CALC: Nimitz Class Target Profile
+[19:31:58.052] [CALCULATION]   Formula: Carrier detection signature
+[19:31:58.052] [CALCULATION]   Inputs: {'length_m': 332, 'rcs_dbsm': 54, 'ir_signature_mw': 4.5}
+[19:31:58.052] [CALCULATION]   Result: 54 dBsm
+[19:31:58.052] [CALCULATION]   Confidence: 75%
+[19:31:58.052] [CALCULATION]   Status: VALID
+[19:31:58.053] [CALCULATION] 
+[19:31:58.053] [CALCULATION] CALC: Nimitz Class Optimal Engagement
+[19:31:58.053] [CALCULATION]   Formula: Integrated kill chain
+[19:31:58.053] [CALCULATION]   Inputs: {'weapon': 'DF-21D', 'distance_km': 1000, 'salvo_size': 12}
+[19:31:58.053] [CALCULATION]   Result: 0.724293 probability
+[19:31:58.053] [CALCULATION]   Confidence: 40%
+[19:31:58.053] [CALCULATION]   Status: VALID
+[19:31:58.053] [INFO] Section 'Analysis: Nimitz Class' completed in 0.67 ms
+[19:31:58.053] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19:31:58.053] [INFO] 
+[19:31:58.053] [INFO] ════════════════════════════════════════════════════════════════════════════════
+[19:31:58.053] [INFO] SESSION COMPLETE
+[19:31:58.053] [INFO] ════════════════════════════════════════════════════════════════════════════════
+[19:31:58.053] [INFO] Total Runtime: 2.43 ms
+[19:31:58.053] [INFO] Algorithms: 0
+[19:31:58.053] [INFO] Calculations: 4
+[19:31:58.053] [INFO] Validations: 0 (0 passed)
+[19:31:58.053] [INFO] Errors: 0
+[19:31:58.053] [INFO] ════════════════════════════════════════════════════════════════════════════════

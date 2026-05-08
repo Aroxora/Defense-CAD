@@ -1,0 +1,115 @@
+name: Patient Matching Request
+description: Request curative therapy matching for a patient case
+title: "[PATIENT MATCH] "
+labels: ["patient-matching", "curative-therapy"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Curative Therapy Matching Request
+
+        Use this form to request automated matching of a patient to eligible curative biotechnologies (CAR-T, mRNA vaccines, CRISPR, oncolytic viruses).
+
+        **IMPORTANT:** Do not include any personally identifiable information (PII). Use anonymized clinical data only.
+
+  - type: dropdown
+    id: cancer_type
+    attributes:
+      label: Cancer Type
+      description: Select the primary cancer diagnosis
+      options:
+        - B-cell ALL (Acute Lymphoblastic Leukemia)
+        - DLBCL (Diffuse Large B-Cell Lymphoma)
+        - Follicular Lymphoma
+        - Mantle Cell Lymphoma
+        - CLL/SLL (Chronic Lymphocytic Leukemia)
+        - Multiple Myeloma
+        - Melanoma
+        - NSCLC (Non-Small Cell Lung Cancer)
+        - Pancreatic Cancer
+        - Colorectal Cancer
+        - Glioblastoma
+        - Other (specify in details)
+    validations:
+      required: true
+
+  - type: input
+    id: stage
+    attributes:
+      label: Disease Stage
+      description: "e.g., Relapsed/Refractory, Stage III, 2nd line failure"
+      placeholder: "Relapsed after 2nd line therapy"
+    validations:
+      required: true
+
+  - type: textarea
+    id: biomarkers
+    attributes:
+      label: Biomarker Profile
+      description: List relevant biomarkers and their status
+      placeholder: |
+        CD19: positive
+        CD22: positive
+        BCMA: not tested
+        PD-L1: 50%
+    validations:
+      required: true
+
+  - type: textarea
+    id: prior_therapies
+    attributes:
+      label: Prior Therapies
+      description: List previous treatments received
+      placeholder: |
+        1. R-CHOP (6 cycles)
+        2. R-ICE (salvage)
+        3. Blinatumomab
+    validations:
+      required: false
+
+  - type: dropdown
+    id: performance_status
+    attributes:
+      label: ECOG Performance Status
+      options:
+        - "0 - Fully active"
+        - "1 - Restricted in strenuous activity"
+        - "2 - Ambulatory, capable of self-care"
+        - "3 - Limited self-care"
+        - "4 - Completely disabled"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: organ_function
+    attributes:
+      label: Organ Function
+      options:
+        - Normal
+        - Impaired (cardiac)
+        - Impaired (renal)
+        - Impaired (hepatic)
+        - Multiple organ impairment
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_info
+    attributes:
+      label: Additional Clinical Information
+      description: Any other relevant clinical details
+      placeholder: "Age range, comorbidities, specific concerns"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Acknowledgments
+      options:
+        - label: I confirm this request contains no personally identifiable information (PII)
+          required: true
+        - label: I understand this is for research/educational purposes only
+          required: true
+        - label: I acknowledge clinical decisions require qualified oncologist oversight
+          required: true

@@ -1,0 +1,195 @@
+================================================================================
+PLA PARADE WEAPON SYSTEMS - CAD AND CAPABILITY ASSESSMENT
+================================================================================
+
+Classification: UNCLASSIFIED // PUBLIC RELEASE
+Data Sources: Open source only
+
+================================================================================
+SECTION 1: STRATEGIC MISSILES
+================================================================================
+
+DF-41 ICBM
+----------------------------------------
+  Length: 21.0 m
+  Diameter: 2.25 m
+  Range: 14000 km
+  Max Speed: Mach 25
+  CEP: 200 m
+  Data Confidence: 45%
+  LIMITATIONS:
+    - MIRV count classified - estimates range from 3 to 10
+    - Actual CEP unknown - could be 100-500m
+    - Penetration aids unknown
+    - Range depends on payload configuration
+
+DF-27 HGV
+----------------------------------------
+  Length: 12.0 m
+  Diameter: 1.40 m
+  Range: 5000 km
+  Max Speed: Mach 15
+  CEP: 30 m
+  Data Confidence: 35%
+  LIMITATIONS:
+    - EXTREMELY limited public data
+    - Glide vehicle shape unknown
+    - Guidance method classified
+    - Terminal maneuvering capability unknown
+    - May not yet be fully operational
+
+JL-3 SLBM
+----------------------------------------
+  Length: 13.0 m
+  Diameter: 2.20 m
+  Range: 10000 km
+  Max Speed: Mach 23
+  CEP: 300 m
+  Data Confidence: 40%
+  LIMITATIONS:
+    - Submarine tube dimensions constrain missile size
+    - Underwater launch trajectory different from land-based
+    - Actual range depends on patrol location
+    - CEP may be worse due to submarine position uncertainty
+
+YJ-21 Hypersonic ASBM
+----------------------------------------
+  Length: 7.5 m
+  Diameter: 0.70 m
+  Range: 1500 km
+  Max Speed: Mach 10
+  CEP: 20 m
+  Data Confidence: 35%
+  LIMITATIONS:
+    - VERY limited data - recently revealed
+    - Scramjet sustainer unconfirmed
+    - Terminal guidance method unknown
+    - Sea-skimming vs high-dive profile unclear
+
+DF-21D ASBM
+----------------------------------------
+  Length: 10.7 m
+  Diameter: 1.40 m
+  Range: 1800 km
+  Max Speed: Mach 10
+  CEP: 50 m
+  Data Confidence: 45%
+  LIMITATIONS:
+    - CEP against moving carrier much worse than stated
+    - Requires external targeting (OTH radar, satellites)
+    - Kill chain time may exceed target movement
+    - Terminal guidance effectiveness unproven
+
+================================================================================
+SECTION 2: AIR DEFENSE SYSTEMS
+================================================================================
+
+HQ-9B
+----------------------------------------
+  Missile Length: 6.8 m
+  Max Range: 250 km
+  Max Altitude: 27000 m
+  Max Speed: Mach 4.2
+  Seeker: active_radar
+  Pk vs Aircraft: 65%
+  Data Confidence: 50%
+
+HQ-22
+----------------------------------------
+  Missile Length: 5.2 m
+  Max Range: 100 km
+  Max Altitude: 18000 m
+  Max Speed: Mach 3.5
+  Seeker: semi_active
+  Pk vs Aircraft: 70%
+  Data Confidence: 60%
+
+HQ-17A
+----------------------------------------
+  Missile Length: 2.9 m
+  Max Range: 15 km
+  Max Altitude: 8000 m
+  Max Speed: Mach 2.8
+  Seeker: command
+  Pk vs Aircraft: 75%
+  Data Confidence: 65%
+
+================================================================================
+SECTION 3: FIGHTER AIRCRAFT
+================================================================================
+
+J-20
+----------------------------------------
+  Length: 20.4 m
+  Wingspan: 13.0 m
+  Max Speed: Mach 2.0
+  Combat Radius: 1100 km
+  Frontal RCS: 0.0050 m²
+  RCS Confidence: 45%
+  Overall Confidence: 50%
+
+J-35
+----------------------------------------
+  Length: 17.3 m
+  Wingspan: 11.5 m
+  Max Speed: Mach 1.8
+  Combat Radius: 850 km
+  Frontal RCS: 0.0030 m²
+  RCS Confidence: 35%
+  Overall Confidence: 40%
+
+================================================================================
+SECTION 4: NAVAL PLATFORMS
+================================================================================
+
+Type 055 (Renhai class)
+----------------------------------------
+  Length: 180 m
+  Displacement: 13000 tons
+  VLS Cells: 112
+  Max Speed: 30 knots
+  Data Confidence: 60%
+
+Type 052D (Luyang III class)
+----------------------------------------
+  Length: 157 m
+  Displacement: 7500 tons
+  VLS Cells: 64
+  Max Speed: 30 knots
+  Data Confidence: 65%
+
+================================================================================
+CRITICAL SHORTCOMINGS PREVENTING PERFECT MODELING
+================================================================================
+
+1. CLASSIFICATION BARRIERS
+   - Actual performance data is classified (both Chinese and US)
+   - RCS values are estimates with wide uncertainty bounds
+   - Kill probability calculations are theoretical
+   - Countermeasure effectiveness unknown on both sides
+
+2. PHYSICS LIMITATIONS
+   - Radar equation fundamentals limit detection vs stealth
+   - Atmospheric effects vary with conditions
+   - Hypersonic guidance in plasma sheath unverified
+   - Seeker performance at extreme speeds uncertain
+
+3. OPERATIONAL UNKNOWNS
+   - Crew training and proficiency varies
+   - Maintenance state affects availability
+   - Network latency and reliability varies
+   - Doctrine and tactics classified
+
+4. TECHNOLOGY GAPS
+   - Latest variants not yet in public domain
+   - Upgrades happen faster than public knowledge
+   - Software/firmware capabilities hidden
+   - Integration effectiveness unmeasurable
+
+5. ADVERSARY ADAPTATION
+   - F-35 EW suite constantly updated
+   - Tactics evolve based on intelligence
+   - Countermeasure effectiveness improves
+   - Cannot model adversary response to our systems
+
+================================================================================

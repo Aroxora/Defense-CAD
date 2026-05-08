@@ -1,0 +1,1625 @@
+{
+  "generated": "2026-01-15T14:56:35.898119",
+  "analysis": "F-35 Infrastructure Vulnerability Assessment",
+  "airbases": [
+    {
+      "name": "Kadena Air Base",
+      "country": "Japan (US)",
+      "location": {
+        "lat": 26.3516,
+        "lon": 127.7692
+      },
+      "distance_to_taiwan_km": 638.6494002305815,
+      "f35_deployed": 0,
+      "f35_capable": true,
+      "runway_length_m": 3688,
+      "hardened_shelters": 15,
+      "threat_level": "critical"
+    },
+    {
+      "name": "Misawa Air Base",
+      "country": "Japan (US/JASDF)",
+      "location": {
+        "lat": 40.7032,
+        "lon": 141.3686
+      },
+      "distance_to_taiwan_km": 2529.5424208871073,
+      "f35_deployed": 12,
+      "f35_capable": true,
+      "runway_length_m": 3050,
+      "hardened_shelters": 12,
+      "threat_level": "critical"
+    },
+    {
+      "name": "Yokota Air Base",
+      "country": "Japan (US)",
+      "location": {
+        "lat": 35.7485,
+        "lon": 139.3485
+      },
+      "distance_to_taiwan_km": 2075.064279124674,
+      "f35_deployed": 0,
+      "f35_capable": true,
+      "runway_length_m": 3353,
+      "hardened_shelters": 8,
+      "threat_level": "high"
+    },
+    {
+      "name": "Iwakuni MCAS",
+      "country": "Japan (US)",
+      "location": {
+        "lat": 34.1439,
+        "lon": 132.2356
+      },
+      "distance_to_taiwan_km": 1444.2149843611305,
+      "f35_deployed": 16,
+      "f35_capable": true,
+      "runway_length_m": 2440,
+      "hardened_shelters": 10,
+      "threat_level": "critical"
+    },
+    {
+      "name": "Misawa (JASDF)",
+      "country": "Japan",
+      "location": {
+        "lat": 40.6878,
+        "lon": 141.3819
+      },
+      "distance_to_taiwan_km": 2529.3921246605573,
+      "f35_deployed": 20,
+      "f35_capable": true,
+      "runway_length_m": 3050,
+      "hardened_shelters": 18,
+      "threat_level": "critical"
+    },
+    {
+      "name": "Komatsu Air Base",
+      "country": "Japan",
+      "location": {
+        "lat": 36.3947,
+        "lon": 136.4069
+      },
+      "distance_to_taiwan_km": 1895.4273762653993,
+      "f35_deployed": 0,
+      "f35_capable": true,
+      "runway_length_m": 2700,
+      "hardened_shelters": 12,
+      "threat_level": "high"
+    },
+    {
+      "name": "Hyakuri Air Base",
+      "country": "Japan",
+      "location": {
+        "lat": 36.1811,
+        "lon": 140.4147
+      },
+      "distance_to_taiwan_km": 2182.2426905443676,
+      "f35_deployed": 0,
+      "f35_capable": true,
+      "runway_length_m": 2700,
+      "hardened_shelters": 14,
+      "threat_level": "high"
+    },
+    {
+      "name": "Chitose Air Base",
+      "country": "Japan",
+      "location": {
+        "lat": 42.7944,
+        "lon": 141.6664
+      },
+      "distance_to_taiwan_km": 2695.339704833545,
+      "f35_deployed": 0,
+      "f35_capable": true,
+      "runway_length_m": 3000,
+      "hardened_shelters": 16,
+      "threat_level": "medium"
+    },
+    {
+      "name": "Naha Air Base",
+      "country": "Japan",
+      "location": {
+        "lat": 26.1958,
+        "lon": 127.6461
+      },
+      "distance_to_taiwan_km": 623.2230986753574,
+      "f35_deployed": 0,
+      "f35_capable": true,
+      "runway_length_m": 3000,
+      "hardened_shelters": 10,
+      "threat_level": "critical"
+    },
+    {
+      "name": "Tsuiki Air Base",
+      "country": "Japan",
+      "location": {
+        "lat": 33.6847,
+        "lon": 131.0394
+      },
+      "distance_to_taiwan_km": 1328.5301531255175,
+      "f35_deployed": 0,
+      "f35_capable": true,
+      "runway_length_m": 2400,
+      "hardened_shelters": 12,
+      "threat_level": "high"
+    },
+    {
+      "name": "Nyutabaru Air Base",
+      "country": "Japan",
+      "location": {
+        "lat": 32.0836,
+        "lon": 131.4503
+      },
+      "distance_to_taiwan_km": 1242.5763137760073,
+      "f35_deployed": 14,
+      "f35_capable": true,
+      "runway_length_m": 2700,
+      "hardened_shelters": 10,
+      "threat_level": "critical"
+    },
+    {
+      "name": "Osan Air Base",
+      "country": "South Korea (US)",
+      "location": {
+        "lat": 37.0903,
+        "lon": 127.0306
+      },
+      "distance_to_taiwan_km": 1437.4924405547686,
+      "f35_deployed": 0,
+      "f35_capable": true,
+      "runway_length_m": 2743,
+      "hardened_shelters": 20,
+      "threat_level": "high"
+    },
+    {
+      "name": "Kunsan Air Base",
+      "country": "South Korea (US)",
+      "location": {
+        "lat": 35.9039,
+        "lon": 126.6158
+      },
+      "distance_to_taiwan_km": 1301.544389987572,
+      "f35_deployed": 0,
+      "f35_capable": true,
+      "runway_length_m": 2743,
+      "hardened_shelters": 18,
+      "threat_level": "high"
+    },
+    {
+      "name": "Cheongju Air Base",
+      "country": "South Korea",
+      "location": {
+        "lat": 36.7167,
+        "lon": 127.4986
+      },
+      "distance_to_taiwan_km": 1416.3814115685925,
+      "f35_deployed": 40,
+      "f35_capable": true,
+      "runway_length_m": 2750,
+      "hardened_shelters": 24,
+      "threat_level": "critical"
+    },
+    {
+      "name": "Daegu Air Base",
+      "country": "South Korea",
+      "location": {
+        "lat": 35.8964,
+        "lon": 128.6589
+      },
+      "distance_to_taiwan_km": 1385.0795078045455,
+      "f35_deployed": 0,
+      "f35_capable": true,
+      "runway_length_m": 2750,
+      "hardened_shelters": 16,
+      "threat_level": "high"
+    },
+    {
+      "name": "Andersen Air Force Base",
+      "country": "Guam (US)",
+      "location": {
+        "lat": 13.5839,
+        "lon": 144.9244
+      },
+      "distance_to_taiwan_km": 2755.5594995947645,
+      "f35_deployed": 0,
+      "f35_capable": true,
+      "runway_length_m": 3413,
+      "hardened_shelters": 8,
+      "threat_level": "critical"
+    },
+    {
+      "name": "Basa Air Base",
+      "country": "Philippines",
+      "location": {
+        "lat": 15.1833,
+        "lon": 120.5333
+      },
+      "distance_to_taiwan_km": 1100.5036740800374,
+      "f35_deployed": 0,
+      "f35_capable": true,
+      "runway_length_m": 3000,
+      "hardened_shelters": 4,
+      "threat_level": "high"
+    },
+    {
+      "name": "Antonio Bautista Air Base",
+      "country": "Philippines",
+      "location": {
+        "lat": 9.7428,
+        "lon": 118.7589
+      },
+      "distance_to_taiwan_km": 1725.872338427141,
+      "f35_deployed": 0,
+      "f35_capable": true,
+      "runway_length_m": 2500,
+      "hardened_shelters": 2,
+      "threat_level": "medium"
+    },
+    {
+      "name": "Laoag International (EDCA)",
+      "country": "Philippines",
+      "location": {
+        "lat": 18.1781,
+        "lon": 120.5317
+      },
+      "distance_to_taiwan_km": 769.6663309886559,
+      "f35_deployed": 0,
+      "f35_capable": true,
+      "runway_length_m": 2500,
+      "hardened_shelters": 0,
+      "threat_level": "medium"
+    }
+  ],
+  "tankers": [
+    {
+      "name": "KC-135 Stratotanker (Kadena)",
+      "type": "KC-135R",
+      "orbit": {
+        "lat": 25.5,
+        "lon": 125.0
+      },
+      "fuel_offload_lbs": 120000,
+      "vulnerability_hours": 8
+    },
+    {
+      "name": "KC-135 Stratotanker (Yokota)",
+      "type": "KC-135R",
+      "orbit": {
+        "lat": 33.0,
+        "lon": 133.0
+      },
+      "fuel_offload_lbs": 120000,
+      "vulnerability_hours": 8
+    },
+    {
+      "name": "KC-46 Pegasus (Guam)",
+      "type": "KC-46A",
+      "orbit": {
+        "lat": 18.0,
+        "lon": 138.0
+      },
+      "fuel_offload_lbs": 207000,
+      "vulnerability_hours": 10
+    },
+    {
+      "name": "KC-46 Pegasus (Japan)",
+      "type": "KC-46A",
+      "orbit": {
+        "lat": 30.0,
+        "lon": 130.0
+      },
+      "fuel_offload_lbs": 207000,
+      "vulnerability_hours": 10
+    }
+  ],
+  "awacs": [
+    {
+      "name": "E-3 Sentry (Kadena)",
+      "type": "E-3B/C",
+      "orbit": {
+        "lat": 26.0,
+        "lon": 126.0
+      },
+      "radar_range_km": 400,
+      "vulnerability_hours": 8
+    },
+    {
+      "name": "E-767 AWACS (JASDF)",
+      "type": "E-767",
+      "orbit": {
+        "lat": 32.0,
+        "lon": 130.0
+      },
+      "radar_range_km": 450,
+      "vulnerability_hours": 10
+    },
+    {
+      "name": "E-7A Wedgetail (ROKAF)",
+      "type": "E-7A",
+      "orbit": {
+        "lat": 35.0,
+        "lon": 127.0
+      },
+      "radar_range_km": 370,
+      "vulnerability_hours": 9
+    }
+  ],
+  "carrier_strike_groups": [
+    {
+      "name": "CSG-1 (Carl Vinson)",
+      "carrier_class": "Nimitz",
+      "hull_number": "CVN-70",
+      "homeport": "San Diego",
+      "f35c_count": 10,
+      "fa18_count": 34,
+      "e2d_count": 5,
+      "operating_area": {
+        "lat": 22.0,
+        "lon": 130.0
+      },
+      "sortie_rate": 120,
+      "vulnerabilities": [
+        "Large radar signature",
+        "IR signature from operations",
+        "Communication emissions",
+        "Predictable operating patterns"
+      ]
+    },
+    {
+      "name": "CSG-3 (Abraham Lincoln)",
+      "carrier_class": "Nimitz",
+      "hull_number": "CVN-72",
+      "homeport": "San Diego",
+      "f35c_count": 10,
+      "fa18_count": 34,
+      "e2d_count": 5,
+      "operating_area": {
+        "lat": 20.0,
+        "lon": 125.0
+      },
+      "sortie_rate": 120,
+      "vulnerabilities": [
+        "Large radar signature",
+        "IR signature from operations",
+        "Communication emissions"
+      ]
+    },
+    {
+      "name": "CSG-5 (Ronald Reagan)",
+      "carrier_class": "Nimitz",
+      "hull_number": "CVN-76",
+      "homeport": "Yokosuka, Japan",
+      "f35c_count": 0,
+      "fa18_count": 44,
+      "e2d_count": 5,
+      "operating_area": {
+        "lat": 25.0,
+        "lon": 128.0
+      },
+      "sortie_rate": 120,
+      "vulnerabilities": [
+        "Forward deployed - reduced reaction time",
+        "Predictable Yokosuka port calls",
+        "High operational tempo"
+      ]
+    },
+    {
+      "name": "CSG-11 (Theodore Roosevelt)",
+      "carrier_class": "Nimitz",
+      "hull_number": "CVN-71",
+      "homeport": "San Diego",
+      "f35c_count": 10,
+      "fa18_count": 34,
+      "e2d_count": 5,
+      "operating_area": {
+        "lat": 18.0,
+        "lon": 135.0
+      },
+      "sortie_rate": 120,
+      "vulnerabilities": [
+        "Long transit from CONUS",
+        "Chokepoints at Malacca/Lombok"
+      ]
+    },
+    {
+      "name": "USS Gerald R. Ford",
+      "carrier_class": "Ford",
+      "hull_number": "CVN-78",
+      "homeport": "Norfolk",
+      "f35c_count": 12,
+      "fa18_count": 32,
+      "e2d_count": 5,
+      "operating_area": {
+        "lat": 15.0,
+        "lon": 140.0
+      },
+      "sortie_rate": 160,
+      "vulnerabilities": [
+        "New systems - potential reliability issues",
+        "Extended transit from Atlantic"
+      ]
+    }
+  ],
+  "submarines": [
+    {
+      "name": "Virginia Class SSN (Block III+)",
+      "class": "Virginia",
+      "tlam_capacity": 12,
+      "acoustic_signature_db": 95,
+      "detection_difficulty": "very_difficult",
+      "threat_level": "critical",
+      "patrol_areas": [
+        {
+          "name": "Taiwan Strait approaches",
+          "lat": 22.0,
+          "lon": 120.0
+        },
+        {
+          "name": "First Island Chain",
+          "lat": 25.0,
+          "lon": 125.0
+        },
+        {
+          "name": "South China Sea",
+          "lat": 20.0,
+          "lon": 118.0
+        }
+      ]
+    },
+    {
+      "name": "Virginia Class SSN (Block V)",
+      "class": "Virginia Block V",
+      "tlam_capacity": 40,
+      "acoustic_signature_db": 92,
+      "detection_difficulty": "very_difficult",
+      "threat_level": "critical",
+      "patrol_areas": [
+        {
+          "name": "Taiwan East Coast",
+          "lat": 24.0,
+          "lon": 122.0
+        },
+        {
+          "name": "Luzon Strait",
+          "lat": 18.0,
+          "lon": 116.0
+        }
+      ]
+    },
+    {
+      "name": "Seawolf Class SSN",
+      "class": "Seawolf",
+      "tlam_capacity": 8,
+      "acoustic_signature_db": 90,
+      "detection_difficulty": "very_difficult",
+      "threat_level": "critical",
+      "patrol_areas": [
+        {
+          "name": "Ryukyu Islands",
+          "lat": 26.0,
+          "lon": 126.0
+        },
+        {
+          "name": "Bashi Channel",
+          "lat": 22.0,
+          "lon": 124.0
+        }
+      ]
+    },
+    {
+      "name": "Los Angeles Class SSN (688i)",
+      "class": "Los Angeles Improved",
+      "tlam_capacity": 12,
+      "acoustic_signature_db": 105,
+      "detection_difficulty": "difficult",
+      "threat_level": "high",
+      "patrol_areas": [
+        {
+          "name": "Philippine Sea",
+          "lat": 20.0,
+          "lon": 130.0
+        },
+        {
+          "name": "South China Sea",
+          "lat": 15.0,
+          "lon": 120.0
+        }
+      ]
+    },
+    {
+      "name": "Ohio Class SSGN",
+      "class": "Ohio SSGN",
+      "tlam_capacity": 154,
+      "acoustic_signature_db": 100,
+      "detection_difficulty": "difficult",
+      "threat_level": "critical",
+      "patrol_areas": [
+        {
+          "name": "Mariana Islands",
+          "lat": 16.0,
+          "lon": 135.0
+        },
+        {
+          "name": "Pacific approaches",
+          "lat": 20.0,
+          "lon": 140.0
+        }
+      ]
+    }
+  ],
+  "strike_packages": [
+    {
+      "target": "Kadena Air Base - Runway",
+      "category": "runway",
+      "weapon": "DF-17 HGV",
+      "quantity": 3,
+      "pk_single": 0.7124999999999999,
+      "pk_salvo": 0.9608746345165846,
+      "cost_musd": 45.0,
+      "operational_impact": "Denies 20 aircraft operations"
+    },
+    {
+      "target": "Kadena Air Base - HAS Complex",
+      "category": "hardened_shelter",
+      "weapon": "CJ-10 LACM",
+      "quantity": 6,
+      "pk_single": 0.3849993141781617,
+      "pk_salvo": 0.9120212068162281,
+      "cost_musd": 15.0,
+      "operational_impact": "Destroys 15 sheltered aircraft"
+    },
+    {
+      "target": "Kadena Air Base - Fuel Storage",
+      "category": "fuel_storage",
+      "weapon": "DF-16 SRBM",
+      "quantity": 3,
+      "pk_single": 0.6299898070623754,
+      "pk_salvo": 0.9246027355878569,
+      "cost_musd": 24.0,
+      "operational_impact": "Eliminates 50,000,000 gallons capacity"
+    },
+    {
+      "target": "Kadena Air Base - Maintenance",
+      "category": "maintenance_facility",
+      "weapon": "DF-21D ASBM",
+      "quantity": 3,
+      "pk_single": 0.6223629773911908,
+      "pk_salvo": 0.9204951049387765,
+      "cost_musd": 36.0,
+      "operational_impact": "Eliminates F-35 maintenance capability"
+    },
+    {
+      "target": "Misawa Air Base - Runway",
+      "category": "runway",
+      "weapon": "DF-26 IRBM",
+      "quantity": 2,
+      "pk_single": 0.7224999999999981,
+      "pk_salvo": 0.9004884760003511,
+      "cost_musd": 40.0,
+      "operational_impact": "Denies 32 aircraft operations"
+    },
+    {
+      "target": "Misawa Air Base - HAS Complex",
+      "category": "hardened_shelter",
+      "weapon": "CJ-20 ALCM",
+      "quantity": 6,
+      "pk_single": 0.4199894354803599,
+      "pk_salvo": 0.9343583453150209,
+      "cost_musd": 18.0,
+      "operational_impact": "Destroys 12 sheltered aircraft"
+    },
+    {
+      "target": "Misawa Air Base - Fuel Storage",
+      "category": "fuel_storage",
+      "weapon": "DF-26 IRBM",
+      "quantity": 6,
+      "pk_single": 0.4203457908648255,
+      "pk_salvo": 0.9345597470879823,
+      "cost_musd": 120.0,
+      "operational_impact": "Eliminates 30,000,000 gallons capacity"
+    },
+    {
+      "target": "Misawa Air Base - Maintenance",
+      "category": "maintenance_facility",
+      "weapon": "DF-26 IRBM",
+      "quantity": 4,
+      "pk_single": 0.5112901987119494,
+      "pk_salvo": 0.9123456311714615,
+      "cost_musd": 80.0,
+      "operational_impact": "Eliminates F-35 maintenance capability"
+    },
+    {
+      "target": "Yokota Air Base - Runway",
+      "category": "runway",
+      "weapon": "DF-26 IRBM",
+      "quantity": 2,
+      "pk_single": 0.7224999999999998,
+      "pk_salvo": 0.9004884760003522,
+      "cost_musd": 40.0,
+      "operational_impact": "Denies 20 aircraft operations"
+    },
+    {
+      "target": "Yokota Air Base - HAS Complex",
+      "category": "hardened_shelter",
+      "weapon": "CJ-20 ALCM",
+      "quantity": 6,
+      "pk_single": 0.41963943552650707,
+      "pk_salvo": 0.9341600530624099,
+      "cost_musd": 18.0,
+      "operational_impact": "Destroys 8 sheltered aircraft"
+    },
+    {
+      "target": "Yokota Air Base - Fuel Storage",
+      "category": "fuel_storage",
+      "weapon": "DF-26 IRBM",
+      "quantity": 6,
+      "pk_single": 0.4203457908648255,
+      "pk_salvo": 0.9345597470879823,
+      "cost_musd": 120.0,
+      "operational_impact": "Eliminates 40,000,000 gallons capacity"
+    },
+    {
+      "target": "Yokota Air Base - Maintenance",
+      "category": "maintenance_facility",
+      "weapon": "DF-26 IRBM",
+      "quantity": 4,
+      "pk_single": 0.5112901987119494,
+      "pk_salvo": 0.9123456311714615,
+      "cost_musd": 80.0,
+      "operational_impact": "Eliminates F-35 maintenance capability"
+    },
+    {
+      "target": "Iwakuni MCAS - Runway",
+      "category": "runway",
+      "weapon": "DF-17 HGV",
+      "quantity": 1,
+      "pk_single": 0.95,
+      "pk_salvo": 0.95,
+      "cost_musd": 15.0,
+      "operational_impact": "Denies 36 aircraft operations"
+    },
+    {
+      "target": "Iwakuni MCAS - HAS Complex",
+      "category": "hardened_shelter",
+      "weapon": "CJ-20 ALCM",
+      "quantity": 5,
+      "pk_single": 0.479929464412,
+      "pk_salvo": 0.93581087603134,
+      "cost_musd": 15.0,
+      "operational_impact": "Destroys 10 sheltered aircraft"
+    },
+    {
+      "target": "Iwakuni MCAS - Fuel Storage",
+      "category": "fuel_storage",
+      "weapon": "DF-26 IRBM",
+      "quantity": 5,
+      "pk_single": 0.4803951895598006,
+      "pk_salvo": 0.9360519530886632,
+      "cost_musd": 100.0,
+      "operational_impact": "Eliminates 25,000,000 gallons capacity"
+    },
+    {
+      "target": "Iwakuni MCAS - Maintenance",
+      "category": "maintenance_facility",
+      "weapon": "DF-26 IRBM",
+      "quantity": 4,
+      "pk_single": 0.5843316556707993,
+      "pk_salvo": 0.9494478494839642,
+      "cost_musd": 80.0,
+      "operational_impact": "Eliminates F-35 maintenance capability"
+    },
+    {
+      "target": "Misawa (JASDF) - Runway",
+      "category": "runway",
+      "weapon": "DF-26 IRBM",
+      "quantity": 2,
+      "pk_single": 0.7224999999999981,
+      "pk_salvo": 0.9004884760003511,
+      "cost_musd": 40.0,
+      "operational_impact": "Denies 40 aircraft operations"
+    },
+    {
+      "target": "Misawa (JASDF) - HAS Complex",
+      "category": "hardened_shelter",
+      "weapon": "CJ-20 ALCM",
+      "quantity": 6,
+      "pk_single": 0.4199999470153601,
+      "pk_salvo": 0.9343642932199713,
+      "cost_musd": 18.0,
+      "operational_impact": "Destroys 18 sheltered aircraft"
+    },
+    {
+      "target": "Misawa (JASDF) - Fuel Storage",
+      "category": "fuel_storage",
+      "weapon": "DF-26 IRBM",
+      "quantity": 6,
+      "pk_single": 0.4203457908648255,
+      "pk_salvo": 0.9345597470879823,
+      "cost_musd": 120.0,
+      "operational_impact": "Eliminates 20,000,000 gallons capacity"
+    },
+    {
+      "target": "Misawa (JASDF) - Maintenance",
+      "category": "maintenance_facility",
+      "weapon": "DF-26 IRBM",
+      "quantity": 4,
+      "pk_single": 0.5112901987119494,
+      "pk_salvo": 0.9123456311714615,
+      "cost_musd": 80.0,
+      "operational_impact": "Eliminates F-35 maintenance capability"
+    },
+    {
+      "target": "Komatsu Air Base - Runway",
+      "category": "runway",
+      "weapon": "DF-26 IRBM",
+      "quantity": 2,
+      "pk_single": 0.8499999999999015,
+      "pk_salvo": 0.9671175425884678,
+      "cost_musd": 40.0,
+      "operational_impact": "Denies 20 aircraft operations"
+    },
+    {
+      "target": "Komatsu Air Base - HAS Complex",
+      "category": "hardened_shelter",
+      "weapon": "CJ-20 ALCM",
+      "quantity": 5,
+      "pk_single": 0.44998868087181415,
+      "pk_salvo": 0.9187991015389259,
+      "cost_musd": 15.0,
+      "operational_impact": "Destroys 12 sheltered aircraft"
+    },
+    {
+      "target": "Komatsu Air Base - Fuel Storage",
+      "category": "fuel_storage",
+      "weapon": "DF-26 IRBM",
+      "quantity": 5,
+      "pk_single": 0.450370490212313,
+      "pk_salvo": 0.9190355860249886,
+      "cost_musd": 100.0,
+      "operational_impact": "Eliminates 15,000,000 gallons capacity"
+    },
+    {
+      "target": "Komatsu Air Base - Maintenance",
+      "category": "maintenance_facility",
+      "weapon": "DF-26 IRBM",
+      "quantity": 4,
+      "pk_single": 0.5478109271913743,
+      "pk_salvo": 0.9326886632395355,
+      "cost_musd": 80.0,
+      "operational_impact": "Eliminates F-35 maintenance capability"
+    },
+    {
+      "target": "Hyakuri Air Base - Runway",
+      "category": "runway",
+      "weapon": "DF-26 IRBM",
+      "quantity": 2,
+      "pk_single": 0.8499999999999015,
+      "pk_salvo": 0.9671175425884678,
+      "cost_musd": 40.0,
+      "operational_impact": "Denies 20 aircraft operations"
+    },
+    {
+      "target": "Hyakuri Air Base - HAS Complex",
+      "category": "hardened_shelter",
+      "weapon": "CJ-20 ALCM",
+      "quantity": 5,
+      "pk_single": 0.4499980624791311,
+      "pk_salvo": 0.9188049186036502,
+      "cost_musd": 15.0,
+      "operational_impact": "Destroys 14 sheltered aircraft"
+    },
+    {
+      "target": "Hyakuri Air Base - Fuel Storage",
+      "category": "fuel_storage",
+      "weapon": "DF-26 IRBM",
+      "quantity": 5,
+      "pk_single": 0.450370490212313,
+      "pk_salvo": 0.9190355860249886,
+      "cost_musd": 100.0,
+      "operational_impact": "Eliminates 18,000,000 gallons capacity"
+    },
+    {
+      "target": "Hyakuri Air Base - Maintenance",
+      "category": "maintenance_facility",
+      "weapon": "DF-26 IRBM",
+      "quantity": 4,
+      "pk_single": 0.5478109271913743,
+      "pk_salvo": 0.9326886632395355,
+      "cost_musd": 80.0,
+      "operational_impact": "Eliminates F-35 maintenance capability"
+    },
+    {
+      "target": "Chitose Air Base - Runway",
+      "category": "runway",
+      "weapon": "DF-26 IRBM",
+      "quantity": 2,
+      "pk_single": 0.8499999999999964,
+      "pk_salvo": 0.9671175425885052,
+      "cost_musd": 40.0,
+      "operational_impact": "Denies 20 aircraft operations"
+    },
+    {
+      "target": "Chitose Air Base - HAS Complex",
+      "category": "hardened_shelter",
+      "weapon": "CJ-20 ALCM",
+      "quantity": 5,
+      "pk_single": 0.44999966835015415,
+      "pk_salvo": 0.9188059142919991,
+      "cost_musd": 15.0,
+      "operational_impact": "Destroys 16 sheltered aircraft"
+    },
+    {
+      "target": "Chitose Air Base - Fuel Storage",
+      "category": "fuel_storage",
+      "weapon": "DF-26 IRBM",
+      "quantity": 5,
+      "pk_single": 0.450370490212313,
+      "pk_salvo": 0.9190355860249886,
+      "cost_musd": 100.0,
+      "operational_impact": "Eliminates 20,000,000 gallons capacity"
+    },
+    {
+      "target": "Chitose Air Base - Maintenance",
+      "category": "maintenance_facility",
+      "weapon": "DF-26 IRBM",
+      "quantity": 4,
+      "pk_single": 0.5478109271913743,
+      "pk_salvo": 0.9326886632395355,
+      "cost_musd": 80.0,
+      "operational_impact": "Eliminates F-35 maintenance capability"
+    },
+    {
+      "target": "Naha Air Base - Runway",
+      "category": "runway",
+      "weapon": "DF-17 HGV",
+      "quantity": 2,
+      "pk_single": 0.8075,
+      "pk_salvo": 0.948480063280519,
+      "cost_musd": 30.0,
+      "operational_impact": "Denies 20 aircraft operations"
+    },
+    {
+      "target": "Naha Air Base - HAS Complex",
+      "category": "hardened_shelter",
+      "weapon": "CJ-10 LACM",
+      "quantity": 6,
+      "pk_single": 0.3849434245804584,
+      "pk_salvo": 0.9119812231767183,
+      "cost_musd": 15.0,
+      "operational_impact": "Destroys 10 sheltered aircraft"
+    },
+    {
+      "target": "Naha Air Base - Fuel Storage",
+      "category": "fuel_storage",
+      "weapon": "DF-16 SRBM",
+      "quantity": 3,
+      "pk_single": 0.6299898070623754,
+      "pk_salvo": 0.9246027355878569,
+      "cost_musd": 24.0,
+      "operational_impact": "Eliminates 15,000,000 gallons capacity"
+    },
+    {
+      "target": "Naha Air Base - Maintenance",
+      "category": "maintenance_facility",
+      "weapon": "DF-21D ASBM",
+      "quantity": 3,
+      "pk_single": 0.6223629773911908,
+      "pk_salvo": 0.9204951049387765,
+      "cost_musd": 36.0,
+      "operational_impact": "Eliminates F-35 maintenance capability"
+    },
+    {
+      "target": "Tsuiki Air Base - Runway",
+      "category": "runway",
+      "weapon": "DF-17 HGV",
+      "quantity": 1,
+      "pk_single": 0.95,
+      "pk_salvo": 0.95,
+      "cost_musd": 15.0,
+      "operational_impact": "Denies 20 aircraft operations"
+    },
+    {
+      "target": "Tsuiki Air Base - HAS Complex",
+      "category": "hardened_shelter",
+      "weapon": "CJ-20 ALCM",
+      "quantity": 5,
+      "pk_single": 0.44998868087181415,
+      "pk_salvo": 0.9187991015389259,
+      "cost_musd": 15.0,
+      "operational_impact": "Destroys 12 sheltered aircraft"
+    },
+    {
+      "target": "Tsuiki Air Base - Fuel Storage",
+      "category": "fuel_storage",
+      "weapon": "DF-26 IRBM",
+      "quantity": 5,
+      "pk_single": 0.450370490212313,
+      "pk_salvo": 0.9190355860249886,
+      "cost_musd": 100.0,
+      "operational_impact": "Eliminates 12,000,000 gallons capacity"
+    },
+    {
+      "target": "Tsuiki Air Base - Maintenance",
+      "category": "maintenance_facility",
+      "weapon": "DF-26 IRBM",
+      "quantity": 4,
+      "pk_single": 0.5478109271913743,
+      "pk_salvo": 0.9326886632395355,
+      "cost_musd": 80.0,
+      "operational_impact": "Eliminates F-35 maintenance capability"
+    },
+    {
+      "target": "Nyutabaru Air Base - Runway",
+      "category": "runway",
+      "weapon": "DF-17 HGV",
+      "quantity": 1,
+      "pk_single": 0.95,
+      "pk_salvo": 0.95,
+      "cost_musd": 15.0,
+      "operational_impact": "Denies 34 aircraft operations"
+    },
+    {
+      "target": "Nyutabaru Air Base - HAS Complex",
+      "category": "hardened_shelter",
+      "weapon": "CJ-10 LACM",
+      "quantity": 6,
+      "pk_single": 0.41243938347906256,
+      "pk_salvo": 0.929973343770857,
+      "cost_musd": 15.0,
+      "operational_impact": "Destroys 10 sheltered aircraft"
+    },
+    {
+      "target": "Nyutabaru Air Base - Fuel Storage",
+      "category": "fuel_storage",
+      "weapon": "CJ-10 LACM",
+      "quantity": 3,
+      "pk_single": 0.6374896857178798,
+      "pk_salvo": 0.9285120314121743,
+      "cost_musd": 7.5,
+      "operational_impact": "Eliminates 14,000,000 gallons capacity"
+    },
+    {
+      "target": "Nyutabaru Air Base - Maintenance",
+      "category": "maintenance_facility",
+      "weapon": "DF-21D ASBM",
+      "quantity": 3,
+      "pk_single": 0.6668174757762759,
+      "pk_salvo": 0.942591822908915,
+      "cost_musd": 36.0,
+      "operational_impact": "Eliminates F-35 maintenance capability"
+    },
+    {
+      "target": "Osan Air Base - Runway",
+      "category": "runway",
+      "weapon": "DF-17 HGV",
+      "quantity": 3,
+      "pk_single": 0.7124999999999999,
+      "pk_salvo": 0.9608746345165846,
+      "cost_musd": 45.0,
+      "operational_impact": "Denies 20 aircraft operations"
+    },
+    {
+      "target": "Osan Air Base - HAS Complex",
+      "category": "hardened_shelter",
+      "weapon": "CJ-20 ALCM",
+      "quantity": 6,
+      "pk_single": 0.4199999909304989,
+      "pk_salvo": 0.9343643180682512,
+      "cost_musd": 18.0,
+      "operational_impact": "Destroys 20 sheltered aircraft"
+    },
+    {
+      "target": "Osan Air Base - Fuel Storage",
+      "category": "fuel_storage",
+      "weapon": "DF-26 IRBM",
+      "quantity": 6,
+      "pk_single": 0.4203457908648255,
+      "pk_salvo": 0.9345597470879823,
+      "cost_musd": 120.0,
+      "operational_impact": "Eliminates 35,000,000 gallons capacity"
+    },
+    {
+      "target": "Osan Air Base - Maintenance",
+      "category": "maintenance_facility",
+      "weapon": "DF-26 IRBM",
+      "quantity": 4,
+      "pk_single": 0.5112901987119494,
+      "pk_salvo": 0.9123456311714615,
+      "cost_musd": 80.0,
+      "operational_impact": "Eliminates F-35 maintenance capability"
+    },
+    {
+      "target": "Kunsan Air Base - Runway",
+      "category": "runway",
+      "weapon": "DF-17 HGV",
+      "quantity": 1,
+      "pk_single": 0.95,
+      "pk_salvo": 0.95,
+      "cost_musd": 15.0,
+      "operational_impact": "Denies 20 aircraft operations"
+    },
+    {
+      "target": "Kunsan Air Base - HAS Complex",
+      "category": "hardened_shelter",
+      "weapon": "CJ-10 LACM",
+      "quantity": 5,
+      "pk_single": 0.4399999444922821,
+      "pk_salvo": 0.9124230342568694,
+      "cost_musd": 12.5,
+      "operational_impact": "Destroys 18 sheltered aircraft"
+    },
+    {
+      "target": "Kunsan Air Base - Fuel Storage",
+      "category": "fuel_storage",
+      "weapon": "CJ-10 LACM",
+      "quantity": 3,
+      "pk_single": 0.6799889980990719,
+      "pk_salvo": 0.9483073537974813,
+      "cost_musd": 7.5,
+      "operational_impact": "Eliminates 30,000,000 gallons capacity"
+    },
+    {
+      "target": "Kunsan Air Base - Maintenance",
+      "category": "maintenance_facility",
+      "weapon": "DF-21D ASBM",
+      "quantity": 3,
+      "pk_single": 0.7112719741613611,
+      "pk_salvo": 0.9604386368362307,
+      "cost_musd": 36.0,
+      "operational_impact": "Eliminates F-35 maintenance capability"
+    },
+    {
+      "target": "Cheongju Air Base - Runway",
+      "category": "runway",
+      "weapon": "DF-17 HGV",
+      "quantity": 2,
+      "pk_single": 0.8075,
+      "pk_salvo": 0.948480063280519,
+      "cost_musd": 30.0,
+      "operational_impact": "Denies 60 aircraft operations"
+    },
+    {
+      "target": "Cheongju Air Base - HAS Complex",
+      "category": "hardened_shelter",
+      "weapon": "CJ-20 ALCM",
+      "quantity": 6,
+      "pk_single": 0.41999999973426405,
+      "pk_salvo": 0.93436432304964,
+      "cost_musd": 18.0,
+      "operational_impact": "Destroys 24 sheltered aircraft"
+    },
+    {
+      "target": "Cheongju Air Base - Fuel Storage",
+      "category": "fuel_storage",
+      "weapon": "DF-26 IRBM",
+      "quantity": 6,
+      "pk_single": 0.4203457908648255,
+      "pk_salvo": 0.9345597470879823,
+      "cost_musd": 120.0,
+      "operational_impact": "Eliminates 25,000,000 gallons capacity"
+    },
+    {
+      "target": "Cheongju Air Base - Maintenance",
+      "category": "maintenance_facility",
+      "weapon": "DF-26 IRBM",
+      "quantity": 4,
+      "pk_single": 0.5112901987119494,
+      "pk_salvo": 0.9123456311714615,
+      "cost_musd": 80.0,
+      "operational_impact": "Eliminates F-35 maintenance capability"
+    },
+    {
+      "target": "Daegu Air Base - Runway",
+      "category": "runway",
+      "weapon": "DF-17 HGV",
+      "quantity": 1,
+      "pk_single": 0.95,
+      "pk_salvo": 0.95,
+      "cost_musd": 15.0,
+      "operational_impact": "Denies 20 aircraft operations"
+    },
+    {
+      "target": "Daegu Air Base - HAS Complex",
+      "category": "hardened_shelter",
+      "weapon": "CJ-20 ALCM",
+      "quantity": 5,
+      "pk_single": 0.4799996462401645,
+      "pk_salvo": 0.9358472490541413,
+      "cost_musd": 15.0,
+      "operational_impact": "Destroys 16 sheltered aircraft"
+    },
+    {
+      "target": "Daegu Air Base - Fuel Storage",
+      "category": "fuel_storage",
+      "weapon": "DF-26 IRBM",
+      "quantity": 5,
+      "pk_single": 0.4803951895598006,
+      "pk_salvo": 0.9360519530886632,
+      "cost_musd": 100.0,
+      "operational_impact": "Eliminates 20,000,000 gallons capacity"
+    },
+    {
+      "target": "Daegu Air Base - Maintenance",
+      "category": "maintenance_facility",
+      "weapon": "DF-26 IRBM",
+      "quantity": 4,
+      "pk_single": 0.5843316556707993,
+      "pk_salvo": 0.9494478494839642,
+      "cost_musd": 80.0,
+      "operational_impact": "Eliminates F-35 maintenance capability"
+    },
+    {
+      "target": "Andersen Air Force Base - Runway",
+      "category": "runway",
+      "weapon": "DF-26 IRBM",
+      "quantity": 3,
+      "pk_single": 0.6375,
+      "pk_salvo": 0.9285173196996684,
+      "cost_musd": 60.0,
+      "operational_impact": "Denies 20 aircraft operations"
+    },
+    {
+      "target": "Andersen Air Force Base - HAS Complex",
+      "category": "hardened_shelter",
+      "weapon": "CJ-20 ALCM",
+      "quantity": 6,
+      "pk_single": 0.41963943552650707,
+      "pk_salvo": 0.9341600530624099,
+      "cost_musd": 18.0,
+      "operational_impact": "Destroys 8 sheltered aircraft"
+    },
+    {
+      "target": "Andersen Air Force Base - Fuel Storage",
+      "category": "fuel_storage",
+      "weapon": "DF-26 IRBM",
+      "quantity": 6,
+      "pk_single": 0.4203457908648255,
+      "pk_salvo": 0.9345597470879823,
+      "cost_musd": 120.0,
+      "operational_impact": "Eliminates 66,000,000 gallons capacity"
+    },
+    {
+      "target": "Andersen Air Force Base - Maintenance",
+      "category": "maintenance_facility",
+      "weapon": "DF-26 IRBM",
+      "quantity": 4,
+      "pk_single": 0.5112901987119494,
+      "pk_salvo": 0.9123456311714615,
+      "cost_musd": 80.0,
+      "operational_impact": "Eliminates F-35 maintenance capability"
+    },
+    {
+      "target": "Basa Air Base - Runway",
+      "category": "runway",
+      "weapon": "DF-17 HGV",
+      "quantity": 1,
+      "pk_single": 0.95,
+      "pk_salvo": 0.95,
+      "cost_musd": 15.0,
+      "operational_impact": "Denies 20 aircraft operations"
+    },
+    {
+      "target": "Basa Air Base - HAS Complex",
+      "category": "hardened_shelter",
+      "weapon": "CJ-10 LACM",
+      "quantity": 4,
+      "pk_single": 0.5338850296432462,
+      "pk_salvo": 0.9253763692958218,
+      "cost_musd": 10.0,
+      "operational_impact": "Destroys 4 sheltered aircraft"
+    },
+    {
+      "target": "Basa Air Base - Fuel Storage",
+      "category": "fuel_storage",
+      "weapon": "CJ-10 LACM",
+      "quantity": 2,
+      "pk_single": 0.8499862476238398,
+      "pk_salvo": 0.9671121158464195,
+      "cost_musd": 5.0,
+      "operational_impact": "Eliminates 5,000,000 gallons capacity"
+    },
+    {
+      "target": "Basa Air Base - Maintenance",
+      "category": "maintenance_facility",
+      "weapon": "DF-21D ASBM",
+      "quantity": 2,
+      "pk_single": 0.8890899677017012,
+      "pk_salvo": 0.980903776138784,
+      "cost_musd": 24.0,
+      "operational_impact": "Eliminates F-35 maintenance capability"
+    },
+    {
+      "target": "Antonio Bautista Air Base - Runway",
+      "category": "runway",
+      "weapon": "DF-17 HGV",
+      "quantity": 1,
+      "pk_single": 0.95,
+      "pk_salvo": 0.95,
+      "cost_musd": 15.0,
+      "operational_impact": "Denies 20 aircraft operations"
+    },
+    {
+      "target": "Antonio Bautista Air Base - HAS Complex",
+      "category": "hardened_shelter",
+      "weapon": "CJ-20 ALCM",
+      "quantity": 4,
+      "pk_single": 0.4972966378488615,
+      "pk_salvo": 0.9035149368287263,
+      "cost_musd": 12.0,
+      "operational_impact": "Destroys 2 sheltered aircraft"
+    },
+    {
+      "target": "Antonio Bautista Air Base - Fuel Storage",
+      "category": "fuel_storage",
+      "weapon": "DF-26 IRBM",
+      "quantity": 3,
+      "pk_single": 0.6004939869497506,
+      "pk_salvo": 0.9079633859561203,
+      "cost_musd": 60.0,
+      "operational_impact": "Eliminates 3,000,000 gallons capacity"
+    },
+    {
+      "target": "Antonio Bautista Air Base - Maintenance",
+      "category": "maintenance_facility",
+      "weapon": "DF-26 IRBM",
+      "quantity": 2,
+      "pk_single": 0.730414569588499,
+      "pk_salvo": 0.9055387798253025,
+      "cost_musd": 40.0,
+      "operational_impact": "Eliminates F-35 maintenance capability"
+    },
+    {
+      "target": "Laoag International (EDCA) - Runway",
+      "category": "runway",
+      "weapon": "DF-17 HGV",
+      "quantity": 1,
+      "pk_single": 0.95,
+      "pk_salvo": 0.95,
+      "cost_musd": 15.0,
+      "operational_impact": "Denies 20 aircraft operations"
+    },
+    {
+      "target": "Laoag International (EDCA) - Fuel Storage",
+      "category": "fuel_storage",
+      "weapon": "DF-16 SRBM",
+      "quantity": 2,
+      "pk_single": 0.8999854386605363,
+      "pk_salvo": 0.9841469137632338,
+      "cost_musd": 16.0,
+      "operational_impact": "Eliminates 2,000,000 gallons capacity"
+    },
+    {
+      "target": "Laoag International (EDCA) - Maintenance",
+      "category": "maintenance_facility",
+      "weapon": "DF-21D ASBM",
+      "quantity": 2,
+      "pk_single": 0.8890899677017012,
+      "pk_salvo": 0.980903776138784,
+      "cost_musd": 24.0,
+      "operational_impact": "Eliminates F-35 maintenance capability"
+    },
+    {
+      "target": "KC-135 Stratotanker (Kadena) - Orbit",
+      "category": "tanker_orbit",
+      "weapon": "PL-15 AAM",
+      "quantity": 3,
+      "pk_single": 0.5877872564250136,
+      "pk_salvo": 0.9001574473231301,
+      "cost_musd": 4.5,
+      "operational_impact": "Denies 120,000 lbs fuel offload"
+    },
+    {
+      "target": "KC-135 Stratotanker (Yokota) - Orbit",
+      "category": "tanker_orbit",
+      "weapon": "PL-15 AAM",
+      "quantity": 3,
+      "pk_single": 0.5877872564250136,
+      "pk_salvo": 0.9001574473231301,
+      "cost_musd": 4.5,
+      "operational_impact": "Denies 120,000 lbs fuel offload"
+    },
+    {
+      "target": "KC-46 Pegasus (Guam) - Orbit",
+      "category": "tanker_orbit",
+      "weapon": "PL-15 AAM",
+      "quantity": 3,
+      "pk_single": 0.5877872564250136,
+      "pk_salvo": 0.9001574473231301,
+      "cost_musd": 4.5,
+      "operational_impact": "Denies 207,000 lbs fuel offload"
+    },
+    {
+      "target": "KC-46 Pegasus (Japan) - Orbit",
+      "category": "tanker_orbit",
+      "weapon": "PL-15 AAM",
+      "quantity": 3,
+      "pk_single": 0.5877872564250136,
+      "pk_salvo": 0.9001574473231301,
+      "cost_musd": 4.5,
+      "operational_impact": "Denies 207,000 lbs fuel offload"
+    },
+    {
+      "target": "E-3 Sentry (Kadena) - Orbit",
+      "category": "awacs_orbit",
+      "weapon": "PL-15 AAM",
+      "quantity": 4,
+      "pk_single": 0.5497290255932605,
+      "pk_salvo": 0.9336545052064575,
+      "cost_musd": 6.0,
+      "operational_impact": "Denies 400 km radar coverage"
+    },
+    {
+      "target": "E-767 AWACS (JASDF) - Orbit",
+      "category": "awacs_orbit",
+      "weapon": "PL-15 AAM",
+      "quantity": 4,
+      "pk_single": 0.5497290255932605,
+      "pk_salvo": 0.9336545052064575,
+      "cost_musd": 6.0,
+      "operational_impact": "Denies 450 km radar coverage"
+    },
+    {
+      "target": "E-7A Wedgetail (ROKAF) - Orbit",
+      "category": "awacs_orbit",
+      "weapon": "PL-15 AAM",
+      "quantity": 4,
+      "pk_single": 0.5497290255932605,
+      "pk_salvo": 0.9336545052064575,
+      "cost_musd": 6.0,
+      "operational_impact": "Denies 370 km radar coverage"
+    },
+    {
+      "target": "E-2D Hawkeye (CVW-2)",
+      "category": "carrier_awacs",
+      "weapon": "PL-15 AAM",
+      "quantity": 24,
+      "pk_single": 0.05,
+      "pk_salvo": 0.6303097962099897,
+      "cost_musd": 36.0,
+      "operational_impact": "Denies carrier AEW - 550 km coverage"
+    },
+    {
+      "target": "E-2D Hawkeye (CVW-5)",
+      "category": "carrier_awacs",
+      "weapon": "PL-15 AAM",
+      "quantity": 24,
+      "pk_single": 0.05,
+      "pk_salvo": 0.6303097962099897,
+      "cost_musd": 36.0,
+      "operational_impact": "Denies carrier AEW - 550 km coverage"
+    },
+    {
+      "target": "E-2D Hawkeye (CVW-9)",
+      "category": "carrier_awacs",
+      "weapon": "PL-15 AAM",
+      "quantity": 24,
+      "pk_single": 0.05,
+      "pk_salvo": 0.6303097962099897,
+      "cost_musd": 36.0,
+      "operational_impact": "Denies carrier AEW - 550 km coverage"
+    },
+    {
+      "target": "P-8A Poseidon (VP-4)",
+      "category": "asw_aircraft",
+      "weapon": "PL-15 AAM",
+      "quantity": 24,
+      "pk_single": 0.05,
+      "pk_salvo": 0.6303097962099897,
+      "cost_musd": 36.0,
+      "operational_impact": "Degrades ASW coverage - enables submarine operations"
+    },
+    {
+      "target": "P-8A Poseidon (VP-47)",
+      "category": "asw_aircraft",
+      "weapon": "PL-15 AAM",
+      "quantity": 24,
+      "pk_single": 0.05,
+      "pk_salvo": 0.6303097962099897,
+      "cost_musd": 36.0,
+      "operational_impact": "Degrades ASW coverage - enables submarine operations"
+    },
+    {
+      "target": "CSG-1 (Carl Vinson) - CVN-70",
+      "category": "carrier",
+      "weapon": "DF-21D ASBM",
+      "quantity": 4,
+      "pk_single": 0.5849993997192902,
+      "pk_salvo": 0.9497234272966111,
+      "cost_musd": 48.0,
+      "operational_impact": "Eliminates 10 F-35C + 34 F/A-18 + 5 E-2D"
+    },
+    {
+      "target": "CSG-3 (Abraham Lincoln) - CVN-72",
+      "category": "carrier",
+      "weapon": "DF-21D ASBM",
+      "quantity": 4,
+      "pk_single": 0.5849993997192902,
+      "pk_salvo": 0.9497234272966111,
+      "cost_musd": 48.0,
+      "operational_impact": "Eliminates 10 F-35C + 34 F/A-18 + 5 E-2D"
+    },
+    {
+      "target": "CSG-5 (Ronald Reagan) - CVN-76",
+      "category": "carrier",
+      "weapon": "DF-21D ASBM",
+      "quantity": 4,
+      "pk_single": 0.5849993997192902,
+      "pk_salvo": 0.9497234272966111,
+      "cost_musd": 48.0,
+      "operational_impact": "Eliminates 0 F-35C + 44 F/A-18 + 5 E-2D"
+    },
+    {
+      "target": "CSG-11 (Theodore Roosevelt) - CVN-71",
+      "category": "carrier",
+      "weapon": "DF-26 IRBM",
+      "quantity": 4,
+      "pk_single": 0.5512959549507769,
+      "pk_salvo": 0.9344362254900709,
+      "cost_musd": 80.0,
+      "operational_impact": "Eliminates 10 F-35C + 34 F/A-18 + 5 E-2D"
+    },
+    {
+      "target": "USS Gerald R. Ford - CVN-78",
+      "category": "carrier",
+      "weapon": "DF-26 IRBM",
+      "quantity": 4,
+      "pk_single": 0.5512959549507769,
+      "pk_salvo": 0.9344362254900709,
+      "cost_musd": 80.0,
+      "operational_impact": "Eliminates 12 F-35C + 32 F/A-18 + 5 E-2D"
+    },
+    {
+      "target": "Virginia Class SSN (Block III+) - Patrol Area 1",
+      "category": "submarine",
+      "weapon": "Type 093B SSN + Yu-6 Torpedo",
+      "quantity": 24,
+      "pk_single": 0.05,
+      "pk_salvo": 0.6303097962099897,
+      "cost_musd": 1200.0,
+      "operational_impact": "Neutralizes 12 TLAM threat"
+    },
+    {
+      "target": "Virginia Class SSN (Block III+) - Patrol Area 2",
+      "category": "submarine",
+      "weapon": "Type 093B SSN + Yu-6 Torpedo",
+      "quantity": 24,
+      "pk_single": 0.05,
+      "pk_salvo": 0.6303097962099897,
+      "cost_musd": 1200.0,
+      "operational_impact": "Neutralizes 12 TLAM threat"
+    },
+    {
+      "target": "Virginia Class SSN (Block III+) - Patrol Area 3",
+      "category": "submarine",
+      "weapon": "Type 093B SSN + Yu-6 Torpedo",
+      "quantity": 24,
+      "pk_single": 0.05,
+      "pk_salvo": 0.6303097962099897,
+      "cost_musd": 1200.0,
+      "operational_impact": "Neutralizes 12 TLAM threat"
+    },
+    {
+      "target": "Virginia Class SSN (Block V) - Patrol Area 1",
+      "category": "submarine",
+      "weapon": "Type 093B SSN + Yu-6 Torpedo",
+      "quantity": 24,
+      "pk_single": 0.05,
+      "pk_salvo": 0.6303097962099897,
+      "cost_musd": 1200.0,
+      "operational_impact": "Neutralizes 40 TLAM threat"
+    },
+    {
+      "target": "Virginia Class SSN (Block V) - Patrol Area 2",
+      "category": "submarine",
+      "weapon": "Type 093B SSN + Yu-6 Torpedo",
+      "quantity": 24,
+      "pk_single": 0.05,
+      "pk_salvo": 0.6303097962099897,
+      "cost_musd": 1200.0,
+      "operational_impact": "Neutralizes 40 TLAM threat"
+    },
+    {
+      "target": "Seawolf Class SSN - Patrol Area 1",
+      "category": "submarine",
+      "weapon": "Type 093B SSN + Yu-6 Torpedo",
+      "quantity": 24,
+      "pk_single": 0.05,
+      "pk_salvo": 0.6303097962099897,
+      "cost_musd": 1200.0,
+      "operational_impact": "Neutralizes 8 TLAM threat"
+    },
+    {
+      "target": "Seawolf Class SSN - Patrol Area 2",
+      "category": "submarine",
+      "weapon": "Type 093B SSN + Yu-6 Torpedo",
+      "quantity": 24,
+      "pk_single": 0.05,
+      "pk_salvo": 0.6303097962099897,
+      "cost_musd": 1200.0,
+      "operational_impact": "Neutralizes 8 TLAM threat"
+    },
+    {
+      "target": "Los Angeles Class SSN (688i) - Patrol Area 1",
+      "category": "submarine",
+      "weapon": "Type 093B SSN + Yu-6 Torpedo",
+      "quantity": 24,
+      "pk_single": 0.05,
+      "pk_salvo": 0.6303097962099897,
+      "cost_musd": 1200.0,
+      "operational_impact": "Neutralizes 12 TLAM threat"
+    },
+    {
+      "target": "Los Angeles Class SSN (688i) - Patrol Area 2",
+      "category": "submarine",
+      "weapon": "Type 093B SSN + Yu-6 Torpedo",
+      "quantity": 24,
+      "pk_single": 0.05,
+      "pk_salvo": 0.6303097962099897,
+      "cost_musd": 1200.0,
+      "operational_impact": "Neutralizes 12 TLAM threat"
+    },
+    {
+      "target": "Ohio Class SSGN - Patrol Area 1",
+      "category": "submarine",
+      "weapon": "Type 093B SSN + Yu-6 Torpedo",
+      "quantity": 24,
+      "pk_single": 0.05,
+      "pk_salvo": 0.6303097962099897,
+      "cost_musd": 1200.0,
+      "operational_impact": "Neutralizes 154 TLAM threat"
+    },
+    {
+      "target": "Ohio Class SSGN - Patrol Area 2",
+      "category": "submarine",
+      "weapon": "Type 093B SSN + Yu-6 Torpedo",
+      "quantity": 24,
+      "pk_single": 0.05,
+      "pk_salvo": 0.6303097962099897,
+      "cost_musd": 1200.0,
+      "operational_impact": "Neutralizes 154 TLAM threat"
+    }
+  ],
+  "campaign_summary": {
+    "total_targets": 103,
+    "total_weapons": 709,
+    "total_cost_musd": 17223.5,
+    "f35_grounded": 292,
+    "runway_denial_hours": 72,
+    "tanker_denial_probability": 0.9001574473231301,
+    "weapons_by_type": {
+      "DF-17 HGV": 18,
+      "CJ-10 LACM": 35,
+      "DF-16 SRBM": 8,
+      "DF-21D ASBM": 28,
+      "DF-26 IRBM": 142,
+      "CJ-20 ALCM": 70,
+      "PL-15 AAM": 144,
+      "Type 093B SSN + Yu-6 Torpedo": 264
+    },
+    "targets_by_category": {
+      "runway": 19,
+      "hardened_shelter": 18,
+      "fuel_storage": 19,
+      "maintenance_facility": 19,
+      "tanker_orbit": 4,
+      "awacs_orbit": 3,
+      "carrier_awacs": 3,
+      "asw_aircraft": 2,
+      "carrier": 5,
+      "submarine": 11
+    },
+    "key_findings": [
+      "Total of 103 critical targets identified across 19 airbases",
+      "Strike campaign requires 709 weapons at estimated cost of $17223.5M",
+      "Runway denial expected for 72 hours minimum",
+      "Estimated 292+ F-35s grounded due to infrastructure damage",
+      "Tanker denial probability: 90.0% - forces F-35 to operate at reduced radius",
+      "AWACS denial eliminates beyond-visual-range engagement capability",
+      "5 carrier strike groups identified - 42 F-35C total",
+      "Carrier strike probability: 94.4% with ASBM salvos",
+      "5 submarine patrol areas - 226 TLAM threat capacity",
+      "Submarine interdiction requires sustained ASW operations",
+      "Hardened shelters require penetrator weapons - higher cost per target",
+      "Guam strikes extend campaign to strategic depth"
+    ]
+  }
+}

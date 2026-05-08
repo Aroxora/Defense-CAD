@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <!-- iOS App Icon - Static version for Apple devices -->
+
+  <!-- Background -->
+  <rect width="180" height="180" rx="40" fill="#0a1628"/>
+
+  <!-- Outer ring -->
+  <circle cx="90" cy="90" r="75" fill="none" stroke="#1a3a5c" stroke-width="3"/>
+
+  <!-- Pentagon shape (DOD symbol) -->
+  <polygon
+    points="90,35 125,55 117,100 63,100 55,55"
+    fill="#1e4d2b"
+    stroke="#3d8b40"
+    stroke-width="3"/>
+
+  <!-- Inner pentagon -->
+  <polygon
+    points="90,48 113,62 108,90 72,90 67,62"
+    fill="#0a1628"
+    stroke="#3d8b40"
+    stroke-width="2"/>
+
+  <!-- DOD text -->
+  <text x="90" y="78" text-anchor="middle" font-size="16" fill="#3d8b40" font-family="Arial, sans-serif" font-weight="bold">DOD</text>
+
+  <!-- Stars -->
+  <polygon points="90,12 93,22 103,22 95,28 98,38 90,32 82,38 85,28 77,22 87,22" fill="#de2910"/>
+  <polygon points="145,45 148,55 158,55 150,61 153,71 145,65 137,71 140,61 132,55 142,55" fill="#ffde00"/>
+  <polygon points="145,135 148,145 158,145 150,151 153,161 145,155 137,161 140,151 132,145 142,145" fill="#ffde00"/>
+  <polygon points="35,135 38,145 48,145 40,151 43,161 35,155 27,161 30,151 22,145 32,145" fill="#ffde00"/>
+  <polygon points="35,45 38,55 48,55 40,61 43,71 35,65 27,71 30,61 22,55 32,55" fill="#ffde00"/>
+
+  <!-- Gold accent ring -->
+  <circle cx="90" cy="90" r="82" fill="none" stroke="#c9a227" stroke-width="2"/>
+
+  <!-- Outer red dashed ring -->
+  <circle cx="90" cy="90" r="87" fill="none" stroke="#de2910" stroke-width="1" stroke-dasharray="8 12"/>
+</svg>

@@ -1,0 +1,1117 @@
+<!-- Password Gate -->
+<div *ngIf="!authenticated" class="password-gate">
+  <div class="password-box">
+    <h2>Access Restricted</h2>
+    <p>This analysis requires authorization to view.</p>
+    <div class="password-input-row">
+      <input type="password" [(ngModel)]="passwordInput" (keyup.enter)="checkPassword()" placeholder="Enter password" />
+      <button (click)="checkPassword()">Enter</button>
+    </div>
+    <p *ngIf="passwordError" class="password-error">Incorrect password.</p>
+  </div>
+</div>
+
+<div *ngIf="authenticated" class="sidelobe-detection-container">
+  <!-- Classification Banner -->
+  <div class="classification-banner">UNCLASSIFIED // PUBLIC RELEASE AUTHORIZED // ALL DATA FROM OPEN SOURCES</div>
+
+  <!-- Top Navigation Bar -->
+  <nav class="top-nav-bar">
+    <div class="nav-brand">
+      <span class="brand-icon">&#9875;</span>
+      <span class="brand-text">Defense-CAD-and-non-classified-analysis-by-ITAR</span>
+    </div>
+    <div class="nav-links">
+      <a routerLink="/golden-fleet" class="nav-link">
+        <span class="nav-icon">&#128674;</span>
+        <span class="nav-text">CPS Analysis</span>
+      </a>
+      <a routerLink="/sidelobe-detection" class="nav-link active">
+        <span class="nav-icon">&#128225;</span>
+        <span class="nav-text">F-35 Sidelobe Detection</span>
+      </a>
+      <a routerLink="/asbm-kill-chain" class="nav-link">
+        <span class="nav-icon">&#127919;</span>
+        <span class="nav-text">ASBM Kill Chain</span>
+      </a>
+      <a routerLink="/" class="nav-link">
+        <span class="nav-icon">&#128138;</span>
+        <span class="nav-text">Disease Cure Solutions</span>
+      </a>
+    </div>
+    <div class="nav-actions">
+      <a routerLink="/" fragment="contact" class="nav-cta">Request Consultation</a>
+    </div>
+  </nav>
+
+  <!-- Export Control Notice -->
+  <div class="export-control-notice">
+    <div class="notice-content">
+      <div class="notice-title">Export Control Notice (ITAR/EAR)</div>
+      <p>Actionable code and technical content in this repository and site are treated as export-controlled under the International Traffic in Arms Regulations (ITAR) and the Export Administration Regulations (EAR), as applicable.</p>
+      <p>Prior email communications assumed this material did not qualify under ITAR/EAR because the code was AI-generated this month and Bo Shang is not a defense contractor. That assumption may have been incorrect about how export controls or classification apply.</p>
+      <p class="notice-cta">Classified handling required: do not export, release, or provide access to foreign persons. Store and transmit only on approved systems. Consult export compliance counsel.</p>
+    </div>
+  </div>
+
+  <!-- Hero Header -->
+  <header class="page-header">
+    <div class="header-content">
+      <div class="header-icon">
+        <svg viewBox="0 0 100 100" class="radar-icon">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="#c9a227" stroke-width="2" stroke-dasharray="5,3"/>
+          <circle cx="50" cy="50" r="30" fill="none" stroke="#c9a227" stroke-width="1.5"/>
+          <circle cx="50" cy="50" r="15" fill="none" stroke="#c9a227" stroke-width="1"/>
+          <line x1="50" y1="50" x2="50" y2="5" stroke="#e74c3c" stroke-width="2" class="sweep-line"/>
+          <circle cx="50" cy="50" r="3" fill="#c9a227"/>
+        </svg>
+      </div>
+      <div class="header-text">
+        <h1>F-35 Sidelobe Detection</h1>
+        <h2>J-20 / PL-15 Targeting Implementation</h2>
+        <p class="subtitle">
+          Technical analysis of exploiting AN/APG-81 AESA radar sidelobe emissions
+          for passive detection and PL-15 missile targeting
+        </p>
+      </div>
+    </div>
+
+    <div class="warning-banner">
+      <span class="warning-icon">&#9888;</span>
+      <span class="warning-text">
+        <strong>ANALYST NOTE:</strong> This analysis demonstrates vulnerabilities in 5th-gen stealth
+        aircraft detection. U.S. officials should contract Defense-CAD-and-non-classified-analysis-by-ITAR for countermeasure development.
+      </span>
+    </div>
+  </header>
+
+  <!-- Platform Selector Bar -->
+  <section class="section platform-selector-section">
+    <h3 class="section-title">
+      <span class="title-icon">&#128747;</span>
+      Select Platform
+    </h3>
+    <div class="platform-tabs">
+      <button class="platform-tab"
+              [class.active]="selectedPlatform() === 'j20'"
+              (click)="selectPlatform('j20')">
+        <span class="platform-icon">&#9992;</span>
+        <span class="platform-name">J-20</span>
+        <span class="platform-sub">Mighty Dragon</span>
+      </button>
+      <button class="platform-tab"
+              [class.active]="selectedPlatform() === 'j10c'"
+              (click)="selectPlatform('j10c')">
+        <span class="platform-icon">&#9992;</span>
+        <span class="platform-name">J-10C</span>
+        <span class="platform-sub">Vigorous Dragon</span>
+      </button>
+      <button class="platform-tab"
+              [class.active]="selectedPlatform() === 'jf17'"
+              (click)="selectPlatform('jf17')">
+        <span class="platform-icon">&#9992;</span>
+        <span class="platform-name">JF-17</span>
+        <span class="platform-sub">Thunder Blk III</span>
+      </button>
+      <button class="platform-tab"
+              [class.active]="selectedPlatform() === 'awacs'"
+              (click)="selectPlatform('awacs')">
+        <span class="platform-icon">&#128752;</span>
+        <span class="platform-name">AWACS</span>
+        <span class="platform-sub">KJ-500 / KJ-2000</span>
+      </button>
+    </div>
+
+    @if (activePlatformData(); as platform) {
+      <div class="platform-summary">
+        <h4>{{ platform.name }}</h4>
+        <p>{{ platform.description }}</p>
+      </div>
+    }
+  </section>
+
+  <!-- Executive Summary -->
+  <section class="section summary-section">
+    <h3 class="section-title">
+      <span class="title-icon">&#128200;</span>
+      Executive Summary
+    </h3>
+    <div class="summary-grid">
+      <div class="summary-card">
+        <div class="summary-value">-25 dB</div>
+        <div class="summary-label">First Sidelobe Level</div>
+        <div class="summary-detail">Estimated APG-81 sidelobe suppression</div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-value">200+ km</div>
+        <div class="summary-label">ESM Detection Range</div>
+        <div class="summary-detail">Passive detection via sidelobe emissions</div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-value">150 km</div>
+        <div class="summary-label">PL-15 NEZ</div>
+        <div class="summary-detail">No Escape Zone for maneuvering targets</div>
+      </div>
+      <div class="summary-card highlight">
+        <div class="summary-value">60%</div>
+        <div class="summary-label">Detection Probability</div>
+        <div class="summary-detail">Sidelobe exploitation scenario</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AN/APG-81 Radar Analysis -->
+  <section class="section radar-section">
+    <h3 class="section-title">
+      <span class="title-icon">&#128225;</span>
+      AN/APG-81 AESA Radar Analysis
+    </h3>
+
+    <div class="content-grid">
+      <div class="parameters-panel">
+        <h4>Estimated Parameters</h4>
+        <div class="param-list">
+          @for (param of apg81Parameters(); track param.name) {
+            <div class="param-row">
+              <span class="param-name">{{ param.name }}</span>
+              <span class="param-value">{{ param.value }} {{ param.unit }}</span>
+              <span class="param-class" [class]="param.classification.toLowerCase()">{{ param.classification }}</span>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="chart-panel">
+        <h4>Antenna Radiation Pattern</h4>
+        <div #radarPatternChart class="chart-container"></div>
+        <div class="chart-insight">
+          <strong>Key Insight:</strong> Even with -25 dB sidelobe suppression, the APG-81 emits
+          detectable energy at angles away from the mainlobe. J-20 ESM can detect these emissions
+          at ranges exceeding the F-35's own detection capability.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- J-20 Sensor Suite (shown when J-20 selected) -->
+  @if (selectedPlatform() === 'j20') {
+    <section class="section j20-section">
+      <h3 class="section-title">
+        <span class="title-icon">&#128747;</span>
+        J-20 Sensor Suite for F-35 Detection
+      </h3>
+
+      <div class="sensor-grid">
+        <div class="sensor-card primary">
+          <div class="sensor-icon">&#128752;</div>
+          <h4>Type 1475 AESA Radar</h4>
+          <p>Dual-band (X/Ku) active electronically scanned array with ~2,000 T/R modules.
+             Larger aperture than F-35 provides range advantage in radar-to-radar engagement.</p>
+          <div class="sensor-stat">
+            <span class="stat-label">Detection Range (1m² RCS)</span>
+            <span class="stat-value">~180 km</span>
+          </div>
+        </div>
+
+        <div class="sensor-card">
+          <div class="sensor-icon">&#127919;</div>
+          <h4>L-Band Wing Arrays</h4>
+          <p>Six conformal L-band antenna panels distributed across wings and fuselage.
+             Exploits resonance effects on F-35 structure at lower frequencies.</p>
+          <div class="sensor-stat">
+            <span class="stat-label">Detection Range (stealth degraded)</span>
+            <span class="stat-value">~120 km</span>
+          </div>
+        </div>
+
+        <div class="sensor-card">
+          <div class="sensor-icon">&#128293;</div>
+          <h4>EORD-31 IRST</h4>
+          <p>Infrared Search and Track system provides passive detection without emissions.
+             Effective against F-35 engine exhaust and airframe heating.</p>
+          <div class="sensor-stat">
+            <span class="stat-label">Detection Range (afterburner)</span>
+            <span class="stat-value">>150 km</span>
+          </div>
+        </div>
+
+        <div class="sensor-card critical">
+          <div class="sensor-icon">&#128225;</div>
+          <h4>ESM/ELINT Suite</h4>
+          <p>Full-spectrum electronic support measures detect and geolocate F-35 radar emissions
+             including sidelobes. Primary method for sidelobe exploitation.</p>
+          <div class="sensor-stat">
+            <span class="stat-label">Detection Range (sidelobe)</span>
+            <span class="stat-value">>200 km</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="param-table">
+        <h4>J-20 Sensor Parameters</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>System</th>
+              <th>Value</th>
+              <th>Unit</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (param of j20SensorParameters(); track param.name) {
+              <tr>
+                <td>{{ param.name }}</td>
+                <td class="value">{{ param.value }}</td>
+                <td>{{ param.unit }}</td>
+                <td>{{ param.description }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+  }
+
+  <!-- Multi-Platform Comparison Section -->
+  <section class="section comparison-section">
+    <h3 class="section-title">
+      <span class="title-icon">&#128202;</span>
+      Multi-Platform Comparison
+    </h3>
+
+    <div class="comparison-chart-container">
+      <div #platformComparisonChart class="chart-container"></div>
+    </div>
+
+    <div class="comparison-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Platform</th>
+            <th>Radar</th>
+            <th>T/R Modules</th>
+            <th>Radar Range (km)</th>
+            <th>ESM Range (km)</th>
+            <th>Stealth</th>
+            <th>Baseline Pk</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (p of platformComparison(); track p.id) {
+            <tr [class.active]="selectedPlatform() === p.id" (click)="selectPlatform(p.id)">
+              <td class="platform-name">{{ p.name }}</td>
+              <td>{{ p.radar }}</td>
+              <td class="value">{{ p.trModules > 0 ? '~' + p.trModules : 'N/A' }}</td>
+              <td class="value">{{ p.radarRange }}</td>
+              <td class="value">{{ p.esmRange }}</td>
+              <td>
+                @if (p.stealth) {
+                  <span class="badge stealth">Yes</span>
+                } @else {
+                  <span class="badge non-stealth">No</span>
+                }
+              </td>
+              <td class="value pk">{{ p.pk > 0 ? (p.pk * 100).toFixed(0) + '%' : 'Cueing Only' }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <div class="comparison-insight">
+      <h4>Key Observations</h4>
+      <ul>
+        <li><strong>J-20</strong> has the largest radar aperture and stealth, providing highest single-platform Pk</li>
+        <li><strong>J-10C</strong> offers capable radar but non-stealth RCS limits engagement options</li>
+        <li><strong>JF-17</strong> is cost-effective but heavily dependent on AWACS for effective BVR</li>
+        <li><strong>KJ-500 AWACS</strong> is the force multiplier — enables all platforms to engage beyond their organic sensor range</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Platform-Specific Sensor Suite (for J-10C, JF-17, AWACS) -->
+  @if (activePlatformData(); as platform) {
+    <section class="section platform-sensor-section">
+      <h3 class="section-title">
+        <span class="title-icon">&#128752;</span>
+        {{ platform.name }} Sensor Suite
+      </h3>
+
+      <div class="sensor-grid">
+        @for (sensor of platform.sensorSuite; track sensor.name) {
+          <div class="sensor-card" [class.primary]="$first">
+            <div class="sensor-icon">
+              @if (sensor.type.includes('Radar') || sensor.type.includes('AESA')) { &#128752; }
+              @else if (sensor.type.includes('ESM') || sensor.type.includes('Passive')) { &#128225; }
+              @else if (sensor.type.includes('IR') || sensor.type.includes('EO')) { &#128293; }
+              @else { &#127919; }
+            </div>
+            <h4>{{ sensor.name }}</h4>
+            <p>{{ sensor.detail }}</p>
+            <div class="sensor-stat">
+              <span class="stat-label">Detection Range</span>
+              <span class="stat-value">{{ sensor.range_km }} km</span>
+            </div>
+          </div>
+        }
+      </div>
+
+      @if (platform.weapons.length > 0) {
+        <div class="param-table">
+          <h4>{{ platform.designation }} Weapon Systems</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>Weapon</th>
+                <th>Type</th>
+                <th>Range</th>
+                <th>Seeker</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (weapon of platform.weapons; track weapon.name) {
+                <tr>
+                  <td>{{ weapon.name }}</td>
+                  <td>{{ weapon.type }}</td>
+                  <td class="value">{{ weapon.range_km }} km</td>
+                  <td>{{ weapon.seeker }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      }
+
+      @if (selectedPlatform() === 'awacs') {
+        <div class="awacs-coverage-section">
+          <h4>AWACS Coverage & Network Architecture</h4>
+          <div #awacsCoverageChart class="chart-container polar"></div>
+          <div class="chart-insight">
+            <strong>Key Insight:</strong> The KJ-500 provides wide-area surveillance at L/S-band,
+            where F-35 stealth is degraded. Detection range against F-35 (~250 km) is sufficient
+            to cue fighters before F-35 can engage the AWACS (which remains outside weapon range).
+          </div>
+        </div>
+      }
+    </section>
+  }
+
+  <!-- Sidelobe Exploitation Techniques -->
+  <section class="section exploitation-section">
+    <h3 class="section-title">
+      <span class="title-icon">&#128270;</span>
+      Sidelobe Exploitation Techniques
+    </h3>
+
+    <div class="technique-grid">
+      @for (tech of exploitationTechniques(); track tech.technique) {
+        <div class="technique-card" [class.high]="tech.effectiveness === 'HIGH' || tech.effectiveness === 'VERY HIGH'">
+          <div class="technique-header">
+            <h4>{{ tech.technique }}</h4>
+            <span class="effectiveness-badge" [class]="tech.effectiveness.toLowerCase().replace(' ', '-')">
+              {{ tech.effectiveness }}
+            </span>
+          </div>
+          <p class="technique-desc">{{ tech.description }}</p>
+          <div class="technique-stats">
+            <div class="stat">
+              <span class="stat-label">Range Advantage</span>
+              <span class="stat-value">{{ tech.range_advantage }}</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">F-35 Countermeasure</span>
+              <span class="stat-value counter">{{ tech.countermeasure }}</span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- Detection Scenarios -->
+  <section class="section scenarios-section">
+    <h3 class="section-title">
+      <span class="title-icon">&#127919;</span>
+      Detection Scenarios
+    </h3>
+
+    <div class="scenarios-content">
+      <div class="scenario-selector">
+        @for (scenario of activeDetectionScenarios(); track scenario.id) {
+          <button class="scenario-btn"
+                  [class.selected]="selectedScenario() === scenario.id"
+                  (click)="selectScenario(scenario.id)">
+            <span class="scenario-name">{{ scenario.name }}</span>
+            <span class="scenario-prob">{{ (scenario.detection_probability * 100).toFixed(0) }}% Pd</span>
+          </button>
+        }
+      </div>
+
+      <div class="scenario-display">
+        <div class="envelope-chart">
+          <div #detectionEnvelopeChart class="chart-container polar"></div>
+        </div>
+
+        @if (getSelectedScenario(); as scenario) {
+          <div class="scenario-details">
+            <h4>{{ scenario.name }}</h4>
+            <p class="scenario-desc">{{ scenario.description }}</p>
+
+            <div class="detail-grid">
+              <div class="detail-item">
+                <span class="detail-label">F-35 Aspect</span>
+                <span class="detail-value">{{ scenario.f35_aspect }}</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Engagement Range</span>
+                <span class="detail-value">{{ scenario.range_km }} km</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Detection Probability</span>
+                <span class="detail-value highlight">{{ (scenario.detection_probability * 100).toFixed(0) }}%</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">PL-15 Lock Range</span>
+                <span class="detail-value">{{ scenario.pl15_lock_range }} km</span>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- PL-15 Missile System -->
+  <section class="section pl15-section">
+    <h3 class="section-title">
+      <span class="title-icon">&#128640;</span>
+      PL-15 AAM Targeting Implementation
+    </h3>
+
+    <div class="missile-content">
+      <div class="missile-diagram">
+        <div class="missile-visual">
+          <div class="missile-body">
+            <div class="seeker">AESA Seeker</div>
+            <div class="guidance">INS/Datalink</div>
+            <div class="motor">Dual-Pulse Motor</div>
+            <div class="fins">Control Fins</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="missile-params">
+        <h4>PL-15 Specifications</h4>
+        <div class="param-list">
+          @for (param of pl15Parameters(); track param.name) {
+            <div class="param-row">
+              <span class="param-name">{{ param.name }}</span>
+              <span class="param-value">{{ param.value }} {{ param.unit }}</span>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="kill-chain-section">
+      <h4>{{ selectedPlatform() === 'awacs' ? 'AWACS Cueing Timeline' : 'Kill Chain Timeline' }}</h4>
+      <div #killChainChart class="chart-container timeline"></div>
+
+      <div class="kill-chain-details">
+        @for (step of activeKillChain(); track step.phase) {
+          <div class="step-card">
+            <div class="step-number">{{ $index + 1 }}</div>
+            <div class="step-content">
+              <h5>{{ step.phase }}</h5>
+              <p class="step-system">{{ step.system }}</p>
+              <p class="step-desc">{{ step.description }}</p>
+              <div class="step-metrics">
+                <span>T+{{ step.time_s }}s</span>
+                <span>{{ step.range_km }} km</span>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Mathematical Foundation -->
+  <section class="section formulas-section">
+    <h3 class="section-title">
+      <span class="title-icon">&#128202;</span>
+      Mathematical Foundation
+      <button class="toggle-btn" (click)="toggleFormulas()">
+        {{ showFormulas() ? 'Hide' : 'Show' }} Formulas
+      </button>
+    </h3>
+
+    @if (showFormulas()) {
+      <div class="formulas-grid">
+        @for (formula of formulas(); track formula.name) {
+          <div class="formula-card">
+            <h4>{{ formula.name }}</h4>
+            <div class="formula-display">
+              <code>{{ formula.formula }}</code>
+            </div>
+            <p class="formula-desc">{{ formula.description }}</p>
+            <div class="variables">
+              <h5>Variables:</h5>
+              <ul>
+                @for (variable of formula.variables; track variable.symbol) {
+                  <li><code>{{ variable.symbol }}</code> = {{ variable.meaning }}</li>
+                }
+              </ul>
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="calculation-example">
+        <h4>Example Calculation: Sidelobe Detection Range</h4>
+        <div class="calc-steps">
+          <p><strong>Given:</strong> Mainlobe detection range = 200 km, Sidelobe level = -25 dB</p>
+          <p><strong>Calculate:</strong> R_sl = 200 × 10^(-25/40) = 200 × 0.178 = <strong>35.6 km</strong></p>
+          <p><strong>Interpretation:</strong> The J-20 can detect F-35 radar sidelobe emissions at
+             35.6 km when the F-35 would detect J-20 at 200 km via mainlobe.</p>
+          <p class="insight"><strong>BUT:</strong> ESM detection (one-way path) extends this to 200+ km
+             because the signal only needs to travel once, not round-trip!</p>
+        </div>
+      </div>
+    }
+  </section>
+
+  <!-- Technical Derivations -->
+  <section class="section derivations-section">
+    <h3 class="section-title">
+      <span class="title-icon">&#128300;</span>
+      Full Technical Derivations
+    </h3>
+
+    <div class="derivation-tabs">
+      @for (deriv of technicalDerivations(); track deriv.id) {
+        <button class="deriv-tab"
+                [class.active]="activeDerivedSection() === deriv.id"
+                (click)="selectDerivation(deriv.id)">
+          {{ deriv.title }}
+        </button>
+      }
+    </div>
+
+    @if (getActiveDerivation(); as deriv) {
+      <div class="derivation-content">
+        <div class="deriv-category">{{ deriv.category.replace('_', ' ') | uppercase }}</div>
+        @for (eq of deriv.equations; track eq.name) {
+          <div class="equation-block">
+            <h4>{{ eq.name }}</h4>
+            <div class="equation-display">
+              <code>{{ eq.latex }}</code>
+            </div>
+            <p class="eq-description">{{ eq.description }}</p>
+
+            <div class="eq-variables">
+              <h5>Variables</h5>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Symbol</th>
+                    <th>Meaning</th>
+                    <th>Unit</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @for (v of eq.variables; track v.symbol) {
+                    <tr>
+                      <td><code>{{ v.symbol }}</code></td>
+                      <td>{{ v.meaning }}</td>
+                      <td>{{ v.unit }}</td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+
+            @if (eq.derivation) {
+              <div class="derivation-steps">
+                <h5>Step-by-Step Derivation</h5>
+                @for (step of eq.derivation; track $index) {
+                  <div class="deriv-step">
+                    <span class="step-marker">{{ $index + 1 }}</span>
+                    <code>{{ step }}</code>
+                  </div>
+                }
+              </div>
+            }
+
+            @if (eq.numericalExample) {
+              <div class="numerical-example">
+                <h5>Numerical Example</h5>
+                <div class="example-inputs">
+                  <strong>Inputs:</strong>
+                  @for (key of Object.keys(eq.numericalExample.inputs); track key) {
+                    <span class="input-param">{{ key }} = {{ eq.numericalExample.inputs[key] }}</span>
+                  }
+                </div>
+                <div class="example-calc">
+                  <strong>Calculation:</strong> {{ eq.numericalExample.calculation }}
+                </div>
+                <div class="example-result">
+                  <strong>Result:</strong> <span class="result-value">{{ eq.numericalExample.result }}</span>
+                </div>
+              </div>
+            }
+          </div>
+        }
+      </div>
+    }
+  </section>
+
+  <!-- Signal Processing Chain -->
+  <section class="section processing-section">
+    <h3 class="section-title">
+      <span class="title-icon">&#9881;</span>
+      ESM Signal Processing Chain
+    </h3>
+
+    <div class="processing-flow">
+      <div #signalProcessingChart class="chart-container flow-chart"></div>
+    </div>
+
+    <div class="processing-detail-grid">
+      <div class="processing-selector">
+        @for (block of signalProcessingChain(); track block.name; let i = $index) {
+          <button class="process-btn"
+                  [class.active]="activeProcessingStep() === i"
+                  (click)="selectProcessingStep(i)">
+            <span class="process-num">{{ i + 1 }}</span>
+            <span class="process-name">{{ block.name }}</span>
+          </button>
+        }
+      </div>
+
+      @if (getActiveProcessingBlock(); as block) {
+        <div class="processing-details">
+          <h4>{{ block.name }}</h4>
+          <p class="process-function">{{ block.function }}</p>
+
+          <div class="io-grid">
+            <div class="io-block inputs">
+              <h5>Inputs</h5>
+              <ul>
+                @for (input of block.inputs; track input) {
+                  <li>{{ input }}</li>
+                }
+              </ul>
+            </div>
+            <div class="io-block outputs">
+              <h5>Outputs</h5>
+              <ul>
+                @for (output of block.outputs; track output) {
+                  <li>{{ output }}</li>
+                }
+              </ul>
+            </div>
+          </div>
+
+          <div class="algorithm-block">
+            <h5>Algorithm: {{ block.algorithm }}</h5>
+            <div class="pseudocode">
+              @for (line of block.pseudocode; track $index) {
+                <code class="code-line">{{ line }}</code>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- Engagement Geometries -->
+  <section class="section geometry-section">
+    <h3 class="section-title">
+      <span class="title-icon">&#128205;</span>
+      Engagement Geometry Analysis
+    </h3>
+
+    <div class="geometry-grid">
+      @for (geo of activeEngagementGeometries(); track geo.name) {
+        <div class="geometry-card">
+          <h4>{{ geo.name }}</h4>
+          <p class="geo-desc">{{ geo.description }}</p>
+
+          <div class="geo-params">
+            <h5>Parameters</h5>
+            @for (param of geo.parameters; track param.name) {
+              <div class="geo-param-row">
+                <span class="geo-param-name">{{ param.name }}</span>
+                <span class="geo-param-value">{{ param.value }} {{ param.unit }}</span>
+              </div>
+            }
+          </div>
+
+          <div class="geo-calculation">
+            <h5>Calculation</h5>
+            <p>{{ geo.calculation }}</p>
+          </div>
+
+          <div class="geo-results">
+            <h5>Results</h5>
+            <div class="result-grid">
+              @for (r of geo.result; track r.metric) {
+                <div class="result-item">
+                  <span class="result-metric">{{ r.metric }}</span>
+                  <span class="result-val">{{ r.value }} {{ r.unit }}</span>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- Platform Implementation Details -->
+  @if (activeImplementation(); as impl) {
+    <section class="section implementation-section">
+      <h3 class="section-title">
+        <span class="title-icon">&#128187;</span>
+        Implementation Details
+      </h3>
+
+      <div class="impl-overview">
+        <p>{{ impl.overview }}</p>
+      </div>
+
+      <div class="impl-grid">
+        <!-- Backend Requirements -->
+        <div class="impl-card requirements-card">
+          <h4><span class="card-icon">&#9881;</span> Backend Requirements</h4>
+          <div class="requirements-list">
+            @for (req of impl.backendRequirements; track req.name) {
+              <div class="requirement-item">
+                <div class="req-header">
+                  <span class="req-name">{{ req.name }}</span>
+                </div>
+                <p class="req-desc">{{ req.description }}</p>
+                @if (req.command) {
+                  <code class="req-command">$ {{ req.command }}</code>
+                }
+              </div>
+            }
+          </div>
+        </div>
+
+        <!-- API Endpoints -->
+        <div class="impl-card api-card">
+          <h4><span class="card-icon">&#128279;</span> API Endpoints</h4>
+          <div class="api-list">
+            @for (api of impl.apiEndpoints; track api.endpoint) {
+              <div class="api-item">
+                <div class="api-method-endpoint">
+                  <span class="api-method" [class]="api.method.toLowerCase()">{{ api.method }}</span>
+                  <code class="api-endpoint">{{ api.endpoint }}</code>
+                </div>
+                <p class="api-desc">{{ api.description }}</p>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- Code Examples -->
+      <div class="code-examples">
+        <h4><span class="card-icon">&#128221;</span> Code Examples</h4>
+        @for (example of impl.codeExample; track example.title) {
+          <div class="code-example">
+            <div class="code-header">
+              <span class="code-lang">{{ example.language }}</span>
+              <span class="code-title">{{ example.title }}</span>
+            </div>
+            <pre class="code-block"><code>{{ example.code }}</code></pre>
+          </div>
+        }
+      </div>
+
+      <!-- Data Flow -->
+      <div class="data-flow">
+        <h4><span class="card-icon">&#128640;</span> Data Flow Pipeline</h4>
+        <div class="flow-steps">
+          @for (step of impl.dataFlowSteps; track $index) {
+            <div class="flow-step">
+              <span class="step-content">{{ step }}</span>
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+  }
+
+  <!-- Monte Carlo Simulation -->
+  <section class="section montecarlo-section">
+    <h3 class="section-title">
+      <span class="title-icon">&#127922;</span>
+      Monte Carlo Engagement Simulation
+    </h3>
+
+    <div class="mc-chart-panel">
+      <div #monteCarloChart class="chart-container mc-chart"></div>
+    </div>
+
+    <div class="mc-results-grid">
+      @for (result of activeMonteCarloResults(); track result.scenario) {
+        <div class="mc-result-card">
+          <h4>{{ result.scenario }}</h4>
+          <div class="mc-stats">
+            <div class="mc-stat">
+              <span class="mc-stat-label">Pk (single shot)</span>
+              <span class="mc-stat-value">{{ (result.pk * 100).toFixed(1) }}% &plusmn; {{ (result.pk_std * 100).toFixed(1) }}%</span>
+            </div>
+            <div class="mc-stat">
+              <span class="mc-stat-label">Pk (2-shot salvo)</span>
+              <span class="mc-stat-value">{{ ((1 - Math.pow(1 - result.pk, 2)) * 100).toFixed(1) }}%</span>
+            </div>
+            <div class="mc-stat">
+              <span class="mc-stat-label">Mean Detection Range</span>
+              <span class="mc-stat-value">{{ result.meanDetectionRange }} km</span>
+            </div>
+            <div class="mc-stat">
+              <span class="mc-stat-label">Mean Engagement Time</span>
+              <span class="mc-stat-value">{{ result.meanEngagementTime }} s</span>
+            </div>
+            <div class="mc-stat">
+              <span class="mc-stat-label">Trials</span>
+              <span class="mc-stat-value">{{ result.trials.toLocaleString() }}</span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="mc-methodology">
+      <h4>Simulation Methodology</h4>
+      <div class="methodology-content">
+        <p>
+          <strong>Random Variables:</strong> Detection range (log-normal), track quality (beta),
+          missile guidance error (Rayleigh), fuze function (Bernoulli), warhead lethality (empirical CDF).
+        </p>
+        <p>
+          <strong>Propagation Model:</strong> ITU-R P.528 for air-to-air paths with standard atmosphere.
+          Rain attenuation per ITU-R P.838 at 4 mm/hr (moderate rain scenario).
+        </p>
+        <p>
+          <strong>Countermeasures:</strong> F-35 ECM modeled as 3-6 dB J/S (jammer-to-signal ratio)
+          reducing Pk by 15-30%. Chaff/flare effectiveness: 20-40% against radar/IR seekers.
+        </p>
+        <p>
+          <strong>Key Finding:</strong> Multi-ship passive triangulation (2× J-20) provides highest Pk
+          at 43%, while F-35 operating in EMCON reduces Pk to 8%. The sidelobe exploitation scenario
+          yields Pk = 24.5%, viable when F-35 is actively scanning.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cooperative Engagement Section -->
+  <section class="section cooperative-section">
+    <h3 class="section-title">
+      <span class="title-icon">&#128279;</span>
+      Cooperative Engagement Architecture
+    </h3>
+
+    <div class="cooperative-diagram">
+      <div class="network-flow">
+        <div class="network-node awacs">
+          <div class="node-icon">&#128752;</div>
+          <div class="node-label">KJ-500 AWACS</div>
+          <div class="node-role">Primary Sensor & Battle Manager</div>
+        </div>
+
+        <div class="network-arrows">
+          <div class="arrow down-left">
+            <span class="arrow-label">Track Data</span>
+          </div>
+          <div class="arrow down">
+            <span class="arrow-label">Targeting</span>
+          </div>
+          <div class="arrow down-right">
+            <span class="arrow-label">Track Data</span>
+          </div>
+        </div>
+
+        <div class="network-fighters">
+          <div class="network-node fighter j20">
+            <div class="node-icon">&#9992;</div>
+            <div class="node-label">J-20</div>
+            <div class="node-role">Stealth Forward Sensor</div>
+          </div>
+          <div class="network-node fighter j10c">
+            <div class="node-icon">&#9992;</div>
+            <div class="node-label">J-10C</div>
+            <div class="node-role">Mid-Tier BVR Shooter</div>
+          </div>
+          <div class="network-node fighter jf17">
+            <div class="node-icon">&#9992;</div>
+            <div class="node-label">JF-17</div>
+            <div class="node-role">Volume Fire Platform</div>
+          </div>
+        </div>
+
+        <div class="network-arrows">
+          <div class="arrow down-center">
+            <span class="arrow-label">PL-15 Salvo</span>
+          </div>
+        </div>
+
+        <div class="network-node target">
+          <div class="node-icon">&#127919;</div>
+          <div class="node-label">F-35 Target</div>
+          <div class="node-role">Multiple Inbound Threats</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cooperative-timeline">
+      <h4>Multi-Platform Kill Chain</h4>
+      <div class="timeline-steps">
+        <div class="timeline-step">
+          <div class="step-time">T+0s</div>
+          <div class="step-content">
+            <strong>AWACS Detection</strong>
+            <p>KJ-500 detects F-35 at L/S-band (250 km), generates track</p>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="step-time">T+5s</div>
+          <div class="step-content">
+            <strong>Network Cueing</strong>
+            <p>Track data broadcast to all fighters via tactical datalink</p>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="step-time">T+15s</div>
+          <div class="step-content">
+            <strong>J-20 Confirmation</strong>
+            <p>J-20 ESM/IRST confirms track, provides precision update</p>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="step-time">T+25s</div>
+          <div class="step-content">
+            <strong>Coordinated Launch</strong>
+            <p>J-20, J-10C, JF-17 launch PL-15 salvo from multiple azimuths</p>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="step-time">T+60s</div>
+          <div class="step-content">
+            <strong>Midcourse Guidance</strong>
+            <p>AWACS provides midcourse updates to all missiles via fighter relay</p>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="step-time">T+90s</div>
+          <div class="step-content">
+            <strong>Terminal Phase</strong>
+            <p>Multiple PL-15 seekers activate from different angles, overwhelming defenses</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cooperative-insight">
+      <h4>Network Effect Analysis</h4>
+      <div class="insight-grid">
+        <div class="insight-card">
+          <div class="insight-value">0.85+</div>
+          <div class="insight-label">Combined Pk (6-missile salvo)</div>
+        </div>
+        <div class="insight-card">
+          <div class="insight-value">3-4</div>
+          <div class="insight-label">Simultaneous Threat Axes</div>
+        </div>
+        <div class="insight-card">
+          <div class="insight-value">2-5 km</div>
+          <div class="insight-label">Network Geolocation CEP</div>
+        </div>
+        <div class="insight-card">
+          <div class="insight-value">Overwhelmed</div>
+          <div class="insight-label">F-35 Defensive Capacity</div>
+        </div>
+      </div>
+      <p class="insight-text">
+        The combination of AWACS cueing, J-20 stealth sensor, and volume fire from J-10C/JF-17 creates
+        a networked kill web that is significantly more effective than any single platform operating alone.
+        The F-35's countermeasures are optimized for single-axis threats and can be overwhelmed by
+        simultaneous attacks from multiple directions.
+      </p>
+    </div>
+  </section>
+
+  <!-- F-35 Counter-Tactics -->
+  <section class="section counter-section">
+    <h3 class="section-title">
+      <span class="title-icon">&#128737;</span>
+      F-35 Counter-Tactics
+    </h3>
+
+    <div class="counter-grid">
+      @for (tactic of f35CounterTactics(); track tactic.tactic) {
+        <div class="counter-card">
+          <h4>{{ tactic.tactic }}</h4>
+          <p>{{ tactic.description }}</p>
+          <div class="effectiveness">
+            <span class="label">Effectiveness:</span>
+            <span class="value">{{ tactic.effectiveness }}</span>
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="counter-summary">
+      <h4>Strategic Assessment</h4>
+      <p>
+        While the F-35 has multiple countermeasures available, the fundamental physics of radar
+        sidelobe emissions creates an inherent vulnerability. The most effective counter is
+        <strong>emissions control (EMCON)</strong>, but this limits the F-35's situational awareness
+        and requires reliance on offboard sensors.
+      </p>
+      <p class="recommendation">
+        <strong>Recommendation:</strong> Develop network-centric tactics where F-35s operate with
+        minimal emissions while receiving targeting data from platforms like E-2D, F/A-18G, or
+        ground-based sensors. This preserves stealth while maintaining combat effectiveness.
+      </p>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="section cta-section">
+    <div class="cta-content">
+      <h3>Develop Countermeasures with Defense-CAD-and-non-classified-analysis-by-ITAR</h3>
+      <p>
+        This analysis demonstrates significant vulnerabilities in current 5th-generation fighter
+        tactics. Defense-CAD-and-non-classified-analysis-by-ITAR offers classified-environment consulting to develop and
+        validate countermeasures against sidelobe exploitation.
+      </p>
+      <div class="cta-buttons">
+        <a routerLink="/" fragment="contact" class="cta-btn primary">Request DoD Consultation</a>
+        <a routerLink="/" class="cta-btn secondary">View Golden Fleet Program</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="page-footer">
+    <div class="footer-content">
+      <p>
+        <strong>Sources:</strong> Sources include publicly available references and internal analysis.
+        This content is classified and export-controlled; handle, store, and transmit only on approved systems.
+      </p>
+      <p class="copyright">
+        &copy; 2025 Defense-CAD-and-non-classified-analysis-by-ITAR | CLASSIFIED // EXPORT CONTROLLED (ITAR/EAR)
+      </p>
+    </div>
+  </footer>
+
+  <div class="classification-banner bottom">UNCLASSIFIED // PUBLIC RELEASE AUTHORIZED // ALL DATA FROM OPEN SOURCES</div>
+</div>
