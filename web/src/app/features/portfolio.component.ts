@@ -1,17 +1,20 @@
 import { Component, OnInit, computed, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { DataService } from '../data.service';
 import { ProposedSystem } from '../models';
+import { CALCULATORS, BLURBS } from '../calc-defs';
 
 @Component({
   selector: 'app-portfolio',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './portfolio.component.html',
 })
 export class PortfolioComponent implements OnInit {
   private data = inject(DataService);
+  calculators = CALCULATORS.map((c) => ({ id: c.id, title: c.title, category: c.category, blurb: BLURBS[c.id] ?? '' }));
   systems = signal<ProposedSystem[]>([]);
   sideFilter = signal('all');
   domainFilter = signal('all');

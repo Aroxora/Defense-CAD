@@ -8,12 +8,15 @@
       "unit": "m2",
       "checked": "2026-05-29",
       "sources": [
+        "Public RCS estimates (Aviation Week, academic)"
+      ],
+      "status": "sources_refreshed",
+      "related_news": [
         "https://www.latimes.com/world-nation/story/2026-05-27/carney-says-canada-will-buy-european-surveillance-planes-over-two-american-options",
         "https://aviationweek.com/defense/missile-defense-weapons/netherlands-seeks-new-tactical-weapon-f-35-fleet",
         "https://www.businessinsider.com/air-force-delayed-a10-warthog-retirement-still-replacing-with-f35-2026-5",
         "https://www.flightglobal.com/defence/2026/05/mbdas-spear-miniature-cruise-missile-makes-debut-flight-aboard-f-35b/"
-      ],
-      "status": "sources_refreshed"
+      ]
     },
     {
       "key": "b21_unit_cost",
@@ -22,12 +25,15 @@
       "unit": "USD_million",
       "checked": "2026-05-29",
       "sources": [
+        "USAF/GAO public estimates"
+      ],
+      "status": "sources_refreshed",
+      "related_news": [
         "https://www.defenseone.com/ideas/2026/05/pentagons-54-billion-bet-autonomous-warfare/413735/?oref=d1-featured-river-top",
         "https://www.defenseone.com/technology/2026/05/how-pentagon-plans-spend-50-billion-drone-warfare/413805/?oref=d1-featured-river-top",
         "https://www.defensedaily.com/space-force-awards-spacex-2-29-billion-contract-for-space-data-network/space/",
         "https://www.defensedaily.com/space-force-awards-viasat-and-intelsat-general-438-million-for-continued-work-on-pts-g/space/"
-      ],
-      "status": "sources_refreshed"
+      ]
     },
     {
       "key": "ddgx_unit_cost",
@@ -37,11 +43,17 @@
       "checked": "2026-05-29",
       "sources": [
         "https://www.defensedaily.com/space-force-awards-viasat-and-intelsat-general-438-million-for-continued-work-on-pts-g/space/",
-        "https://www.designdevelopmenttoday.com/industries/aerospace/news/22967678/pentagons-unit-x-bets-big-on-supersonic-payload-drops",
-        "https://www.washingtonpost.com/national-security/2026/05/26/house-rolls-out-114-trillion-defense-bill/",
-        "https://www.forbes.com/sites/williamhartung/2026/05/25/golden-dome-marks-a-moment-of-truth-for-military-tech-firms/"
+        "https://www.twz.com/sea/congress-moves-to-block-trump-class-battleship-work-until-its-key-weapons-are-mature",
+        "https://www.nytimes.com/2026/05/23/us/politics/britain-strait-of-hormuz-iran.html",
+        "https://www.artnet.com/artists/george-morrison/untitled-r01aBtJDo58m-CMcb5QNYg2"
       ],
       "status": "possible_discrepancy",
+      "related_news": [
+        "https://www.defensedaily.com/space-force-awards-viasat-and-intelsat-general-438-million-for-continued-work-on-pts-g/space/",
+        "https://www.twz.com/sea/congress-moves-to-block-trump-class-battleship-work-until-its-key-weapons-are-mature",
+        "https://www.nytimes.com/2026/05/23/us/politics/britain-strait-of-hormuz-iran.html",
+        "https://www.artnet.com/artists/george-morrison/untitled-r01aBtJDo58m-CMcb5QNYg2"
+      ],
       "parsed_value": 438.0,
       "relative_delta": 0.867
     },
@@ -58,6 +70,12 @@
         "https://www.tipranks.com/news/company-announcements/sentinelone-restructures-workforce-to-boost-ai-security-growth"
       ],
       "status": "possible_discrepancy",
+      "related_news": [
+        "https://www.defenseone.com/ideas/2026/05/pentagons-54-billion-bet-autonomous-warfare/413735/?oref=d1-featured-river-top",
+        "https://www.microsoft.com/en-us/security/blog/2026/05/28/the-gentlemen-ransomware-dissecting-a-self-propagating-go-encryptor/",
+        "https://mlq.ai/news/pentagon-agrees-to-spacexs-5x-starlink-price-hike-for-lucas-war-drones-in-iran/",
+        "https://www.tipranks.com/news/company-announcements/sentinelone-restructures-workforce-to-boost-ai-security-growth"
+      ],
       "parsed_value": 54000.0,
       "relative_delta": 0.35
     },
@@ -68,12 +86,15 @@
       "unit": "mach",
       "checked": "2026-05-29",
       "sources": [
+        "CSIS Missile Threat; DoD CMPR"
+      ],
+      "status": "sources_refreshed",
+      "related_news": [
         "https://fashionunited.uk/press/fashion/nike-presents-its-new-football-shoes-created-for-speed-the-mercurial-vapor-and-the-mercurial-superfly/2026052688242",
         "https://www.flightglobal.com/archive/2026/05/hermeus-logs-first-supersonic-flight-with-experimental-quarterhorse-jet/",
         "https://www.forbes.com/sites/monicahunter-hart/2026/05/27/this-sam-altmanand-peter-thiel-backed-aviation-company-achieves-supersonic-flight/",
         "https://www.basenor.com/blogs/news/starlink-streams-live-video-from-starship-at-hypersonic-speeds"
-      ],
-      "status": "sources_refreshed"
+      ]
     },
     {
       "key": "madl_band_ghz",
@@ -88,6 +109,12 @@
         "http://www.jpost.com/defense-and-tech/article-897569"
       ],
       "status": "possible_discrepancy",
+      "related_news": [
+        "https://www.rcrwireless.com/20260528/5g/deutsche-telekom-5g-3",
+        "https://www.rcrwireless.com/20260522/analyst-angle/gsma-ctia-us-midband-spectrum-bubley",
+        "https://www.jpost.com/defense-and-tech/article-897569",
+        "http://www.jpost.com/defense-and-tech/article-897569"
+      ],
       "parsed_value": 2.1,
       "relative_delta": 0.854
     },
@@ -104,6 +131,12 @@
         "https://news.usni.org/2026/05/28/south-korean-attack-boat-arrives-in-canada-ahead-of-submarine-program-decision"
       ],
       "status": "corroborated",
+      "related_news": [
+        "https://www.businessinsider.com/young-submarine-workers-are-leaving-for-less-demanding-jobs-2026-5",
+        "https://www.defensenews.com/global/asia-pacific/2026/05/26/australia-starts-high-risk-life-extension-of-its-submarine-fleet/",
+        "https://www.politico.com/sponsored/2026/05/28/the-fleet-that-builds-a-nation/",
+        "https://news.usni.org/2026/05/28/south-korean-attack-boat-arrives-in-canada-ahead-of-submarine-program-decision"
+      ],
       "parsed_value": 11000.0,
       "relative_delta": 0.222
     },
@@ -114,12 +147,15 @@
       "unit": "tonnes",
       "checked": "2026-05-29",
       "sources": [
+        "USNI/CSIS PLAN analyses"
+      ],
+      "status": "sources_refreshed",
+      "related_news": [
         "https://www.janes.com/defence-intelligence-insights/defence-news/sea/turkiye-launches-malaysias-first-lms-batch-2-vessel",
         "https://www.navalnews.com/naval-news/2026/05/chinas-new-type-054b-frigate-makes-carrier-strike-group-debut-in-western-pacific/",
         "https://maritime-executive.com/corporate/seaspan-celebrates-one-year-of-progress-on-the-heavy-polar-icebreaker",
         "https://www.seatrade-maritime.com/dry-bulk/greek-fleet-continued-to-grow-in-2025"
-      ],
-      "status": "sources_refreshed"
+      ]
     }
   ]
 }

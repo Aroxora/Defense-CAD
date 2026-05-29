@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink, ActivatedRoute } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
-import { CALCULATORS, CALC_BY_ID } from '../calc-defs';
+import { CALCULATORS, CALC_BY_ID, BLURBS } from '../calc-defs';
 import { CalculatorComponent } from '../calculator.component';
 
 @Component({
@@ -26,7 +26,7 @@ import { CalculatorComponent } from '../calculator.component';
         <a class="calc-card" *ngFor="let c of all" [routerLink]="['/calculators', c.id]">
           <span class="cat">{{ c.category }}</span>
           <h4>{{ c.title }}</h4>
-          <p>{{ c.why.slice(0, 110) }}…</p>
+          <p>{{ blurb(c.id) }}</p>
         </a>
       </div>
 
@@ -49,6 +49,7 @@ export class CalculatorsComponent {
   all = CALCULATORS;
   private id = toSignal(this.route.paramMap.pipe(map((p) => p.get('id'))), { initialValue: null });
   selected = computed(() => { const i = this.id(); return i ? CALC_BY_ID[i] ?? null : null; });
+  blurb(id: string) { return BLURBS[id] ?? ''; }
 
   grouped() {
     const cats = Array.from(new Set(this.all.map((c) => c.category)));

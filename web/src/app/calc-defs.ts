@@ -285,3 +285,18 @@ export const CALCULATORS: CalcDef[] = [
 ];
 
 export const CALC_BY_ID: Record<string, CalcDef> = Object.fromEntries(CALCULATORS.map((c) => [c.id, c]));
+
+/** One-line "what it does" descriptions (kept faithful to each calculator's actual compute). */
+export const BLURBS: Record<string, string> = {
+  'radar-range-equation': 'Maximum radar detection range from the full radar range equation — transmit power, aperture gain, RCS, bandwidth and pulse integration.',
+  'rcs-fourth-root': 'Predicts detection range against any target by scaling one known calibration point by the RCS^(1/4) law.',
+  'radar-horizon': 'Power-limited range vs the 4/3-Earth radar horizon — reveals the low-altitude detection gap and coverage area.',
+  'free-space-path-loss': 'Free-space path loss vs frequency and range — the baseline term of every link and detection budget.',
+  'esm-intercept': 'How far a passive receiver can intercept an emitter (Friis), including the time-bandwidth processing gain 10·log₁₀(B·T) from dwell time.',
+  'jammer-to-signal': 'Jammer-to-signal ratio against a radar and against an LPI link (after a spatial-isolation + processing-gain penalty).',
+  'aspect-rcs': 'How radar cross section changes with viewing aspect — nose, beam, tail — interpolated in dBsm.',
+  'tdoa-geolocation': 'Sizes a multi-platform TDOA geolocation network: GDOP and the Cramér-Rao CEP vs platform count, baseline and time sync.',
+  'salvo-kill': 'Salvo kill probability and expected leakers for a raid against a finite interceptor magazine.',
+  'cost-exchange': "The defender's cost-exchange ratio — dollars spent intercepting vs the threat's unit cost.",
+  'value-index': 'Survivability-adjusted cost-benefit value index and its confidence interval for a proposed system.',
+};

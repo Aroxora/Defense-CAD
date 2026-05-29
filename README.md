@@ -108,7 +108,8 @@ osint_cad/
 └── util/          # calculation logging
 scripts/           # runnable entry points (analysis & demos)
 tests/             # pytest suite (incl. physics regression tests)
-data/stl/          # OSINT-derived CAD geometries (.stl)
+web/               # Angular + Firebase interactive site (public/data holds exported JSON)
+*_validated.stl    # OSINT-derived CAD geometries at repo root (df-41, hq-9b, j-20, type_055)
 docs analyses      # platform/system CAD analyses (*.md)
 ```
 

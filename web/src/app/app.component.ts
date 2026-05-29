@@ -18,8 +18,8 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
     </header>
 
     <nav class="tabs">
-      <a routerLink="/calculators" routerLinkActive="active">Calculators</a>
       <a routerLink="/portfolio" routerLinkActive="active">Procurement &amp; R&amp;D</a>
+      <a routerLink="/calculators" routerLinkActive="active">Calculators</a>
       <a routerLink="/ew" routerLinkActive="active">EW Strategy</a>
       <a routerLink="/doctrine" routerLinkActive="active">Doctrine (PLA / DoD)</a>
       <a routerLink="/methodology" routerLinkActive="active">Methodology</a>

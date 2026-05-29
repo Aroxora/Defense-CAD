@@ -64,14 +64,16 @@ def main() -> int:
     now = datetime.now(timezone.utc).date().isoformat()
     checks = []
     for f in list_facts():
+        # Keep curated sources unless a COMPARABLE figure is parsed (then the news URLs
+        # actually pertain). Otherwise expose the hits as `related_news`, not as citations.
         rec = {"key": f.key, "claim": f.claim, "value_used": f.value, "unit": f.unit,
                "checked": now, "sources": list(f.sources), "status": "unverified"}
         try:
             res = _tavily(f.query, api_key)
             results = res.get("results", [])
-            urls = [r.get("url", "") for r in results if r.get("url")]
+            urls = [r.get("url", "") for r in results if r.get("url")][:4]
             if urls:
-                rec["sources"] = urls[:4]
+                rec["related_news"] = urls
             blob = " ".join((r.get("content") or "") for r in results)
             parsed = None
             for m in _NUM_RE.finditer(blob):
@@ -90,6 +92,7 @@ def main() -> int:
                 rel = abs(parsed - f.value) / max(abs(f.value), 1e-9)
                 rec["status"] = "possible_discrepancy" if rel > 0.25 else "corroborated"
                 rec["relative_delta"] = round(rel, 3)
+                rec["sources"] = urls  # these URLs actually yielded a comparable figure
             print(f"  {f.key}: {rec['status']}" +
                   (f" (news ~{rec.get('parsed_value')})" if 'parsed_value' in rec else ""))
         except (urllib.error.URLError, ValueError, KeyError) as exc:

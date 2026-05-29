@@ -23,7 +23,7 @@ import urllib.error
 import urllib.request
 from datetime import datetime, timezone
 
-from osint_cad.doctrine.cost_benefit import list_systems
+from osint_cad.doctrine.cost_benefit import seed_systems
 
 TAVILY_URL = "https://api.tavily.com/search"
 OUT_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "proposed_systems.json")
@@ -68,25 +68,31 @@ def main() -> int:
 
     now = datetime.now(timezone.utc).date().isoformat()
     out_systems = []
-    for sys_ in list_systems():
+    for sys_ in seed_systems():  # raw curated seed -> never re-propagate prior news URLs
         if not sys_.news_query:
             continue
+        # Keep the curated seed sources by default. Only replace `sources` with news URLs
+        # when those URLs actually yielded a usable cost figure -- otherwise the URLs are
+        # merely "related news" and must NOT masquerade as citations for the figure. We
+        # always expose what we found under `related_news` for transparency.
         entry = {"key": sys_.key, "last_updated": now, "sources": list(sys_.sources)}
         try:
             res = _tavily_search(sys_.news_query, api_key)
             results = res.get("results", [])
-            urls = [r.get("url", "") for r in results if r.get("url")]
+            urls = [r.get("url", "") for r in results if r.get("url")][:4]
             if urls:
-                entry["sources"] = urls[:4]
+                entry["related_news"] = urls
             blob = " ".join((r.get("content") or "") for r in results)
             cost = _parse_cost_musd(blob)
             if cost and 0.5 <= cost <= 100_000:  # sanity bound (0.5M .. 100B)
                 entry["unit_cost_musd"] = round(cost, 1)
+                if urls:
+                    entry["sources"] = urls  # these URLs substantiate the parsed figure
                 print(f"  {sys_.key}: parsed unit cost ~${cost/1000:.2f}B from news")
             else:
-                print(f"  {sys_.key}: no confident cost parsed (kept seed value)")
+                print(f"  {sys_.key}: no confident cost parsed (kept curated sources)")
         except (urllib.error.URLError, ValueError, KeyError) as exc:
-            print(f"  {sys_.key}: news lookup failed ({exc}); kept seed value")
+            print(f"  {sys_.key}: news lookup failed ({exc}); kept curated sources")
         out_systems.append(entry)
 
     os.makedirs(os.path.dirname(os.path.normpath(OUT_PATH)), exist_ok=True)

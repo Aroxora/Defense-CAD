@@ -324,6 +324,15 @@ def list_systems() -> List[ProposedSystem]:
     return out
 
 
+def seed_systems() -> List[ProposedSystem]:
+    """Raw curated seed catalogue WITHOUT news overrides applied.
+
+    The news updater must iterate this (not list_systems()) so curated sources are never
+    re-contaminated by a prior run's auto-collected URLs.
+    """
+    return list(_SEED)
+
+
 def get_system(key: str) -> ProposedSystem:
     for s in list_systems():
         if s.key == key:

@@ -59,7 +59,8 @@ value CI       = value_index &times; (1 &plusmn; uncertainty&middot;&radic;3)</p
       <section class="card">
         <h3>CI/CD &mdash; verified before posting</h3>
         <p>CI runs the full <code>pytest</code> suite on Python 3.10 &amp; 3.12, a TypeScript&harr;Python <b>engine
-          parity</b> check, and a production Angular build &mdash; on every push. The site is redeployed only after green.</p>
+          parity</b> check, and a production Angular build &mdash; on every push and PR. The site is redeployed after the
+          checks pass.</p>
         <pre class="formula">pip install -e ".[dev]" &amp;&amp; pytest
 cd web &amp;&amp; npm ci &amp;&amp; node parity-check.mjs &amp;&amp; npx ng build</pre>
       </section>

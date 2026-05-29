@@ -20,7 +20,7 @@ below names the code that implements it.
 | RF propagation | Friis FSPL + **ITU-R P.676** gas absorption (O₂/H₂O) + P.838 rain | `osint_cad/physics/rf_propagation.py` |
 | Radar cross section | Empirical aspect models + **Physical-Optics** mesh integral (γ² power scaling) | `osint_cad/physics/rcs_models.py`, `osint_cad/geometry/cad_rcs_calculator.py` |
 | Passive geolocation | TDOA/FDOA least-squares, **GDOP**, TDOA **Cramér-Rao bound** | `osint_cad/sensors/geolocation_network.py` |
-| EW link budget | Friis intercept range, non-coherent integration gain (10·log₁₀(BT)), J/S | `osint_cad/engagements/ew_strategy.py` |
+| EW link budget | Friis intercept range, time-bandwidth processing gain (10·log₁₀(BT)), J/S | `osint_cad/engagements/ew_strategy.py` |
 | Radar horizon | 4/3-Earth horizon, **R ≈ 4.12·(√hᵣ+√hₜ)** km | `osint_cad/analysis/radar_coverage.py` |
 | Missile-defense engagement | Salvo kill prob **1−(1−Pk)ⁿ**, magazine/leakage, cost-exchange | `osint_cad/analysis/missile_defense.py` |
 | Ballistic / HGV kinematics | Phased trajectory, drag-bounded reentry, time-weighted glide | `osint_cad/targeting/*.py` |
@@ -100,7 +100,7 @@ osint_cad/
   doctrine/       pla/ + dod/ strategy; cost_benefit (scoring + optimizer); hard_facts
 scripts/          ew_strategy_analysis, cad_analysis, strategy_reference,
                   export_web_data (→ web JSON), update_cost_data, verify_facts
-tests/            physics regression, doctrine/scoring, analysis, facts (237 tests)
+tests/            physics regression, doctrine/scoring, analysis, facts (243 tests)
 web/              Angular 18 app → Firebase Hosting (https://osint-defense.web.app)
 ```
 
@@ -110,7 +110,7 @@ web/              Angular 18 app → Firebase Hosting (https://osint-defense.web
 
 Nothing is published without the pipeline passing. `.github/workflows/ci.yml` runs on every
 push and PR:
-- **`test (3.10)` / `test (3.12)`** — the full `pytest` suite (237 tests, incl. the physics
+- **`test (3.10)` / `test (3.12)`** — the full `pytest` suite (243 tests, incl. the physics
   regression tests) plus smoke-tests of the analysis entry points.
 - **`web-build`** — installs the package, runs `scripts/export_web_data.py`, then does a
   production Angular build (`ng build`), so the whole Python→web pipeline is proven to compile.
@@ -130,8 +130,13 @@ status:
 - **corroborated** — a comparable figure within ±25% was found in the news;
 - **possible_discrepancy** — a comparable figure differing by >25% was found (**flagged for a
   human to review** — the value is never auto-overwritten);
-- **sources_refreshed** — sources updated but no comparable figure parsed;
+- **sources_refreshed** — no comparable figure parsed, so the curated sources are kept and the
+  latest search hits are recorded separately as `related_news` (NOT presented as citations);
 - **lookup_failed** — query error.
+
+The updaters never overwrite a curated source with an off-topic news URL: a fetched URL only
+becomes a `sources` citation when it actually yielded a comparable figure; otherwise it is kept
+as `related_news`.
 
 A sanity gate ignores parsed numbers outside an order of magnitude (so unrelated figures in
 the text don't create false flags). The cost updater (`scripts/update_cost_data.py`) works

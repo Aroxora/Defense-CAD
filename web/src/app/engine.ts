@@ -85,6 +85,7 @@ export function friisInterceptRangeKm(
   return (lam * 10 ** (plDb / 20) / (4 * Math.PI)) / 1000;
 }
 
+/** Time-bandwidth (coherent) processing gain, 10*log10(B*T). */
 export function processingGainDb(bandwidthHz: number, integrationTimeS: number): number {
   return 10 * Math.log10(bandwidthHz * integrationTimeS);
 }

@@ -32,6 +32,7 @@ code { color: var(--accent); font-family: 'SFMono-Regular', Consolas, monospace;
 
 .wrap { max-width: 1180px; margin: 0 auto; padding: 26px 24px 60px; }
 .intro h2 { margin: 0 0 8px; font-size: 22px; }
+.intro .home-h { margin: 0 0 10px; font-size: 26px; line-height: 1.2; }
 .intro p { color: var(--muted); line-height: 1.55; max-width: 950px; }
 .intro b { color: var(--txt); }
 .premise { color: var(--txt) !important; border-left: 3px solid var(--accent); padding-left: 14px; }

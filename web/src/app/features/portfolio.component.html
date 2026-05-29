@@ -1,5 +1,16 @@
 <div class="wrap">
   <section class="intro">
+    <h1 class="home-h">OSINT Defense-CAD &mdash; physics-based, interactive analysis</h1>
+    <p>
+      An open-source toolkit that turns public data into transparent, physics-grounded analysis &mdash; a procurement
+      &amp; R&amp;D cost-benefit portfolio, interactive physics calculators, EW strategy, PLA/DoD doctrine, and a
+      methodology page (physics, scoring math, CI parity, and fact corroboration). Every result traces to a textbook
+      equation in the <code>osint_cad</code> Python package and is parity-checked in CI.
+      Conceptual OSINT for education/study &mdash; <b>not operational guidance and not a targeting system</b>.
+    </p>
+  </section>
+
+  <section class="intro" style="margin-top: 22px">
     <h2>Procurement &amp; R&amp;D portfolio &mdash; cost-benefit</h2>
     <p>
       Systems ranked by <b>value index</b> = survivability-adjusted benefit (0&ndash;100) per&nbsp;$B lifecycle cost.
@@ -75,5 +86,18 @@
       <p class="src">Sources: <span *ngFor="let u of d.sources || []">{{ u }} · </span>
         <i>{{ d.last_updated === 'seed' ? 'initial OSINT estimate (not source-updated)' : 'updated ' + d.last_updated }}</i></p>
     </aside>
+  </div>
+
+  <section class="intro" style="margin-top: 30px">
+    <h2>Interactive physics calculators</h2>
+    <p>Live, browser-side recomputation of the same equations used by the models &mdash; each parity-checked against the
+      Python source of truth. Pick one to explore (formula, swept chart, and plain-language explainer):</p>
+  </section>
+  <div class="calc-grid">
+    <a class="calc-card" *ngFor="let c of calculators" [routerLink]="['/calculators', c.id]">
+      <span class="cat">{{ c.category }}</span>
+      <h4>{{ c.title }}</h4>
+      <p>{{ c.blurb }}</p>
+    </a>
   </div>
 </div>

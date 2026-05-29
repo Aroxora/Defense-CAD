@@ -107,6 +107,7 @@ def friis_intercept_range_km(eirp_dbm: float, rx_sensitivity_dbm: float, freq_gh
 
 
 def processing_gain_db(bandwidth_hz: float, integration_time_s: float) -> float:
+    """Time-bandwidth (coherent) processing gain, 10*log10(B*T)."""
     return 10.0 * math.log10(bandwidth_hz * integration_time_s)
 
 

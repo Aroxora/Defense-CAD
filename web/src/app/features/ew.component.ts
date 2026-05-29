@@ -48,7 +48,7 @@ import { EwStrategy } from '../models';
               <td>{{ r.ill_conditioned ? 'ill-cond' : r.ops_cep_m }}</td>
             </tr>
           </table>
-          <p class="note">CRLB floor &times;5 for hopping/multipath. ≥4 platforms required.</p>
+          <p class="note">CRLB is a theoretical lower bound; field CEP is typically several× larger (the ops column already applies ×5 for hopping/multipath). ≥4 platforms required.</p>
         </section>
       </div>
 
@@ -65,14 +65,14 @@ import { EwStrategy } from '../models';
           <div class="js">
             <div [class.good]="e.reallocation.radar_effective">
               <span>{{ e.reallocation.js_radar_db }} dB</span>
-              <label>J/S vs APG-81 radar &mdash; {{ e.reallocation.radar_effective ? 'EFFECTIVE' : 'marginal' }}</label>
+              <label>J/S vs a main fire-control radar (APG-81 class) &mdash; {{ e.reallocation.radar_effective ? 'EFFECTIVE' : 'marginal' }}</label>
             </div>
             <div [class.bad]="!e.reallocation.madl_effective">
               <span>{{ e.reallocation.js_madl_db }} dB</span>
-              <label>J/S vs MADL (standoff LPI) &mdash; {{ e.reallocation.madl_effective ? 'opportunistic' : 'INEFFECTIVE' }}</label>
+              <label>J/S vs a directional hopping LPI link (MADL class) &mdash; {{ e.reallocation.madl_effective ? 'opportunistic' : 'INEFFECTIVE' }}</label>
             </div>
           </div>
-          <p class="note">After a {{ e.reallocation.madl_isolation_db }} dB spatial-isolation + processing-gain penalty.</p>
+          <p class="note">After an <b>illustrative</b> {{ e.reallocation.madl_isolation_db }} dB spatial-isolation + processing-gain penalty. System names denote representative classes, not specific-system claims.</p>
         </section>
       </div>
     </div>
