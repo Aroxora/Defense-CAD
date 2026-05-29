@@ -605,6 +605,131 @@ CALCULATORS.push(
   },
 );
 
+CALCULATORS.push(
+  {
+    id: 'laser-power-on-target',
+    title: 'Directed-Energy Power-on-Target',
+    category: 'Directed Energy',
+    source: 'osint_cad/analysis/calculators.py:laser_irradiance_kw_cm2',
+    equation: 'θ = M²·1.22·λ/D;  w = √((D/2)² + (θR)²);  I = P·e^(−αR)/(π w²)',
+    why: 'Diffraction sets a hard floor on spot size (∝ λR/D), and beam quality (M²) and atmospheric extinction multiply it. Sweep range to see why a laser that holds high irradiance at 1 km falls below a damage threshold at 5–10 km: spot area grows as R² while extinction strips power exponentially.',
+    inputs: [
+      { key: 'p', label: 'Laser output power', unit: 'kW', min: 1, max: 500, default: 50, step: 1, log: true },
+      { key: 'lambda', label: 'Wavelength', unit: 'µm', min: 0.5, max: 10.6, default: 1.064, step: 0.001 },
+      { key: 'd', label: 'Aperture diameter', unit: 'm', min: 0.05, max: 1.5, default: 0.3, step: 0.01 },
+      { key: 'm2', label: 'Beam quality M²', unit: '-', min: 1, max: 5, default: 1.5, step: 0.1 },
+      { key: 'alpha', label: 'Atmospheric extinction', unit: '1/km', min: 0.01, max: 2, default: 0.1, step: 0.01, log: true },
+      { key: 'r', label: 'Range to target', unit: 'km', min: 0.1, max: 20, default: 5, step: 0.1, log: true },
+      { key: 'fth', label: 'Damage fluence threshold', unit: 'kJ/cm²', min: 0.5, max: 20, default: 5, step: 0.5 },
+    ],
+    compute: (v) => {
+      const I = E.laserIrradianceKwCm2(v['p'], v['lambda'], v['d'], v['m2'], v['alpha'], v['r']);
+      return [
+        { label: 'Peak irradiance', unit: 'kW/cm²', value: I, primary: true },
+        { label: 'Beam divergence', unit: 'µrad', value: E.laserDivergenceUrad(v['lambda'], v['d'], v['m2']) },
+        { label: 'Spot radius at range', unit: 'm', value: E.laserSpotRadiusM(v['lambda'], v['d'], v['m2'], v['r']) },
+        { label: 'Atmos. transmission', unit: '', value: Math.exp(-v['alpha'] * v['r']) },
+        { label: 'Dwell to damage fluence', unit: 's', value: I > 0 ? v['fth'] / I : Infinity },
+      ];
+    },
+    chart: { xKey: 'r', yLabel: 'Peak irradiance (kW/cm²)', logX: true, y: (x, v) => E.laserIrradianceKwCm2(v['p'], v['lambda'], v['d'], v['m2'], v['alpha'], x) },
+  },
+  {
+    id: 'collision-lead-angle',
+    title: 'Intercept Lead Angle & Closing Speed',
+    category: 'Guidance',
+    source: 'osint_cad/analysis/calculators.py:collision_lead_angle_deg + closing_speed + pn_accel',
+    equation: 'sin(L) = (V_t/V_m)·sin(β);  V_c = V_m·cos(L) + V_t·cos(β);  a = N·V_c·(LOS rate)',
+    why: 'The kinematic heart of every intercept: the pursuer must lead by an angle set by the speed ratio and target aspect, and closing speed (not raw speed) sets time-to-go. If (V_t/V_m)·sin(β) > 1 the interceptor is too slow for a forward-hemisphere collision (tail-chase only). Beam (90°) crossings demand the most lead and lowest closing speed.',
+    inputs: [
+      { key: 'vm', label: 'Interceptor speed', unit: 'm/s', min: 100, max: 2000, default: 1000, step: 10 },
+      { key: 'vt', label: 'Target speed', unit: 'm/s', min: 50, max: 1500, default: 300, step: 10 },
+      { key: 'beta', label: 'Target aspect angle', unit: 'deg', min: 0, max: 180, default: 90, step: 1 },
+      { key: 'r', label: 'Range to target', unit: 'km', min: 1, max: 200, default: 40, step: 1 },
+      { key: 'n', label: 'Navigation constant', unit: '-', min: 2, max: 6, default: 4, step: 0.5 },
+      { key: 'lr', label: 'LOS rotation rate', unit: 'deg/s', min: 0, max: 10, default: 1, step: 0.1 },
+    ],
+    compute: (v) => {
+      const vc = E.collisionClosingSpeedMs(v['vm'], v['vt'], v['beta']);
+      return [
+        { label: 'Required lead angle', unit: 'deg', value: E.collisionLeadAngleDeg(v['vm'], v['vt'], v['beta']), primary: true },
+        { label: 'Closing speed along LOS', unit: 'm/s', value: vc },
+        { label: 'Time-to-go', unit: 's', value: vc > 1e-6 ? (v['r'] * 1000) / vc : Infinity },
+        { label: 'PN lateral accel command', unit: 'g', value: E.pnLateralAccelG(v['vm'], v['vt'], v['beta'], v['n'], v['lr']) },
+      ];
+    },
+    chart: { xKey: 'beta', yLabel: 'Closing speed (m/s)', y: (x, v) => E.collisionClosingSpeedMs(v['vm'], v['vt'], x) },
+  },
+  {
+    id: 'sar-optical-resolution',
+    title: 'SAR Azimuth & Optical Resolution',
+    category: 'ISR / SAR',
+    source: 'osint_cad/analysis/calculators.py:sar_azimuth_resolution_m + sar_range_resolution_m + eo_diffraction_gsd_m',
+    equation: 'ρ_az = D_az/2;  ρ_r = c/(2B);  GSD_EO = 1.22·λ·R/D',
+    why: 'Stripmap SAR azimuth resolution = HALF the antenna length and is independent of range — a shorter antenna images finer. Optical GSD = 1.22·λ·R/D is a diffraction floor no processing can beat. Sweep range/altitude: EO blurs linearly with distance while SAR azimuth holds constant — why radar dominates standoff, all-weather ISR.',
+    inputs: [
+      { key: 'daz', label: 'SAR antenna azimuth length', unit: 'm', min: 0.5, max: 15, default: 4, step: 0.1 },
+      { key: 'b', label: 'SAR chirp bandwidth', unit: 'MHz', min: 10, max: 1200, default: 300, step: 10 },
+      { key: 'eta', label: 'Grazing angle', unit: 'deg', min: 5, max: 85, default: 30, step: 1 },
+      { key: 'lambda', label: 'EO wavelength', unit: 'µm', min: 0.4, max: 12, default: 0.55, step: 0.01 },
+      { key: 'd', label: 'EO aperture diameter', unit: 'm', min: 0.05, max: 3, default: 0.5, step: 0.01 },
+      { key: 'r', label: 'Slant range', unit: 'km', min: 1, max: 40000, default: 500, step: 10, log: true },
+    ],
+    compute: (v) => {
+      const rr = E.sarRangeResolutionM(v['b']);
+      return [
+        { label: 'EO diffraction-limited GSD', unit: 'm', value: E.eoDiffractionGsdM(v['lambda'], v['d'], v['r']), primary: true },
+        { label: 'SAR azimuth resolution', unit: 'm', value: E.sarAzimuthResolutionM(v['daz']) },
+        { label: 'SAR slant-range resolution', unit: 'm', value: rr },
+        { label: 'SAR ground-range resolution', unit: 'm', value: rr / Math.sin((v['eta'] * Math.PI) / 180) },
+      ];
+    },
+    chart: { xKey: 'r', yLabel: 'EO GSD (m)', logX: true, y: (x, v) => E.eoDiffractionGsdM(v['lambda'], v['d'], x) },
+  },
+  {
+    id: 'rain-attenuation',
+    title: 'Rain Attenuation (ITU-R P.838)',
+    category: 'Propagation',
+    source: 'osint_cad/analysis/calculators.py:rain_total_attenuation_db (P.838-3 coefficients)',
+    equation: 'γ_R = k·R_rain^α  [dB/km];  A = γ_R · min(path, cell extent)',
+    why: 'Rain is the dominant fair-weather-to-storm swing in microwave/SATCOM links. The ITU-R P.838 power law shows specific attenuation climbing steeply with both rain rate and frequency — why Ka-band links that close in clear air drop in heavy rain while L/S-band shrug it off. Sweep rain rate to see the link-margin hit.',
+    inputs: [
+      { key: 'rrain', label: 'Rain rate', unit: 'mm/hr', min: 0.25, max: 150, default: 25, step: 0.25, log: true },
+      { key: 'f', label: 'Frequency', unit: 'GHz', min: 1, max: 40, default: 20, step: 0.5, log: true },
+      { key: 'd', label: 'Path length', unit: 'km', min: 0.5, max: 50, default: 10, step: 0.5 },
+      { key: 'lcap', label: 'Rain-cell extent cap', unit: 'km', min: 1, max: 50, default: 20, step: 1 },
+    ],
+    compute: (v) => [
+      { label: 'Total rain attenuation', unit: 'dB', value: E.rainTotalAttenuationDb(v['f'], v['rrain'], v['d'], v['lcap']), primary: true },
+      { label: 'Specific attenuation', unit: 'dB/km', value: E.rainSpecificAttenuationDbKm(v['f'], v['rrain']) },
+      { label: 'P.838 coefficient k', unit: '', value: E.rainKCoeff(v['f']) },
+      { label: 'P.838 exponent α', unit: '', value: E.rainAlphaCoeff(v['f']) },
+      { label: 'Effective path length', unit: 'km', value: Math.min(v['d'], v['lcap']) },
+    ],
+    chart: { xKey: 'rrain', yLabel: 'Total attenuation (dB)', logX: true, y: (x, v) => E.rainTotalAttenuationDb(v['f'], x, v['d'], v['lcap']) },
+  },
+  {
+    id: 'pulse-doppler',
+    title: 'Pulse-Doppler Shift & Ambiguities',
+    category: 'Pulse-Doppler',
+    source: 'osint_cad/analysis/calculators.py:doppler_shift_hz + unambiguous_range/velocity + first_blind_speed',
+    equation: 'f_d = 2v_r/λ;  R_u = c/(2·PRF);  v_u = λ·PRF/4;  v_blind = λ·PRF/2',
+    why: 'Pulse repetition frequency forces the classic radar trade: high PRF gives unambiguous velocity but ambiguous range; low PRF the reverse. Sweep PRF to watch unambiguous range fall as 1/PRF while unambiguous velocity rises — the reason radars switch PRF (high/medium/low) to resolve both.',
+    inputs: [
+      { key: 'f', label: 'Frequency', unit: 'GHz', min: 1, max: 40, default: 10, step: 0.5, log: true },
+      { key: 'prf', label: 'PRF', unit: 'kHz', min: 0.1, max: 300, default: 10, step: 0.1, log: true },
+      { key: 'vr', label: 'Radial velocity', unit: 'm/s', min: 0, max: 2000, default: 300, step: 10 },
+    ],
+    compute: (v) => [
+      { label: 'Unambiguous range', unit: 'km', value: E.unambiguousRangeKm(v['prf']), primary: true },
+      { label: 'Doppler shift', unit: 'kHz', value: E.dopplerShiftHz(v['f'], v['vr']) / 1000 },
+      { label: 'Unambiguous velocity (±)', unit: 'm/s', value: E.unambiguousVelocityMs(v['f'], v['prf']) },
+      { label: 'First blind speed', unit: 'm/s', value: E.firstBlindSpeedMs(v['f'], v['prf']) },
+    ],
+    chart: { xKey: 'prf', yLabel: 'Unambiguous range (km)', logX: true, y: (x) => E.unambiguousRangeKm(x) },
+  },
+);
+
 export const CALC_BY_ID: Record<string, CalcDef> = Object.fromEntries(CALCULATORS.map((c) => [c.id, c]));
 
 /** One-line "what it does" descriptions (kept faithful to each calculator's actual compute). */
@@ -634,4 +759,9 @@ export const BLURBS: Record<string, string> = {
   'passive-sonar': 'Passive sonar equation: detection range where transmission loss falls below the figure of merit.',
   'orbit-mechanics': 'Circular-orbit velocity, period, and ground coverage footprint vs altitude.',
   'ballistic-range': 'Vacuum projectile range, apogee, and time of flight vs launch speed and angle (drag-free upper bound).',
+  'laser-power-on-target': 'Directed-energy spot size and irradiance on target vs range, with diffraction, beam quality, and atmosphere.',
+  'collision-lead-angle': 'Intercept geometry: required lead angle, closing speed, time-to-go, and proportional-navigation acceleration.',
+  'sar-optical-resolution': 'SAR azimuth/range resolution and diffraction-limited optical ground sample distance.',
+  'rain-attenuation': 'Microwave/SATCOM rain attenuation from the ITU-R P.838 power law vs rain rate, frequency, and path.',
+  'pulse-doppler': 'Pulse-Doppler shift and the range/velocity ambiguity trade set by PRF (unambiguous range, velocity, blind speed).',
 };

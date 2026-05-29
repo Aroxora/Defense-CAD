@@ -51,7 +51,9 @@ code { color: var(--accent); font-family: 'SFMono-Regular', Consolas, monospace;
 /* portfolio */
 .filters { display: flex; gap: 18px; margin-top: 16px; }
 .filters label { font-size: 12px; color: var(--muted); display: flex; flex-direction: column; gap: 5px; }
-.filters select { background: var(--panel); color: var(--txt); border: 1px solid var(--line); border-radius: 6px; padding: 7px 10px; min-width: 140px; }
+.filters select, .filters input[type='text'] { background: var(--panel); color: var(--txt); border: 1px solid var(--line); border-radius: 6px; padding: 7px 10px; min-width: 140px; }
+.filters input[type='text'] { min-width: 240px; }
+.filters .count { align-self: end; color: var(--muted); font-size: 12px; padding-bottom: 8px; }
 .ranktable .row { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin-bottom: 10px; cursor: pointer; transition: border-color .15s; }
 .ranktable .row:hover { border-color: var(--accent2); }
 .ranktable .row:focus-visible { outline: 2px solid var(--accent2); outline-offset: 2px; }

@@ -586,6 +586,152 @@
         9.81
       ],
       "expected": 119.2206540349184
+    },
+    {
+      "fn": "laserDivergenceUrad",
+      "args": [
+        1.064,
+        0.3,
+        1.5
+      ],
+      "expected": 6.4904
+    },
+    {
+      "fn": "laserSpotRadiusM",
+      "args": [
+        1.064,
+        0.3,
+        1.5,
+        5
+      ],
+      "expected": 0.1534702977908103
+    },
+    {
+      "fn": "laserIrradianceKwCm2",
+      "args": [
+        50,
+        1.064,
+        0.3,
+        1.5,
+        0.1,
+        5
+      ],
+      "expected": 0.040984932018430495
+    },
+    {
+      "fn": "collisionLeadAngleDeg",
+      "args": [
+        1000,
+        300,
+        90
+      ],
+      "expected": 17.45760312372209
+    },
+    {
+      "fn": "collisionClosingSpeedMs",
+      "args": [
+        1000,
+        300,
+        90
+      ],
+      "expected": 953.9392014169457
+    },
+    {
+      "fn": "pnLateralAccelG",
+      "args": [
+        1000,
+        300,
+        90,
+        4,
+        1
+      ],
+      "expected": 6.788737993301145
+    },
+    {
+      "fn": "sarAzimuthResolutionM",
+      "args": [
+        4
+      ],
+      "expected": 2.0
+    },
+    {
+      "fn": "sarRangeResolutionM",
+      "args": [
+        300
+      ],
+      "expected": 0.49965409666666666
+    },
+    {
+      "fn": "eoDiffractionGsdM",
+      "args": [
+        0.55,
+        0.5,
+        500
+      ],
+      "expected": 0.671
+    },
+    {
+      "fn": "rainKCoeff",
+      "args": [
+        20
+      ],
+      "expected": 0.07509999999999999
+    },
+    {
+      "fn": "rainAlphaCoeff",
+      "args": [
+        20
+      ],
+      "expected": 1.099
+    },
+    {
+      "fn": "rainSpecificAttenuationDbKm",
+      "args": [
+        20,
+        25
+      ],
+      "expected": 2.5821175324583674
+    },
+    {
+      "fn": "rainTotalAttenuationDb",
+      "args": [
+        20,
+        25,
+        10,
+        20
+      ],
+      "expected": 25.821175324583674
+    },
+    {
+      "fn": "dopplerShiftHz",
+      "args": [
+        10,
+        300
+      ],
+      "expected": 20013.845711889124
+    },
+    {
+      "fn": "unambiguousRangeKm",
+      "args": [
+        10
+      ],
+      "expected": 14.9896229
+    },
+    {
+      "fn": "unambiguousVelocityMs",
+      "args": [
+        10,
+        10
+      ],
+      "expected": 74.9481145
+    },
+    {
+      "fn": "firstBlindSpeedMs",
+      "args": [
+        10,
+        10
+      ],
+      "expected": 149.896229
     }
   ]
 }

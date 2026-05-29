@@ -84,6 +84,24 @@ def cases():
     add("projectileRangeKm", [827, 45, 9.81], c.projectile_range_km(827, 45, 9.81))
     add("projectileApogeeKm", [827, 45, 9.81], c.projectile_apogee_km(827, 45, 9.81))
     add("projectileTofS", [827, 45, 9.81], c.projectile_tof_s(827, 45, 9.81))
+    # batch 2: directed energy, guidance, ISR, rain, pulse-Doppler
+    add("laserDivergenceUrad", [1.064, 0.3, 1.5], c.laser_divergence_urad(1.064, 0.3, 1.5))
+    add("laserSpotRadiusM", [1.064, 0.3, 1.5, 5], c.laser_spot_radius_m(1.064, 0.3, 1.5, 5))
+    add("laserIrradianceKwCm2", [50, 1.064, 0.3, 1.5, 0.1, 5], c.laser_irradiance_kw_cm2(50, 1.064, 0.3, 1.5, 0.1, 5))
+    add("collisionLeadAngleDeg", [1000, 300, 90], c.collision_lead_angle_deg(1000, 300, 90))
+    add("collisionClosingSpeedMs", [1000, 300, 90], c.collision_closing_speed_ms(1000, 300, 90))
+    add("pnLateralAccelG", [1000, 300, 90, 4, 1], c.pn_lateral_accel_g(1000, 300, 90, 4, 1))
+    add("sarAzimuthResolutionM", [4], c.sar_azimuth_resolution_m(4))
+    add("sarRangeResolutionM", [300], c.sar_range_resolution_m(300))
+    add("eoDiffractionGsdM", [0.55, 0.5, 500], c.eo_diffraction_gsd_m(0.55, 0.5, 500))
+    add("rainKCoeff", [20], c.rain_k_coeff(20))
+    add("rainAlphaCoeff", [20], c.rain_alpha_coeff(20))
+    add("rainSpecificAttenuationDbKm", [20, 25], c.rain_specific_attenuation_db_km(20, 25))
+    add("rainTotalAttenuationDb", [20, 25, 10, 20], c.rain_total_attenuation_db(20, 25, 10, 20))
+    add("dopplerShiftHz", [10, 300], c.doppler_shift_hz(10, 300))
+    add("unambiguousRangeKm", [10], c.unambiguous_range_km(10))
+    add("unambiguousVelocityMs", [10, 10], c.unambiguous_velocity_ms(10, 10))
+    add("firstBlindSpeedMs", [10, 10], c.first_blind_speed_ms(10, 10))
     return out
 
 
