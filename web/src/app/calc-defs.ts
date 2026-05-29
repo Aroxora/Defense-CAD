@@ -441,6 +441,170 @@ CALCULATORS.push(
   },
 );
 
+CALCULATORS.push(
+  {
+    id: 'comms-link-budget',
+    title: 'RF / SATCOM Link Budget',
+    category: 'Comms',
+    source: 'osint_cad/analysis/calculators.py:parabolic_gain_dbi + link_margin_db',
+    equation: 'P_rx = P_tx + G_tx + G_rx − FSPL − L;  Eb/N0 = P_rx − 10log₁₀(k·T) − 10log₁₀(R_b);  G = η(πD/λ)²',
+    why: 'The master equation of every datalink/SATCOM link: chains EIRP, dish gain (∝ D²), free-space loss, and receiver noise into the Eb/N0 margin that decides whether a link closes. Sweep range to find the cliff where the link drops; positive margin = closes.',
+    inputs: [
+      { key: 'ptx', label: 'Transmit power', unit: 'dBW', min: -10, max: 30, default: 10, step: 0.5 },
+      { key: 'gtx', label: 'Tx antenna gain', unit: 'dBi', min: 0, max: 60, default: 30, step: 0.5 },
+      { key: 'd', label: 'Rx dish diameter', unit: 'm', min: 0.3, max: 35, default: 2.4, step: 0.1, log: true },
+      { key: 'eta', label: 'Aperture efficiency', unit: '-', min: 0.45, max: 0.75, default: 0.6, step: 0.01 },
+      { key: 'f', label: 'Frequency', unit: 'GHz', min: 0.25, max: 40, default: 12, step: 0.1, log: true },
+      { key: 'r', label: 'Range', unit: 'km', min: 10, max: 40000, default: 1000, step: 10, log: true },
+      { key: 'lother', label: 'Other losses', unit: 'dB', min: 0, max: 20, default: 3, step: 0.5 },
+      { key: 'tsys', label: 'System noise temp', unit: 'K', min: 50, max: 1000, default: 290, step: 5 },
+      { key: 'rb', label: 'Data rate', unit: 'Mbps', min: 0.001, max: 1000, default: 10, step: 0.001, log: true },
+      { key: 'ebn0', label: 'Required Eb/N0', unit: 'dB', min: 2, max: 16, default: 7, step: 0.1 },
+    ],
+    compute: (v) => {
+      const grx = E.parabolicGainDbi(v['d'], v['eta'], v['f']);
+      const prx = v['ptx'] + v['gtx'] + grx - E.fsplDb(v['f'], v['r']) - v['lother'];
+      const margin = E.linkMarginDb(v['ptx'], v['gtx'], v['d'], v['eta'], v['f'], v['r'], v['lother'], v['tsys'], v['rb'], v['ebn0']);
+      return [
+        { label: 'Link margin', unit: 'dB', value: margin, primary: true },
+        { label: 'Rx dish gain', unit: 'dBi', value: grx },
+        { label: 'Received power', unit: 'dBW', value: prx },
+        { label: 'Eb/N0', unit: 'dB', value: margin + v['ebn0'] },
+      ];
+    },
+    chart: { xKey: 'r', yLabel: 'Link margin (dB)', logX: true, y: (x, v) => E.linkMarginDb(v['ptx'], v['gtx'], v['d'], v['eta'], v['f'], x, v['lother'], v['tsys'], v['rb'], v['ebn0']) },
+  },
+  {
+    id: 'gnss-dop-error',
+    title: 'GNSS Position Error from DOP',
+    category: 'PNT',
+    source: 'osint_cad/analysis/calculators.py:gnss_uere_m + gnss_horizontal_error_m',
+    equation: 'σ_pos = DOP × σ_UERE;  σ_UERE = √(Σ σ_i²)',
+    why: 'GNSS accuracy = geometry (DOP) × per-satellite ranging error (UERE). Sweep HDOP to see why poor satellite geometry (urban canyon, few sats) degrades a sub-metre receiver to tens of metres — even with no jamming.',
+    inputs: [
+      { key: 'iono', label: 'Ionospheric error', unit: 'm', min: 0, max: 10, default: 4, step: 0.1 },
+      { key: 'tropo', label: 'Tropospheric error', unit: 'm', min: 0, max: 5, default: 0.7, step: 0.1 },
+      { key: 'clk', label: 'Sat clock+ephemeris', unit: 'm', min: 0, max: 5, default: 2.1, step: 0.1 },
+      { key: 'mp', label: 'Multipath error', unit: 'm', min: 0, max: 5, default: 1.4, step: 0.1 },
+      { key: 'rx', label: 'Receiver noise', unit: 'm', min: 0, max: 3, default: 0.5, step: 0.1 },
+      { key: 'hdop', label: 'Horizontal DOP', unit: '-', min: 0.7, max: 20, default: 1, step: 0.1, log: true },
+      { key: 'vdop', label: 'Vertical DOP', unit: '-', min: 1, max: 25, default: 1.7, step: 0.1, log: true },
+    ],
+    compute: (v) => {
+      const uere = E.gnssUereM(v['iono'], v['tropo'], v['clk'], v['mp'], v['rx']);
+      return [
+        { label: 'Horizontal error (1σ)', unit: 'm', value: uere * v['hdop'], primary: true },
+        { label: 'UERE (1σ ranging)', unit: 'm', value: uere },
+        { label: 'Vertical error (1σ)', unit: 'm', value: uere * v['vdop'] },
+        { label: '3D error (1σ)', unit: 'm', value: Math.sqrt(v['hdop'] ** 2 + v['vdop'] ** 2) * uere },
+        { label: 'Horizontal CEP (50%)', unit: 'm', value: 0.833 * v['hdop'] * uere },
+      ];
+    },
+    chart: { xKey: 'hdop', yLabel: 'Horizontal error (m)', logX: true, y: (x, v) => E.gnssHorizontalErrorM(E.gnssUereM(v['iono'], v['tropo'], v['clk'], v['mp'], v['rx']), x) },
+  },
+  {
+    id: 'irst-detection',
+    title: 'IRST / EO Detection Range',
+    category: 'IR / EO',
+    source: 'osint_cad/analysis/calculators.py:irst_radiant_intensity + irst_detection_range_km',
+    equation: 'ΔI = ε·σ·(T_t⁴−T_b⁴)·A·frac/π;  detect when ΔI·τ_opt·e^(−αR)/R² ≥ NEI',
+    why: 'Passive IR detection rides the Stefan-Boltzmann T⁴ contrast against the background, attenuated by Beer-Lambert atmosphere. Sweep the extinction coefficient to see why an IRST that sees a target 40+ km in dry air sees it only a few km in haze — the dominant uncertainty in any claimed IRST range.',
+    inputs: [
+      { key: 'tt', label: 'Target temperature', unit: 'K', min: 250, max: 1200, default: 330, step: 5 },
+      { key: 'tb', label: 'Background temperature', unit: 'K', min: 200, max: 320, default: 280, step: 1 },
+      { key: 'at', label: 'Emitting area', unit: 'm²', min: 0.1, max: 50, default: 2, step: 0.1, log: true },
+      { key: 'eps', label: 'Emissivity', unit: '-', min: 0.3, max: 1, default: 0.9, step: 0.01 },
+      { key: 'frac', label: 'In-band fraction', unit: '-', min: 0.05, max: 1, default: 0.35, step: 0.01 },
+      { key: 'tauopt', label: 'Optics transmission', unit: '-', min: 0.3, max: 0.95, default: 0.7, step: 0.01 },
+      { key: 'alpha', label: 'Atmospheric extinction', unit: '1/km', min: 0.02, max: 2, default: 0.1, step: 0.01, log: true },
+      { key: 'nei', label: 'Noise-equiv. irradiance', unit: '×1e-12 W/m²', min: 1, max: 1000, default: 10, step: 1, log: true },
+    ],
+    compute: (v) => {
+      const di = E.irstRadiantIntensity(v['tt'], v['tb'], v['at'], v['eps'], v['frac']);
+      const r = E.irstDetectionRangeKm(v['tt'], v['tb'], v['at'], v['eps'], v['frac'], v['tauopt'], v['alpha'], v['nei'] * 1e-12);
+      return [
+        { label: 'Detection range (with atmosphere)', unit: 'km', value: r, primary: true },
+        { label: 'Radiant intensity ΔI', unit: 'W/sr', value: di },
+        { label: 'Atmos. transmission at range', unit: '', value: Math.exp(-v['alpha'] * r) },
+      ];
+    },
+    chart: { xKey: 'alpha', yLabel: 'Detection range (km)', logX: true, y: (x, v) => E.irstDetectionRangeKm(v['tt'], v['tb'], v['at'], v['eps'], v['frac'], v['tauopt'], x, v['nei'] * 1e-12) },
+  },
+  {
+    id: 'passive-sonar',
+    title: 'Passive Sonar Equation',
+    category: 'Undersea',
+    source: 'osint_cad/analysis/calculators.py:sonar_figure_of_merit_db + sonar_detection_range_km',
+    equation: 'SE = SL − TL − (NL − DI) − DT;  TL = 20log₁₀(r) + α·r (spherical);  detect when SE ≥ 0',
+    why: 'The undersea analogue of the radar equation. Detection happens where transmission loss falls below the figure of merit (SL − NL + DI − DT). Sweep range to find where signal excess crosses zero — the passive detection range.',
+    inputs: [
+      { key: 'sl', label: 'Source level', unit: 'dB re µPa@1m', min: 80, max: 180, default: 130, step: 1 },
+      { key: 'nl', label: 'Noise level', unit: 'dB re µPa', min: 30, max: 100, default: 65, step: 1 },
+      { key: 'di', label: 'Array directivity index', unit: 'dB', min: 0, max: 35, default: 20, step: 1 },
+      { key: 'dt', label: 'Detection threshold', unit: 'dB', min: -5, max: 20, default: 5, step: 0.5 },
+      { key: 'alpha', label: 'Absorption coefficient', unit: 'dB/km', min: 0.01, max: 30, default: 1, step: 0.01, log: true },
+      { key: 'r', label: 'Range (evaluation)', unit: 'km', min: 0.1, max: 500, default: 20, step: 0.1, log: true },
+    ],
+    compute: (v) => {
+      const fom = E.sonarFigureOfMeritDb(v['sl'], v['nl'], v['di'], v['dt']);
+      const tl = E.sonarTlSphericalDb(v['r'], v['alpha']);
+      return [
+        { label: 'Detection range', unit: 'km', value: E.sonarDetectionRangeKm(v['sl'], v['nl'], v['di'], v['dt'], v['alpha']), primary: true },
+        { label: 'Figure of merit (max TL)', unit: 'dB', value: fom },
+        { label: 'Transmission loss at range', unit: 'dB', value: tl },
+        { label: 'Signal excess at range', unit: 'dB', value: fom - tl },
+      ];
+    },
+    chart: { xKey: 'r', yLabel: 'Signal excess (dB)', logX: true, y: (x, v) => E.sonarFigureOfMeritDb(v['sl'], v['nl'], v['di'], v['dt']) - E.sonarTlSphericalDb(x, v['alpha']) },
+  },
+  {
+    id: 'orbit-mechanics',
+    title: 'Circular Orbit & Coverage',
+    category: 'Space',
+    source: 'osint_cad/analysis/calculators.py:orbital_velocity_kms + orbital_period_min + coverage_half_angle_deg',
+    equation: 'v = √(μ/a);  T = 2π√(a³/μ);  a = R_E + h;  λ = arccos((R_E/a)cos(el)) − el',
+    why: 'Sets the cadence and footprint of every space sensor (SDA tracking, ISR, SATCOM). Sweep altitude to see the period grow and the coverage footprint widen — the trade behind LEO mega-constellations vs. higher orbits.',
+    inputs: [
+      { key: 'h', label: 'Altitude', unit: 'km', min: 150, max: 36000, default: 550, step: 10, log: true },
+      { key: 'el', label: 'Min elevation angle', unit: 'deg', min: 0, max: 30, default: 5, step: 1 },
+    ],
+    compute: (v) => {
+      const half = E.coverageHalfAngleDeg(v['h'], v['el']);
+      const vel = E.orbitalVelocityKms(v['h']);
+      const vg = vel * E.R_EARTH / (E.R_EARTH + v['h']);
+      const swath = 2 * E.R_EARTH * (half * Math.PI / 180);
+      return [
+        { label: 'Orbital period', unit: 'min', value: E.orbitalPeriodMin(v['h']), primary: true },
+        { label: 'Orbital velocity', unit: 'km/s', value: vel },
+        { label: 'Coverage half-angle', unit: 'deg', value: half },
+        { label: 'Coverage swath width', unit: 'km', value: swath },
+        { label: 'Max access per pass', unit: 'min', value: vg > 0 ? swath / vg / 60 : 0 },
+      ];
+    },
+    chart: { xKey: 'h', yLabel: 'Orbital period (min)', logX: true, y: (x) => E.orbitalPeriodMin(x) },
+  },
+  {
+    id: 'ballistic-range',
+    title: 'Vacuum Ballistic Range',
+    category: 'Kinematics',
+    source: 'osint_cad/analysis/calculators.py:projectile_range_km / apogee / tof',
+    equation: 'R = v₀²·sin(2θ)/g;  h = v₀²·sin²θ/(2g);  TOF = 2v₀·sinθ/g',
+    why: 'The textbook vacuum trajectory — an upper bound (no drag) that teaches the 45° max-range result and the range/apogee/time-of-flight trade. Real atmospheric ranges are shorter; this is the clean reference case.',
+    inputs: [
+      { key: 'v0', label: 'Muzzle / launch speed', unit: 'm/s', min: 50, max: 3000, default: 827, step: 1, log: true },
+      { key: 'theta', label: 'Launch angle', unit: 'deg', min: 1, max: 89, default: 45, step: 1 },
+      { key: 'g', label: 'Gravity', unit: 'm/s²', min: 1.6, max: 9.81, default: 9.81, step: 0.01 },
+    ],
+    compute: (v) => [
+      { label: 'Range (level ground)', unit: 'km', value: E.projectileRangeKm(v['v0'], v['theta'], v['g']), primary: true },
+      { label: 'Maximum ordinate (apogee)', unit: 'km', value: E.projectileApogeeKm(v['v0'], v['theta'], v['g']) },
+      { label: 'Time of flight', unit: 's', value: E.projectileTofS(v['v0'], v['theta'], v['g']) },
+      { label: 'Max possible range (45°)', unit: 'km', value: v['v0'] ** 2 / v['g'] / 1000 },
+    ],
+    chart: { xKey: 'theta', yLabel: 'Range (km)', y: (x, v) => E.projectileRangeKm(v['v0'], x, v['g']) },
+  },
+);
+
 export const CALC_BY_ID: Record<string, CalcDef> = Object.fromEntries(CALCULATORS.map((c) => [c.id, c]));
 
 /** One-line "what it does" descriptions (kept faithful to each calculator's actual compute). */
@@ -464,4 +628,10 @@ export const BLURBS: Record<string, string> = {
   'radar-range-vs-aspect': 'Detection range vs viewing aspect — combines aspect-dependent RCS with the radar range equation (stealth envelope).',
   'ram-reflection': 'Reflection coefficient and RCS reduction of radar-absorbent material vs absorption rating and frequency.',
   'po-validity': 'Object-size-to-wavelength ratio that tells you when the Physical-Optics RCS method is valid.',
+  'comms-link-budget': 'Full RF/SATCOM link budget: dish gain, path loss, received power, and the Eb/N0 margin that decides if a link closes.',
+  'gnss-dop-error': 'GNSS position error from satellite geometry (DOP) times the per-satellite ranging-error budget (UERE).',
+  'irst-detection': 'Infrared search-and-track detection range from thermal contrast and Beer-Lambert atmospheric extinction.',
+  'passive-sonar': 'Passive sonar equation: detection range where transmission loss falls below the figure of merit.',
+  'orbit-mechanics': 'Circular-orbit velocity, period, and ground coverage footprint vs altitude.',
+  'ballistic-range': 'Vacuum projectile range, apogee, and time of flight vs launch speed and angle (drag-free upper bound).',
 };

@@ -439,6 +439,153 @@
         0.68
       ],
       "expected": 22.68235847347434
+    },
+    {
+      "fn": "parabolicGainDbi",
+      "args": [
+        2.4,
+        0.6,
+        12
+      ],
+      "expected": 47.37594565434517
+    },
+    {
+      "fn": "linkMarginDb",
+      "args": [
+        10,
+        30,
+        2.4,
+        0.6,
+        12,
+        1000,
+        3,
+        290,
+        10,
+        7
+      ],
+      "expected": 37.31972470573737
+    },
+    {
+      "fn": "gnssUereM",
+      "args": [
+        4,
+        0.7,
+        2.1,
+        1.4,
+        0.5
+      ],
+      "expected": 4.807286136688766
+    },
+    {
+      "fn": "gnssHorizontalErrorM",
+      "args": [
+        4.81,
+        1.5
+      ],
+      "expected": 7.215
+    },
+    {
+      "fn": "irstRadiantIntensity",
+      "args": [
+        330,
+        280,
+        2,
+        0.9,
+        0.35
+      ],
+      "expected": 64.95910462561797
+    },
+    {
+      "fn": "irstDetectionRangeKm",
+      "args": [
+        330,
+        280,
+        2,
+        0.9,
+        0.35,
+        0.7,
+        0.1,
+        1e-11
+      ],
+      "expected": 68.70395035198104
+    },
+    {
+      "fn": "sonarFigureOfMeritDb",
+      "args": [
+        130,
+        65,
+        20,
+        5
+      ],
+      "expected": 80
+    },
+    {
+      "fn": "sonarTlSphericalDb",
+      "args": [
+        20,
+        1
+      ],
+      "expected": 106.02059991327963
+    },
+    {
+      "fn": "sonarDetectionRangeKm",
+      "args": [
+        130,
+        65,
+        20,
+        5,
+        1
+      ],
+      "expected": 5.381665687569965
+    },
+    {
+      "fn": "orbitalVelocityKms",
+      "args": [
+        550
+      ],
+      "expected": 7.585088535158763
+    },
+    {
+      "fn": "orbitalPeriodMin",
+      "args": [
+        550
+      ],
+      "expected": 95.64988025024662
+    },
+    {
+      "fn": "coverageHalfAngleDeg",
+      "args": [
+        550,
+        5
+      ],
+      "expected": 18.492772540111396
+    },
+    {
+      "fn": "projectileRangeKm",
+      "args": [
+        827,
+        45,
+        9.81
+      ],
+      "expected": 69.71753312945972
+    },
+    {
+      "fn": "projectileApogeeKm",
+      "args": [
+        827,
+        45,
+        9.81
+      ],
+      "expected": 17.429383282364928
+    },
+    {
+      "fn": "projectileTofS",
+      "args": [
+        827,
+        45,
+        9.81
+      ],
+      "expected": 119.2206540349184
     }
   ]
 }
