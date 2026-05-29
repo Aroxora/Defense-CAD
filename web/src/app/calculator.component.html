@@ -1,0 +1,38 @@
+<div class="calc" *ngIf="def as d">
+  <div class="calc-head">
+    <span class="cat">{{ d.category }}</span>
+    <h3>{{ d.title }}</h3>
+  </div>
+  <pre class="eq">{{ d.equation }}</pre>
+
+  <div class="calc-body">
+    <div class="controls">
+      <div class="ctl" *ngFor="let inp of d.inputs">
+        <div class="ctl-top">
+          <label [attr.for]="'ctl-' + inp.key">{{ inp.label }}</label>
+          <span class="val">{{ fmtVal(inp, values()[inp.key]) }} <em>{{ inp.unit }}</em></span>
+        </div>
+        <input type="range" [id]="'ctl-' + inp.key" [min]="inp.min" [max]="inp.max" [step]="inp.step"
+               [attr.aria-label]="inp.label + ' (' + inp.unit + ')'"
+               [attr.aria-valuetext]="fmtVal(inp, values()[inp.key]) + ' ' + inp.unit"
+               [ngModel]="values()[inp.key]" (ngModelChange)="setVal(inp.key, $event)" />
+      </div>
+    </div>
+
+    <div class="results">
+      <div class="outs">
+        <div class="out" *ngFor="let o of outputs()" [class.primary]="o.primary">
+          <span class="ov">{{ fmtOut(o) }}<small *ngIf="o.unit"> {{ o.unit }}</small></span>
+          <label>{{ o.label }}</label>
+        </div>
+      </div>
+      <app-chart [points]="chartPoints()" [current]="current()" [logX]="chartLogX()"
+                 [xLabel]="xAxisLabel()" [yLabel]="d.chart.yLabel"></app-chart>
+    </div>
+  </div>
+
+  <p class="why"><b>Why it matters.</b> {{ d.why }}</p>
+  <p class="note">Illustrative OSINT inputs with wide uncertainty &mdash; results are for relative comparison and
+    intuition, <b>not predictions of real engagements and not operational guidance</b>.</p>
+  <p class="src">Source: <code>{{ d.source }}</code> &mdash; verified against the Python model in CI.</p>
+</div>

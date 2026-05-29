@@ -1,0 +1,32 @@
+:host {
+  --panel: #121823; --panel2: #0f1521; --line: #1f2b3d; --txt: #d6e1f0;
+  --muted: #7e8ca3; --accent: #46e0c0; --accent2: #4aa3ff;
+}
+.calc { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
+.calc-head { display: flex; align-items: baseline; gap: 12px; }
+.calc-head h3 { margin: 0; font-size: 18px; }
+.cat { font-size: 10px; letter-spacing: .5px; text-transform: uppercase; color: var(--accent); border: 1px solid var(--line); border-radius: 5px; padding: 2px 7px; }
+.eq { background: var(--panel2); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; color: var(--txt); font-size: 12.5px; overflow-x: auto; white-space: pre-wrap; margin: 12px 0; font-family: 'SFMono-Regular', Consolas, monospace; }
+
+.calc-body { display: grid; grid-template-columns: 320px 1fr; gap: 20px; }
+@media (max-width: 820px) { .calc-body { grid-template-columns: 1fr; } }
+
+.controls { display: flex; flex-direction: column; gap: 11px; }
+.ctl-top { display: flex; justify-content: space-between; align-items: baseline; }
+.ctl label { font-size: 12.5px; color: var(--muted); }
+.ctl .val { font-size: 13px; color: var(--txt); font-variant-numeric: tabular-nums; }
+.ctl .val em { color: var(--muted); font-style: normal; font-size: 11px; }
+.ctl input[type='range'] { width: 100%; accent-color: var(--accent); margin-top: 3px; }
+
+.outs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+.out { background: var(--panel2); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; min-width: 110px; flex: 1; }
+.out.primary { border-color: var(--accent); }
+.out .ov { display: block; font-size: 19px; color: var(--txt); font-variant-numeric: tabular-nums; }
+.out.primary .ov { color: var(--accent); }
+.out .ov small { font-size: 11px; color: var(--muted); }
+.out label { font-size: 11px; color: var(--muted); }
+
+.why { color: var(--muted); font-size: 13px; line-height: 1.55; margin: 16px 0 4px; }
+.why b { color: var(--txt); }
+.src { font-size: 11px; color: var(--muted); }
+.src code { color: var(--accent2); }
