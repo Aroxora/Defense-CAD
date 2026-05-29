@@ -52,3 +52,17 @@ def test_cost_benefit_economics_and_ranking():
     dod_ranked = cb.rank_by_value(side="DoD")
     assert dod_ranked[-1].key == "trump_class_battleship"
     assert "NOT acquisition advice" in cb.cost_benefit_report()
+
+
+def test_cost_benefit_multidomain_portfolio():
+    systems = cb.list_systems()
+    # broad procurement/R&D coverage across both sides and several domains
+    assert len(systems) >= 12
+    assert {"PLA", "DoD"} <= {s.side for s in systems}
+    assert len(cb.domains()) >= 5
+    # every system has a domain and the portfolio report is non-operational
+    assert all(s.domain for s in systems)
+    report = cb.procurement_portfolio_report()
+    assert "NOT acquisition advice" in report
+    # per-side filtering works
+    assert all(s.side == "PLA" for s in cb.rank_by_value(side="PLA"))

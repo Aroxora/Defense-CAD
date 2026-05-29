@@ -4,6 +4,10 @@
 recommendations** — radar cross section, RF propagation, ESM geolocation, missile
 kinematics, and engagement modeling, all from public data with explicit uncertainty.
 
+**Live web app:** https://osint-defense.web.app — interactive procurement &amp; R&amp;D
+cost-benefit, the actionable EW strategy, and PLA/DoD doctrine, all driven by the same
+`osint_cad` models.
+
 > **Classification: UNCLASSIFIED // CONCEPTUAL // FOR PUBLIC RELEASE.**
 > All adversary/system parameters are deduced from publicly available information with
 > documented confidence levels. No classified or export-controlled information is included.
@@ -129,6 +133,21 @@ docs analyses      # platform/system CAD analyses (*.md)
 This is conceptual, open-source modeling for analysis and education. It is **not** a
 targeting system, contains **no** classified or export-controlled data, and makes **no**
 claims about fielded performance of any real system.
+
+## Web app (Angular + Firebase Hosting)
+
+The interactive front-end lives in [`web/`](web/) (Angular 18, standalone). It reads JSON
+exported from the Python models so the UI never drifts from the source of truth:
+
+```bash
+python scripts/export_web_data.py          # osint_cad.* -> web/public/data/*.json
+cd web && npm install
+npx ng build --configuration=production     # outputs web/dist/web/browser
+firebase deploy --only hosting              # project: osint-defense (.firebaserc)
+```
+
+CI builds the whole pipeline (Python export → Angular build) on every push
+(`.github/workflows/ci.yml`).
 
 ## License
 

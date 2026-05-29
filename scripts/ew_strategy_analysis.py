@@ -26,50 +26,14 @@ Classification: UNCLASSIFIED // CONCEPTUAL // PUBLIC RELEASE
 import numpy as np
 
 from osint_cad.sensors.geolocation_network import GeolocationEngine
-
-C = 299_792_458.0  # m/s
-
-
-# --------------------------------------------------------------------------------------
-# Shared physics helpers (same forms used elsewhere in the repo)
-# --------------------------------------------------------------------------------------
-def friis_intercept_range_km(eirp_dbm, rx_sensitivity_dbm, freq_ghz, proc_gain_db=0.0):
-    """Max range at which a receiver can intercept an emitter (Friis free-space).
-
-    PL_allowable = EIRP - (sensitivity - processing_gain);  R = lambda * 10^(PL/20)/(4 pi)
-    """
-    lam = C / (freq_ghz * 1e9)
-    effective_sensitivity = rx_sensitivity_dbm - proc_gain_db  # integration lowers floor
-    pl_db = eirp_dbm - effective_sensitivity
-    return (lam * 10 ** (pl_db / 20.0) / (4 * np.pi)) / 1000.0
-
-
-def processing_gain_db(bandwidth_hz, integration_time_s):
-    """Non-coherent integration processing gain (signal_processing.py form)."""
-    return 10.0 * np.log10(bandwidth_hz * integration_time_s)
-
-
-def crlb_cep_m(engine, platforms_m, emitter_m, timing_ns):
-    """Horizontal 50% CEP (m) from the TDOA Cramer-Rao bound for a given geometry."""
-    crlb = engine.calculate_crlb_tdoa(np.asarray(platforms_m), np.asarray(emitter_m),
-                                      timing_uncertainty_ns=timing_ns)
-    var_xy = crlb[0, 0] + crlb[1, 1]          # horizontal position variance (m^2)
-    sigma = np.sqrt(max(var_xy, 0.0) / 2.0)   # per-axis sigma, circular approx
-    return 1.1774 * sigma                     # CEP50 for circular Gaussian
-
-
-def ring_geometry(n, baseline_km, altitude_m=10_000.0, alt_spread_m=3_000.0):
-    """N ESM platforms on a ring of the given baseline radius, with altitude diversity.
-
-    Real multi-platform ESM nets stagger altitudes; a perfectly coplanar ring makes the
-    3D TDOA geometry near-singular (vertical dimension unobservable), so we alternate
-    platform altitudes by +/- alt_spread to keep the Fisher information well-conditioned.
-    """
-    r = baseline_km * 1000.0
-    return np.array([[r * np.cos(2 * np.pi * i / n),
-                      r * np.sin(2 * np.pi * i / n),
-                      altitude_m + (alt_spread_m if i % 2 else -alt_spread_m)]
-                     for i in range(n)])
+# Canonical physics helpers live in the package module (shared with the web exporter).
+from osint_cad.engagements.ew_strategy import (
+    crlb_cep_m,
+    friis_intercept_range_km,
+    js_db as _js_db,
+    processing_gain_db,
+    ring_geometry,
+)
 
 
 def section(title):
@@ -190,14 +154,6 @@ def analyze_datalink_hardening():
 # --------------------------------------------------------------------------------------
 # 3. EW effort reallocation
 # --------------------------------------------------------------------------------------
-def _js_db(jam_power_kw, range_km, victim_signal_dbm, freq_hz, jammer_ant_gain_db=30.0):
-    """Jammer-to-signal ratio at the victim (same form as run_integrated_kill_chain)."""
-    jam_power_dbw = 10 * np.log10(jam_power_kw * 1000.0)
-    path_loss_db = 20 * np.log10(range_km * 1000.0) + 20 * np.log10(freq_hz) - 147.55
-    jam_at_victim_dbm = jam_power_dbw + 30 - path_loss_db + jammer_ant_gain_db
-    return jam_at_victim_dbm - victim_signal_dbm
-
-
 def analyze_ew_reallocation():
     section("3. EW EFFORT REALLOCATION  (actionable tactic, no new hardware)")
 

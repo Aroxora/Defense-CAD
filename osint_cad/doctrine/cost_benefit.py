@@ -34,6 +34,8 @@ class ProposedSystem:
     key: str
     name: str
     side: str                       # 'DoD' | 'PLA' | other
+    domain: str                     # 'air'|'naval'|'subsurface'|'missile'|'hypersonic'|
+                                    # 'space'|'c2_network'|'autonomy'|'air_defense'|'ground'
     status: str                     # 'conceptual' | 'proposed' | 'development' | 'fielded'
     description: str
     unit_cost_musd: float           # procurement unit cost (USD millions)
@@ -84,96 +86,193 @@ class ProposedSystem:
 # --- Seed catalogue (illustrative OSINT estimates) ------------------------------------
 
 _SEED: List[ProposedSystem] = [
+    # ----- DoD ------------------------------------------------------------------------
     ProposedSystem(
         key="trump_class_battleship",
         name="Trump-class Battleship (conceptual, 'Golden Fleet')",
-        side="DoD",
-        status="conceptual",
-        description=(
-            "A notional heavily-armored, big-gun/missile capital ship. Included as a "
-            "deliberately conceptual case to show how cost-benefit + survivability physics "
-            "evaluate a 'return of the battleship' proposal. NOT a real program."
-        ),
-        unit_cost_musd=10_000.0,   # order-of-magnitude for a >40 kt armored capital ship
-        quantity=4,
-        rnd_cost_musd=15_000.0,
-        annual_oandm_musd=350.0,
-        service_life_years=40,
-        benefit_score=35.0,        # heavy firepower/presence, but narrow utility today
-        survivability_score=20.0,  # large RCS, concentrated value vs ASBM/ASCM/torpedo/HGV
-        key_benefits=[
-            "Large magazine and survivable armor vs legacy threats",
-            "Presence / deterrence symbolism",
-        ],
-        key_risks=[
-            "High-value, concentrated target for anti-ship ballistic/cruise/hypersonic fires",
-            "Very high unit + lifecycle cost; few hulls = brittle force",
-            "Runs counter to Distributed Maritime Operations (dispersal) logic",
-        ],
-        sources=[
-            "Conceptual; cost framed by CBO armored-warship/CVN-class order of magnitude",
-            "Survivability per public ASBM/ASCM threat analyses (CSIS Missile Threat)",
-        ],
-        confidence=0.30,
-        news_query="battleship OR 'Golden Fleet' capital ship cost proposal navy",
-    ),
+        side="DoD", domain="naval", status="conceptual",
+        description=("Notional heavily-armored big-gun/missile capital ship. A deliberately "
+                     "conceptual case showing how cost-benefit + survivability physics judge "
+                     "a 'return of the battleship'. NOT a real program."),
+        unit_cost_musd=10_000.0, quantity=4, rnd_cost_musd=15_000.0,
+        annual_oandm_musd=350.0, service_life_years=40,
+        benefit_score=35.0, survivability_score=20.0,
+        key_benefits=["Large magazine/armor vs legacy threats", "Presence/deterrence symbolism"],
+        key_risks=["High-value concentrated target for ASBM/ASCM/HGV/torpedo",
+                   "Very high lifecycle cost; few hulls = brittle force",
+                   "Counter to Distributed Maritime Operations (dispersal)"],
+        sources=["Conceptual; cost framed by CBO armored-warship/CVN order of magnitude",
+                 "Survivability per public ASBM/ASCM threat analyses (CSIS Missile Threat)"],
+        confidence=0.30, news_query="battleship OR 'Golden Fleet' capital ship cost proposal navy"),
+    ProposedSystem(
+        key="b21_raider",
+        name="B-21 Raider Stealth Bomber",
+        side="DoD", domain="air", status="development",
+        description="Next-gen stealth bomber; penetrating long-range strike.",
+        unit_cost_musd=700.0, quantity=100, rnd_cost_musd=25_000.0,
+        annual_oandm_musd=25.0, service_life_years=30,
+        benefit_score=85.0, survivability_score=80.0,
+        key_benefits=["Penetrating stealth strike", "Open-architecture upgradeability"],
+        key_risks=["Sustainment cost growth", "Threat IADS evolution"],
+        sources=["USAF/GAO B-21 program public estimates", "CBO long-range strike analyses"],
+        confidence=0.55, news_query="B-21 Raider bomber unit cost program"),
+    ProposedSystem(
+        key="columbia_ssbn",
+        name="Columbia-class SSBN",
+        side="DoD", domain="subsurface", status="development",
+        description="Ballistic-missile submarine; survivable strategic deterrent.",
+        unit_cost_musd=9_000.0, quantity=12, rnd_cost_musd=15_000.0,
+        annual_oandm_musd=110.0, service_life_years=42,
+        benefit_score=95.0, survivability_score=95.0,
+        key_benefits=["Survivable second-strike (sea-based deterrent)", "Quietness"],
+        key_risks=["Schedule risk to deterrent patrols", "Industrial-base constraints"],
+        sources=["CBO/CRS Columbia-class estimates (public)"],
+        confidence=0.60, news_query="Columbia-class SSBN submarine cost program"),
     ProposedSystem(
         key="ddgx_destroyer",
         name="DDG(X) Next-Generation Guided-Missile Destroyer",
-        side="DoD",
-        status="development",
-        description="USN next-gen destroyer to follow the Arleigh Burke (DDG-51) line.",
-        unit_cost_musd=3_300.0,
-        quantity=28,
-        rnd_cost_musd=6_000.0,
-        annual_oandm_musd=60.0,
-        service_life_years=35,
-        benefit_score=75.0,
-        survivability_score=60.0,
+        side="DoD", domain="naval", status="development",
+        description="USN next-gen destroyer following the Arleigh Burke line.",
+        unit_cost_musd=3_300.0, quantity=28, rnd_cost_musd=6_000.0,
+        annual_oandm_musd=60.0, service_life_years=35,
+        benefit_score=75.0, survivability_score=60.0,
         key_benefits=["Networked air/missile defense", "Distributable combat power"],
         key_risks=["Cost growth risk", "Power/cooling for future weapons unproven"],
         sources=["CBO/CRS DDG(X) program estimates (public)"],
-        confidence=0.55,
-        news_query="DDG(X) destroyer program cost estimate navy",
-    ),
+        confidence=0.55, news_query="DDG(X) destroyer program cost estimate navy"),
+    ProposedSystem(
+        key="constellation_ffg",
+        name="Constellation-class Frigate (FFG-62)",
+        side="DoD", domain="naval", status="development",
+        description="Multi-mission guided-missile frigate; lower-cost surface combatant.",
+        unit_cost_musd=1_300.0, quantity=20, rnd_cost_musd=1_500.0,
+        annual_oandm_musd=30.0, service_life_years=30,
+        benefit_score=68.0, survivability_score=55.0,
+        key_benefits=["Affordable distributed surface combatant", "Proven parent design"],
+        key_risks=["Design-change-driven schedule slip", "Weight/margin growth"],
+        sources=["GAO/CRS FFG-62 program reports (public)"],
+        confidence=0.55, news_query="Constellation class frigate FFG-62 cost"),
+    ProposedSystem(
+        key="ngad_fighter",
+        name="NGAD Air-Dominance Fighter",
+        side="DoD", domain="air", status="development",
+        description="Next-Generation Air Dominance crewed fighter (teamed with CCA).",
+        unit_cost_musd=300.0, quantity=200, rnd_cost_musd=16_000.0,
+        annual_oandm_musd=20.0, service_life_years=30,
+        benefit_score=82.0, survivability_score=75.0,
+        key_benefits=["Penetrating counter-air", "CCA teaming/quarterback"],
+        key_risks=["Very high unit cost (affordability review)", "Requirements churn"],
+        sources=["USAF NGAD public statements; CSIS/CBO analyses"],
+        confidence=0.45, news_query="NGAD fighter cost per unit Air Force program"),
     ProposedSystem(
         key="cca_increment1",
         name="Collaborative Combat Aircraft (CCA), Increment 1",
-        side="DoD",
-        status="development",
+        side="DoD", domain="autonomy", status="development",
         description="Low-cost, semi-autonomous uncrewed combat aircraft teamed with fighters.",
-        unit_cost_musd=30.0,
-        quantity=1000,
-        rnd_cost_musd=4_000.0,
-        annual_oandm_musd=1.5,
-        service_life_years=15,
-        benefit_score=70.0,
-        survivability_score=55.0,
+        unit_cost_musd=30.0, quantity=1000, rnd_cost_musd=4_000.0,
+        annual_oandm_musd=1.5, service_life_years=15,
+        benefit_score=70.0, survivability_score=55.0,
         key_benefits=["Affordable mass", "Attritable; complicates adversary targeting"],
         key_risks=["Autonomy maturity", "Datalink dependence (see EW strategy)"],
         sources=["USAF CCA program public statements; CSIS/CBO analyses"],
-        confidence=0.50,
-        news_query="Collaborative Combat Aircraft CCA cost per unit Air Force",
-    ),
+        confidence=0.50, news_query="Collaborative Combat Aircraft CCA cost per unit Air Force"),
+    ProposedSystem(
+        key="sentinel_icbm",
+        name="LGM-35A Sentinel ICBM",
+        side="DoD", domain="missile", status="development",
+        description="Ground-based strategic deterrent replacing Minuteman III.",
+        unit_cost_musd=160.0, quantity=634, rnd_cost_musd=40_000.0,
+        annual_oandm_musd=2.0, service_life_years=50,
+        benefit_score=80.0, survivability_score=45.0,
+        key_benefits=["Modernized land leg of the triad", "Responsiveness"],
+        key_risks=["Major Nunn-McCurdy cost breach (public)", "Silo basing survivability debate"],
+        sources=["USAF/GAO Sentinel program; public Nunn-McCurdy reporting"],
+        confidence=0.55, news_query="Sentinel LGM-35A ICBM cost overrun program"),
+    ProposedSystem(
+        key="sda_leo_layer",
+        name="Proliferated LEO Sensor/Transport Layer (SDA)",
+        side="DoD", domain="space", status="development",
+        description="Resilient mesh of small LEO satellites for missile tracking + transport.",
+        unit_cost_musd=40.0, quantity=400, rnd_cost_musd=6_000.0,
+        annual_oandm_musd=2.0, service_life_years=7,
+        benefit_score=78.0, survivability_score=70.0,
+        key_benefits=["Resilience via proliferation", "Hypersonic/missile tracking"],
+        key_risks=["Launch cadence/cost", "Ground segment & data fusion maturity"],
+        sources=["Space Development Agency public tranches; CSIS analyses"],
+        confidence=0.50, news_query="Space Development Agency proliferated LEO satellites cost"),
+    # ----- PLA ------------------------------------------------------------------------
     ProposedSystem(
         key="type055_destroyer",
         name="Type 055 (Renhai) Cruiser",
-        side="PLA",
-        status="fielded",
-        description="PLAN large guided-missile cruiser/destroyer (for cross-side comparison).",
-        unit_cost_musd=920.0,
-        quantity=8,
-        rnd_cost_musd=3_000.0,
-        annual_oandm_musd=35.0,
-        service_life_years=35,
-        benefit_score=72.0,
-        survivability_score=58.0,
-        key_benefits=["Large VLS capacity", "Air-defense and land-attack flexibility"],
+        side="PLA", domain="naval", status="fielded",
+        description="PLAN large guided-missile cruiser/destroyer (cross-side comparison).",
+        unit_cost_musd=920.0, quantity=8, rnd_cost_musd=3_000.0,
+        annual_oandm_musd=35.0, service_life_years=35,
+        benefit_score=72.0, survivability_score=58.0,
+        key_benefits=["Large VLS capacity", "Air-defense + land-attack flexibility"],
         key_risks=["High-value surface unit vs adversary strike", "Open-source cost uncertain"],
         sources=["Public PLAN order-of-battle analyses (USNI, CSIS)"],
-        confidence=0.40,
-        news_query="Type 055 Renhai cruiser cost PLAN",
-    ),
+        confidence=0.40, news_query="Type 055 Renhai cruiser cost PLAN"),
+    ProposedSystem(
+        key="type003_carrier",
+        name="Type 003 (Fujian) Aircraft Carrier",
+        side="PLA", domain="naval", status="development",
+        description="PLAN CATOBAR aircraft carrier.",
+        unit_cost_musd=8_000.0, quantity=2, rnd_cost_musd=10_000.0,
+        annual_oandm_musd=300.0, service_life_years=40,
+        benefit_score=78.0, survivability_score=40.0,
+        key_benefits=["Power projection / sortie generation", "CATOBAR airwing flexibility"],
+        key_risks=["High-value target within A2/AD reach", "Carrier-ops maturity"],
+        sources=["USNI/CSIS public PLAN carrier analyses"],
+        confidence=0.35, news_query="Type 003 Fujian carrier cost PLAN"),
+    ProposedSystem(
+        key="df17_hgv",
+        name="DF-17 Hypersonic Glide Vehicle (MRBM)",
+        side="PLA", domain="hypersonic", status="fielded",
+        description="Road-mobile MRBM with a hypersonic glide vehicle.",
+        unit_cost_musd=15.0, quantity=200, rnd_cost_musd=5_000.0,
+        annual_oandm_musd=0.4, service_life_years=20,
+        benefit_score=74.0, survivability_score=72.0,
+        key_benefits=["Maneuvering reentry stresses defenses", "Road-mobile launcher survivability"],
+        key_risks=["Terminal accuracy uncertain (open source)", "Defense GPI development"],
+        sources=["CSIS Missile Threat; DoD China Military Power Report"],
+        confidence=0.40, news_query="DF-17 hypersonic glide vehicle PLA"),
+    ProposedSystem(
+        key="df41_icbm",
+        name="DF-41 ICBM",
+        side="PLA", domain="missile", status="fielded",
+        description="Road-mobile/silo ICBM; strategic deterrent.",
+        unit_cost_musd=30.0, quantity=100, rnd_cost_musd=8_000.0,
+        annual_oandm_musd=0.6, service_life_years=30,
+        benefit_score=85.0, survivability_score=60.0,
+        key_benefits=["Long-range strategic reach", "Road-mobile basing options"],
+        key_risks=["Silo-field survivability debate", "Open-source figures uncertain"],
+        sources=["CSIS Missile Threat; DoD China Military Power Report"],
+        confidence=0.35, news_query="DF-41 ICBM PLA road mobile"),
+    ProposedSystem(
+        key="j35_fighter",
+        name="J-35 / FC-31 Stealth Fighter",
+        side="PLA", domain="air", status="development",
+        description="Medium stealth fighter (land- and carrier-based variants).",
+        unit_cost_musd=80.0, quantity=200, rnd_cost_musd=8_000.0,
+        annual_oandm_musd=6.0, service_life_years=30,
+        benefit_score=70.0, survivability_score=62.0,
+        key_benefits=["Carrier-capable stealth airwing", "Fleet stealth mass"],
+        key_risks=["Engine/sensor maturity (open source)", "Cost figures uncertain"],
+        sources=["USNI/CSIS public PLAAF/PLAN aviation analyses"],
+        confidence=0.35, news_query="J-35 FC-31 stealth fighter China cost"),
+    ProposedSystem(
+        key="h20_bomber",
+        name="H-20 Stealth Bomber (conceptual/R&D)",
+        side="PLA", domain="air", status="conceptual",
+        description="Reported PLAAF stealth bomber program; largely developmental in open sources.",
+        unit_cost_musd=650.0, quantity=100, rnd_cost_musd=20_000.0,
+        annual_oandm_musd=22.0, service_life_years=30,
+        benefit_score=80.0, survivability_score=78.0,
+        key_benefits=["Penetrating long-range strike (if fielded)", "Extends strike reach"],
+        key_risks=["Program maturity unconfirmed (open source)", "Figures highly uncertain"],
+        sources=["DoD China Military Power Report; public PLAAF analyses"],
+        confidence=0.25, news_query="H-20 stealth bomber China program"),
 ]
 
 
@@ -210,10 +309,17 @@ def get_system(key: str) -> ProposedSystem:
     raise KeyError(f"unknown proposed system: {key!r}")
 
 
-def rank_by_value(side: Optional[str] = None) -> List[ProposedSystem]:
+def rank_by_value(side: Optional[str] = None,
+                  domain: Optional[str] = None) -> List[ProposedSystem]:
     """Systems ranked by value_index (survivability-adjusted benefit per $B), best first."""
-    systems = [s for s in list_systems() if side is None or s.side == side]
+    systems = [s for s in list_systems()
+               if (side is None or s.side == side) and (domain is None or s.domain == domain)]
     return sorted(systems, key=lambda s: s.value_index, reverse=True)
+
+
+def domains() -> List[str]:
+    """Sorted list of domains present in the catalogue."""
+    return sorted({s.domain for s in list_systems()})
 
 
 def cost_benefit_report(side: Optional[str] = None) -> str:
@@ -240,5 +346,35 @@ def cost_benefit_report(side: Optional[str] = None) -> str:
     return "\n".join(lines)
 
 
+def procurement_portfolio_report(side: Optional[str] = None) -> str:
+    """Procurement & R&D portfolio view: best-value option per domain, per side.
+
+    A neutral OSINT 'where does investment buy the most survivable benefit per dollar'
+    study across all domains -- NOT acquisition advice or guidance.
+    """
+    sides = [side] if side else sorted({s.side for s in list_systems()})
+    lines = [
+        "=" * 96,
+        "PROCUREMENT & R&D PORTFOLIO -- BEST VALUE PER DOMAIN (OSINT, illustrative)",
+        "Neutral study of survivability-adjusted benefit per $B. NOT acquisition advice.",
+        "=" * 96,
+    ]
+    for sd in sides:
+        lines += ["", f"### {sd}", "-" * 96,
+                  f"{'domain':14s} {'top-value system':42s} {'LCC $B':>8s} {'val_idx':>8s}"]
+        for dom in domains():
+            ranked = rank_by_value(side=sd, domain=dom)
+            if not ranked:
+                continue
+            best = ranked[0]
+            lines.append(f"{dom:14s} {best.name[:42]:42s} "
+                         f"{best.lifecycle_cost_busd:8.1f} {best.value_index:8.2f}")
+    lines += ["", "Higher val_idx = better value. Status mix spans fielded/development/"
+              "conceptual; see confidence per system in cost_benefit_report()."]
+    return "\n".join(lines)
+
+
 if __name__ == "__main__":
     print(cost_benefit_report())
+    print("\n")
+    print(procurement_portfolio_report())
