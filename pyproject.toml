@@ -3,12 +3,12 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pla-defense-cad"
-version = "1.0.0"
-description = "Defense CAD simulation and modeling system"
+name = "osint-defense-cad"
+version = "2.0.0"
+description = "Physics-based OSINT defense-systems analysis toolkit (RCS, radar, RF propagation, ESM geolocation, missile kinematics, engagement modeling)"
 readme = "README.md"
 requires-python = ">=3.9"
-license = {text = "Proprietary"}
+license = {text = "MIT"}
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Science/Research",
@@ -19,10 +19,10 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
 ]
 dependencies = [
-    "numpy>=1.24.0,<2.0.0",
-    "scipy>=1.10.0,<2.0.0",
-    "matplotlib>=3.7.0,<4.0.0",
-    "networkx>=3.0,<4.0.0",
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "matplotlib>=3.7.0",
+    "networkx>=3.0",
 ]
 
 [project.optional-dependencies]
@@ -37,7 +37,8 @@ dev = [
 
 [tool.setuptools.packages.find]
 where = ["."]
-exclude = ["venv*", "tests*"]
+include = ["osint_cad*"]
+exclude = ["venv*", "tests*", "scripts*"]
 
 # ============================================
 # Black Configuration
@@ -121,7 +122,7 @@ ignore = [
 "*_test.py" = ["S101", "S105", "S106"]
 
 [tool.ruff.lint.isort]
-known-first-party = ["pla_defense_cad"]
+known-first-party = ["osint_cad"]
 
 # ============================================
 # MyPy Configuration
@@ -151,7 +152,7 @@ ignore_missing_imports = true
 # Pytest Configuration
 # ============================================
 [tool.pytest.ini_options]
-testpaths = ["."]
+testpaths = ["tests"]
 python_files = ["test_*.py", "*_test.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
@@ -163,7 +164,6 @@ addopts = [
 markers = [
     "slow: marks tests as slow (deselect with '-m \"not slow\"')",
     "integration: marks integration tests",
-    "contractor: marks contractor-specific tests",
     "simulation: marks simulation tests",
 ]
 filterwarnings = [
@@ -206,7 +206,7 @@ directory = "htmlcov"
 [tool.isort]
 profile = "black"
 line_length = 120
-known_first_party = ["pla_defense_cad"]
+known_first_party = ["osint_cad"]
 skip = [".venv", "venv", "build", "dist"]
 
 # ============================================

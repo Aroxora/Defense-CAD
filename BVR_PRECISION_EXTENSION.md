@@ -1,5 +1,18 @@
 # BVR Precision Extension: PL-15 Integration with Coordinated EW
 
+> **⚠️ Realism note on "MADL jamming" in this document.**
+> Several timelines and frequency plans below assume standoff jamming of the F-35's MADL
+> datalink (e.g. "12–14.5 / 15.5–18 GHz MADL jamming," "J-16D jams F-35 MADL"). In reality
+> MADL is a **narrow-beam (~few-degree), electronically-steered, frequency-hopping LPI/LPD**
+> link with low power spectral density, designed to resist exactly this. Reliable jamming
+> from standoff is **not physically achievable**: a standoff jammer is almost never inside
+> the link beam, must overcome the despreading/processing gain, and a fixed-band jammer
+> dwells on a hopping link only a fraction of the time. Treat MADL jamming entries here as
+> **aspirational / opportunistic at best (effect ≈ 0 in most geometries)**, not as a
+> dependable degradation. The well-founded counter-MADL technique is **passive sidelobe
+> intercept (electronic support)**, which is detection — not attack — and is itself
+> opportunistic and geometry-dependent.
+
 ## Executive Summary
 
 This document describes extensions to achieve true BVR precision engagement capability suitable for PL-15 missile employment against stealth targets with integrated electronic warfare.

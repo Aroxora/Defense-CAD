@@ -416,6 +416,24 @@ AIM-260 JATM (Next-Gen AAM, Limited Deployment)
 
 ### 3.2 MADL Vulnerabilities Exploited by Chinese System
 
+> **⚠️ MADL realism note (read before the numbers below).**
+> MADL is a Ku-band, electronically-steered, **narrow-beam (~few-degree)** LPI/LPD
+> datalink with **frequency hopping** and **low power spectral density** — engineered
+> specifically to resist both interception and jamming. The detection ranges quoted in
+> this section (e.g. 180–220 km from sidelobe intercept) are **best-case, geometry- and
+> emission-dependent upper bounds**, not a reliable capability:
+> - Intercept requires catching a **sidelobe during an active transmission** while the
+>   link geometry happens to favor the observer. It is **opportunistic and intermittent**,
+>   and **bearing-only** from a single platform.
+> - Turning a bearing into a track requires a **synchronized multi-platform TDOA/FDOA
+>   network**, whose coherence **degrades against a frequency-hopping waveform**, widening CEP.
+> - **Jamming/“disruption” of MADL from standoff is not reliably achievable** (narrow
+>   steered beams + hopping + processing gain). This is electronic *support* (detection),
+>   **not** electronic *attack*. Claims that MADL can be jammed to “isolate” F-35s are
+>   **not physically supportable** and should be read as adversary aspiration, not capability.
+>
+> Confidence in the specific figures below: **~40–55%.**
+
 **Vulnerability 1: Sidelobe Emissions (Passive Detection)**
 
 ```python
@@ -579,8 +597,17 @@ def engagement_j20_vs_f35_madl():
     }
 ```
 
-**Result:** China wins 39% vs US wins 14% (2.8:1 advantage)
-**Key Factor:** 100 km passive detection advantage + network resilience
+**Result (illustrative, low confidence):** With the deduced single-shot Pk inputs above
+(PL-15 ≈ 0.60, AIM-260 ≈ 0.35), the 1v1 outcome works out to roughly China 39% / US 14%
+(≈2.8:1). **This is the product of two uncertain estimates and must not be read as a
+prediction.** Each input Pk carries ~40–60% confidence, so the propagated confidence in the
+ratio is low (order 10–20%); plausible inputs span anywhere from rough parity to ~3:1.
+The result is sensitive to the assumed passive-detection advantage (itself geometry- and
+emission-dependent — see the MADL realism note in Part 1) and to NEZ/track-quality
+assumptions. Treat it as a sensitivity illustration, not a force-on-force forecast.
+
+**Key (uncertain) factor:** an *opportunistic* passive-detection advantage IF MADL sidelobe
+intercept succeeds, plus assumed network resilience.
 
 ---
 
@@ -1165,14 +1192,19 @@ US Challenges:
 ❌ NGAD delay (IOC 2030+, China maintains 5-year lead)
 ❌ Integration complexity (JADC2 incomplete, multi-service coordination issues)
 
-OUTCOME PROJECTION:
-  In air-to-air engagement at 150-200 km:
-    Chinese win probability: 39%
-    US win probability: 14%
-    Mutual kill: 21%
-    Both survive: 26%
+OUTCOME PROJECTION (ILLUSTRATIVE, LOW CONFIDENCE -- NOT A PREDICTION):
+  In air-to-air engagement at 150-200 km, using the deduced single-shot Pk
+  inputs (each ~40-60% confidence):
+    Chinese win probability: ~39%  (range ~25-50%)
+    US win probability:      ~14%  (range ~10-30%)
+    Mutual kill:             ~21%
+    Both survive:            ~26%
+  Confidence in the ratio is low because it multiplies two uncertain estimates;
+  plausible inputs span rough parity to ~3:1. Sensitive to the passive-detection
+  assumption (opportunistic -- see MADL realism note) and NEZ/track quality.
 
-  ADVANTAGE: CHINA (2.8:1 win ratio)
+  NOMINAL ADVANTAGE: ~2.8:1 to China at the point estimate, but with wide
+  uncertainty (rough parity to ~3:1). Illustrative only.
 ```
 
 ### 7.3 Recommendations for US Response
