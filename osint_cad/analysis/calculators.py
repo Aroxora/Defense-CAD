@@ -17,6 +17,21 @@ from typing import Dict, List, Tuple
 C = 299_792_458.0          # m/s
 K_BOLTZMANN = 1.380649e-23  # J/K
 T0 = 290.0                 # K, reference noise temperature
+SIGMA_SB = 5.670374419e-8  # W m^-2 K^-4, Stefan-Boltzmann
+MU_EARTH = 398_600.4418    # km^3/s^2, Earth gravitational parameter
+R_EARTH = 6378.137         # km, Earth equatorial radius
+
+
+def _bisect(f, lo, hi, iters=80):
+    """Deterministic bisection (fixed iteration count) so Python and the TS port agree.
+    Assumes f(lo) <= 0 <= f(hi)."""
+    for _ in range(iters):
+        mid = 0.5 * (lo + hi)
+        if f(mid) > 0:
+            hi = mid
+        else:
+            lo = mid
+    return 0.5 * (lo + hi)
 
 
 # ---------------------------------------------------------------- radar range equation
@@ -309,6 +324,120 @@ def po_validity_ratio(freq_ghz: float, char_length_m: float) -> float:
     """Object-size-to-wavelength ratio L/lambda; Physical Optics is valid when L/lambda >> 1."""
     lam = C / (freq_ghz * 1e9)
     return char_length_m / lam
+
+
+# ---------------------------------------------------------------- comms / SATCOM link budget
+def parabolic_gain_dbi(diameter_m: float, eta: float, freq_ghz: float) -> float:
+    """Parabolic-dish gain: G = eta * (pi D / lambda)^2 -> dBi."""
+    lam = C / (freq_ghz * 1e9)
+    return 10.0 * math.log10(eta * (math.pi * diameter_m / lam) ** 2)
+
+
+def link_margin_db(p_tx_dbw: float, g_tx_dbi: float, diameter_m: float, eta: float,
+                   freq_ghz: float, range_km: float, l_other_db: float, t_sys_k: float,
+                   rb_mbps: float, ebn0_req_db: float) -> float:
+    """End-to-end Eb/N0 link margin (dB). Positive => link closes."""
+    g_rx = parabolic_gain_dbi(diameter_m, eta, freq_ghz)
+    p_rx = p_tx_dbw + g_tx_dbi + g_rx - fspl_db(freq_ghz, range_km) - l_other_db
+    cn0 = p_rx - 10.0 * math.log10(K_BOLTZMANN * t_sys_k)          # dB-Hz
+    ebn0 = cn0 - 10.0 * math.log10(rb_mbps * 1e6)
+    return ebn0 - ebn0_req_db
+
+
+# ---------------------------------------------------------------- PNT / GNSS
+def gnss_uere_m(sig_iono: float, sig_tropo: float, sig_clk: float,
+                sig_mp: float, sig_rx: float) -> float:
+    """User-equivalent range error (1-sigma) as the RSS of the error budget."""
+    return math.sqrt(sig_iono ** 2 + sig_tropo ** 2 + sig_clk ** 2 + sig_mp ** 2 + sig_rx ** 2)
+
+
+def gnss_horizontal_error_m(uere_m: float, hdop: float) -> float:
+    """Horizontal 1-sigma position error = HDOP * UERE."""
+    return hdop * uere_m
+
+
+# ---------------------------------------------------------------- IR / EO (IRST)
+def irst_radiant_intensity(t_target_k: float, t_back_k: float, area_m2: float,
+                           emissivity: float, in_band_fraction: float) -> float:
+    """Apparent in-band radiant intensity contrast (W/sr): eps*sigma*(Tt^4-Tb^4)*A*frac/pi."""
+    dt4 = t_target_k ** 4 - t_back_k ** 4
+    return emissivity * SIGMA_SB * dt4 * area_m2 * in_band_fraction / math.pi
+
+
+def irst_detection_range_km(t_target_k: float, t_back_k: float, area_m2: float,
+                            emissivity: float, in_band_fraction: float, tau_opt: float,
+                            alpha_per_km: float, nei_w_m2: float) -> float:
+    """Point-source IR detection range with Beer-Lambert atmosphere.
+    Detect when intensity*tau_opt*exp(-alpha R) / R^2 >= NEI. Solved by bisection (km)."""
+    di = irst_radiant_intensity(t_target_k, t_back_k, area_m2, emissivity, in_band_fraction)
+    if di <= 0 or nei_w_m2 <= 0:
+        return 0.0
+    r_vac_km = math.sqrt(di * tau_opt / nei_w_m2) / 1000.0  # vacuum (no atmosphere)
+
+    def f(r_km):  # received irradiance minus NEI, sign flips at the detection range
+        r_m = r_km * 1000.0
+        return nei_w_m2 - di * tau_opt * math.exp(-alpha_per_km * r_km) / (r_m * r_m)
+
+    return _bisect(f, 1e-3, max(r_vac_km, 1e-3))
+
+
+# ---------------------------------------------------------------- undersea / passive sonar
+def sonar_figure_of_merit_db(source_level_db: float, noise_level_db: float,
+                             directivity_index_db: float, detection_threshold_db: float) -> float:
+    """Passive-sonar figure of merit = max allowable transmission loss = SL-(NL-DI)-DT."""
+    return source_level_db - (noise_level_db - directivity_index_db) - detection_threshold_db
+
+
+def sonar_tl_spherical_db(range_km: float, alpha_db_per_km: float) -> float:
+    """Spherical-spreading transmission loss: 20 log10(r_m) + alpha*r_km."""
+    r_m = max(range_km * 1000.0, 1.0)
+    return 20.0 * math.log10(r_m) + alpha_db_per_km * range_km
+
+
+def sonar_detection_range_km(source_level_db: float, noise_level_db: float,
+                             directivity_index_db: float, detection_threshold_db: float,
+                             alpha_db_per_km: float) -> float:
+    """Range where transmission loss equals the figure of merit (spherical spreading)."""
+    fom = sonar_figure_of_merit_db(source_level_db, noise_level_db,
+                                   directivity_index_db, detection_threshold_db)
+    return _bisect(lambda r: sonar_tl_spherical_db(r, alpha_db_per_km) - fom, 1e-3, 10000.0)
+
+
+# ---------------------------------------------------------------- space / orbital mechanics
+def orbital_velocity_kms(altitude_km: float) -> float:
+    """Circular-orbit speed v = sqrt(mu/a), a = R_E + h."""
+    return math.sqrt(MU_EARTH / (R_EARTH + altitude_km))
+
+
+def orbital_period_min(altitude_km: float) -> float:
+    """Circular-orbit period T = 2 pi sqrt(a^3/mu), in minutes."""
+    a = R_EARTH + altitude_km
+    return 2 * math.pi * math.sqrt(a ** 3 / MU_EARTH) / 60.0
+
+
+def coverage_half_angle_deg(altitude_km: float, min_elevation_deg: float) -> float:
+    """Earth-central half-angle of the access footprint at a minimum elevation angle:
+    lambda = arccos( (R_E/a) cos(el) ) - el."""
+    a = R_EARTH + altitude_km
+    el = math.radians(min_elevation_deg)
+    arg = max(-1.0, min(1.0, (R_EARTH / a) * math.cos(el)))
+    return math.degrees(math.acos(arg) - el)
+
+
+# ---------------------------------------------------------------- kinematics / ballistics
+def projectile_range_km(v0_ms: float, theta_deg: float, g: float = 9.81) -> float:
+    """Vacuum projectile range over level ground: R = v0^2 sin(2 theta)/g."""
+    return (v0_ms ** 2 * math.sin(2 * math.radians(theta_deg)) / g) / 1000.0
+
+
+def projectile_apogee_km(v0_ms: float, theta_deg: float, g: float = 9.81) -> float:
+    """Vacuum maximum ordinate: h = v0^2 sin^2(theta)/(2g)."""
+    return (v0_ms ** 2 * math.sin(math.radians(theta_deg)) ** 2 / (2 * g)) / 1000.0
+
+
+def projectile_tof_s(v0_ms: float, theta_deg: float, g: float = 9.81) -> float:
+    """Vacuum time of flight: t = 2 v0 sin(theta)/g."""
+    return 2 * v0_ms * math.sin(math.radians(theta_deg)) / g
 
 
 # ---------------------------------------------------------------- cost-benefit value

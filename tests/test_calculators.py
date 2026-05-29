@@ -66,6 +66,31 @@ def test_cad_material_helpers():
     assert _m.isclose(c.radar_range_simple_km(1e6, 40, 10, 16.0, 1e-13), base * 2, rel_tol=1e-9)
 
 
+def test_cross_domain_calculators():
+    # comms: a 2.4 m Ku dish is ~47 dBi; bigger dish + closer range -> more margin
+    assert 44 < c.parabolic_gain_dbi(2.4, 0.6, 12) < 50
+    assert c.link_margin_db(10, 30, 4.0, 0.6, 12, 1000, 3, 290, 10, 7) > c.link_margin_db(10, 30, 2.4, 0.6, 12, 1000, 3, 290, 10, 7)
+    # PNT: UERE is the RSS; horizontal error scales with HDOP
+    u = c.gnss_uere_m(4, 0.7, 2.1, 1.4, 0.5)
+    assert abs(u - (4**2 + 0.7**2 + 2.1**2 + 1.4**2 + 0.5**2) ** 0.5) < 1e-9
+    assert abs(c.gnss_horizontal_error_m(u, 2) - 2 * u) < 1e-9
+    # IRST: more haze (higher extinction) shortens detection range
+    far = c.irst_detection_range_km(330, 280, 2, 0.9, 0.35, 0.7, 0.05, 10e-12)
+    near = c.irst_detection_range_km(330, 280, 2, 0.9, 0.35, 0.7, 0.5, 10e-12)
+    assert far > near > 0
+    # sonar: at the detection range, TL ~= figure of merit
+    fom = c.sonar_figure_of_merit_db(130, 65, 20, 5)
+    rng = c.sonar_detection_range_km(130, 65, 20, 5, 1)
+    assert abs(c.sonar_tl_spherical_db(rng, 1) - fom) < 0.1
+    # orbit: LEO 550 km -> ~7.6 km/s, ~95 min; higher orbit slower & longer period
+    assert 7.4 < c.orbital_velocity_kms(550) < 7.7
+    assert 90 < c.orbital_period_min(550) < 100
+    assert c.orbital_period_min(20000) > c.orbital_period_min(550)
+    # ballistics: 45 deg maximizes range; symmetry about 45
+    assert c.projectile_range_km(800, 45) >= c.projectile_range_km(800, 30)
+    assert abs(c.projectile_range_km(800, 30) - c.projectile_range_km(800, 60)) < 1e-9
+
+
 def test_missile_defense_and_value_consistency():
     assert abs(c.kill_prob_salvo(0.7, 2) - 0.91) < 1e-9
     assert c.md_exchange_ratio(0.7, 4.3, 1.5, 2)["cost_exchange_ratio"] > 1  # unfavorable

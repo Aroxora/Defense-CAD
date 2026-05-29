@@ -66,6 +66,24 @@ def cases():
     add("ramReflectionCoefficient", [10], c.ram_reflection_coefficient(10))
     add("ramReflectionCoefficientEff", [10, 15], c.ram_reflection_coefficient_eff(10, 15))
     add("poValidityRatio", [10, 0.68], c.po_validity_ratio(10, 0.68))
+    # cross-domain batch
+    add("parabolicGainDbi", [2.4, 0.6, 12], c.parabolic_gain_dbi(2.4, 0.6, 12))
+    add("linkMarginDb", [10, 30, 2.4, 0.6, 12, 1000, 3, 290, 10, 7],
+        c.link_margin_db(10, 30, 2.4, 0.6, 12, 1000, 3, 290, 10, 7))
+    add("gnssUereM", [4, 0.7, 2.1, 1.4, 0.5], c.gnss_uere_m(4, 0.7, 2.1, 1.4, 0.5))
+    add("gnssHorizontalErrorM", [4.81, 1.5], c.gnss_horizontal_error_m(4.81, 1.5))
+    add("irstRadiantIntensity", [330, 280, 2, 0.9, 0.35], c.irst_radiant_intensity(330, 280, 2, 0.9, 0.35))
+    add("irstDetectionRangeKm", [330, 280, 2, 0.9, 0.35, 0.7, 0.1, 10e-12],
+        c.irst_detection_range_km(330, 280, 2, 0.9, 0.35, 0.7, 0.1, 10e-12))
+    add("sonarFigureOfMeritDb", [130, 65, 20, 5], c.sonar_figure_of_merit_db(130, 65, 20, 5))
+    add("sonarTlSphericalDb", [20, 1], c.sonar_tl_spherical_db(20, 1))
+    add("sonarDetectionRangeKm", [130, 65, 20, 5, 1], c.sonar_detection_range_km(130, 65, 20, 5, 1))
+    add("orbitalVelocityKms", [550], c.orbital_velocity_kms(550))
+    add("orbitalPeriodMin", [550], c.orbital_period_min(550))
+    add("coverageHalfAngleDeg", [550, 5], c.coverage_half_angle_deg(550, 5))
+    add("projectileRangeKm", [827, 45, 9.81], c.projectile_range_km(827, 45, 9.81))
+    add("projectileApogeeKm", [827, 45, 9.81], c.projectile_apogee_km(827, 45, 9.81))
+    add("projectileTofS", [827, 45, 9.81], c.projectile_tof_s(827, 45, 9.81))
     return out
 
 
