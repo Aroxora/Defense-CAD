@@ -1,4 +1,6 @@
-# OSINT Defense-CAD — Physics-Based, Actionable Analysis
+# Project Glasswing — Computer Network Defense · TrenchWork.org
+
+*A TrenchWork.org Computer Network Defense initiative.*
 
 **A physics toolkit that turns open-source parameters into *actionable* engineering
 recommendations** — radar cross section, RF propagation, ESM geolocation, missile
