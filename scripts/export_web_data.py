@@ -63,8 +63,16 @@ def main():
     }
     ew_data = ew.export()
 
+    # Pass through the latest Tavily fact-checks if present (written by verify_facts.py).
+    fact_path = os.path.join(os.path.dirname(__file__), "..", "data", "fact_checks.json")
+    try:
+        with open(os.path.normpath(fact_path)) as fh:
+            facts = json.load(fh)
+    except (OSError, ValueError):
+        facts = {"generated": "not-run", "facts": []}
+
     for name, payload in [("cost_benefit", cost), ("doctrine", doctrine),
-                          ("ew_strategy", ew_data)]:
+                          ("ew_strategy", ew_data), ("fact_checks", facts)]:
         path = os.path.normpath(os.path.join(OUT_DIR, f"{name}.json"))
         with open(path, "w") as fh:
             json.dump(payload, fh, indent=2)

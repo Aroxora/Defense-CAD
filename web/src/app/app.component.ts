@@ -2,9 +2,9 @@ import { Component, OnInit, computed, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DataService } from './data.service';
-import { DoctrineData, EwStrategy, ProposedSystem } from './models';
+import { DoctrineData, EwStrategy, FactChecks, ProposedSystem } from './models';
 
-type Tab = 'portfolio' | 'ew' | 'doctrine';
+type Tab = 'portfolio' | 'ew' | 'doctrine' | 'methodology';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
   systems = signal<ProposedSystem[]>([]);
   doctrine = signal<DoctrineData | null>(null);
   ew = signal<EwStrategy | null>(null);
+  facts = signal<FactChecks | null>(null);
 
   sideFilter = signal<string>('all');
   domainFilter = signal<string>('all');
@@ -51,6 +52,7 @@ export class AppComponent implements OnInit {
     });
     this.data.doctrine().subscribe((d) => this.doctrine.set(d));
     this.data.ewStrategy().subscribe((d) => this.ew.set(d));
+    this.data.factChecks().subscribe((d) => this.facts.set(d));
   }
 
   setTab(t: Tab) {

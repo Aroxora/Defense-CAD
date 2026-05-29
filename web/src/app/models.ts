@@ -47,6 +47,23 @@ export interface DoctrineData {
   dod: DoctrineSide;
 }
 
+export interface FactCheck {
+  key: string;
+  claim: string;
+  value_used: number;
+  unit: string;
+  checked: string;
+  sources: string[];
+  status: string;
+  parsed_value?: number;
+  relative_delta?: number;
+}
+
+export interface FactChecks {
+  generated: string;
+  facts: FactCheck[];
+}
+
 export interface EwLoe {
   id: number;
   title: string;

@@ -137,5 +137,21 @@
 .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
 .tag { font-size: 11px; color: var(--accent2); border: 1px solid #1d3a5a; border-radius: 5px; padding: 2px 7px; font-family: monospace; }
 
+/* ---- methodology ---- */
+.m-list { margin: 0; padding-left: 18px; }
+.m-list li { font-size: 13px; color: var(--txt); margin-bottom: 7px; line-height: 1.5; }
+.m-list b { color: var(--accent); }
+.formula {
+  background: var(--panel2); border: 1px solid var(--line); border-radius: 8px;
+  padding: 12px; font-size: 12px; color: var(--txt); white-space: pre-wrap; line-height: 1.6;
+  font-family: 'SFMono-Regular', Consolas, monospace; overflow-x: auto;
+}
+.fstatus { font-size: 11px; border-radius: 5px; padding: 2px 7px; border: 1px solid var(--line); }
+.fstatus[data-s='corroborated'] { color: var(--good); border-color: #1d5a3a; }
+.fstatus[data-s='possible_discrepancy'] { color: #ffcf6b; border-color: #5a4a20; }
+.fstatus[data-s='sources_refreshed'] { color: var(--accent2); border-color: #1d3a5a; }
+.fstatus[data-s='lookup_failed'], .fstatus[data-s='unverified'] { color: var(--muted); }
+code { color: var(--accent); font-family: 'SFMono-Regular', Consolas, monospace; }
+
 footer { color: var(--muted); font-size: 11.5px; text-align: center; padding: 20px; border-top: 1px solid var(--line); }
 footer code { color: var(--accent); }

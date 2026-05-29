@@ -28,19 +28,21 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e .
 
-      - name: Refresh cost data from news
+      - name: Refresh cost data + corroborate hard facts from news
         env:
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
-        run: python scripts/update_cost_data.py
+        run: |
+          python scripts/update_cost_data.py
+          python scripts/verify_facts.py
 
       - name: Commit changes if any
         run: |
-          if [[ -n "$(git status --porcelain data/proposed_systems.json)" ]]; then
+          if [[ -n "$(git status --porcelain data/proposed_systems.json data/fact_checks.json)" ]]; then
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add data/proposed_systems.json
-            git commit -m "chore: refresh proposed-system cost data from news [skip ci]"
+            git add data/proposed_systems.json data/fact_checks.json
+            git commit -m "chore: refresh cost data + hard-fact corroboration from news [skip ci]"
             git push
           else
-            echo "No cost-data changes to commit."
+            echo "No data changes to commit."
           fi

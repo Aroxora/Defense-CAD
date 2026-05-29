@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { DoctrineData, EwStrategy, ProposedSystem } from './models';
+import { DoctrineData, EwStrategy, FactChecks, ProposedSystem } from './models';
 
 @Injectable({ providedIn: 'root' })
 export class DataService {
@@ -18,5 +18,9 @@ export class DataService {
 
   ewStrategy(): Observable<EwStrategy> {
     return this.http.get<EwStrategy>(`${this.base}/ew_strategy.json`);
+  }
+
+  factChecks(): Observable<FactChecks> {
+    return this.http.get<FactChecks>(`${this.base}/fact_checks.json`);
   }
 }
