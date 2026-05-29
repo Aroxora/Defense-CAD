@@ -40,6 +40,27 @@ the physics *does* reward — each with numbers computed live from `osint_cad.*`
 
 Full write-up: **[`EW_ACTIONABLE_STRATEGY.md`](EW_ACTIONABLE_STRATEGY.md)**.
 
+### Doctrinal context + cost-benefit (OSINT)
+
+To study the models in their strategic context, the repo includes **symmetric, open-source
+analytical references on published PLA and U.S. DoD strategy/doctrine** — kept in distinct
+packages `osint_cad/doctrine/{pla,dod}/` — plus a **proposed-system cost-benefit analysis**:
+
+```bash
+python scripts/strategy_reference.py --side both --cba   # PLA + DoD doctrine + cost-benefit
+python -m osint_cad.doctrine.cost_benefit                # ranked cost-benefit table only
+```
+
+- **PLA**: systems-confrontation, A2/AD (counter-intervention), informatized & intelligentized
+  warfare, reconnaissance-strike complex — see **[`PLA_STRATEGY_OSINT.md`](PLA_STRATEGY_OSINT.md)**.
+- **DoD**: Integrated Deterrence, CJADC2, Mosaic Warfare, DMO, ACE, Replicator — see
+  **[`DOD_STRATEGY_OSINT.md`](DOD_STRATEGY_OSINT.md)**.
+- **Cost-benefit** of proposed systems (incl. the conceptual Trump-class battleship), with a
+  Tavily news auto-updater — see **[`COST_BENEFIT_ANALYSIS.md`](COST_BENEFIT_ANALYSIS.md)**.
+
+All of this is descriptive analysis for education/study — **not operational guidance**. CI
+(`.github/workflows/ci.yml`) runs the test suite on every push/PR.
+
 ---
 
 ## What the toolkit computes (and the actionable output of each)
@@ -79,6 +100,7 @@ osint_cad/
 ├── targeting/     # ballistic/HGV kinematics, BVR & seeker link budgets, datalinks
 ├── platforms/     # ship / air-defense / PLA & US system models
 ├── engagements/   # BVR, kill chains, network-centric & integrated scenarios
+├── doctrine/      # OSINT analytical reference on published PLA strategy/doctrine
 └── util/          # calculation logging
 scripts/           # runnable entry points (analysis & demos)
 tests/             # pytest suite (incl. physics regression tests)

@@ -1,0 +1,45 @@
+{
+  "generated": "2026-05-29",
+  "systems": [
+    {
+      "key": "trump_class_battleship",
+      "last_updated": "2026-05-29",
+      "sources": [
+        "https://www.realcleardefense.com/2026/05/26/house_passes_historic_benefits_boost_for_gold_star_families_wounded_vets_1184609.html",
+        "https://www.twz.com/sea/congress-moves-to-block-trump-class-battleship-work-until-its-key-weapons-are-mature",
+        "https://www.cnn.com/2026/05/27/us/us-navy-last-littoral-combat-ship-hnk-intl-ml",
+        "https://www.federaltimes.com/video/2026/05/27/pentagon-boosts-box-that-makes-water-from-the-air/"
+      ]
+    },
+    {
+      "key": "ddgx_destroyer",
+      "last_updated": "2026-05-29",
+      "sources": [
+        "https://www.defensedaily.com/space-force-awards-viasat-and-intelsat-general-438-million-for-continued-work-on-pts-g/space/",
+        "https://www.cnn.com/2026/05/27/us/us-navy-last-littoral-combat-ship-hnk-intl-ml",
+        "https://www.twz.com/sea/congress-moves-to-block-trump-class-battleship-work-until-its-key-weapons-are-mature",
+        "https://maritime-executive.com/article/u-s-navy-picks-seven-contenders-for-medium-usv-program"
+      ]
+    },
+    {
+      "key": "cca_increment1",
+      "last_updated": "2026-05-29",
+      "sources": [
+        "https://www.unmannedsystemstechnology.com/2026/05/ga-asi-us-air-force-return-yfq-42a-cca-to-flight-testing-following-software-updates/",
+        "https://www.janes.com/defence-intelligence-insights/defence-news/air/hanwha-aerospace-announces-4500-lbf-uav-engine-project",
+        "https://aviationweek.com/defense/aircraft-propulsion/collaborative-combat-aircraft-battle-brews-germany",
+        "https://www.unmannedsystemstechnology.com/2026/05/ga-asi-demonstrates-manned-unmanned-teaming-in-autonomy-exercise/"
+      ]
+    },
+    {
+      "key": "type055_destroyer",
+      "last_updated": "2026-05-29",
+      "sources": [
+        "https://www.navalnews.com/naval-news/2026/05/chinas-new-type-054b-frigate-makes-carrier-strike-group-debut-in-western-pacific/",
+        "https://www.seatrade-maritime.com/tankers/dynacom-tops-tanker-newbuilding-orders-splashing-out-3-8bn",
+        "https://www.defensenews.com/global/asia-pacific/2026/05/26/australia-starts-high-risk-life-extension-of-its-submarine-fleet/",
+        "https://www.marinelink.com/news/jumbo-orders-two-nextgen-heavylift-539589"
+      ]
+    }
+  ]
+}
