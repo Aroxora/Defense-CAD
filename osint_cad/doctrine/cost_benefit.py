@@ -82,6 +82,28 @@ class ProposedSystem:
         lcc = self.lifecycle_cost_busd
         return (self.survivability_adjusted_benefit / lcc) if lcc > 0 else 0.0
 
+    # ---- uncertainty / confidence interval --------------------------------------------
+    @property
+    def uncertainty(self) -> float:
+        """Relative 1-sigma uncertainty on the inputs, derived from confidence.
+
+        Low confidence -> wide band. Modeled as (1 - confidence) treated as the relative
+        sigma shared by the cost and benefit/survivability estimates.
+        """
+        return max(0.0, 1.0 - self.confidence)
+
+    @property
+    def value_ci(self) -> tuple:
+        """Approximate (low, high) confidence interval on value_index.
+
+        Propagates the relative uncertainty through value = (benefit*surv)/cost. With three
+        independent relative-error sources (benefit, survivability, cost) the combined
+        relative sigma is u*sqrt(3); the band is +/- that (clipped at 0).
+        """
+        rel = self.uncertainty * (3 ** 0.5)
+        v = self.value_index
+        return (max(0.0, v * (1 - rel)), v * (1 + rel))
+
 
 # --- Seed catalogue (illustrative OSINT estimates) ------------------------------------
 
@@ -322,6 +344,65 @@ def domains() -> List[str]:
     return sorted({s.domain for s in list_systems()})
 
 
+def optimize_portfolio(budget_busd: float, side: Optional[str] = None) -> dict:
+    """Pick the procurement mix that MAXIMIZES total survivability-adjusted benefit under a
+    lifecycle-cost budget (a 0/1 knapsack). Side-neutral: pass side=None for all sides, or a
+    side string. This is analytical operations-research -- a value-for-money study of *what
+    to buy with a fixed budget*, NOT operational guidance.
+
+    Returns {selected: [systems], total_cost_busd, total_benefit, budget_busd}.
+    """
+    items = [s for s in list_systems() if side is None or s.side == side]
+    cap = max(0, int(round(budget_busd)))
+    # weights in whole $B (>=1 so every program consumes budget); values = adjusted benefit
+    weights = [max(1, int(round(s.lifecycle_cost_busd))) for s in items]
+    values = [s.survivability_adjusted_benefit for s in items]
+
+    # 0/1 knapsack DP over integer $B budget
+    dp = [0.0] * (cap + 1)
+    keep = [[False] * (cap + 1) for _ in items]
+    for i, (w, v) in enumerate(zip(weights, values)):
+        for b in range(cap, w - 1, -1):
+            cand = dp[b - w] + v
+            if cand > dp[b]:
+                dp[b] = cand
+                keep[i][b] = True
+
+    # backtrack
+    chosen, b = [], cap
+    for i in range(len(items) - 1, -1, -1):
+        if b >= 0 and keep[i][b]:
+            chosen.append(items[i])
+            b -= weights[i]
+    chosen.reverse()
+    return {
+        "budget_busd": budget_busd,
+        "selected": chosen,
+        "total_cost_busd": round(sum(s.lifecycle_cost_busd for s in chosen), 1),
+        "total_benefit": round(sum(s.survivability_adjusted_benefit for s in chosen), 1),
+    }
+
+
+def optimize_report(budget_busd: float, side: Optional[str] = None) -> str:
+    res = optimize_portfolio(budget_busd, side)
+    who = side or "ALL sides"
+    lines = [
+        "=" * 88,
+        f"VALUE-MAXIMIZING PORTFOLIO under ${budget_busd:.0f}B lifecycle budget ({who})",
+        "Maximizes survivability-adjusted benefit per the cost-benefit model. "
+        "Analytical value-for-money study; NOT acquisition or operational guidance.",
+        "=" * 88,
+    ]
+    for s in sorted(res["selected"], key=lambda x: x.value_index, reverse=True):
+        lines.append(f"  + {s.name[:48]:48s} {s.side:4s} {s.domain:11s} "
+                     f"${s.lifecycle_cost_busd:7.1f}B  val {s.value_index:5.2f}")
+    lines += ["-" * 88,
+              f"  selected {len(res['selected'])} programs | spend "
+              f"${res['total_cost_busd']:.1f}B / ${budget_busd:.0f}B | "
+              f"total adjusted benefit {res['total_benefit']:.1f}"]
+    return "\n".join(lines)
+
+
 def cost_benefit_report(side: Optional[str] = None) -> str:
     lines = [
         "=" * 96,
@@ -329,15 +410,16 @@ def cost_benefit_report(side: Optional[str] = None) -> str:
         "value_index = survivability-adjusted benefit (0-100) per $B lifecycle cost. "
         "NOT acquisition advice.",
         "=" * 96,
-        f"{'system':40s} {'side':4s} {'LCC $B':>8s} {'benefit':>8s} {'surv':>5s} "
-        f"{'val_idx':>8s} {'conf':>5s}",
+        f"{'system':40s} {'side':4s} {'LCC $B':>8s} {'surv':>5s} "
+        f"{'value_index (90% CI)':>26s} {'conf':>5s}",
         "-" * 96,
     ]
     for s in rank_by_value(side):
+        lo, hi = s.value_ci
+        ci = f"{s.value_index:5.2f} [{lo:4.2f}-{hi:4.2f}]"
         lines.append(
             f"{s.name[:40]:40s} {s.side:4s} {s.lifecycle_cost_busd:8.1f} "
-            f"{s.benefit_score:8.0f} {s.survivability_score:5.0f} "
-            f"{s.value_index:8.2f} {s.confidence:5.0%}")
+            f"{s.survivability_score:5.0f} {ci:>26s} {s.confidence:5.0%}")
     lines += ["-" * 96,
               "Higher value_index = better cost-benefit. Lifecycle = R&D + unit*qty + "
               "O&M*qty*life.",
@@ -378,3 +460,5 @@ if __name__ == "__main__":
     print(cost_benefit_report())
     print("\n")
     print(procurement_portfolio_report())
+    print("\n")
+    print(optimize_report(150.0))  # value-maximizing mix under $150B, all sides

@@ -29,7 +29,10 @@
       "last_updated": "seed",
       "lifecycle_cost_busd": 9.6,
       "benefit_per_billion": 7.708,
-      "value_index": 5.55
+      "value_index": 5.55,
+      "value_ci_low": 0.0,
+      "value_ci_high": 11.318,
+      "uncertainty": 0.6
     },
     {
       "key": "df41_icbm",
@@ -60,7 +63,10 @@
       "last_updated": "seed",
       "lifecycle_cost_busd": 12.8,
       "benefit_per_billion": 6.641,
-      "value_index": 3.984
+      "value_index": 3.984,
+      "value_ci_low": 0.0,
+      "value_ci_high": 8.47,
+      "uncertainty": 0.65
     },
     {
       "key": "type055_destroyer",
@@ -94,7 +100,10 @@
       "last_updated": "2026-05-29",
       "lifecycle_cost_busd": 20.16,
       "benefit_per_billion": 3.571,
-      "value_index": 2.071
+      "value_index": 2.071,
+      "value_ci_low": 0.0,
+      "value_ci_high": 4.224,
+      "uncertainty": 0.6
     },
     {
       "key": "sda_leo_layer",
@@ -125,7 +134,10 @@
       "last_updated": "seed",
       "lifecycle_cost_busd": 27.6,
       "benefit_per_billion": 2.826,
-      "value_index": 1.978
+      "value_index": 1.978,
+      "value_ci_low": 0.265,
+      "value_ci_high": 3.691,
+      "uncertainty": 0.5
     },
     {
       "key": "constellation_ffg",
@@ -156,7 +168,10 @@
       "last_updated": "seed",
       "lifecycle_cost_busd": 45.5,
       "benefit_per_billion": 1.495,
-      "value_index": 0.822
+      "value_index": 0.822,
+      "value_ci_low": 0.181,
+      "value_ci_high": 1.463,
+      "uncertainty": 0.45
     },
     {
       "key": "j35_fighter",
@@ -187,7 +202,10 @@
       "last_updated": "seed",
       "lifecycle_cost_busd": 60.0,
       "benefit_per_billion": 1.167,
-      "value_index": 0.723
+      "value_index": 0.723,
+      "value_ci_low": 0.0,
+      "value_ci_high": 1.538,
+      "uncertainty": 0.65
     },
     {
       "key": "cca_increment1",
@@ -221,7 +239,10 @@
       "last_updated": "2026-05-29",
       "lifecycle_cost_busd": 56.5,
       "benefit_per_billion": 1.239,
-      "value_index": 0.681
+      "value_index": 0.681,
+      "value_ci_low": 0.091,
+      "value_ci_high": 1.272,
+      "uncertainty": 0.5
     },
     {
       "key": "type003_carrier",
@@ -252,7 +273,10 @@
       "last_updated": "seed",
       "lifecycle_cost_busd": 50.0,
       "benefit_per_billion": 1.56,
-      "value_index": 0.624
+      "value_index": 0.624,
+      "value_ci_low": 0.0,
+      "value_ci_high": 1.327,
+      "uncertainty": 0.65
     },
     {
       "key": "columbia_ssbn",
@@ -283,7 +307,10 @@
       "last_updated": "seed",
       "lifecycle_cost_busd": 178.44,
       "benefit_per_billion": 0.532,
-      "value_index": 0.506
+      "value_index": 0.506,
+      "value_ci_low": 0.155,
+      "value_ci_high": 0.856,
+      "uncertainty": 0.4
     },
     {
       "key": "h20_bomber",
@@ -314,7 +341,10 @@
       "last_updated": "seed",
       "lifecycle_cost_busd": 151.0,
       "benefit_per_billion": 0.53,
-      "value_index": 0.413
+      "value_index": 0.413,
+      "value_ci_low": 0.0,
+      "value_ci_high": 0.95,
+      "uncertainty": 0.75
     },
     {
       "key": "b21_raider",
@@ -346,7 +376,10 @@
       "last_updated": "seed",
       "lifecycle_cost_busd": 170.0,
       "benefit_per_billion": 0.5,
-      "value_index": 0.4
+      "value_index": 0.4,
+      "value_ci_low": 0.088,
+      "value_ci_high": 0.712,
+      "uncertainty": 0.45
     },
     {
       "key": "ngad_fighter",
@@ -377,7 +410,10 @@
       "last_updated": "seed",
       "lifecycle_cost_busd": 196.0,
       "benefit_per_billion": 0.418,
-      "value_index": 0.314
+      "value_index": 0.314,
+      "value_ci_low": 0.015,
+      "value_ci_high": 0.613,
+      "uncertainty": 0.55
     },
     {
       "key": "ddgx_destroyer",
@@ -411,7 +447,10 @@
       "last_updated": "2026-05-29",
       "lifecycle_cost_busd": 157.2,
       "benefit_per_billion": 0.477,
-      "value_index": 0.286
+      "value_index": 0.286,
+      "value_ci_low": 0.063,
+      "value_ci_high": 0.509,
+      "uncertainty": 0.45
     },
     {
       "key": "sentinel_icbm",
@@ -442,7 +481,10 @@
       "last_updated": "seed",
       "lifecycle_cost_busd": 204.84,
       "benefit_per_billion": 0.391,
-      "value_index": 0.176
+      "value_index": 0.176,
+      "value_ci_low": 0.039,
+      "value_ci_high": 0.313,
+      "uncertainty": 0.45
     },
     {
       "key": "trump_class_battleship",
@@ -477,7 +519,10 @@
       "last_updated": "2026-05-29",
       "lifecycle_cost_busd": 111.0,
       "benefit_per_billion": 0.315,
-      "value_index": 0.063
+      "value_index": 0.063,
+      "value_ci_low": 0.0,
+      "value_ci_high": 0.14,
+      "uncertainty": 0.7
     }
   ]
 }

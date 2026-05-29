@@ -20,6 +20,9 @@ export interface ProposedSystem {
   lifecycle_cost_busd: number;
   benefit_per_billion: number;
   value_index: number;
+  value_ci_low: number;
+  value_ci_high: number;
+  uncertainty: number;
 }
 
 export interface DoctrineConcept {

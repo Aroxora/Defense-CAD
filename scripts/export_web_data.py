@@ -34,6 +34,9 @@ def _system_dict(s: cb.ProposedSystem) -> dict:
         "lifecycle_cost_busd": round(s.lifecycle_cost_busd, 2),
         "benefit_per_billion": round(s.benefit_per_billion, 3),
         "value_index": round(s.value_index, 3),
+        "value_ci_low": round(s.value_ci[0], 3),
+        "value_ci_high": round(s.value_ci[1], 3),
+        "uncertainty": round(s.uncertainty, 3),
     }
 
 

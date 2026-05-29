@@ -65,11 +65,19 @@ export class AppComponent implements OnInit {
     s.lifecycle_cost_busd = Math.round(lcc * 100) / 100;
     s.benefit_per_billion = lcc > 0 ? Math.round((s.benefit_score / lcc) * 1000) / 1000 : 0;
     s.value_index = lcc > 0 ? Math.round(((s.benefit_score * s.survivability_score) / 100 / lcc) * 1000) / 1000 : 0;
+    // propagate the (fixed) relative uncertainty through the new value to update the CI
+    const rel = s.uncertainty * Math.sqrt(3);
+    s.value_ci_low = Math.round(Math.max(0, s.value_index * (1 - rel)) * 1000) / 1000;
+    s.value_ci_high = Math.round(s.value_index * (1 + rel) * 1000) / 1000;
     this.systems.set([...this.systems()]);
   }
 
+  pct(v: number): number {
+    return Math.min(100, (v / this.maxValue()) * 100);
+  }
+
   barWidth(v: number): string {
-    return `${Math.min(100, (v / this.maxValue()) * 100)}%`;
+    return `${this.pct(v)}%`;
   }
 
   doctrineSides() {

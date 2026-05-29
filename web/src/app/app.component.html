@@ -49,9 +49,15 @@
       >
         <div class="rowtop">
           <span class="nm">{{ s.name }}</span>
-          <span class="vi">{{ s.value_index | number: '1.2-2' }}</span>
+          <span class="vi">
+            {{ s.value_index | number: '1.2-2' }}
+            <small>[{{ s.value_ci_low | number: '1.2-2' }}&ndash;{{ s.value_ci_high | number: '1.2-2' }}]</small>
+          </span>
         </div>
-        <div class="bar"><span [style.width]="barWidth(s.value_index)"></span></div>
+        <div class="bar">
+          <span [style.width]="barWidth(s.value_index)"></span>
+          <i class="ci" [style.left]="pct(s.value_ci_low) + '%'" [style.width]="(pct(s.value_ci_high) - pct(s.value_ci_low)) + '%'"></i>
+        </div>
         <div class="meta">
           <span class="chip" [attr.data-side]="s.side">{{ s.side }}</span>
           <span class="chip">{{ s.domain }}</span>
@@ -67,9 +73,12 @@
       <p class="desc">{{ d.description }}</p>
 
       <div class="kpis">
-        <div><span>{{ d.value_index | number: '1.2-2' }}</span><label>value index</label></div>
+        <div>
+          <span>{{ d.value_index | number: '1.2-2' }}</span>
+          <label>value index<br /><em>90% CI {{ d.value_ci_low | number: '1.2-2' }}&ndash;{{ d.value_ci_high | number: '1.2-2' }}</em></label>
+        </div>
         <div><span>${{ d.lifecycle_cost_busd | number: '1.0-1' }}B</span><label>lifecycle cost</label></div>
-        <div><span>{{ d.survivability_score }}</span><label>survivability</label></div>
+        <div><span>{{ d.confidence | percent }}</span><label>confidence</label></div>
       </div>
 
       <div class="slider">

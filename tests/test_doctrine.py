@@ -66,3 +66,29 @@ def test_cost_benefit_multidomain_portfolio():
     assert "NOT acquisition advice" in report
     # per-side filtering works
     assert all(s.side == "PLA" for s in cb.rank_by_value(side="PLA"))
+
+
+def test_value_confidence_intervals():
+    systems = cb.list_systems()
+    for s in systems:
+        lo, hi = s.value_ci
+        assert lo <= s.value_index <= hi
+        assert lo >= 0.0
+    # lower confidence -> wider relative band
+    lowest = min(systems, key=lambda s: s.confidence)
+    highest = max(systems, key=lambda s: s.confidence)
+    width = lambda s: (s.value_ci[1] - s.value_ci[0]) / max(s.value_index, 1e-9)
+    assert width(lowest) > width(highest)
+
+
+def test_portfolio_optimizer_respects_budget_and_maximizes():
+    budget = 100.0
+    res = cb.optimize_portfolio(budget, side="DoD")
+    assert res["total_cost_busd"] <= budget + 1e-6
+    assert all(s.side == "DoD" for s in res["selected"])
+    # selecting nothing would be worse; the optimizer must pick at least one affordable item
+    assert res["total_benefit"] > 0
+    # a larger budget never reduces achievable benefit
+    bigger = cb.optimize_portfolio(budget * 3, side="DoD")
+    assert bigger["total_benefit"] >= res["total_benefit"]
+    assert "NOT acquisition or operational guidance" in cb.optimize_report(budget)
