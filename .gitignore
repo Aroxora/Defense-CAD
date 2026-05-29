@@ -31,3 +31,6 @@ validation_report.txt
 
 # OS
 .DS_Store
+
+# Firebase deploy cache
+.firebase/
