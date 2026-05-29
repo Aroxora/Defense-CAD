@@ -197,13 +197,13 @@ Depth ∝ (m / A) · f(v) · N · 1/√S
 | Range | ~13,000+ km (intercontinental) | OSINT-M |
 | Warhead / RV | **W87-0/-1** in **Mk21A** reentry vehicle; single deployed RV (treaty), MIRV-capable bus | OSINT-H |
 | Throw weight | ~1,000–1,150 kg class (Minuteman-derived basing) | EST |
-| CEP | ~90–120 m class (modern inertial + Mk21A) | EST/CLASS |
+| CEP | ~120 m class (≈400 ft, W87/Mk21 OSINT; Mk21A adaptation) | OSINT-M/CLASS |
 | Basing | ~400 deployed silos + launch control across F.E. Warren, Malmstrom, Minot | OSINT-H |
 | IOC | Slipped to ~2030+ after restructure | OSINT-H |
 
 ### 2.1 Program status — the cost truth  **[OSINT-H]**
 
-In 2024 the program triggered a **critical Nunn-McCurdy breach** (unit cost growth ≥37% over baseline). Public reporting puts the original estimate at roughly **$77.7 B** rising toward **~$140.9 B** (~81% growth). Critically, OSINT attributes the overrun primarily to the **command-and-launch / military-construction segment** (rebuilding 1960s-era silos, launch control centers, and tens of thousands of km of cabling) — **not the missile itself**. The Pentagon elected to continue the program (the land leg of the triad was judged essential) but restructure it; IOC slipped to ~2030+.
+In January 2024 the program triggered a **critical Nunn-McCurdy breach** (per-unit cost growth ≥37%; program acquisition unit cost rose from ~**$118 M** to ~**$162 M** per missile in 2020 dollars). The July 2024 review put total program cost at **~$140.9 B** — about **81% over** the ~**$95.3 B** baseline — and revoked the EMD certification while directing a restructure. Critically, OSINT attributes the overrun primarily to the **command-and-launch / military-construction segment** (rebuilding 1960s-era silos, launch control centers, and tens of thousands of km of cabling) — **not the flight vehicle**. The Pentagon certified the program as essential (the land leg of the triad), so it continues but restructured; first test launch targeted ~2027 and IOC slipped to the **early 2030s**. (FY2027 request: ~$4.6 B, mostly RDT&E.)
 
 > **Truth:** Sentinel's hardest engineering problem turned out to be **civil/infrastructure modernization at continental scale**, not rocketry. The flight vehicle is an evolution of mature solid-ICBM technology.
 
@@ -224,6 +224,7 @@ Boost ~180 s → burnout ~6.9 km/s near 200 km → apogee ~1,200 km → ~25 min 
 |-----------|-------|-------|
 | Role | Strategic ICBM; **road-mobile (TEL)**, with rail-mobile and silo options | OSINT-H |
 | Propulsion | 3-stage **solid** | OSINT-H |
+| Launch mass / size | ~**80,000 kg**; ~21–22 m long, ~2.25 m dia | OSINT-M |
 | Range | ~**12,000–15,000 km** (covers CONUS from China) | OSINT-M |
 | Warheads | **MIRV, 3–10** independently targetable RVs (most estimates "up to ~10") | OSINT-M |
 | Throw weight | ~**2,500 kg** | OSINT-M |
@@ -429,6 +430,16 @@ Radar resolution:    θ ≈ λ / D
 | B-2/B-21 | USAF/Northrop public statements, GAO, CSIS (see `B21_RAIDER_CAD_ANALYSIS.md`) |
 | SAM/BMD performance | DoD China Military Power Report, CSIS, manufacturer data |
 | Physics | Standard astronautics/reentry/radar texts (Allen–Eggers, Sutton–Graves, radar range eq.) |
+
+**Key public references (accessed 2026-05):**
+- CRS, *Defense Primer: LGM-35A Sentinel ICBM* — https://www.congress.gov/crs-product/IF11681
+- USNI News, *Report to Congress on LGM-35A Sentinel ICBM* — https://news.usni.org/2024/11/11/report-to-congress-on-lgm-35a-sentinel-icbm-2
+- Air & Space Forces Mag., *Sentinel Survives Pentagon Review, Cost Jumps 81%* — https://www.airandspaceforces.com/sentinel-icbm-pentagon-review-result-cost/
+- CSIS Missile Threat, *DF-41 (Dong Feng-41 / CSS-X-20)* — https://missilethreat.csis.org/missile/df-41/
+- Wikipedia, *DF-41* — https://en.wikipedia.org/wiki/DF-41
+- USAF, *Second B-21 test aircraft arrives at Edwards AFB* — https://www.af.mil/News/Article-Display/Article/4301502/
+- Nuclear Weapon Archive, *The W87 Warhead* — https://nuclearweaponarchive.org/Usa/Weapons/W87.html
+- Air & Space Forces Mag., *AF Gives Lockheed $1B for Sentinel Reentry Vehicle (Mk21A)* — https://www.airandspaceforces.com/air-force-lockheed-1-billion-sentinel-icbm-reentry-vehicle/
 
 ## APPENDIX C — KEY ASSUMPTIONS
 
