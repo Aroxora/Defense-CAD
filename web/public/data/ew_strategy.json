@@ -1,0 +1,166 @@
+{
+  "premise": "A directional, frequency-hopping LPI/LPD link (e.g. MADL) is not reliably jammable from standoff; the actionable answer is passive ES, hardening, and EW reallocation.",
+  "intercept_vs_dwell": [
+    {
+      "dwell_us": 1,
+      "proc_gain_db": 20.0,
+      "intercept_range_km": 4
+    },
+    {
+      "dwell_us": 10,
+      "proc_gain_db": 30.0,
+      "intercept_range_km": 14
+    },
+    {
+      "dwell_us": 100,
+      "proc_gain_db": 40.0,
+      "intercept_range_km": 44
+    },
+    {
+      "dwell_us": 1000,
+      "proc_gain_db": 50.0,
+      "intercept_range_km": 139
+    }
+  ],
+  "geolocation_sizing": [
+    {
+      "platforms": 4,
+      "baseline_km": 30,
+      "gdop": 4.88,
+      "crlb_floor_m": 2.2,
+      "ops_cep_m": 11,
+      "ill_conditioned": false
+    },
+    {
+      "platforms": 4,
+      "baseline_km": 60,
+      "gdop": 9.56,
+      "crlb_floor_m": 2.2,
+      "ops_cep_m": 11,
+      "ill_conditioned": false
+    },
+    {
+      "platforms": 4,
+      "baseline_km": 120,
+      "gdop": 19.01,
+      "crlb_floor_m": 2.2,
+      "ops_cep_m": 11,
+      "ill_conditioned": false
+    },
+    {
+      "platforms": 6,
+      "baseline_km": 30,
+      "gdop": 3.99,
+      "crlb_floor_m": 1.8,
+      "ops_cep_m": 9,
+      "ill_conditioned": false
+    },
+    {
+      "platforms": 6,
+      "baseline_km": 60,
+      "gdop": 7.8,
+      "crlb_floor_m": 1.8,
+      "ops_cep_m": 9,
+      "ill_conditioned": false
+    },
+    {
+      "platforms": 6,
+      "baseline_km": 120,
+      "gdop": 15.52,
+      "crlb_floor_m": 1.8,
+      "ops_cep_m": 9,
+      "ill_conditioned": false
+    },
+    {
+      "platforms": 8,
+      "baseline_km": 30,
+      "gdop": 3.45,
+      "crlb_floor_m": 1.5,
+      "ops_cep_m": 8,
+      "ill_conditioned": false
+    },
+    {
+      "platforms": 8,
+      "baseline_km": 60,
+      "gdop": 6.76,
+      "crlb_floor_m": 1.5,
+      "ops_cep_m": 8,
+      "ill_conditioned": false
+    },
+    {
+      "platforms": 8,
+      "baseline_km": 120,
+      "gdop": 13.44,
+      "crlb_floor_m": 1.5,
+      "ops_cep_m": 8,
+      "ill_conditioned": false
+    }
+  ],
+  "hardening_sweep": [
+    {
+      "sidelobe_db": -20,
+      "sidelobe_eirp_dbm": 44.5,
+      "adversary_intercept_km": 139
+    },
+    {
+      "sidelobe_db": -25,
+      "sidelobe_eirp_dbm": 39.5,
+      "adversary_intercept_km": 78
+    },
+    {
+      "sidelobe_db": -30,
+      "sidelobe_eirp_dbm": 34.5,
+      "adversary_intercept_km": 44
+    },
+    {
+      "sidelobe_db": -35,
+      "sidelobe_eirp_dbm": 29.5,
+      "adversary_intercept_km": 25
+    },
+    {
+      "sidelobe_db": -40,
+      "sidelobe_eirp_dbm": 24.5,
+      "adversary_intercept_km": 14
+    },
+    {
+      "sidelobe_db": -45,
+      "sidelobe_eirp_dbm": 19.5,
+      "adversary_intercept_km": 8
+    }
+  ],
+  "reallocation": {
+    "jam_power_kw": 30.0,
+    "range_km": 100.0,
+    "js_radar_db": 12.3,
+    "radar_effective": true,
+    "js_madl_db": -15.8,
+    "madl_effective": false,
+    "madl_isolation_db": 25.0
+  },
+  "lines_of_effort": [
+    {
+      "id": 1,
+      "title": "Passive ESM geolocation network",
+      "subtitle": "detect, don't jam",
+      "detail": "Sidelobe intercept + multi-platform TDOA/FDOA. >=4 synchronized platforms, ~30 km baseline, <=10 ns sync -> GDOP < 5, operational CEP ~8-11 m."
+    },
+    {
+      "id": 2,
+      "title": "Harden your own datalink",
+      "subtitle": "defeat the adversary's LoE 1",
+      "detail": "Driving sidelobes -30 -> -40 dB cuts an adversary's intercept range ~68%. Concrete antenna/EMCON spec, no new weapon."
+    },
+    {
+      "id": 3,
+      "title": "Reallocate active EW to where physics rewards it",
+      "subtitle": "tactic, no new hardware",
+      "detail": "The same jammer useless vs the LPI link is +12 dB J/S vs the main radar and valuable in the terminal endgame."
+    },
+    {
+      "id": 4,
+      "title": "Stop funding standoff MADL jamming",
+      "subtitle": "physics says ~0 effect",
+      "detail": "Redirect that capacity to passive ESM (LoE 1) and radar denial (LoE 3)."
+    }
+  ]
+}

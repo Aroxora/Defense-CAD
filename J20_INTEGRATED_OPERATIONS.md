@@ -1,5 +1,16 @@
 # J-20 Integrated EW + Tracking + PL-15 Datalink Operations
 
+> **⚠️ Realism note on "jam MADL" / "MADL_NETWORK" jamming targets below.**
+> This document's EW allocations treat the F-35 MADL datalink as a jammable target. In
+> reality MADL is a **narrow-beam (~few-degree), electronically-steered, frequency-hopping
+> LPI/LPD** link designed to defeat interception and jamming. Reliable standoff jamming of
+> MADL is **not physically achievable** (spatial isolation from the steered beam, despreading
+> processing gain, and hop rate all work against the jammer). The MADL jamming line items
+> here should be read as **opportunistic at best (typically ≈ 0 effect)**, not dependable
+> capability. The credible, actionable counter-MADL technique is **passive sidelobe intercept
+> (electronic support / detection)** — see `EW_ACTIONABLE_STRATEGY.md` and
+> `scripts/ew_strategy_analysis.py` for the CAD-grounded version of what to build instead.
+
 ## Executive Summary
 
 This document describes **single-platform** operations where a J-20 simultaneously:

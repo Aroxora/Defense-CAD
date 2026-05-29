@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+.venv/
+venv/
+
+# Generated analysis artifacts (simulations write these; do not commit)
+analysis_output/
+cicd_logs/
+cicd_reports/
+reasoning_chains/
+*_log.txt
+*_report.md
+*_report.json
+*_results.json
+algorithm_report.*
+calculation_log.*
+calculation_report.*
+kill_chain_*.txt
+kill_chain_*.json
+validation_report.txt
+
+# OS
+.DS_Store
+
+# Firebase deploy cache
+.firebase/

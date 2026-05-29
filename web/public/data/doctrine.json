@@ -1,0 +1,298 @@
+{
+  "pla": {
+    "side": "PLA",
+    "concepts": [
+      {
+        "key": "systems_confrontation",
+        "name_en": "Systems Confrontation / Systems-Destruction Warfare",
+        "name_native": "\u4f53\u7cfb\u5bf9\u6297 / \u7cfb\u7edf\u7834\u51fb\u6218",
+        "summary": "The widely-cited PLA framing of modern war as a clash between rival operational 'systems of systems' (sensing, C2, fires, networks) rather than platform-vs-platform attrition; emphasis on degrading adversary system cohesion -- its sensing-to-shooter linkages -- rather than destroying every platform.",
+        "public_sources": [
+          "RAND, 'Systems Confrontation and System Destruction Warfare' (Engstrom, 2018)",
+          "U.S. DoD annual China Military Power Report (CMPR)"
+        ],
+        "related_systems": [
+          "integrated_kill_chain_cad",
+          "network_centric_killchain",
+          "information_chain_robustness"
+        ],
+        "analytical_notes": "Study node criticality with the kill-chain and information-chain-robustness models: which single nodes most reduce end-to-end track quality / Pk, and how redundancy changes that. A study of fragility, not a strike plan.",
+        "confidence": 0.7
+      },
+      {
+        "key": "a2ad_counterintervention",
+        "name_en": "Anti-Access / Area-Denial (Counter-Intervention)",
+        "name_native": "\u53cd\u4ecb\u5165/\u533a\u57df\u62d2\u6b62",
+        "summary": "Outside-analyst label (the PLA prefers 'counter-intervention') for layered capabilities meant to raise the cost/risk of an opposing force operating within the first/second island chains: long-range sensing, ballistic/cruise missiles, integrated air defense, and maritime strike.",
+        "public_sources": [
+          "U.S. DoD China Military Power Report",
+          "CSIS Missile Defense Project / Missile Threat"
+        ],
+        "related_systems": [
+          "precision_ballistic_missiles",
+          "air_defense_targets",
+          "pla_systems_cad",
+          "carrier_strike_kill_chain"
+        ],
+        "analytical_notes": "Bound engagement envelopes and the defender's required warning/intercept timelines against the modeled threats; the defensive framing is the useful one.",
+        "confidence": 0.65
+      },
+      {
+        "key": "informatized_warfare",
+        "name_en": "Informatized Warfare",
+        "name_native": "\u4fe1\u606f\u5316\u6218\u4e89",
+        "summary": "The publicly-stated goal of fighting 'informatized' wars in which networked information dominance (ISR, secure data links, PNT, EW) is the decisive enabler tying sensors to shooters.",
+        "public_sources": [
+          "PLA 'Science of Military Strategy' (Academy of Military Science, public eds.)",
+          "China Aerospace Studies Institute (CASI) translations & analyses"
+        ],
+        "related_systems": [
+          "signal_processing",
+          "geolocation_network",
+          "datalink_protocol",
+          "adaptive_antenna_ep"
+        ],
+        "analytical_notes": "Maps onto the ES/EW and datalink models; EW_ACTIONABLE_STRATEGY.md is the physics reality-check on link attack vs. passive support.",
+        "confidence": 0.7
+      },
+      {
+        "key": "intelligentized_warfare",
+        "name_en": "Intelligentized Warfare",
+        "name_native": "\u667a\u80fd\u5316\u6218\u4e89",
+        "summary": "A more recent publicly-discussed evolution emphasizing AI/autonomy and algorithmic decision support atop informatized systems; open sources treat much of it as aspirational/developmental.",
+        "public_sources": [
+          "U.S. DoD China Military Power Report (intelligentization sections)",
+          "CASI / CNA open analyses on PLA AI"
+        ],
+        "related_systems": [
+          "iterative_classifier",
+          "ml_waveform_classifier",
+          "advanced_tracking"
+        ],
+        "analytical_notes": "The classifier/tracker modules are toy analogues for where automated classification/track-fusion sits in a chain; real-world maturity confidence low.",
+        "confidence": 0.45
+      },
+      {
+        "key": "recon_strike_complex",
+        "name_en": "Reconnaissance-Strike Complex / 'Kill Web'",
+        "name_native": "\u4fa6\u5bdf\u6253\u51fb\u4f53\u7cfb",
+        "summary": "Integration of long-range sensing, C2, and precision fires into a closed, redundant sensor-to-shooter loop -- the mechanism by which the above concepts are meant to be realized.",
+        "public_sources": [
+          "RAND systems-confrontation studies",
+          "U.S. DoD China Military Power Report (long-range precision strike)"
+        ],
+        "related_systems": [
+          "integrated_kill_chain_cad",
+          "carrier_strike_kill_chain",
+          "df17_hypersonic_kill_chain",
+          "network_centric_killchain"
+        ],
+        "analytical_notes": "The integrated kill-chain models are the natural object of study; the useful questions are defensive: chain latency, track-quality propagation, dominant links.",
+        "confidence": 0.65
+      }
+    ],
+    "systems_to_concepts": {
+      "integrated_kill_chain_cad": [
+        "systems_confrontation",
+        "recon_strike_complex"
+      ],
+      "network_centric_killchain": [
+        "systems_confrontation",
+        "recon_strike_complex"
+      ],
+      "information_chain_robustness": [
+        "systems_confrontation"
+      ],
+      "precision_ballistic_missiles": [
+        "a2ad_counterintervention"
+      ],
+      "air_defense_targets": [
+        "a2ad_counterintervention"
+      ],
+      "pla_systems_cad": [
+        "a2ad_counterintervention"
+      ],
+      "carrier_strike_kill_chain": [
+        "a2ad_counterintervention",
+        "recon_strike_complex"
+      ],
+      "signal_processing": [
+        "informatized_warfare"
+      ],
+      "geolocation_network": [
+        "informatized_warfare"
+      ],
+      "datalink_protocol": [
+        "informatized_warfare"
+      ],
+      "adaptive_antenna_ep": [
+        "informatized_warfare"
+      ],
+      "iterative_classifier": [
+        "intelligentized_warfare"
+      ],
+      "ml_waveform_classifier": [
+        "intelligentized_warfare"
+      ],
+      "advanced_tracking": [
+        "intelligentized_warfare"
+      ],
+      "df17_hypersonic_kill_chain": [
+        "recon_strike_complex"
+      ]
+    }
+  },
+  "dod": {
+    "side": "U.S. DoD",
+    "concepts": [
+      {
+        "key": "integrated_deterrence",
+        "name_en": "Integrated Deterrence",
+        "name_native": "(2022 NDS)",
+        "summary": "The 2022 National Defense Strategy's organizing concept: combine capabilities across domains, theaters, the spectrum of conflict, allies/partners, and other instruments of national power so deterrence is mutually reinforcing.",
+        "public_sources": [
+          "U.S. DoD, 2022 National Defense Strategy",
+          "CSIS analyses of the 2022 NDS"
+        ],
+        "related_systems": [
+          "us_2025_defense_systems",
+          "integrated_kill_system",
+          "information_chain_robustness"
+        ],
+        "analytical_notes": "Use the integrated-system and robustness models to study how cross-domain redundancy changes end-to-end resilience -- a deterrence-by-denial study.",
+        "confidence": 0.75
+      },
+      {
+        "key": "cjadc2",
+        "name_en": "Combined Joint All-Domain Command & Control (CJADC2)",
+        "name_native": "(JADC2)",
+        "summary": "The publicly-stated effort to connect sensors and shooters across all services and domains into a resilient, any-sensor/any-shooter data fabric -- the U.S. analogue of a reconnaissance-strike/kill-web concept.",
+        "public_sources": [
+          "DoD CJADC2 Strategy (public summary)",
+          "CRS, 'Joint All-Domain Command and Control (JADC2)'"
+        ],
+        "related_systems": [
+          "american_integrated_link",
+          "network_centric_killchain",
+          "integrated_kill_chain_cad"
+        ],
+        "analytical_notes": "Maps onto the integrated-link and network-centric kill-chain models; study latency, track fusion, and which links dominate the uncertainty budget.",
+        "confidence": 0.7
+      },
+      {
+        "key": "mosaic_warfare",
+        "name_en": "Mosaic Warfare",
+        "name_native": "(DARPA)",
+        "summary": "DARPA concept of composing many low-cost, disaggregated, attritable systems into adaptable 'mosaics', trading monolithic platforms for resilience and decision speed -- a force-design answer to systems-destruction logic.",
+        "public_sources": [
+          "DARPA Strategic Technology Office, Mosaic Warfare materials",
+          "CSBA, 'Mosaic Warfare' (Clark, Patt, Schramm, 2020)"
+        ],
+        "related_systems": [
+          "network_centric_killchain",
+          "information_chain_robustness",
+          "advanced_tracking"
+        ],
+        "analytical_notes": "The robustness model is ideal here: quantify how disaggregation/redundancy raises the number of nodes an adversary must defeat to break a chain.",
+        "confidence": 0.6
+      },
+      {
+        "key": "distributed_maritime_ops",
+        "name_en": "Distributed Maritime Operations (DMO)",
+        "name_native": "(USN)",
+        "summary": "U.S. Navy concept of distributing combat power across more, widely-spaced nodes (manned/unmanned) to complicate adversary targeting while massing fires via networking -- a counter to anti-ship reconnaissance-strike complexes.",
+        "public_sources": [
+          "CNO Navigation Plan (NAVPLAN), public editions",
+          "USNI / CRS analyses of DMO"
+        ],
+        "related_systems": [
+          "ddg51_model",
+          "carrier_strike_kill_chain",
+          "us_2025_defense_systems"
+        ],
+        "analytical_notes": "Pair the ship/air-defense models with the carrier-strike kill chain to study how dispersion changes the defender's detection and engagement geometry.",
+        "confidence": 0.65
+      },
+      {
+        "key": "agile_combat_employment",
+        "name_en": "Agile Combat Employment (ACE)",
+        "name_native": "(USAF)",
+        "summary": "U.S. Air Force concept of operating from dispersed, austere locations with small logistics footprints to complicate adversary targeting of fixed main bases.",
+        "public_sources": [
+          "USAF Doctrine Note, Agile Combat Employment (public)",
+          "RAND basing-resilience analyses"
+        ],
+        "related_systems": [
+          "f35_integrated_kill_chain",
+          "f35_infrastructure_strike",
+          "us_2025_defense_systems"
+        ],
+        "analytical_notes": "Use the infrastructure-strike model to study how dispersal changes the number of aimpoints and required adversary salvo size -- a base-resilience study.",
+        "confidence": 0.65
+      },
+      {
+        "key": "replicator_attritable_autonomy",
+        "name_en": "Replicator / Attritable Autonomy",
+        "name_native": "(DoD)",
+        "summary": "Publicly-announced DoD push to field large numbers of low-cost autonomous systems quickly; open sources treat scale/maturity as developmental.",
+        "public_sources": [
+          "DoD Replicator initiative announcements (public)",
+          "CSIS / CNAS open analyses"
+        ],
+        "related_systems": [
+          "iterative_classifier",
+          "ml_waveform_classifier",
+          "advanced_tracking"
+        ],
+        "analytical_notes": "Toy classifier/tracker analogues illustrate where automated autonomy sits in a chain; treat maturity as developmental (low confidence).",
+        "confidence": 0.45
+      }
+    ],
+    "systems_to_concepts": {
+      "us_2025_defense_systems": [
+        "integrated_deterrence",
+        "distributed_maritime_ops",
+        "agile_combat_employment"
+      ],
+      "integrated_kill_system": [
+        "integrated_deterrence"
+      ],
+      "information_chain_robustness": [
+        "integrated_deterrence",
+        "mosaic_warfare"
+      ],
+      "american_integrated_link": [
+        "cjadc2"
+      ],
+      "network_centric_killchain": [
+        "cjadc2",
+        "mosaic_warfare"
+      ],
+      "integrated_kill_chain_cad": [
+        "cjadc2"
+      ],
+      "advanced_tracking": [
+        "mosaic_warfare",
+        "replicator_attritable_autonomy"
+      ],
+      "ddg51_model": [
+        "distributed_maritime_ops"
+      ],
+      "carrier_strike_kill_chain": [
+        "distributed_maritime_ops"
+      ],
+      "f35_integrated_kill_chain": [
+        "agile_combat_employment"
+      ],
+      "f35_infrastructure_strike": [
+        "agile_combat_employment"
+      ],
+      "iterative_classifier": [
+        "replicator_attritable_autonomy"
+      ],
+      "ml_waveform_classifier": [
+        "replicator_attritable_autonomy"
+      ]
+    }
+  }
+}

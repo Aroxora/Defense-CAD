@@ -1,0 +1,48 @@
+name: Update cost data (Tavily)
+
+# Refreshes data/proposed_systems.json from open news and commits it back.
+# Runs weekly and on demand. No-op (and still succeeds) if the TAVILY_API_KEY
+# repository secret is not configured.
+
+on:
+  schedule:
+    - cron: "17 6 * * 1"   # Mondays 06:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install package
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+
+      - name: Refresh cost data + corroborate hard facts from news
+        env:
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+        run: |
+          python scripts/update_cost_data.py
+          python scripts/verify_facts.py
+
+      - name: Commit changes if any
+        run: |
+          if [[ -n "$(git status --porcelain data/proposed_systems.json data/fact_checks.json)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add data/proposed_systems.json data/fact_checks.json
+            git commit -m "chore: refresh cost data + hard-fact corroboration from news [skip ci]"
+            git push
+          else
+            echo "No data changes to commit."
+          fi

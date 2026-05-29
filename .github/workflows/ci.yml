@@ -1,0 +1,72 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.12"]
+    env:
+      MPLBACKEND: Agg
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install package + dev deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+
+      - name: Lint (ruff, non-blocking)
+        run: ruff check . || true
+
+      - name: Run test suite
+        run: pytest -q
+
+      - name: Smoke-test analysis entry points
+        run: |
+          python scripts/ew_strategy_analysis.py > /dev/null
+          python scripts/strategy_reference.py > /dev/null
+          python -m osint_cad.doctrine.cost_benefit > /dev/null
+
+  web-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install package + export web data + parity fixtures
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+          python scripts/export_web_data.py
+          python scripts/export_parity.py
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Engine parity (TypeScript vs Python) + Angular build
+        working-directory: web
+        run: |
+          npm ci
+          node parity-check.mjs
+          npx ng build --configuration=production

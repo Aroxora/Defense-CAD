@@ -1,0 +1,103 @@
+<div class="wrap">
+  <section class="intro">
+    <h1 class="home-h">OSINT Defense-CAD &mdash; physics-based, interactive analysis</h1>
+    <p>
+      An open-source toolkit that turns public data into transparent, physics-grounded analysis &mdash; a procurement
+      &amp; R&amp;D cost-benefit portfolio, interactive physics calculators, EW strategy, PLA/DoD doctrine, and a
+      methodology page (physics, scoring math, CI parity, and fact corroboration). Every result traces to a textbook
+      equation in the <code>osint_cad</code> Python package and is parity-checked in CI.
+      Conceptual OSINT for education/study &mdash; <b>not operational guidance and not a targeting system</b>.
+    </p>
+  </section>
+
+  <section class="intro" style="margin-top: 22px">
+    <h2>Procurement &amp; R&amp;D portfolio &mdash; cost-benefit</h2>
+    <p>
+      Systems ranked by <b>value index</b> = survivability-adjusted benefit (0&ndash;100) per&nbsp;$B lifecycle cost.
+      Drag the sliders to test cost/quantity/survivability &mdash; the same formula as the Python source of truth, with the
+      confidence band recomputed live. Illustrative OSINT figures; <b>not acquisition advice</b>.
+    </p>
+    <div class="filters">
+      <label>Side
+        <select [ngModel]="sideFilter()" (ngModelChange)="sideFilter.set($event)">
+          <option *ngFor="let s of sides()" [value]="s">{{ s }}</option>
+        </select>
+      </label>
+      <label>Domain
+        <select [ngModel]="domainFilter()" (ngModelChange)="domainFilter.set($event)">
+          <option *ngFor="let d of domains()" [value]="d">{{ d }}</option>
+        </select>
+      </label>
+    </div>
+  </section>
+
+  <div class="cols">
+    <section class="ranktable">
+      <div class="row" *ngFor="let s of filtered()" [class.sel]="s.key === selectedKey()"
+           [class.concept]="s.status === 'conceptual'" (click)="selectedKey.set(s.key)"
+           role="button" tabindex="0" [attr.aria-pressed]="s.key === selectedKey()"
+           [attr.aria-label]="s.name + ', value index ' + (s.value_index | number: '1.2-2')"
+           (keydown.enter)="selectedKey.set(s.key)" (keydown.space)="$event.preventDefault(); selectedKey.set(s.key)">
+        <div class="rowtop">
+          <span class="nm">{{ s.name }}</span>
+          <span class="vi">{{ s.value_index | number: '1.2-2' }}
+            <small>[{{ s.value_ci_low | number: '1.2-2' }}&ndash;{{ s.value_ci_high | number: '1.2-2' }}]</small>
+          </span>
+        </div>
+        <div class="bar">
+          <span [style.width]="barWidth(s.value_index)"></span>
+          <i class="ci" [style.left]="pct(s.value_ci_low) + '%'" [style.width]="(pct(s.value_ci_high) - pct(s.value_ci_low)) + '%'"></i>
+        </div>
+        <div class="meta">
+          <span class="chip" [attr.data-side]="s.side">{{ s.side }}</span>
+          <span class="chip">{{ s.domain }}</span>
+          <span class="chip status">{{ s.status }}</span>
+          <span class="cost">${{ s.lifecycle_cost_busd | number: '1.0-1' }}B LCC</span>
+          <span class="conf">conf {{ s.confidence | percent }}</span>
+        </div>
+      </div>
+    </section>
+
+    <aside class="detail" *ngIf="selected() as d">
+      <h3>{{ d.name }}</h3>
+      <p class="desc">{{ d.description }}</p>
+      <div class="kpis">
+        <div><span>{{ d.value_index | number: '1.2-2' }}</span>
+          <label>value index<br /><em>90% CI {{ d.value_ci_low | number: '1.2-2' }}&ndash;{{ d.value_ci_high | number: '1.2-2' }}</em></label></div>
+        <div><span>${{ d.lifecycle_cost_busd | number: '1.0-1' }}B</span><label>lifecycle cost</label></div>
+        <div><span>{{ d.confidence | percent }}</span><label>confidence</label></div>
+      </div>
+      <div class="slider"><label [attr.for]="'pf-unit'">Unit cost: ${{ d.unit_cost_musd | number: '1.0-0' }}M</label>
+        <input id="pf-unit" type="range" min="5" max="12000" step="5" aria-label="Unit cost ($M)"
+               [ngModel]="d.unit_cost_musd" (ngModelChange)="setField(d, 'unit_cost_musd', $event)" /></div>
+      <div class="slider"><label [attr.for]="'pf-qty'">Quantity: {{ d.quantity }}</label>
+        <input id="pf-qty" type="range" min="1" max="1000" step="1" aria-label="Quantity"
+               [ngModel]="d.quantity" (ngModelChange)="setField(d, 'quantity', $event)" /></div>
+      <div class="slider"><label [attr.for]="'pf-surv'">Survivability: {{ d.survivability_score }}</label>
+        <input id="pf-surv" type="range" min="5" max="100" step="1" aria-label="Survivability score"
+               [ngModel]="d.survivability_score" (ngModelChange)="setField(d, 'survivability_score', $event)" /></div>
+      <div class="slider"><label [attr.for]="'pf-ben'">Benefit: {{ d.benefit_score }}</label>
+        <input id="pf-ben" type="range" min="5" max="100" step="1" aria-label="Benefit score"
+               [ngModel]="d.benefit_score" (ngModelChange)="setField(d, 'benefit_score', $event)" /></div>
+      <div class="lists">
+        <div><h4>Benefits</h4><ul><li *ngFor="let b of d.key_benefits || []">{{ b }}</li></ul></div>
+        <div><h4>Risks</h4><ul><li *ngFor="let r of d.key_risks || []">{{ r }}</li></ul></div>
+      </div>
+      <p class="src">Sources: <span *ngFor="let u of d.sources || []">{{ u }} · </span>
+        <i>{{ d.last_updated === 'seed' ? 'initial OSINT estimate (not source-updated)' : 'updated ' + d.last_updated }}</i></p>
+    </aside>
+  </div>
+
+  <section class="intro" style="margin-top: 30px">
+    <h2>Interactive physics calculators</h2>
+    <p>Live, browser-side recomputation of the same equations used by the models &mdash; each parity-checked against the
+      Python source of truth. Pick one to explore (formula, swept chart, and plain-language explainer):</p>
+  </section>
+  <div class="calc-grid">
+    <a class="calc-card" *ngFor="let c of calculators" [routerLink]="['/calculators', c.id]">
+      <span class="cat">{{ c.category }}</span>
+      <h4>{{ c.title }}</h4>
+      <p>{{ c.blurb }}</p>
+    </a>
+  </div>
+</div>

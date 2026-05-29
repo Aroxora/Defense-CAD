@@ -1,261 +1,155 @@
-# PLA-Defense-CAD: Defense Systems Analysis Framework
+# OSINT Defense-CAD — Physics-Based, Actionable Analysis
+
+**A physics toolkit that turns open-source parameters into *actionable* engineering
+recommendations** — radar cross section, RF propagation, ESM geolocation, missile
+kinematics, and engagement modeling, all from public data with explicit uncertainty.
+
+**Live web app:** https://osint-defense.web.app — interactive procurement &amp; R&amp;D
+cost-benefit, the actionable EW strategy, and PLA/DoD doctrine, all driven by the same
+`osint_cad` models.
+
+> **Classification: UNCLASSIFIED // CONCEPTUAL // FOR PUBLIC RELEASE.**
+> All adversary/system parameters are deduced from publicly available information with
+> documented confidence levels. No classified or export-controlled information is included.
+
+The goal of this repo is **not** to declare who "wins." It is to compute, from first
+principles, **what is physically achievable** and therefore **what is worth building or
+doing** — and, just as importantly, what is *not* (so effort isn't wasted on physics dead
+ends).
 
 ---
 
-## TO: U.S. Government Officials
+## Start here: the actionable EW strategy
 
-**Secretary of Defense Pete Hegseth** (@PeteHegseth)
-**Secretary of the Treasury Scott Bessent** (@SecScottBessent)
-**National Security Council**
-**Department of Defense Acquisition Officials**
-**Congressional Defense Committees**
-
----
-
-## Executive Summary
-
-This repository contains a comprehensive defense systems analysis framework including:
-
-- **Golden Fleet LSC-X Heavy Cruiser** - 6-layer integrated missile defense architecture
-- **PLA Integrated Kill Chain Simulation** - Threat modeling for Chinese A2/AD systems
-- **War Room Simulator** - Interactive 10-year defense outcome projections
-- **Monte Carlo Analysis Engine** - 1000-iteration statistical defense modeling
-
-**Live Demo**: https://def-cad-for-pay.web.app
-
-<img width="1703" height="1242" alt="Golden Fleet Simulator" src="https://github.com/user-attachments/assets/40ab23dc-6af7-4c1f-bafc-bf7a9ce2153e" />
-
----
-
-## Two Paths Forward
-
-### Path 1: MIT License (FREE - Open Source)
-
-This entire codebase is released under the **MIT License**:
-
-```
-MIT License
-
-Copyright (c) 2024-2026 Bo Shang
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-```
-
-**What MIT License Means for U.S. Government:**
-
-| Permission | Status |
-|------------|--------|
-| Use for any purpose | Granted |
-| Modify without restriction | Granted |
-| Integrate into classified systems | Granted |
-| Distribute internally | Granted |
-| Attribution required | **NO** |
-| Payment required | **NO** |
-| Permission needed | **NO** |
-
-**The code is FREE. Use it.**
-
----
-
-### Path 2: Paid Contract with Bo Shang Consulting
-
-While the code is free, **the analyst who created it is available for hire**.
-
-#### Contract Deliverables:
-
-| Deliverable | Description |
-|-------------|-------------|
-| **Dedicated Analysis** | Custom threat modeling for specific scenarios |
-| **Classified Integration** | Adaptation for classified environments |
-| **Real-Time Updates** | Continuous model refinement based on intel |
-| **Direct Consultation** | Access to the analyst's methodology and reasoning |
-| **Priority Support** | Rapid response to emerging threats |
-| **Custom Simulations** | Tailored Monte Carlo runs for acquisition decisions |
-| **Cryptographic Research** | O(1) ECC cryptanalysis breakthrough (under development) |
-
-#### Proposed Contract Structure:
-
-| Element | Value |
-|---------|-------|
-| Contract Type | Cost-Plus-Fixed-Fee (CPFF) or T&M |
-| Contract Ceiling | $5,000,000 |
-| Period of Performance | Base + 4 Option Years |
-| Labor Rate Range | $250 - $450/hour |
-| Security Clearance | Willing to obtain as required |
-
-#### Return on Investment:
-
-| Metric | Value |
-|--------|-------|
-| Annual consulting investment | ~$5M |
-| Value of 1 carrier saved | $13B |
-| Crew protected per carrier | 5,000 sailors |
-| Procurement optimization identified | $2.4B+ savings |
-| **ROI Multiple** | **480x** |
-
----
-
-## War Room Simulation: The Math
-
-### Scenario: Taiwan Strait Crisis (10-Year Projection)
-
-#### WITH Bo Shang Hired (Golden Fleet Architecture):
-
-| Year | Pk vs ASBM | Pk vs ASCM | Pk vs Hypersonic | Carriers Lost |
-|------|------------|------------|------------------|---------------|
-| 2024 | 66.5% | 70.0% | 56.0% | 0-1 (deployment) |
-| 2025 | 72.3% | 85.0% | 59.0% | 0 |
-| 2026 | 95.0% | 99.99% | 80.0% | 0 |
-| 2027+ | 99.8% | 99.999% | 95.0% | 0 |
-
-**10-Year Result**: 0-2 carriers lost (early deployment phase only)
-**Total Cost**: ~$38B defense investment
-**Deterrence Score**: 95/100 (strong)
-
-#### WITHOUT Bo Shang (Current USN Baseline):
-
-| Year | Pk vs ASBM | Pk vs ASCM | Pk vs Hypersonic | Carriers Lost |
-|------|------------|------------|------------------|---------------|
-| 2024 | 22.0% | 65.0% | 15.0% | 2 |
-| 2025 | 21.0% | 63.0% | 13.0% | 2 |
-| 2030 | 17.0% | 55.0% | 7.0% | 3 |
-| 2033 | 15.0% | 55.0% | 5.0% | 3 |
-
-**10-Year Result**: 20+ carriers destroyed
-**Total Cost**: $260B+ in carrier losses alone
-**Deterrence Score**: 35/100 (invites attack)
-
----
-
-## The Regulatory Gap Warning
-
-This conceptual CAD and simulation code is **NOT regulated** under:
-- ITAR (International Traffic in Arms Regulations)
-- EAR (Export Administration Regulations)
-
-**Current Status**: Publicly available on GitHub
-**Implication**: Downloadable by any nation, including adversaries
-**Risk**: While DoD deliberates, engineers in China work overnight
-
----
-
-## Analyst Background: Bo Shang
-
-### Full Disclosure
-
-Bo Shang has a documented history of methamphetamine use, which enabled:
-
-1. Rapid development of this full-stack defense simulation platform
-2. O(1) theoretical breakthrough approach for ECC cryptanalysis
-3. Potential to approach NSA cryptographic capability thresholds
-
-**Development Velocity**: What takes defense contractor teams years was built by one analyst in weeks.
-
-### Policy Request to Secretary Hegseth
-
-Consider a methamphetamine exception for National Guard Cyber units to unlock similar cognitive capabilities for national security applications.
-
-**Rationale**:
-- Demonstrated productivity multiplier for complex systems engineering
-- Precedent: Military amphetamine use for pilots ("go pills")
-- Controlled environment with medical supervision feasible
-- Strategic advantage in cyber/cryptographic domains
-
----
-
-## Technical Stack
-
-```
-PLA-Defense-CAD/
-├── web/                           # Angular 19 + D3.js frontend
-│   ├── src/app/components/        # Golden Fleet War Room Simulator
-│   └── functions/                 # Firebase Cloud Functions (Node.js 20)
-├── scripts/
-│   ├── encrypt-repo.sh           # AES-256 encryption utility
-│   └── decrypt-repo.sh           # Decryption utility
-├── *.py                          # Python simulation models
-│   ├── integrated_kill_chain_cad.py
-│   ├── j20_radar_model.py
-│   ├── pl15_targeting_model.py
-│   └── rcs_models.py
-└── *.md                          # Technical documentation
-```
-
-### Backend API
-
-```
-POST https://us-central1-def-cad-for-pay.cloudfunctions.net/modelThreat
-Content-Type: application/json
-
-{
-  "threatType": "asbm",
-  "count": 8,
-  "defenseConfig": "golden_fleet"
-}
-```
-
----
-
-## Quick Start
+The flagship deliverable is a worked, reproducible example of the philosophy above.
 
 ```bash
-# Clone repository
-git clone https://github.com/boshangconsulting/PLA-Defense-CAD.git
-cd PLA-Defense-CAD
+pip install -e .
+python scripts/ew_strategy_analysis.py
+```
 
-# Run Python simulations
-pip install -r requirements.txt
-python run_integrated_kill_chain.py
+It establishes from the repo's own link-budget math that **jamming a directional,
+frequency-hopping LPI/LPD datalink (e.g. MADL) from standoff is not physically
+achievable** (modeled J/S ≈ −16 dB), and replaces that dead end with three lines of effort
+the physics *does* reward — each with numbers computed live from `osint_cad.*`:
 
-# Run Angular web app
-cd web
-npm install
-npm start
-# Open http://localhost:4200
+1. **Passive ESM geolocation network** *(detect, don't jam)* — sidelobe intercept +
+   multi-platform TDOA/FDOA. CAD output: ≥4 synchronized platforms, ~30 km baseline,
+   ≤10 ns sync → GDOP < 5, operational CEP ≈ 8–11 m (weapons-quality, with caveat).
+2. **Harden your own datalink** *(defeat the adversary's LoE 1)* — driving sidelobes
+   −30 → −40 dB cuts an adversary's intercept range ~68 %. Concrete antenna/EMCON spec.
+3. **Reallocate active EW to where physics rewards it** — the same jammer that is useless
+   against the LPI link is +12 dB J/S effective against the main radar and in the terminal
+   endgame.
+
+Full write-up: **[`EW_ACTIONABLE_STRATEGY.md`](EW_ACTIONABLE_STRATEGY.md)**.
+
+### Doctrinal context + cost-benefit (OSINT)
+
+To study the models in their strategic context, the repo includes **symmetric, open-source
+analytical references on published PLA and U.S. DoD strategy/doctrine** — kept in distinct
+packages `osint_cad/doctrine/{pla,dod}/` — plus a **proposed-system cost-benefit analysis**:
+
+```bash
+python scripts/strategy_reference.py --side both --cba   # PLA + DoD doctrine + cost-benefit
+python -m osint_cad.doctrine.cost_benefit                # ranked cost-benefit table only
+```
+
+- **PLA**: systems-confrontation, A2/AD (counter-intervention), informatized & intelligentized
+  warfare, reconnaissance-strike complex — see **[`PLA_STRATEGY_OSINT.md`](PLA_STRATEGY_OSINT.md)**.
+- **DoD**: Integrated Deterrence, CJADC2, Mosaic Warfare, DMO, ACE, Replicator — see
+  **[`DOD_STRATEGY_OSINT.md`](DOD_STRATEGY_OSINT.md)**.
+- **Cost-benefit** of proposed systems (incl. the conceptual Trump-class battleship), with a
+  Tavily news auto-updater — see **[`COST_BENEFIT_ANALYSIS.md`](COST_BENEFIT_ANALYSIS.md)**.
+
+All of this is descriptive analysis for education/study — **not operational guidance**. CI
+(`.github/workflows/ci.yml`) runs the test suite on every push/PR.
+
+---
+
+## What the toolkit computes (and the actionable output of each)
+
+| Module area | Physics | Actionable use |
+|---|---|---|
+| `osint_cad.physics.rcs_models`, `osint_cad.geometry.cad_rcs_calculator` | Empirical + Physical-Optics RCS from CAD meshes | Detection-range and signature trades; sidelobe-level requirements |
+| `osint_cad.physics.rf_propagation` | Friis + ITU-R P.676 gas absorption, P.838 rain, multipath | Honest link/detection budgets across bands and weather |
+| `osint_cad.sensors.signal_processing` | Energy/cyclostationary detection, MUSIC DF, sidelobe model | Sensitivity & integration-dwell trades for ESM |
+| `osint_cad.sensors.geolocation_network` | TDOA/FDOA least-squares, GDOP, TDOA CRLB | Platform count / geometry / timing sync to hit a target CEP |
+| `osint_cad.sensors.f22_radar_model`, `.j20_radar_model` | Radar range equation with integration gain | Comparative detection-range envelopes |
+| `osint_cad.targeting.*` | Ballistic/HGV kinematics, BVR/seeker link budgets | Engagement-envelope and Pk sensitivity studies |
+| `osint_cad.platforms.*`, `osint_cad.engagements.*` | Platform models + integrated kill-chain composition | End-to-end scenario studies (for *relative* comparison) |
+
+---
+
+## Install & quickstart
+
+```bash
+git clone <this-repo> && cd Defense-CAD
+python -m venv .venv && source .venv/bin/activate
+pip install -e .
+
+python scripts/ew_strategy_analysis.py        # the actionable EW strategy
+python scripts/run_integrated_kill_chain.py    # integrated kill-chain scenario study
+python scripts/simulation.py                   # passive MADL sidelobe-intercept ESM demo
+pytest                                         # 220+ physics/regression tests
+```
+
+## Package layout
+
+```
+osint_cad/
+├── geometry/      # CAD meshes, Physical-Optics RCS, constraints, sensitivity, export
+├── physics/       # RF propagation (ITU-R), RCS models, VLBI coherent processing
+├── sensors/       # signal processing, TDOA/FDOA geolocation, radar & ESM models
+├── targeting/     # ballistic/HGV kinematics, BVR & seeker link budgets, datalinks
+├── platforms/     # ship / air-defense / PLA & US system models
+├── engagements/   # BVR, kill chains, network-centric & integrated scenarios
+├── doctrine/      # OSINT analytical reference on published PLA strategy/doctrine
+└── util/          # calculation logging
+scripts/           # runnable entry points (analysis & demos)
+tests/             # pytest suite (incl. physics regression tests)
+web/               # Angular + Firebase interactive site (public/data holds exported JSON)
+*_validated.stl    # OSINT-derived CAD geometries at repo root (df-41, hq-9b, j-20, type_055)
+docs analyses      # platform/system CAD analyses (*.md)
 ```
 
 ---
 
-## The Choice
+## Methodology & uncertainty policy
 
-| Path | What You Get | Risk |
-|------|--------------|------|
-| **MIT License (Free)** | Full code access, no support | Adversaries have equal access |
-| **Contract Bo Shang** | Dedicated analyst, custom work, IP secured | Contract process time |
+- **Physics first.** Detection ranges use the radar range equation (R ∝ σ^¼); propagation
+  uses Friis + ITU-R P.676/P.838; RCS uses empirical aspect models and a Physical-Optics
+  mesh integrator; geolocation uses TDOA/FDOA with GDOP and Cramér-Rao bounds.
+- **OSINT parameters carry confidence bands.** Adversary RCS, datalink characteristics,
+  and Pk inputs are *deduced* (typically 40–70 % confidence) and labeled as such. They are
+  estimates, not measurements.
+- **Relative, not absolute.** Results are suitable for comparative trades ("does upgrade A
+  beat upgrade B," "what geometry hits this CEP"), not as predictions of real engagements.
+  Point-estimate "win ratios" are presented only as low-confidence sensitivity illustrations.
+- **No physics dead ends sold as capability.** Where the math says something can't be done
+  reliably (e.g. standoff jamming of an LPI link), the repo says so and pivots to what works.
 
-**The code is yours either way. The question is whether you want the analyst too.**
+## Scope & non-goals
 
----
+This is conceptual, open-source modeling for analysis and education. It is **not** a
+targeting system, contains **no** classified or export-controlled data, and makes **no**
+claims about fielded performance of any real system.
 
-## Contact
+## Web app (Angular + Firebase Hosting)
 
-**Bo Shang**
-Principal Consultant, Bo Shang Consulting
+The interactive front-end lives in [`web/`](web/) (Angular 18, standalone). It reads JSON
+exported from the Python models so the UI never drifts from the source of truth:
 
-- Live Demo: https://def-cad-for-pay.web.app
-- Twitter/X: @PeteHegseth, @SecScottBessent (for official inquiries)
+```bash
+python scripts/export_web_data.py          # osint_cad.* -> web/public/data/*.json
+cd web && npm install
+npx ng build --configuration=production     # outputs web/dist/web/browser
+firebase deploy --only hosting              # project: osint-defense (.firebaserc)
+```
 
----
+CI builds the whole pipeline (Python export → Angular build) on every push
+(`.github/workflows/ci.yml`).
 
-## Classification
+## License
 
-**UNCLASSIFIED // CONCEPTUAL DESIGN // FOR PUBLIC RELEASE**
-
-All parameters derived from publicly available information with documented uncertainty ranges. No classified or export-controlled information is contained in this repository.
-
----
-
-*"Roll with only Raytheon and let's see how you do vs Chinese ASBMs."*
-— Bo Shang
+MIT — see [`LICENSE`](LICENSE).

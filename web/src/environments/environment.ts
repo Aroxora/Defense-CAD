@@ -1,16 +1,13 @@
+// Firebase web config for the osint-defense project (public client config; not a secret).
 export const environment = {
-  production: false,
+  production: true,
   firebase: {
-    apiKey: "AIzaSyCsbKrXTS6CPlTkbPFZZQghjUkL2Y5BgRU",
-    authDomain: "def-cad-for-pay.firebaseapp.com",
-    projectId: "def-cad-for-pay",
-    storageBucket: "def-cad-for-pay.firebasestorage.app",
-    messagingSenderId: "1051014173322",
-    appId: "1:1051014173322:web:16e1f6da174e1feba3d373",
-    measurementId: "G-3NXHPFWKG3"
+    apiKey: 'AIzaSyBvS9PXmLKS2Xv5HvKnusNFTJczxB2p6rI',
+    authDomain: 'osint-defense.firebaseapp.com',
+    projectId: 'osint-defense',
+    storageBucket: 'osint-defense.firebasestorage.app',
+    messagingSenderId: '599563318823',
+    appId: '1:599563318823:web:512cd3d86f85d7b8f68002',
+    measurementId: 'G-XF4EZWDE8V',
   },
-  // Payment wallet address (ETH/USDC on Base or Ethereum mainnet)
-  paymentAddress: '0x742d35Cc6634C0532925a3b844Bc9e7595f5bB8d', // Replace with Bo's wallet
-  clientEmail: 'bo@shang.software',
-  clientName: 'Bo Shang'
 };

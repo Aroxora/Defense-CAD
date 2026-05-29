@@ -1,0 +1,444 @@
+{
+  "cases": [
+    {
+      "fn": "radarMaxRangeKm",
+      "args": [
+        10000,
+        40,
+        10,
+        1.0,
+        1000000.0,
+        3.0,
+        13.0,
+        5.0,
+        1000
+      ],
+      "expected": 173.13410781239236
+    },
+    {
+      "fn": "radarMaxRangeKm",
+      "args": [
+        10000,
+        40,
+        10,
+        0.0002,
+        1000000.0,
+        3.0,
+        13.0,
+        5.0,
+        1000
+      ],
+      "expected": 20.589231286014517
+    },
+    {
+      "fn": "apertureGainDbi",
+      "args": [
+        0.5,
+        0.7,
+        9.5
+      ],
+      "expected": 36.45083713094212
+    },
+    {
+      "fn": "scanLossDb",
+      "args": [
+        60
+      ],
+      "expected": -1.5
+    },
+    {
+      "fn": "scanLossDb",
+      "args": [
+        30
+      ],
+      "expected": -0.375
+    },
+    {
+      "fn": "fsplDb",
+      "args": [
+        10,
+        100
+      ],
+      "expected": 152.44778322188336
+    },
+    {
+      "fn": "aspectRcsM2",
+      "args": [
+        0.0002,
+        0.05,
+        0.01,
+        0
+      ],
+      "expected": 0.00020000000000000004
+    },
+    {
+      "fn": "aspectRcsM2",
+      "args": [
+        0.0002,
+        0.05,
+        0.01,
+        90
+      ],
+      "expected": 0.049999999999999996
+    },
+    {
+      "fn": "aspectRcsM2",
+      "args": [
+        0.0002,
+        0.05,
+        0.01,
+        45
+      ],
+      "expected": 0.0031622776601683794
+    },
+    {
+      "fn": "radarHorizonKm",
+      "args": [
+        30,
+        10
+      ],
+      "expected": 35.59475332910657
+    },
+    {
+      "fn": "radarHorizonKm",
+      "args": [
+        300,
+        11000
+      ],
+      "expected": 503.46973871794023
+    },
+    {
+      "fn": "powerLimitedRangeKm",
+      "args": [
+        300,
+        1.0,
+        0.1
+      ],
+      "expected": 168.70239755710472
+    },
+    {
+      "fn": "friisInterceptRangeKm",
+      "args": [
+        34.5,
+        -74,
+        14.4,
+        40
+      ],
+      "expected": 44.080686229623154
+    },
+    {
+      "fn": "processingGainDb",
+      "args": [
+        100000000.0,
+        0.0001
+      ],
+      "expected": 40.0
+    },
+    {
+      "fn": "jsRatioDb",
+      "args": [
+        30,
+        100,
+        -60,
+        10000000000.0,
+        30
+      ],
+      "expected": 12.321212547196637
+    },
+    {
+      "fn": "atmosphericTotalDbKm",
+      "args": [
+        3,
+        7.5
+      ],
+      "expected": 0.007503740388755847
+    },
+    {
+      "fn": "atmosphericTotalDbKm",
+      "args": [
+        10,
+        7.5
+      ],
+      "expected": 0.014574873425420187
+    },
+    {
+      "fn": "atmosphericTotalDbKm",
+      "args": [
+        15,
+        7.5
+      ],
+      "expected": 0.030235898147613266
+    },
+    {
+      "fn": "atmosphericTotalDbKm",
+      "args": [
+        22.235,
+        7.5
+      ],
+      "expected": 0.19408484653346886
+    },
+    {
+      "fn": "atmosphericTotalDbKm",
+      "args": [
+        30,
+        7.5
+      ],
+      "expected": 0.10059849614713152
+    },
+    {
+      "fn": "atmosphericTotalDbKm",
+      "args": [
+        60,
+        7.5
+      ],
+      "expected": 15.184299958075155
+    },
+    {
+      "fn": "atmosphericTotalDbKm",
+      "args": [
+        94,
+        7.5
+      ],
+      "expected": 1.4067606384096198
+    },
+    {
+      "fn": "gdop",
+      "args": [
+        4,
+        30
+      ],
+      "expected": 4.88
+    },
+    {
+      "fn": "opsCepM",
+      "args": [
+        4,
+        30
+      ],
+      "expected": 11
+    },
+    {
+      "fn": "gdop",
+      "args": [
+        6,
+        60
+      ],
+      "expected": 7.8
+    },
+    {
+      "fn": "opsCepM",
+      "args": [
+        6,
+        60
+      ],
+      "expected": 9
+    },
+    {
+      "fn": "gdop",
+      "args": [
+        8,
+        120
+      ],
+      "expected": 13.44
+    },
+    {
+      "fn": "opsCepM",
+      "args": [
+        8,
+        120
+      ],
+      "expected": 8
+    },
+    {
+      "fn": "gdop",
+      "args": [
+        4,
+        120
+      ],
+      "expected": 19.01
+    },
+    {
+      "fn": "opsCepM",
+      "args": [
+        4,
+        120
+      ],
+      "expected": 11
+    },
+    {
+      "fn": "killProbSalvo",
+      "args": [
+        0.7,
+        2
+      ],
+      "expected": 0.9099999999999999
+    },
+    {
+      "fn": "killProbSalvo",
+      "args": [
+        0.7,
+        3
+      ],
+      "expected": 0.973
+    },
+    {
+      "fn": "exchangeRatio",
+      "args": [
+        0.7,
+        4.3,
+        1.5,
+        2
+      ],
+      "expected": 6.3
+    },
+    {
+      "fn": "expectedLeakers",
+      "args": [
+        0.7,
+        48,
+        24,
+        2
+      ],
+      "expected": 2.16
+    },
+    {
+      "fn": "lifecycleCostBusd",
+      "args": [
+        10000,
+        4,
+        15000,
+        350,
+        40
+      ],
+      "expected": 111.0
+    },
+    {
+      "fn": "valueIndex",
+      "args": [
+        35,
+        20,
+        111.0
+      ],
+      "expected": 0.06306306306306306
+    },
+    {
+      "fn": "valueCiLow",
+      "args": [
+        35,
+        20,
+        111.0,
+        0.3
+      ],
+      "expected": 0.0
+    },
+    {
+      "fn": "valueCiHigh",
+      "args": [
+        35,
+        20,
+        111.0,
+        0.3
+      ],
+      "expected": 0.13952296357736482
+    },
+    {
+      "fn": "ssjBurnthroughRangeKm",
+      "args": [
+        100,
+        40,
+        5,
+        200,
+        10,
+        1,
+        50,
+        13
+      ],
+      "expected": 14.088023730111054
+    },
+    {
+      "fn": "sojSsjCrossoverKm",
+      "args": [
+        40,
+        0,
+        150
+      ],
+      "expected": 15000.0
+    },
+    {
+      "fn": "albersheimRequiredSnrDb",
+      "args": [
+        0.9,
+        1e-06,
+        1
+      ],
+      "expected": 13.11454449432279
+    },
+    {
+      "fn": "albersheimRequiredSnrDb",
+      "args": [
+        0.9,
+        1e-06,
+        10
+      ],
+      "expected": 4.9903859594287
+    },
+    {
+      "fn": "albersheimPdFromSnr",
+      "args": [
+        13.1,
+        1e-06,
+        1
+      ],
+      "expected": 0.8981039659791702
+    },
+    {
+      "fn": "chaffCloudRcsM2",
+      "args": [
+        1000000.0,
+        10
+      ],
+      "expected": 152.788380385259
+    },
+    {
+      "fn": "noiseJammingRangeFactor",
+      "args": [
+        10
+      ],
+      "expected": 0.5491004867761125
+    },
+    {
+      "fn": "radarRangeSimpleKm",
+      "args": [
+        1000000.0,
+        40,
+        10,
+        1.0,
+        1e-13
+      ],
+      "expected": 145.88241810687308
+    },
+    {
+      "fn": "ramReflectionCoefficient",
+      "args": [
+        10
+      ],
+      "expected": 0.1
+    },
+    {
+      "fn": "ramReflectionCoefficientEff",
+      "args": [
+        10,
+        15
+      ],
+      "expected": 0.09823908740944319
+    },
+    {
+      "fn": "poValidityRatio",
+      "args": [
+        10,
+        0.68
+      ],
+      "expected": 22.68235847347434
+    }
+  ]
+}

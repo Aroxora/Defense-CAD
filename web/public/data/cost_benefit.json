@@ -1,0 +1,517 @@
+{
+  "systems": [
+    {
+      "key": "df17_hgv",
+      "name": "DF-17 Hypersonic Glide Vehicle (MRBM)",
+      "side": "PLA",
+      "domain": "hypersonic",
+      "status": "fielded",
+      "description": "Road-mobile MRBM with a hypersonic glide vehicle.",
+      "unit_cost_musd": 15.0,
+      "quantity": 200,
+      "rnd_cost_musd": 5000.0,
+      "annual_oandm_musd": 0.4,
+      "service_life_years": 20,
+      "benefit_score": 74.0,
+      "survivability_score": 72.0,
+      "key_benefits": [
+        "Maneuvering reentry stresses defenses",
+        "Road-mobile launcher survivability"
+      ],
+      "key_risks": [
+        "Terminal accuracy uncertain (open source)",
+        "Defense GPI development"
+      ],
+      "sources": [
+        "CSIS Missile Threat; DoD China Military Power Report"
+      ],
+      "confidence": 0.4,
+      "last_updated": "2026-05-29",
+      "lifecycle_cost_busd": 9.6,
+      "benefit_per_billion": 7.708,
+      "value_index": 5.55,
+      "value_ci_low": 0.0,
+      "value_ci_high": 11.318,
+      "uncertainty": 0.6
+    },
+    {
+      "key": "df41_icbm",
+      "name": "DF-41 ICBM",
+      "side": "PLA",
+      "domain": "missile",
+      "status": "fielded",
+      "description": "Road-mobile/silo ICBM; strategic deterrent.",
+      "unit_cost_musd": 30.0,
+      "quantity": 100,
+      "rnd_cost_musd": 8000.0,
+      "annual_oandm_musd": 0.6,
+      "service_life_years": 30,
+      "benefit_score": 85.0,
+      "survivability_score": 60.0,
+      "key_benefits": [
+        "Long-range strategic reach",
+        "Road-mobile basing options"
+      ],
+      "key_risks": [
+        "Silo-field survivability debate",
+        "Open-source figures uncertain"
+      ],
+      "sources": [
+        "CSIS Missile Threat; DoD China Military Power Report"
+      ],
+      "confidence": 0.35,
+      "last_updated": "2026-05-29",
+      "lifecycle_cost_busd": 12.8,
+      "benefit_per_billion": 6.641,
+      "value_index": 3.984,
+      "value_ci_low": 0.0,
+      "value_ci_high": 8.47,
+      "uncertainty": 0.65
+    },
+    {
+      "key": "type055_destroyer",
+      "name": "Type 055 (Renhai) Cruiser",
+      "side": "PLA",
+      "domain": "naval",
+      "status": "fielded",
+      "description": "PLAN large guided-missile cruiser/destroyer (cross-side comparison).",
+      "unit_cost_musd": 920.0,
+      "quantity": 8,
+      "rnd_cost_musd": 3000.0,
+      "annual_oandm_musd": 35.0,
+      "service_life_years": 35,
+      "benefit_score": 72.0,
+      "survivability_score": 58.0,
+      "key_benefits": [
+        "Large VLS capacity",
+        "Air-defense + land-attack flexibility"
+      ],
+      "key_risks": [
+        "High-value surface unit vs adversary strike",
+        "Open-source cost uncertain"
+      ],
+      "sources": [
+        "Public PLAN order-of-battle analyses (USNI, CSIS)"
+      ],
+      "confidence": 0.4,
+      "last_updated": "2026-05-29",
+      "lifecycle_cost_busd": 20.16,
+      "benefit_per_billion": 3.571,
+      "value_index": 2.071,
+      "value_ci_low": 0.0,
+      "value_ci_high": 4.224,
+      "uncertainty": 0.6
+    },
+    {
+      "key": "sda_leo_layer",
+      "name": "Proliferated LEO Sensor/Transport Layer (SDA)",
+      "side": "DoD",
+      "domain": "space",
+      "status": "development",
+      "description": "Resilient mesh of small LEO satellites for missile tracking + transport.",
+      "unit_cost_musd": 40.0,
+      "quantity": 400,
+      "rnd_cost_musd": 6000.0,
+      "annual_oandm_musd": 2.0,
+      "service_life_years": 7,
+      "benefit_score": 78.0,
+      "survivability_score": 70.0,
+      "key_benefits": [
+        "Resilience via proliferation",
+        "Hypersonic/missile tracking"
+      ],
+      "key_risks": [
+        "Launch cadence/cost",
+        "Ground segment & data fusion maturity"
+      ],
+      "sources": [
+        "Space Development Agency public tranches; CSIS analyses"
+      ],
+      "confidence": 0.5,
+      "last_updated": "2026-05-29",
+      "lifecycle_cost_busd": 27.6,
+      "benefit_per_billion": 2.826,
+      "value_index": 1.978,
+      "value_ci_low": 0.265,
+      "value_ci_high": 3.691,
+      "uncertainty": 0.5
+    },
+    {
+      "key": "constellation_ffg",
+      "name": "Constellation-class Frigate (FFG-62)",
+      "side": "DoD",
+      "domain": "naval",
+      "status": "development",
+      "description": "Multi-mission guided-missile frigate; lower-cost surface combatant.",
+      "unit_cost_musd": 1300.0,
+      "quantity": 20,
+      "rnd_cost_musd": 1500.0,
+      "annual_oandm_musd": 30.0,
+      "service_life_years": 30,
+      "benefit_score": 68.0,
+      "survivability_score": 55.0,
+      "key_benefits": [
+        "Affordable distributed surface combatant",
+        "Proven parent design"
+      ],
+      "key_risks": [
+        "Design-change-driven schedule slip",
+        "Weight/margin growth"
+      ],
+      "sources": [
+        "GAO/CRS FFG-62 program reports (public)"
+      ],
+      "confidence": 0.55,
+      "last_updated": "2026-05-29",
+      "lifecycle_cost_busd": 45.5,
+      "benefit_per_billion": 1.495,
+      "value_index": 0.822,
+      "value_ci_low": 0.181,
+      "value_ci_high": 1.463,
+      "uncertainty": 0.45
+    },
+    {
+      "key": "j35_fighter",
+      "name": "J-35 / FC-31 Stealth Fighter",
+      "side": "PLA",
+      "domain": "air",
+      "status": "development",
+      "description": "Medium stealth fighter (land- and carrier-based variants).",
+      "unit_cost_musd": 80.0,
+      "quantity": 200,
+      "rnd_cost_musd": 8000.0,
+      "annual_oandm_musd": 6.0,
+      "service_life_years": 30,
+      "benefit_score": 70.0,
+      "survivability_score": 62.0,
+      "key_benefits": [
+        "Carrier-capable stealth airwing",
+        "Fleet stealth mass"
+      ],
+      "key_risks": [
+        "Engine/sensor maturity (open source)",
+        "Cost figures uncertain"
+      ],
+      "sources": [
+        "USNI/CSIS public PLAAF/PLAN aviation analyses"
+      ],
+      "confidence": 0.35,
+      "last_updated": "2026-05-29",
+      "lifecycle_cost_busd": 60.0,
+      "benefit_per_billion": 1.167,
+      "value_index": 0.723,
+      "value_ci_low": 0.0,
+      "value_ci_high": 1.538,
+      "uncertainty": 0.65
+    },
+    {
+      "key": "cca_increment1",
+      "name": "Collaborative Combat Aircraft (CCA), Increment 1",
+      "side": "DoD",
+      "domain": "autonomy",
+      "status": "development",
+      "description": "Low-cost, semi-autonomous uncrewed combat aircraft teamed with fighters.",
+      "unit_cost_musd": 30.0,
+      "quantity": 1000,
+      "rnd_cost_musd": 4000.0,
+      "annual_oandm_musd": 1.5,
+      "service_life_years": 15,
+      "benefit_score": 70.0,
+      "survivability_score": 55.0,
+      "key_benefits": [
+        "Affordable mass",
+        "Attritable; complicates adversary targeting"
+      ],
+      "key_risks": [
+        "Autonomy maturity",
+        "Datalink dependence (see EW strategy)"
+      ],
+      "sources": [
+        "USAF CCA program public statements; CSIS/CBO analyses"
+      ],
+      "confidence": 0.5,
+      "last_updated": "2026-05-29",
+      "lifecycle_cost_busd": 56.5,
+      "benefit_per_billion": 1.239,
+      "value_index": 0.681,
+      "value_ci_low": 0.091,
+      "value_ci_high": 1.272,
+      "uncertainty": 0.5
+    },
+    {
+      "key": "type003_carrier",
+      "name": "Type 003 (Fujian) Aircraft Carrier",
+      "side": "PLA",
+      "domain": "naval",
+      "status": "development",
+      "description": "PLAN CATOBAR aircraft carrier.",
+      "unit_cost_musd": 8000.0,
+      "quantity": 2,
+      "rnd_cost_musd": 10000.0,
+      "annual_oandm_musd": 300.0,
+      "service_life_years": 40,
+      "benefit_score": 78.0,
+      "survivability_score": 40.0,
+      "key_benefits": [
+        "Power projection / sortie generation",
+        "CATOBAR airwing flexibility"
+      ],
+      "key_risks": [
+        "High-value target within A2/AD reach",
+        "Carrier-ops maturity"
+      ],
+      "sources": [
+        "USNI/CSIS public PLAN carrier analyses"
+      ],
+      "confidence": 0.35,
+      "last_updated": "2026-05-29",
+      "lifecycle_cost_busd": 50.0,
+      "benefit_per_billion": 1.56,
+      "value_index": 0.624,
+      "value_ci_low": 0.0,
+      "value_ci_high": 1.327,
+      "uncertainty": 0.65
+    },
+    {
+      "key": "columbia_ssbn",
+      "name": "Columbia-class SSBN",
+      "side": "DoD",
+      "domain": "subsurface",
+      "status": "development",
+      "description": "Ballistic-missile submarine; survivable strategic deterrent.",
+      "unit_cost_musd": 9000.0,
+      "quantity": 12,
+      "rnd_cost_musd": 15000.0,
+      "annual_oandm_musd": 110.0,
+      "service_life_years": 42,
+      "benefit_score": 95.0,
+      "survivability_score": 95.0,
+      "key_benefits": [
+        "Survivable second-strike (sea-based deterrent)",
+        "Quietness"
+      ],
+      "key_risks": [
+        "Schedule risk to deterrent patrols",
+        "Industrial-base constraints"
+      ],
+      "sources": [
+        "CBO/CRS Columbia-class estimates (public)"
+      ],
+      "confidence": 0.6,
+      "last_updated": "2026-05-29",
+      "lifecycle_cost_busd": 178.44,
+      "benefit_per_billion": 0.532,
+      "value_index": 0.506,
+      "value_ci_low": 0.155,
+      "value_ci_high": 0.856,
+      "uncertainty": 0.4
+    },
+    {
+      "key": "h20_bomber",
+      "name": "H-20 Stealth Bomber (conceptual/R&D)",
+      "side": "PLA",
+      "domain": "air",
+      "status": "conceptual",
+      "description": "Reported PLAAF stealth bomber program; largely developmental in open sources.",
+      "unit_cost_musd": 650.0,
+      "quantity": 100,
+      "rnd_cost_musd": 20000.0,
+      "annual_oandm_musd": 22.0,
+      "service_life_years": 30,
+      "benefit_score": 80.0,
+      "survivability_score": 78.0,
+      "key_benefits": [
+        "Penetrating long-range strike (if fielded)",
+        "Extends strike reach"
+      ],
+      "key_risks": [
+        "Program maturity unconfirmed (open source)",
+        "Figures highly uncertain"
+      ],
+      "sources": [
+        "DoD China Military Power Report; public PLAAF analyses"
+      ],
+      "confidence": 0.25,
+      "last_updated": "2026-05-29",
+      "lifecycle_cost_busd": 151.0,
+      "benefit_per_billion": 0.53,
+      "value_index": 0.413,
+      "value_ci_low": 0.0,
+      "value_ci_high": 0.95,
+      "uncertainty": 0.75
+    },
+    {
+      "key": "b21_raider",
+      "name": "B-21 Raider Stealth Bomber",
+      "side": "DoD",
+      "domain": "air",
+      "status": "development",
+      "description": "Next-gen stealth bomber; penetrating long-range strike.",
+      "unit_cost_musd": 700.0,
+      "quantity": 100,
+      "rnd_cost_musd": 25000.0,
+      "annual_oandm_musd": 25.0,
+      "service_life_years": 30,
+      "benefit_score": 85.0,
+      "survivability_score": 80.0,
+      "key_benefits": [
+        "Penetrating stealth strike",
+        "Open-architecture upgradeability"
+      ],
+      "key_risks": [
+        "Sustainment cost growth",
+        "Threat IADS evolution"
+      ],
+      "sources": [
+        "USAF/GAO B-21 program public estimates",
+        "CBO long-range strike analyses"
+      ],
+      "confidence": 0.55,
+      "last_updated": "2026-05-29",
+      "lifecycle_cost_busd": 170.0,
+      "benefit_per_billion": 0.5,
+      "value_index": 0.4,
+      "value_ci_low": 0.088,
+      "value_ci_high": 0.712,
+      "uncertainty": 0.45
+    },
+    {
+      "key": "ngad_fighter",
+      "name": "NGAD Air-Dominance Fighter",
+      "side": "DoD",
+      "domain": "air",
+      "status": "development",
+      "description": "Next-Generation Air Dominance crewed fighter (teamed with CCA).",
+      "unit_cost_musd": 300.0,
+      "quantity": 200,
+      "rnd_cost_musd": 16000.0,
+      "annual_oandm_musd": 20.0,
+      "service_life_years": 30,
+      "benefit_score": 82.0,
+      "survivability_score": 75.0,
+      "key_benefits": [
+        "Penetrating counter-air",
+        "CCA teaming/quarterback"
+      ],
+      "key_risks": [
+        "Very high unit cost (affordability review)",
+        "Requirements churn"
+      ],
+      "sources": [
+        "USAF NGAD public statements; CSIS/CBO analyses"
+      ],
+      "confidence": 0.45,
+      "last_updated": "2026-05-29",
+      "lifecycle_cost_busd": 196.0,
+      "benefit_per_billion": 0.418,
+      "value_index": 0.314,
+      "value_ci_low": 0.015,
+      "value_ci_high": 0.613,
+      "uncertainty": 0.55
+    },
+    {
+      "key": "ddgx_destroyer",
+      "name": "DDG(X) Next-Generation Guided-Missile Destroyer",
+      "side": "DoD",
+      "domain": "naval",
+      "status": "development",
+      "description": "USN next-gen destroyer following the Arleigh Burke line.",
+      "unit_cost_musd": 3300.0,
+      "quantity": 28,
+      "rnd_cost_musd": 6000.0,
+      "annual_oandm_musd": 60.0,
+      "service_life_years": 35,
+      "benefit_score": 75.0,
+      "survivability_score": 60.0,
+      "key_benefits": [
+        "Networked air/missile defense",
+        "Distributable combat power"
+      ],
+      "key_risks": [
+        "Cost growth risk",
+        "Power/cooling for future weapons unproven"
+      ],
+      "sources": [
+        "CBO/CRS DDG(X) program estimates (public)"
+      ],
+      "confidence": 0.55,
+      "last_updated": "2026-05-29",
+      "lifecycle_cost_busd": 157.2,
+      "benefit_per_billion": 0.477,
+      "value_index": 0.286,
+      "value_ci_low": 0.063,
+      "value_ci_high": 0.509,
+      "uncertainty": 0.45
+    },
+    {
+      "key": "sentinel_icbm",
+      "name": "LGM-35A Sentinel ICBM",
+      "side": "DoD",
+      "domain": "missile",
+      "status": "development",
+      "description": "Ground-based strategic deterrent replacing Minuteman III.",
+      "unit_cost_musd": 160.0,
+      "quantity": 634,
+      "rnd_cost_musd": 40000.0,
+      "annual_oandm_musd": 2.0,
+      "service_life_years": 50,
+      "benefit_score": 80.0,
+      "survivability_score": 45.0,
+      "key_benefits": [
+        "Modernized land leg of the triad",
+        "Responsiveness"
+      ],
+      "key_risks": [
+        "Major Nunn-McCurdy cost breach (public)",
+        "Silo basing survivability debate"
+      ],
+      "sources": [
+        "USAF/GAO Sentinel program; public Nunn-McCurdy reporting"
+      ],
+      "confidence": 0.55,
+      "last_updated": "2026-05-29",
+      "lifecycle_cost_busd": 204.84,
+      "benefit_per_billion": 0.391,
+      "value_index": 0.176,
+      "value_ci_low": 0.039,
+      "value_ci_high": 0.313,
+      "uncertainty": 0.45
+    },
+    {
+      "key": "trump_class_battleship",
+      "name": "Trump-class Battleship (conceptual, 'Golden Fleet')",
+      "side": "DoD",
+      "domain": "naval",
+      "status": "conceptual",
+      "description": "Notional heavily-armored big-gun/missile capital ship. A deliberately conceptual case showing how cost-benefit + survivability physics judge a 'return of the battleship'. NOT a real program.",
+      "unit_cost_musd": 10000.0,
+      "quantity": 4,
+      "rnd_cost_musd": 15000.0,
+      "annual_oandm_musd": 350.0,
+      "service_life_years": 40,
+      "benefit_score": 35.0,
+      "survivability_score": 20.0,
+      "key_benefits": [
+        "Large magazine/armor vs legacy threats",
+        "Presence/deterrence symbolism"
+      ],
+      "key_risks": [
+        "High-value concentrated target for ASBM/ASCM/HGV/torpedo",
+        "Very high lifecycle cost; few hulls = brittle force",
+        "Counter to Distributed Maritime Operations (dispersal)"
+      ],
+      "sources": [
+        "Conceptual; cost framed by CBO armored-warship/CVN order of magnitude",
+        "Survivability per public ASBM/ASCM threat analyses (CSIS Missile Threat)"
+      ],
+      "confidence": 0.3,
+      "last_updated": "2026-05-29",
+      "lifecycle_cost_busd": 111.0,
+      "benefit_per_billion": 0.315,
+      "value_index": 0.063,
+      "value_ci_low": 0.0,
+      "value_ci_high": 0.14,
+      "uncertainty": 0.7
+    }
+  ]
+}

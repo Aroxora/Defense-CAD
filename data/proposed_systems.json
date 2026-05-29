@@ -1,0 +1,202 @@
+{
+  "generated": "2026-05-29",
+  "systems": [
+    {
+      "key": "trump_class_battleship",
+      "last_updated": "2026-05-29",
+      "sources": [
+        "Conceptual; cost framed by CBO armored-warship/CVN order of magnitude",
+        "Survivability per public ASBM/ASCM threat analyses (CSIS Missile Threat)"
+      ],
+      "related_news": [
+        "https://www.realcleardefense.com/2026/05/26/house_passes_historic_benefits_boost_for_gold_star_families_wounded_vets_1184609.html",
+        "https://www.twz.com/sea/congress-moves-to-block-trump-class-battleship-work-until-its-key-weapons-are-mature",
+        "https://www.cnn.com/2026/05/27/us/us-navy-last-littoral-combat-ship-hnk-intl-ml",
+        "https://www.federaltimes.com/video/2026/05/27/pentagon-boosts-box-that-makes-water-from-the-air/"
+      ]
+    },
+    {
+      "key": "b21_raider",
+      "last_updated": "2026-05-29",
+      "sources": [
+        "USAF/GAO B-21 program public estimates",
+        "CBO long-range strike analyses"
+      ],
+      "related_news": [
+        "https://www.designdevelopmenttoday.com/industries/aerospace/news/22967678/pentagons-unit-x-bets-big-on-supersonic-payload-drops",
+        "https://www.defenseone.com/ideas/2026/05/pentagons-54-billion-bet-autonomous-warfare/413735/?oref=d1-featured-river-top",
+        "https://www.defenseone.com/technology/2026/05/how-pentagon-plans-spend-50-billion-drone-warfare/413805/?oref=d1-featured-river-top",
+        "https://aviationweek.com/aerospacedailydepartments/daily-briefs-393"
+      ]
+    },
+    {
+      "key": "columbia_ssbn",
+      "last_updated": "2026-05-29",
+      "sources": [
+        "CBO/CRS Columbia-class estimates (public)"
+      ],
+      "related_news": [
+        "https://www.businessinsider.com/young-submarine-workers-are-leaving-for-less-demanding-jobs-2026-5",
+        "https://www.defensenews.com/global/asia-pacific/2026/05/26/australia-starts-high-risk-life-extension-of-its-submarine-fleet/",
+        "https://www.politico.com/sponsored/2026/05/28/the-fleet-that-builds-a-nation/",
+        "https://news.usni.org/2026/05/28/south-korean-attack-boat-arrives-in-canada-ahead-of-submarine-program-decision"
+      ]
+    },
+    {
+      "key": "ddgx_destroyer",
+      "last_updated": "2026-05-29",
+      "sources": [
+        "CBO/CRS DDG(X) program estimates (public)"
+      ],
+      "related_news": [
+        "https://www.defensedaily.com/space-force-awards-viasat-and-intelsat-general-438-million-for-continued-work-on-pts-g/space/",
+        "https://www.cnn.com/2026/05/27/us/us-navy-last-littoral-combat-ship-hnk-intl-ml",
+        "https://www.twz.com/sea/congress-moves-to-block-trump-class-battleship-work-until-its-key-weapons-are-mature",
+        "https://maritime-executive.com/article/u-s-navy-picks-seven-contenders-for-medium-usv-program"
+      ]
+    },
+    {
+      "key": "constellation_ffg",
+      "last_updated": "2026-05-29",
+      "sources": [
+        "GAO/CRS FFG-62 program reports (public)"
+      ],
+      "related_news": [
+        "https://www.navalnews.com/naval-news/2026/05/chinas-new-type-054b-frigate-makes-carrier-strike-group-debut-in-western-pacific/",
+        "https://www.twz.com/sea/congress-moves-to-block-trump-class-battleship-work-until-its-key-weapons-are-mature",
+        "https://www.defensenews.com/global/asia-pacific/2026/05/26/australia-starts-high-risk-life-extension-of-its-submarine-fleet/",
+        "https://www.janes.com/defence-intelligence-insights/defence-news/sea/design-delays-impact-frigate-deliveries-for-the-netherlands-belgium"
+      ]
+    },
+    {
+      "key": "ngad_fighter",
+      "last_updated": "2026-05-29",
+      "sources": [
+        "USAF NGAD public statements; CSIS/CBO analyses"
+      ],
+      "related_news": [
+        "https://www.designdevelopmenttoday.com/industries/aerospace/news/22967678/pentagons-unit-x-bets-big-on-supersonic-payload-drops",
+        "https://www.unmannedsystemstechnology.com/2026/05/ga-asi-us-air-force-return-yfq-42a-cca-to-flight-testing-following-software-updates/",
+        "https://www.defenseone.com/ideas/2026/05/pentagons-54-billion-bet-autonomous-warfare/413735/?oref=d1-featured-river-top",
+        "https://www.ynetnews.com/article/rj011s6tygl"
+      ]
+    },
+    {
+      "key": "cca_increment1",
+      "last_updated": "2026-05-29",
+      "sources": [
+        "USAF CCA program public statements; CSIS/CBO analyses"
+      ],
+      "related_news": [
+        "https://www.unmannedsystemstechnology.com/2026/05/ga-asi-us-air-force-return-yfq-42a-cca-to-flight-testing-following-software-updates/",
+        "https://aviationweek.com/defense/aircraft-propulsion/ottawa-startup-shaping-canadas-first-autonomous-combat-aircraft",
+        "https://www.janes.com/defence-intelligence-insights/defence-news/air/hanwha-aerospace-announces-4500-lbf-uav-engine-project",
+        "https://aviationweek.com/defense/aircraft-propulsion/collaborative-combat-aircraft-battle-brews-germany"
+      ]
+    },
+    {
+      "key": "sentinel_icbm",
+      "last_updated": "2026-05-29",
+      "sources": [
+        "USAF/GAO Sentinel program; public Nunn-McCurdy reporting"
+      ],
+      "related_news": [
+        "https://www.microsoft.com/en-us/security/blog/2026/05/28/the-gentlemen-ransomware-dissecting-a-self-propagating-go-encryptor/",
+        "https://mlq.ai/news/pentagon-agrees-to-spacexs-5x-starlink-price-hike-for-lucas-war-drones-in-iran/",
+        "https://www.designdevelopmenttoday.com/industries/military/news/22967529/aerovironment-to-accelerate-missile-production-in-alabama",
+        "https://www.eurasiantimes.com/starlinks-monopoly-turns-cheap-u-s-drones/"
+      ]
+    },
+    {
+      "key": "sda_leo_layer",
+      "last_updated": "2026-05-29",
+      "sources": [
+        "Space Development Agency public tranches; CSIS analyses"
+      ],
+      "related_news": [
+        "https://www.defensedaily.com/space-force-awards-spacex-2-29-billion-contract-for-space-data-network/space/",
+        "https://spacenews.com/spacex-wins-2-29-billion-space-force-contract-for-military-data-network/",
+        "https://payloadspace.com/op-ed-commercial-demand-in-leo-is-lacking-the-government-can-help/",
+        "https://www.telecoms.com/satellite/uk-start-up-shows-off-diminutive-optical-ground-station"
+      ]
+    },
+    {
+      "key": "type055_destroyer",
+      "last_updated": "2026-05-29",
+      "sources": [
+        "Public PLAN order-of-battle analyses (USNI, CSIS)"
+      ],
+      "related_news": [
+        "https://www.navalnews.com/naval-news/2026/05/chinas-new-type-054b-frigate-makes-carrier-strike-group-debut-in-western-pacific/",
+        "https://www.seatrade-maritime.com/tankers/dynacom-tops-tanker-newbuilding-orders-splashing-out-3-8bn",
+        "https://www.defensenews.com/global/asia-pacific/2026/05/26/australia-starts-high-risk-life-extension-of-its-submarine-fleet/",
+        "https://www.marinelink.com/news/jumbo-orders-two-nextgen-heavylift-539589"
+      ]
+    },
+    {
+      "key": "type003_carrier",
+      "last_updated": "2026-05-29",
+      "sources": [
+        "USNI/CSIS public PLAN carrier analyses"
+      ],
+      "related_news": [
+        "https://www.navalnews.com/naval-news/2026/05/chinas-new-type-054b-frigate-makes-carrier-strike-group-debut-in-western-pacific/",
+        "https://news.usni.org/2026/05/26/chinese-carrier-liaoning-near-philippines-uss-george-washington-leaves-yokosuka-ahead-of-spring-patrol",
+        "https://www.marinelink.com/news/three-oil-lng-tankers-exit-hormuz-539682",
+        "https://www.qoo10.co.id/en/gadget/101461/atts-build-a-plan-puts-users-in-control-of-data-hotspot-and-monthly-cost/"
+      ]
+    },
+    {
+      "key": "df17_hgv",
+      "last_updated": "2026-05-29",
+      "sources": [
+        "CSIS Missile Threat; DoD China Military Power Report"
+      ],
+      "related_news": [
+        "https://maritime-executive.com/article/china-drives-off-dutch-navy-frigate-in-the-paracel-islands",
+        "https://aviationweek.com/space/launch-vehicles-propulsion/scottish-airfield-targets-esa-hypersonic-flight-tests",
+        "https://aviationweek.com/space/launch-vehicles-propulsion/scottish-airfield-targets-esa-hypersonic-flight-test-role",
+        "https://www.reuters.com/video/watch/idRW324924052026RP1/"
+      ]
+    },
+    {
+      "key": "df41_icbm",
+      "last_updated": "2026-05-29",
+      "sources": [
+        "CSIS Missile Threat; DoD China Military Power Report"
+      ],
+      "related_news": [
+        "https://www.reuters.com/graphics/CHINA-MILITARY/NUCLEAR/zjpqmbrlqpx/",
+        "https://www.reuters.com/world/china/any-conflict-over-taiwan-would-risk-us-china-nuclear-escalation-study-finds-2026-05-28/",
+        "https://news.usni.org/2026/05/27/chinese-use-electronic-warfare-attacks-on-dutch-warship-in-south-china-sea-says-pla",
+        "https://maritime-executive.com/article/china-drives-off-dutch-navy-frigate-in-the-paracel-islands"
+      ]
+    },
+    {
+      "key": "j35_fighter",
+      "last_updated": "2026-05-29",
+      "sources": [
+        "USNI/CSIS public PLAAF/PLAN aviation analyses"
+      ],
+      "related_news": [
+        "https://www.ynetnews.com/article/rj011s6tygl",
+        "https://theaviationist.com/2026/05/27/china-y-20-intercepted-refueling-j-16s-near-taiwan/",
+        "https://www.defenseone.com/technology/2026/05/how-pentagon-plans-spend-50-billion-drone-warfare/413805/?oref=d1-featured-river-top",
+        "https://www.aol.com/articles/keysight-keys-q2-2026-earnings-220528054.html"
+      ]
+    },
+    {
+      "key": "h20_bomber",
+      "last_updated": "2026-05-29",
+      "sources": [
+        "DoD China Military Power Report; public PLAAF analyses"
+      ],
+      "related_news": [
+        "https://theaviationist.com/2026/05/27/china-y-20-intercepted-refueling-j-16s-near-taiwan/",
+        "https://www.reuters.com/graphics/CHINA-MILITARY/NUCLEAR/zjpqmbrlqpx/",
+        "https://spacenews.com/chinas-latest-batch-of-new-and-reusable-rockets-are-close-to-launch/",
+        "https://www.defenseone.com/technology/2026/05/how-pentagon-plans-spend-50-billion-drone-warfare/413805/?oref=d1-featured-river-top"
+      ]
+    }
+  ]
+}

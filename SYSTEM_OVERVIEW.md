@@ -174,14 +174,13 @@ FIND (2s) → FIX (3s) → TRACK (1s/update) → TARGET (5s) → ENGAGE (3s) →
 ## File Structure
 
 ```
-PLA-Defense-CAD/
-├── cad_geometry.py              # Base CAD primitives
-├── cad_rcs_calculator.py        # Physical Optics RCS
-├── cad_visualization.py         # 3D visualization
-├── integrated_kill_system.py    # Multi-layer detection & engagement
-├── parade_weapon_systems_cad.py # Strategic missiles, SAMs, aircraft
-├── network_centric_killchain.py # Kill chain & uncertainty analysis
-└── SYSTEM_OVERVIEW.md           # This file
+osint_cad/
+├── geometry/cad_geometry.py             # Base CAD primitives
+├── geometry/cad_rcs_calculator.py       # Physical Optics RCS
+├── geometry/cad_visualization.py        # 3D visualization
+├── engagements/integrated_kill_system.py  # Multi-layer detection & engagement
+├── platforms/parade_weapon_systems_cad.py # Strategic missiles, SAMs, aircraft
+└── engagements/network_centric_killchain.py # Kill chain & uncertainty analysis
 ```
 
 ---

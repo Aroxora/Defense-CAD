@@ -1,14 +1,34 @@
 import { Routes } from '@angular/router';
-import { GoldenFleetComponent } from './components/golden-fleet/golden-fleet.component';
-import { SidelobeDetectionComponent } from './components/sidelobe-detection/sidelobe-detection.component';
-import { AsbmKillChainComponent } from './components/asbm-kill-chain/asbm-kill-chain.component';
-import { DiseaseCureComponent } from './components/disease-cure/disease-cure.component';
 
 export const routes: Routes = [
-  { path: '', component: DiseaseCureComponent },
-  { path: 'golden-fleet', component: GoldenFleetComponent },
-  { path: 'sidelobe-detection', component: SidelobeDetectionComponent },
-  { path: 'asbm-kill-chain', component: AsbmKillChainComponent },
-  { path: 'disease-cure', component: DiseaseCureComponent },
-  { path: '**', redirectTo: '' }
+  { path: '', redirectTo: 'portfolio', pathMatch: 'full' },
+  {
+    path: 'calculators',
+    loadComponent: () => import('./features/calculators.component').then((m) => m.CalculatorsComponent),
+  },
+  {
+    path: 'calculators/:id',
+    loadComponent: () => import('./features/calculators.component').then((m) => m.CalculatorsComponent),
+  },
+  {
+    path: 'portfolio',
+    loadComponent: () => import('./features/portfolio.component').then((m) => m.PortfolioComponent),
+  },
+  {
+    path: 'ew',
+    loadComponent: () => import('./features/ew.component').then((m) => m.EwComponent),
+  },
+  {
+    path: 'cad-derived',
+    loadComponent: () => import('./features/cad-derived.component').then((m) => m.CadDerivedComponent),
+  },
+  {
+    path: 'doctrine',
+    loadComponent: () => import('./features/doctrine.component').then((m) => m.DoctrineComponent),
+  },
+  {
+    path: 'methodology',
+    loadComponent: () => import('./features/methodology.component').then((m) => m.MethodologyComponent),
+  },
+  { path: '**', redirectTo: 'portfolio' },
 ];
