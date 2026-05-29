@@ -19,6 +19,10 @@ export const routes: Routes = [
     loadComponent: () => import('./features/ew.component').then((m) => m.EwComponent),
   },
   {
+    path: 'cad-derived',
+    loadComponent: () => import('./features/cad-derived.component').then((m) => m.CadDerivedComponent),
+  },
+  {
     path: 'doctrine',
     loadComponent: () => import('./features/doctrine.component').then((m) => m.DoctrineComponent),
   },

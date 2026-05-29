@@ -221,6 +221,63 @@ export function mdExchangeRatio(
   };
 }
 
+// ---------------------------------------------------------------- EW: jamming & detection
+export function ssjBurnthroughRangeKm(
+  ptKw: number, gtDbi: number, sigmaM2: number, pjW: number, gjDbi: number,
+  brMhz: number, bjMhz: number, sjreqDb: number,
+): number {
+  const pt = ptKw * 1000, gt = 10 ** (gtDbi / 10), gj = 10 ** (gjDbi / 10);
+  const sj = 10 ** (sjreqDb / 10), br = brMhz * 1e6, bj = bjMhz * 1e6;
+  const num = pt * gt * sigmaM2 * bj * sj;
+  const den = 4 * Math.PI * pjW * gj * br;
+  return den > 0 ? Math.sqrt(num / den) / 1000 : 0;
+}
+
+export function sojSsjCrossoverKm(gtDbi: number, gsDbi: number, rjKm: number): number {
+  return rjKm * Math.sqrt(10 ** ((gtDbi - gsDbi) / 10));
+}
+
+export function albersheimRequiredSnrDb(pd: number, pfa: number, n = 1): number {
+  const a = Math.log(0.62 / pfa);
+  const b = Math.log(pd / (1 - pd));
+  return -5 * Math.log10(n) + (6.2 + 4.54 / Math.sqrt(n + 0.44)) * Math.log10(a + 0.12 * a * b + 1.7 * b);
+}
+
+export function albersheimPdFromSnr(snrDb: number, pfa: number, n = 1): number {
+  const a = Math.log(0.62 / pfa);
+  const z = (snrDb + 5 * Math.log10(n)) / (6.2 + 4.54 / Math.sqrt(n + 0.44));
+  const b = (10 ** z - a) / (0.12 * a + 1.7);
+  return 1 / (1 + Math.exp(-b));
+}
+
+export function chaffCloudRcsM2(nDipoles: number, freqGhz: number, k = 0.17): number {
+  const lam = C / (freqGhz * 1e9);
+  return k * nDipoles * lam * lam;
+}
+
+export function noiseJammingRangeFactor(jnDb: number): number {
+  return (1 / (1 + 10 ** (jnDb / 10))) ** 0.25;
+}
+
+// ---------------------------------------------------------------- CAD-derived / materials
+export function radarRangeSimpleKm(ptW: number, gDbi: number, freqGhz: number, sigmaM2: number, pminW: number): number {
+  if (sigmaM2 <= 0 || ptW <= 0) return 0;
+  const g = 10 ** (gDbi / 10), lam = C / (freqGhz * 1e9);
+  return ((ptW * g * g * lam * lam * sigmaM2) / ((4 * Math.PI) ** 3 * pminW)) ** 0.25 / 1000;
+}
+
+export function ramReflectionCoefficient(absorptionDb: number): number {
+  return 10 ** (-absorptionDb / 10);
+}
+
+export function ramReflectionCoefficientEff(absorptionDb: number, freqGhz: number): number {
+  return ramReflectionCoefficient(absorptionDb) * (1 - 0.1 * Math.log10(freqGhz / 10));
+}
+
+export function poValidityRatio(freqGhz: number, charLengthM: number): number {
+  return charLengthM / (C / (freqGhz * 1e9));
+}
+
 // ---------------------------------------------------------------- cost-benefit value
 export function lifecycleCostBusd(unitMusd: number, qty: number, rndMusd: number, oandmMusd: number, lifeYears: number): number {
   return (rndMusd + unitMusd * qty + oandmMusd * qty * lifeYears) / 1000;
@@ -262,4 +319,14 @@ export const PARITY: Record<string, (...a: number[]) => number> = {
   valueIndex: (...a) => valueIndex(a[0], a[1], a[2]),
   valueCiLow: (...a) => valueCi(a[0], a[1], a[2], a[3])[0],
   valueCiHigh: (...a) => valueCi(a[0], a[1], a[2], a[3])[1],
+  ssjBurnthroughRangeKm: (...a) => ssjBurnthroughRangeKm(a[0], a[1], a[2], a[3], a[4], a[5], a[6], a[7]),
+  sojSsjCrossoverKm: (...a) => sojSsjCrossoverKm(a[0], a[1], a[2]),
+  albersheimRequiredSnrDb: (...a) => albersheimRequiredSnrDb(a[0], a[1], a[2]),
+  albersheimPdFromSnr: (...a) => albersheimPdFromSnr(a[0], a[1], a[2]),
+  chaffCloudRcsM2: (...a) => chaffCloudRcsM2(a[0], a[1]),
+  noiseJammingRangeFactor: (...a) => noiseJammingRangeFactor(a[0]),
+  radarRangeSimpleKm: (...a) => radarRangeSimpleKm(a[0], a[1], a[2], a[3], a[4]),
+  ramReflectionCoefficient: (...a) => ramReflectionCoefficient(a[0]),
+  ramReflectionCoefficientEff: (...a) => ramReflectionCoefficientEff(a[0], a[1]),
+  poValidityRatio: (...a) => poValidityRatio(a[0], a[1]),
 };

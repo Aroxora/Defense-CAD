@@ -284,6 +284,163 @@ export const CALCULATORS: CalcDef[] = [
   },
 ];
 
+CALCULATORS.push(
+  {
+    id: 'ssj-burnthrough',
+    title: 'Self-Screening Jammer Burn-Through Range',
+    category: 'EW',
+    source: 'osint_cad/analysis/calculators.py:ssj_burnthrough_range_km',
+    equation: 'R_bt = √( Pt·Gt·σ·B_j·(S/J)_req / (4π·Pj·Gj·B_r) )',
+    why: 'A self-protection jammer dominates at long range (skin return falls as 1/R⁴), but as the target closes the radar "burns through" and re-acquires a real track. Inside R_bt the jammer is defeated. Sweep jammer power to see how much ERP is needed to push burn-through outside the lethal envelope.',
+    inputs: [
+      { key: 'pt_kw', label: 'Radar peak power', unit: 'kW', min: 1, max: 2000, default: 100, step: 1, log: true },
+      { key: 'gt', label: 'Radar antenna gain', unit: 'dBi', min: 20, max: 50, default: 40, step: 0.5 },
+      { key: 'sigma', label: 'Target RCS', unit: 'm²', min: 0.001, max: 100, default: 5, step: 0.001, log: true },
+      { key: 'pj', label: 'Jammer power', unit: 'W', min: 1, max: 5000, default: 200, step: 1, log: true },
+      { key: 'gj', label: 'Jammer antenna gain', unit: 'dBi', min: 0, max: 30, default: 10, step: 0.5 },
+      { key: 'br', label: 'Radar bandwidth', unit: 'MHz', min: 0.1, max: 50, default: 1, step: 0.1, log: true },
+      { key: 'bj', label: 'Jammer noise bandwidth', unit: 'MHz', min: 1, max: 500, default: 50, step: 1 },
+      { key: 'sjreq', label: 'Required S/J', unit: 'dB', min: 0, max: 25, default: 13, step: 0.5 },
+    ],
+    compute: (v) => [
+      { label: 'Burn-through range', unit: 'km', value: E.ssjBurnthroughRangeKm(v['pt_kw'], v['gt'], v['sigma'], v['pj'], v['gj'], v['br'], v['bj'], v['sjreq']), primary: true },
+      { label: 'Jammer ERP', unit: 'dBW', value: 10 * Math.log10(v['pj']) + v['gj'] },
+      { label: 'Bandwidth advantage', unit: 'dB', value: 10 * Math.log10(v['bj'] / v['br']) },
+    ],
+    chart: { xKey: 'pj', yLabel: 'Burn-through range (km)', logX: true, y: (x, v) => E.ssjBurnthroughRangeKm(v['pt_kw'], v['gt'], v['sigma'], x, v['gj'], v['br'], v['bj'], v['sjreq']) },
+  },
+  {
+    id: 'albersheim-snr',
+    title: 'Required SNR for Detection (Albersheim)',
+    category: 'Detection',
+    source: 'osint_cad/analysis/calculators.py:albersheim_required_snr_db',
+    equation: 'SNR_dB = −5·log₁₀N + (6.2 + 4.54/√(N+0.44))·log₁₀(A + 0.12·A·B + 1.7·B);  A=ln(0.62/Pfa), B=ln(Pd/(1−Pd))',
+    why: "Every range calculation hides one number: how much SNR you actually need. Albersheim's closed form gives it from Pd and Pfa — returning the ~13.1 dB used as the default detection threshold (Pd=0.9, Pfa=1e-6, N=1), and showing how integrating N pulses lowers the per-pulse requirement.",
+    inputs: [
+      { key: 'pd', label: 'Detection probability', unit: '-', min: 0.1, max: 0.99, default: 0.9, step: 0.01 },
+      { key: 'pfa', label: 'False-alarm prob.', unit: '-', min: 1e-10, max: 1e-3, default: 1e-6, step: 1e-7, log: true },
+      { key: 'n', label: 'Integrated pulses', unit: '-', min: 1, max: 4096, default: 1, step: 1, log: true },
+    ],
+    compute: (v) => [
+      { label: 'Required single-pulse SNR', unit: 'dB', value: E.albersheimRequiredSnrDb(v['pd'], v['pfa'], Math.round(v['n'])), primary: true },
+      { label: 'Integration gain vs N=1', unit: 'dB', value: E.albersheimRequiredSnrDb(v['pd'], v['pfa'], 1) - E.albersheimRequiredSnrDb(v['pd'], v['pfa'], Math.round(v['n'])) },
+    ],
+    chart: { xKey: 'pd', yLabel: 'Required SNR (dB)', y: (x, v) => E.albersheimRequiredSnrDb(x, v['pfa'], Math.round(v['n'])) },
+  },
+  {
+    id: 'albersheim-pd',
+    title: 'Detection Probability from SNR (Albersheim)',
+    category: 'Detection',
+    source: 'osint_cad/analysis/calculators.py:albersheim_pd_from_snr',
+    equation: 'Pd = 1/(1+e^(−B)),  B=(10^Z−A)/(0.12A+1.7),  Z=(SNR_dB+5log₁₀N)/(6.2+4.54/√(N+0.44)),  A=ln(0.62/Pfa)',
+    why: 'The complement of the required-SNR tool: given the SNR a radar actually achieves (the radar-range-equation output), what detection probability results at a chosen false-alarm rate? Sweep SNR to trace the detection curve.',
+    inputs: [
+      { key: 'snr', label: 'Achieved SNR', unit: 'dB', min: 0, max: 25, default: 13, step: 0.5 },
+      { key: 'pfa', label: 'False-alarm prob.', unit: '-', min: 1e-10, max: 1e-3, default: 1e-6, step: 1e-7, log: true },
+      { key: 'n', label: 'Integrated pulses', unit: '-', min: 1, max: 4096, default: 1, step: 1, log: true },
+    ],
+    compute: (v) => [{ label: 'Detection probability', unit: '', value: E.albersheimPdFromSnr(v['snr'], v['pfa'], Math.round(v['n'])), primary: true, fmt: 'pct' }],
+    chart: { xKey: 'snr', yLabel: 'Pd', y: (x, v) => E.albersheimPdFromSnr(x, v['pfa'], Math.round(v['n'])) },
+  },
+  {
+    id: 'chaff-rcs',
+    title: 'Chaff Dipole-Cloud RCS',
+    category: 'EW',
+    source: 'osint_cad/analysis/calculators.py:chaff_cloud_rcs_m2',
+    equation: 'σ_chaff ≈ k·N·λ²  (k ≈ 0.17 for many randomly-oriented resonant half-wave dipoles)',
+    why: 'A burst of resonant dipoles can present a large radar cross section to mask or seduce a tracker. Sweep dipole count to see how a cloud cheaply generates tens to hundreds of m² of RCS at a chosen band.',
+    inputs: [
+      { key: 'n', label: 'Number of dipoles', unit: '-', min: 1e4, max: 1e8, default: 1e6, step: 1e4, log: true },
+      { key: 'f', label: 'Frequency', unit: 'GHz', min: 1, max: 18, default: 10, step: 0.1 },
+    ],
+    compute: (v) => {
+      const r = E.chaffCloudRcsM2(v['n'], v['f']);
+      return [{ label: 'Cloud RCS', unit: 'm²', value: r, primary: true }, { label: 'Cloud RCS', unit: 'dBsm', value: 10 * Math.log10(r) }];
+    },
+    chart: { xKey: 'n', yLabel: 'Cloud RCS (m²)', logX: true, y: (x, v) => E.chaffCloudRcsM2(x, v['f']) },
+  },
+  {
+    id: 'noise-jam-range',
+    title: 'Noise-Jamming Detection-Range Reduction',
+    category: 'EW',
+    source: 'osint_cad/analysis/calculators.py:noise_jamming_range_factor',
+    equation: 'R_eff / R_free = (1 / (1 + J/N))^(1/4)',
+    why: 'Barrage noise jamming raises the receiver noise floor; because range scales as the 4th root of SNR, even a strong J/N only modestly shrinks detection range. A 10 dB J/N cuts range to ~55%, not to zero — the same fourth-root law that protects stealth also limits noise jamming.',
+    inputs: [{ key: 'jn', label: 'Jam-to-noise ratio', unit: 'dB', min: 0, max: 40, default: 10, step: 1 }],
+    compute: (v) => {
+      const f = E.noiseJammingRangeFactor(v['jn']);
+      return [{ label: 'Range retained', unit: '', value: f, primary: true, fmt: 'pct' }, { label: 'Range lost', unit: '', value: 1 - f, fmt: 'pct' }];
+    },
+    chart: { xKey: 'jn', yLabel: 'Range retained (fraction)', y: (x) => E.noiseJammingRangeFactor(x) },
+  },
+  {
+    id: 'radar-range-vs-aspect',
+    title: 'Detection Range vs Aspect (stealth envelope)',
+    category: 'CAD-derived',
+    source: 'osint_cad/analysis/calculators.py:aspect_rcs_m2 + radar_range_simple_km',
+    equation: 'σ(θ) interpolated nose→beam→tail (dBsm), then R = [Pt·G²·λ²·σ / ((4π)³·Pmin)]^(1/4)',
+    why: 'Combines an aspect-dependent RCS (low head-on, high on the beam) with the radar range equation to draw the detection envelope vs viewing angle — why a stealth aircraft is detected far sooner from the side than head-on, and why approach geometry is everything.',
+    inputs: [
+      { key: 'front', label: 'Frontal RCS', unit: 'dBsm', min: -50, max: 10, default: -37, step: 0.5 },
+      { key: 'beam', label: 'Beam RCS', unit: 'dBsm', min: -20, max: 40, default: 10, step: 0.5 },
+      { key: 'rear', label: 'Tail RCS', unit: 'dBsm', min: -30, max: 30, default: 0, step: 0.5 },
+      { key: 'aspect', label: 'Aspect angle', unit: 'deg', min: 0, max: 360, default: 0, step: 1 },
+      { key: 'pt_kw', label: 'Radar peak power', unit: 'kW', min: 1, max: 2000, default: 100, step: 1, log: true },
+      { key: 'g', label: 'Antenna gain', unit: 'dBi', min: 25, max: 50, default: 40, step: 0.5 },
+      { key: 'f', label: 'Frequency', unit: 'GHz', min: 1, max: 18, default: 10, step: 0.1 },
+      { key: 'pmin_dbm', label: 'Min detectable power', unit: 'dBm', min: -130, max: -90, default: -100, step: 1 },
+    ],
+    compute: (v) => {
+      const sig = E.aspectRcsM2(10 ** (v['front'] / 10), 10 ** (v['beam'] / 10), 10 ** (v['rear'] / 10), v['aspect']);
+      const pminW = 10 ** ((v['pmin_dbm'] - 30) / 10);
+      return [
+        { label: 'RCS at aspect', unit: 'dBsm', value: 10 * Math.log10(sig) },
+        { label: 'Detection range', unit: 'km', value: E.radarRangeSimpleKm(v['pt_kw'] * 1000, v['g'], v['f'], sig, pminW), primary: true },
+      ];
+    },
+    chart: {
+      xKey: 'aspect', yLabel: 'Detection range (km)',
+      y: (x, v) => E.radarRangeSimpleKm(v['pt_kw'] * 1000, v['g'], v['f'],
+        E.aspectRcsM2(10 ** (v['front'] / 10), 10 ** (v['beam'] / 10), 10 ** (v['rear'] / 10), x), 10 ** ((v['pmin_dbm'] - 30) / 10)),
+    },
+  },
+  {
+    id: 'ram-reflection',
+    title: 'RAM Reflection Coefficient',
+    category: 'CAD-derived',
+    source: 'osint_cad/analysis/calculators.py:ram_reflection_coefficient(_eff)',
+    equation: 'Γ = 10^(−A/10);  Γ_eff(f) = Γ·(1 − 0.1·log₁₀(f/10))',
+    why: 'Radar-absorbent material is rated in dB of absorption; the power reflection coefficient Γ (and hence the RCS reduction it buys) follows directly, with a mild frequency dependence. Matches the RAM model used by the Physical-Optics RCS calculator.',
+    inputs: [
+      { key: 'a', label: 'RAM absorption', unit: 'dB', min: 0, max: 30, default: 10, step: 0.5 },
+      { key: 'f', label: 'Frequency', unit: 'GHz', min: 1, max: 40, default: 10, step: 0.1 },
+    ],
+    compute: (v) => [
+      { label: 'Reflection coefficient Γ', unit: '', value: E.ramReflectionCoefficient(v['a']), primary: true },
+      { label: 'Γ_eff at frequency', unit: '', value: E.ramReflectionCoefficientEff(v['a'], v['f']) },
+      { label: 'RCS reduction', unit: 'dB', value: -10 * Math.log10(Math.max(1e-9, E.ramReflectionCoefficientEff(v['a'], v['f']))) },
+    ],
+    chart: { xKey: 'a', yLabel: 'Reflection coefficient Γ', y: (x, v) => E.ramReflectionCoefficientEff(x, v['f']) },
+  },
+  {
+    id: 'po-validity',
+    title: 'Physical-Optics Validity (size / wavelength)',
+    category: 'CAD-derived',
+    source: 'osint_cad/analysis/calculators.py:po_validity_ratio',
+    equation: 'λ = c/f;  validity ratio = L_char / λ  (Physical Optics valid when ≫ 1)',
+    why: 'The Physical-Optics RCS method used on the CAD meshes is accurate only when the target is large compared to a wavelength. This shows the L/λ ratio so you know when a mesh RCS result is trustworthy vs. when resonant/creeping-wave effects dominate.',
+    inputs: [
+      { key: 'f', label: 'Frequency', unit: 'GHz', min: 0.1, max: 40, default: 10, step: 0.1 },
+      { key: 'lc', label: 'Characteristic length', unit: 'm', min: 0.05, max: 20, default: 0.68, step: 0.01, log: true },
+    ],
+    compute: (v) => [
+      { label: 'Size / wavelength', unit: '×λ', value: E.poValidityRatio(v['f'], v['lc']), primary: true },
+      { label: 'Wavelength', unit: 'cm', value: (299792458 / (v['f'] * 1e9)) * 100 },
+    ],
+    chart: { xKey: 'f', yLabel: 'L / λ', y: (x, v) => E.poValidityRatio(x, v['lc']) },
+  },
+);
+
 export const CALC_BY_ID: Record<string, CalcDef> = Object.fromEntries(CALCULATORS.map((c) => [c.id, c]));
 
 /** One-line "what it does" descriptions (kept faithful to each calculator's actual compute). */
@@ -299,4 +456,12 @@ export const BLURBS: Record<string, string> = {
   'salvo-kill': 'Salvo kill probability and expected leakers for a raid against a finite interceptor magazine.',
   'cost-exchange': "The defender's cost-exchange ratio — dollars spent intercepting vs the threat's unit cost.",
   'value-index': 'Survivability-adjusted cost-benefit value index and its confidence interval for a proposed system.',
+  'ssj-burnthrough': 'Range at which a radar burns through a self-screening jammer and re-acquires a real track.',
+  'albersheim-snr': "Required single-pulse SNR for a target detection probability and false-alarm rate (Albersheim's equation).",
+  'albersheim-pd': 'Detection probability achieved at a given SNR and false-alarm rate (inverse Albersheim).',
+  'chaff-rcs': 'Average radar cross section of a cloud of randomly-oriented resonant half-wave dipoles (chaff).',
+  'noise-jam-range': 'How much a given jam-to-noise ratio shrinks detection range (the fourth-root law).',
+  'radar-range-vs-aspect': 'Detection range vs viewing aspect — combines aspect-dependent RCS with the radar range equation (stealth envelope).',
+  'ram-reflection': 'Reflection coefficient and RCS reduction of radar-absorbent material vs absorption rating and frequency.',
+  'po-validity': 'Object-size-to-wavelength ratio that tells you when the Physical-Optics RCS method is valid.',
 };

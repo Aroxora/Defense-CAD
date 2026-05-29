@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { DoctrineData, EwStrategy, FactChecks, ProposedSystem } from './models';
+import { CadDerived, DoctrineData, EwStrategy, FactChecks, ProposedSystem } from './models';
 
 @Injectable({ providedIn: 'root' })
 export class DataService {
@@ -32,5 +32,9 @@ export class DataService {
 
   factChecks(): Observable<FactChecks> {
     return this.fetch<FactChecks>('fact_checks.json', { generated: 'unavailable', facts: [] });
+  }
+
+  cadDerived(): Observable<CadDerived> {
+    return this.fetch<CadDerived>('cad_derived.json', {});
   }
 }

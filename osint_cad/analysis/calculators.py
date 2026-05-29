@@ -234,6 +234,83 @@ def md_exchange_ratio(pk: float, interceptor_cost_musd: float, threat_cost_musd:
             "favorable_for_defender": ratio < 1.0}
 
 
+# ---------------------------------------------------------------- EW: jamming & detection
+def ssj_burnthrough_range_km(pt_kw: float, gt_dbi: float, sigma_m2: float, pj_w: float,
+                             gj_dbi: float, br_mhz: float, bj_mhz: float,
+                             sjreq_db: float) -> float:
+    """Self-screening-jammer burn-through range (km). Skin return overtakes the on-board
+    jammer as the target closes: R_bt = sqrt(Pt Gt sigma Bj (S/J)_req / (4 pi Pj Gj Br))."""
+    pt, gt, gj = pt_kw * 1000.0, 10 ** (gt_dbi / 10), 10 ** (gj_dbi / 10)
+    sj, br, bj = 10 ** (sjreq_db / 10), br_mhz * 1e6, bj_mhz * 1e6
+    num = pt * gt * sigma_m2 * bj * sj
+    den = 4 * math.pi * pj_w * gj * br
+    return (num / den) ** 0.5 / 1000.0 if den > 0 else 0.0
+
+
+def soj_ssj_crossover_km(gt_dbi: float, gs_dbi: float, rj_km: float) -> float:
+    """Target range where standoff (sidelobe) and self-protection (mainlobe) jamming have
+    equal J/S: R_x = Rj * sqrt(Gt/Gs). Parameter-independent of power/RCS/bandwidth."""
+    return rj_km * math.sqrt(10 ** ((gt_dbi - gs_dbi) / 10))
+
+
+def albersheim_required_snr_db(pd: float, pfa: float, n: int = 1) -> float:
+    """Albersheim's closed-form required single-pulse SNR (dB) for detection probability pd
+    at false-alarm pfa, noncoherently integrating n pulses (Swerling 0, linear detector)."""
+    a = math.log(0.62 / pfa)
+    b = math.log(pd / (1.0 - pd))
+    return -5 * math.log10(n) + (6.2 + 4.54 / math.sqrt(n + 0.44)) * math.log10(a + 0.12 * a * b + 1.7 * b)
+
+
+def albersheim_pd_from_snr(snr_db: float, pfa: float, n: int = 1) -> float:
+    """Inverse Albersheim: detection probability from single-pulse SNR (dB) at pfa, n pulses."""
+    a = math.log(0.62 / pfa)
+    z = (snr_db + 5 * math.log10(n)) / (6.2 + 4.54 / math.sqrt(n + 0.44))
+    b = (10 ** z - a) / (0.12 * a + 1.7)
+    return 1.0 / (1.0 + math.exp(-b))
+
+
+def chaff_cloud_rcs_m2(n_dipoles: float, freq_ghz: float, k: float = 0.17) -> float:
+    """Average RCS of a cloud of N randomly-oriented resonant half-wave dipoles:
+    sigma ~= k * N * lambda^2 (k ~ 0.15-0.18)."""
+    lam = C / (freq_ghz * 1e9)
+    return k * n_dipoles * lam * lam
+
+
+def noise_jamming_range_factor(jn_db: float) -> float:
+    """Detection-range shrink factor under barrage noise jamming that raises the noise floor
+    by J/N: R_eff/R_free = (1/(1 + J/N))^(1/4)."""
+    return (1.0 / (1.0 + 10 ** (jn_db / 10))) ** 0.25
+
+
+# ---------------------------------------------------------------- CAD-derived / materials
+def radar_range_simple_km(pt_w: float, g_dbi: float, freq_ghz: float, sigma_m2: float,
+                          pmin_w: float) -> float:
+    """Simplified radar range equation with an explicit minimum detectable power:
+    R = [Pt G^2 lambda^2 sigma / ((4 pi)^3 Pmin)]^(1/4). Used for aspect-RCS envelopes."""
+    if sigma_m2 <= 0 or pt_w <= 0:
+        return 0.0
+    g = 10 ** (g_dbi / 10)
+    lam = C / (freq_ghz * 1e9)
+    return ((pt_w * g * g * lam * lam * sigma_m2) / ((4 * math.pi) ** 3 * pmin_w)) ** 0.25 / 1000.0
+
+
+def ram_reflection_coefficient(absorption_db: float) -> float:
+    """Reflection coefficient (power) of radar-absorbent material: Gamma = 10^(-A/10)."""
+    return 10 ** (-absorption_db / 10)
+
+
+def ram_reflection_coefficient_eff(absorption_db: float, freq_ghz: float) -> float:
+    """Frequency-scaled RAM reflection coefficient (matches cad_rcs_calculator's RAM model):
+    Gamma_eff = Gamma * (1 - 0.1*log10(f/10))."""
+    return ram_reflection_coefficient(absorption_db) * (1 - 0.1 * math.log10(freq_ghz / 10.0))
+
+
+def po_validity_ratio(freq_ghz: float, char_length_m: float) -> float:
+    """Object-size-to-wavelength ratio L/lambda; Physical Optics is valid when L/lambda >> 1."""
+    lam = C / (freq_ghz * 1e9)
+    return char_length_m / lam
+
+
 # ---------------------------------------------------------------- cost-benefit value
 def lifecycle_cost_busd(unit_musd: float, qty: int, rnd_musd: float,
                         oandm_musd: float, life_years: int) -> float:

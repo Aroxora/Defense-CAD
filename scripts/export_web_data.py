@@ -2,9 +2,9 @@
 """
 Export the actionable analysis to JSON for the Angular/Firebase web app.
 
-Writes web/src/assets/data/{cost_benefit,doctrine,ew_strategy}.json straight from the
-osint_cad.* models so the web UI never drifts from the Python source of truth. Run before
-building/deploying the web app (the CI/web build can call this).
+Writes web/public/data/{cost_benefit,doctrine,ew_strategy,fact_checks,cad_derived}.json
+straight from the osint_cad.* models so the web UI never drifts from the Python source of
+truth. Run before building/deploying the web app (the CI/web build calls this).
 
 Usage:  python scripts/export_web_data.py
 """
@@ -16,6 +16,7 @@ from osint_cad.doctrine import cost_benefit as cb
 from osint_cad.doctrine.pla import strategy as pla
 from osint_cad.doctrine.dod import strategy as dod
 from osint_cad.engagements import ew_strategy as ew
+from osint_cad.analysis import cad_derived as cadd
 
 OUT_DIR = os.path.join(os.path.dirname(__file__), "..", "web", "public", "data")
 
@@ -71,8 +72,12 @@ def main():
     except (OSError, ValueError):
         facts = {"generated": "not-run", "facts": []}
 
+    # CAD-derived analytics computed from the actual meshes (Physical-Optics RCS).
+    cad = {name: cadd.analyze(name, resolution=12) for name in cadd.MODELS}
+
     for name, payload in [("cost_benefit", cost), ("doctrine", doctrine),
-                          ("ew_strategy", ew_data), ("fact_checks", facts)]:
+                          ("ew_strategy", ew_data), ("fact_checks", facts),
+                          ("cad_derived", cad)]:
         path = os.path.normpath(os.path.join(OUT_DIR, f"{name}.json"))
         with open(path, "w") as fh:
             json.dump(payload, fh, indent=2)

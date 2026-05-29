@@ -20,6 +20,7 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
     <nav class="tabs">
       <a routerLink="/portfolio" routerLinkActive="active">Procurement &amp; R&amp;D</a>
       <a routerLink="/calculators" routerLinkActive="active">Calculators</a>
+      <a routerLink="/cad-derived" routerLinkActive="active">CAD-derived</a>
       <a routerLink="/ew" routerLinkActive="active">EW Strategy</a>
       <a routerLink="/doctrine" routerLinkActive="active">Doctrine (PLA / DoD)</a>
       <a routerLink="/methodology" routerLinkActive="active">Methodology</a>

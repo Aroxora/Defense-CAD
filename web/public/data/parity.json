@@ -340,6 +340,105 @@
         0.3
       ],
       "expected": 0.13952296357736482
+    },
+    {
+      "fn": "ssjBurnthroughRangeKm",
+      "args": [
+        100,
+        40,
+        5,
+        200,
+        10,
+        1,
+        50,
+        13
+      ],
+      "expected": 14.088023730111054
+    },
+    {
+      "fn": "sojSsjCrossoverKm",
+      "args": [
+        40,
+        0,
+        150
+      ],
+      "expected": 15000.0
+    },
+    {
+      "fn": "albersheimRequiredSnrDb",
+      "args": [
+        0.9,
+        1e-06,
+        1
+      ],
+      "expected": 13.11454449432279
+    },
+    {
+      "fn": "albersheimRequiredSnrDb",
+      "args": [
+        0.9,
+        1e-06,
+        10
+      ],
+      "expected": 4.9903859594287
+    },
+    {
+      "fn": "albersheimPdFromSnr",
+      "args": [
+        13.1,
+        1e-06,
+        1
+      ],
+      "expected": 0.8981039659791702
+    },
+    {
+      "fn": "chaffCloudRcsM2",
+      "args": [
+        1000000.0,
+        10
+      ],
+      "expected": 152.788380385259
+    },
+    {
+      "fn": "noiseJammingRangeFactor",
+      "args": [
+        10
+      ],
+      "expected": 0.5491004867761125
+    },
+    {
+      "fn": "radarRangeSimpleKm",
+      "args": [
+        1000000.0,
+        40,
+        10,
+        1.0,
+        1e-13
+      ],
+      "expected": 145.88241810687308
+    },
+    {
+      "fn": "ramReflectionCoefficient",
+      "args": [
+        10
+      ],
+      "expected": 0.1
+    },
+    {
+      "fn": "ramReflectionCoefficientEff",
+      "args": [
+        10,
+        15
+      ],
+      "expected": 0.09823908740944319
+    },
+    {
+      "fn": "poValidityRatio",
+      "args": [
+        10,
+        0.68
+      ],
+      "expected": 22.68235847347434
     }
   ]
 }

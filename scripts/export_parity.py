@@ -54,6 +54,18 @@ def cases():
     lo, hi = c.value_ci(35, 20, lcc, 0.30)
     add("valueCiLow", [35, 20, lcc, 0.30], lo)
     add("valueCiHigh", [35, 20, lcc, 0.30], hi)
+    # EW + CAD-derived
+    add("ssjBurnthroughRangeKm", [100, 40, 5, 200, 10, 1, 50, 13], c.ssj_burnthrough_range_km(100, 40, 5, 200, 10, 1, 50, 13))
+    add("sojSsjCrossoverKm", [40, 0, 150], c.soj_ssj_crossover_km(40, 0, 150))
+    add("albersheimRequiredSnrDb", [0.9, 1e-6, 1], c.albersheim_required_snr_db(0.9, 1e-6, 1))
+    add("albersheimRequiredSnrDb", [0.9, 1e-6, 10], c.albersheim_required_snr_db(0.9, 1e-6, 10))
+    add("albersheimPdFromSnr", [13.1, 1e-6, 1], c.albersheim_pd_from_snr(13.1, 1e-6, 1))
+    add("chaffCloudRcsM2", [1e6, 10], c.chaff_cloud_rcs_m2(1e6, 10))
+    add("noiseJammingRangeFactor", [10], c.noise_jamming_range_factor(10))
+    add("radarRangeSimpleKm", [1e6, 40, 10, 1.0, 1e-13], c.radar_range_simple_km(1e6, 40, 10, 1.0, 1e-13))
+    add("ramReflectionCoefficient", [10], c.ram_reflection_coefficient(10))
+    add("ramReflectionCoefficientEff", [10, 15], c.ram_reflection_coefficient_eff(10, 15))
+    add("poValidityRatio", [10, 0.68], c.po_validity_ratio(10, 0.68))
     return out
 
 

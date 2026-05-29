@@ -64,6 +64,25 @@ export interface FactChecks {
   facts: FactCheck[];
 }
 
+export interface CadModelDerived {
+  rcs_profile: {
+    model: string; frequency_ghz: number; num_triangles: number;
+    azimuth_deg: number[]; rcs_dbsm: number[];
+    min_dbsm: number; max_dbsm: number; mean_dbsm: number; median_dbsm: number; dynamic_range_db: number;
+  };
+  detection_envelope: {
+    model: string; frequency_ghz: number; azimuth_deg: number[];
+    detection_range_km: number[]; min_range_km: number; max_range_km: number;
+  };
+  mesh_properties: {
+    model: string; num_triangles: number; resolution: number; surface_area_m2: number;
+    bbox_length_m: number; bbox_width_m: number; bbox_height_m: number;
+    divergence_volume_m3: number; volume_note: string; characteristic_length_m: number;
+  };
+}
+
+export type CadDerived = Record<string, CadModelDerived>;
+
 export interface EwLoe {
   id: number;
   title: string;
