@@ -49,8 +49,8 @@ class OperationalMADLEmitter:
 
     def __init__(self, emitter_id: int, position: np.ndarray, velocity: np.ndarray):
         self.emitter_id = emitter_id
-        self.position = position.copy()
-        self.velocity = velocity.copy()
+        self.position = np.asarray(position, dtype=float).copy()
+        self.velocity = np.asarray(velocity, dtype=float).copy()
 
         # Adaptive antenna
         self.antenna = AdaptiveAntennaPattern(
@@ -274,7 +274,8 @@ def run_operational_simulation(duration: float = 60.0,
 
             # Update platforms
             for platform in esm_platforms:
-                platform.position += platform.velocity * dt
+                # out-of-place add promotes to float regardless of input dtype
+                platform.position = platform.position + platform.velocity * dt
                 platform.timestamp = current_time
                 geo_engine.update_platform_state(platform)
 

@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+
+# Test / coverage / type-check caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# Node (never commit dependencies)
+node_modules/
+
+# Generated analysis artifacts (regenerable from the models)
+analysis_output/
+cicd_logs/
+cicd_reports/
+*.log
+calculation_log.*
+*_log.txt
+*_results.json
+*_report.txt
+kill_chain_*.json
+carrier_strike_*.json
+threat_analysis_*.json
+
+# Generated geometry exports
+*.stl
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp

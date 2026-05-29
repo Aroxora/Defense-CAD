@@ -720,7 +720,7 @@ class J10CRCSModel:
     Classification: UNCLASSIFIED // PUBLIC RELEASE
     Basis: Delta-canard configuration analysis from public imagery and deductive reasoning
 
-    See CLASSIFIED_BEST_ESTIMATES.md Part 7.1 for detailed parameter derivation
+    See docs/PARAMETER_ESTIMATES.md Part 7.1 for detailed parameter derivation
     """
 
     # Frontal RCS estimates (clean configuration)
@@ -793,7 +793,7 @@ class J11BRCSModel:
     Classification: UNCLASSIFIED // PUBLIC RELEASE
     Basis: Large 4th-gen airframe analysis, similar to Su-27
 
-    See CLASSIFIED_BEST_ESTIMATES.md Part 7.2 for detailed parameter derivation
+    See docs/PARAMETER_ESTIMATES.md Part 7.2 for detailed parameter derivation
     """
 
     RCS_FRONTAL = 8.0e-0  # 8 m² (9.0 dBsm) - large airframe, twin intakes
@@ -859,7 +859,7 @@ class J15RCSModel:
     Classification: UNCLASSIFIED // PUBLIC RELEASE
     Basis: Carrier-capable J-11 variant with reinforced airframe
 
-    See CLASSIFIED_BEST_ESTIMATES.md Part 7.3 for detailed parameter derivation
+    See docs/PARAMETER_ESTIMATES.md Part 7.3 for detailed parameter derivation
     """
 
     RCS_FRONTAL = 9.0e-0  # 9 m² (9.5 dBsm) - larger than J-11B
@@ -925,7 +925,7 @@ class J16RCSModel:
     Classification: UNCLASSIFIED // PUBLIC RELEASE
     Basis: J-11BS airframe with RAM coatings and modernization
 
-    See CLASSIFIED_BEST_ESTIMATES.md Part 7.4 for detailed parameter derivation
+    See docs/PARAMETER_ESTIMATES.md Part 7.4 for detailed parameter derivation
     """
 
     RCS_FRONTAL = 7.0e-0  # 7 m² (8.5 dBsm) - RAM coatings reduce RCS
@@ -991,7 +991,7 @@ class Su35RCSModel:
     Classification: UNCLASSIFIED // PUBLIC RELEASE
     Basis: Advanced Su-27 variant with RCS reduction measures
 
-    See CLASSIFIED_BEST_ESTIMATES.md Part 7.5 for detailed parameter derivation
+    See docs/PARAMETER_ESTIMATES.md Part 7.5 for detailed parameter derivation
     """
 
     RCS_FRONTAL = 1.0e-0  # 1.0 m² (0.0 dBsm) - RAM coatings, improved design
@@ -1057,7 +1057,7 @@ class H6KRCSModel:
     Classification: UNCLASSIFIED // PUBLIC RELEASE
     Basis: Large 1950s-era bomber with modern RAM coatings
 
-    See CLASSIFIED_BEST_ESTIMATES.md Part 7.6 for detailed parameter derivation
+    See docs/PARAMETER_ESTIMATES.md Part 7.6 for detailed parameter derivation
     """
 
     RCS_FRONTAL = 50.0e-0  # 50 m² (17.0 dBsm) - large bomber
@@ -1123,7 +1123,7 @@ class Su57RCSModel:
     Classification: UNCLASSIFIED // PUBLIC RELEASE
     Basis: Stealth fighter with internal weapons bays, less optimized than F-35
 
-    See CLASSIFIED_BEST_ESTIMATES.md Part 8.1 for detailed parameter derivation
+    See docs/PARAMETER_ESTIMATES.md Part 8.1 for detailed parameter derivation
     """
 
     RCS_FRONTAL = 0.3e-0  # 0.3 m² (-5.2 dBsm) - stealth but less than F-35
@@ -1189,7 +1189,7 @@ class Su30SMRCSModel:
     Classification: UNCLASSIFIED // PUBLIC RELEASE
     Basis: Su-27 airframe with canards
 
-    See CLASSIFIED_BEST_ESTIMATES.md Part 8.3 for detailed parameter derivation
+    See docs/PARAMETER_ESTIMATES.md Part 8.3 for detailed parameter derivation
     """
 
     RCS_FRONTAL = 6.0e-0  # 6 m² (7.8 dBsm) - canards increase frontal RCS
@@ -1255,7 +1255,7 @@ class MiG31RCSModel:
     Classification: UNCLASSIFIED // PUBLIC RELEASE
     Basis: Large 1970s interceptor, designed for speed not stealth
 
-    See CLASSIFIED_BEST_ESTIMATES.md Part 8.4 for detailed parameter derivation
+    See docs/PARAMETER_ESTIMATES.md Part 8.4 for detailed parameter derivation
     """
 
     RCS_FRONTAL = 15.0e-0  # 15 m² (11.8 dBsm) - massive radar nose
@@ -1321,7 +1321,7 @@ class Su34RCSModel:
     Classification: UNCLASSIFIED // PUBLIC RELEASE
     Basis: Large strike aircraft with platypus nose
 
-    See CLASSIFIED_BEST_ESTIMATES.md Part 8.5 for detailed parameter derivation
+    See docs/PARAMETER_ESTIMATES.md Part 8.5 for detailed parameter derivation
     """
 
     RCS_FRONTAL = 10.0e-0  # 10 m² (10.0 dBsm) - platypus nose

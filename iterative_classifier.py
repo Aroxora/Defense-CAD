@@ -907,9 +907,9 @@ def main():
 
     print(f"\n✓ Results saved to CONVERGED_ESTIMATES.json")
 
-    # Update CLASSIFIED_BEST_ESTIMATES.md
+    # Update docs/PARAMETER_ESTIMATES.md
     print("\n" + "=" * 70)
-    print("UPDATING CLASSIFIED_BEST_ESTIMATES.md")
+    print("UPDATING docs/PARAMETER_ESTIMATES.md")
     print("=" * 70)
 
     update_lines = []

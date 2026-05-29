@@ -1,4 +1,4 @@
-# Core Dependencies - MADL Detection and J-20 EW Simulation System
+# Core dependencies - Defense-CAD physics + OSINT analysis toolkit
 # Python 3.9+ required
 
 # Numerical Computing

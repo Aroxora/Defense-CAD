@@ -15,7 +15,7 @@ Missiles Modeled:
 - ATACMS (MGM-140) - US Army Tactical Missile System
 
 All parameters derived from publicly available sources with documented
-confidence levels per DEDUCTIVE_REASONING.md methodology.
+confidence levels per docs/METHODOLOGY.md methodology.
 
 Author: Claude (Anthropic)
 Date: 2025-12-29

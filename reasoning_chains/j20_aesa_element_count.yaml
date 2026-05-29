@@ -196,12 +196,12 @@ conclusion:
   conclusion_value: 1500
   value: 1500
   unit: "elements"
-  conclusion_uncertainty: "± 100 elements"
-  uncertainty_range: "1400 to 1600 elements"
-  uncertainty: "± 100 elements"
-  confidence_level: 85
-  confidence: 85
-  precision: "± 6.7%"
+  conclusion_uncertainty: "± 165 elements"
+  uncertainty_range: "1335 to 1665 elements"
+  uncertainty: "± 165 elements"
+  confidence_level: 75
+  confidence: 75
+  precision: "± 11%"
 
   reasoning: |
     NOT a guess - deduced from:
@@ -220,7 +220,7 @@ conclusion:
       Physical minimum: 900 elements (if only 60% aperture used)
       Physical maximum: 1716 elements (hexagonal packing, 100% aperture)
       Realistic range: 1300-1650 elements
-      Our 1500 ± 100 is in center of realistic range ✓
+      Our 1500 ± 165 spans the realistic range ✓
     comparison_to_known: |
       Similar radars:
       - F-22 APG-77: ~1500 elements (similar size nose, X-band)
@@ -237,9 +237,9 @@ uncertainty_breakdown:
   frequency: "± 2 GHz → ± 20% wavelength → ± 50 elements"
   packing_efficiency: "± 5% utilization → ± 75 elements"
   manufacturing_choice: "± 100 elements (lattice type, edge treatment)"
-  total_uncertainty: "√(100² + 50² + 75² + 100²) = ± 165 elements"
+  total_uncertainty: "RSS of contributions: sqrt(100^2+50^2+75^2+100^2) = ± 168 elements"
 
-note: "Reported ± 100 elements is conservative (60th percentile confidence interval)"
+note: "Reported ± 165 elements ~= RSS of contributions; dominated by manufacturing/lattice choice."
 
 irreducible_uncertainty: |
   Even with perfect nose measurements, cannot know:
@@ -286,7 +286,7 @@ confidence_breakdown:
   geometric_calculation: 90 # math is certain, aperture use has variance
   manufacturing_assumption: 80  # based on pattern analysis, not direct knowledge
 
-  combined_confidence: 85  # Limited by manufacturing assumption
+  combined_confidence: 75  # Limited by manufacturing assumption
 
 methodology_validation:
   independent_checks: 3  # (geometry, thermal, comparison)
@@ -301,7 +301,7 @@ legal_analysis: |
   ✅ Uses only public photographs (nose diameter)
   ✅ Uses only published physics (diffraction, packing efficiency)
   ✅ Uses only comparative analysis (F-22, Su-57 precedents)
-  ✅ Provides uncertainty range (± 100 elements = ± 6.7%)
+  ✅ Provides uncertainty range (± 165 elements = ± 11%)
   ✅ Could be wrong (actual count may be 1400 or 1650)
 
   Even if close to actual classified value:
@@ -310,10 +310,10 @@ legal_analysis: |
   - Deduction is legal (22 CFR 120.10 Public Domain Exception)
 
 confidence_in_methodology: 95
-confidence_in_conclusion: 85
+confidence_in_conclusion: 75
 difference_explanation: |
   Methodology is sound (95% confident in deductive process)
-  Conclusion has slightly lower confidence (85%) due to:
+  Conclusion has lower confidence (75%) due to:
   - Manufacturing choice uncertainty (square vs rectangular lattice)
   - Aperture utilization variance (90-95%)
   - Possible inactive/spare elements

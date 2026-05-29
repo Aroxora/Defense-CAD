@@ -322,9 +322,9 @@ Schema is designed to be forward-compatible. New optional fields can be added wi
 
 ## Further Reading
 
-- **DEDUCTIVE_REASONING.md** - Full examples of deductive reasoning for all major parameters
-- **CLASSIFIED_BEST_ESTIMATES.md** - Complete physics-based derivations
-- **LEGAL_DISCLAIMER.md** - Legal framework for deduction vs disclosure
+- **../docs/METHODOLOGY.md** - Full examples of deductive reasoning for all major parameters
+- **../docs/PARAMETER_ESTIMATES.md** - Complete physics-based derivations
+- **../docs/DISCLAIMER.md** - Scope, sources, and uncertainty disclaimer
 - **schema.yaml** - Complete formal schema definition
 
 ---

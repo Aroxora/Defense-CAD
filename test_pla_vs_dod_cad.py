@@ -15,7 +15,7 @@ EXCLUDED PLATFORMS:
   ✗ NGAD 6th-gen (concept, not fielded)
   ✗ MQ-28 Ghost Bat (development, not deployed)
 
-All parameters derived from CLASSIFIED_BEST_ESTIMATES.md using deductive reasoning.
+All parameters derived from docs/PARAMETER_ESTIMATES.md using deductive reasoning.
 
 Classification: UNCLASSIFIED // PUBLIC RELEASE
 """
@@ -403,7 +403,7 @@ class TestPLAvsDoD_AirCombat(unittest.TestCase):
         print(f"  NEZ (head-on): {pl15_nez_km} ± 20 km")
         print(f"  Max range: {pl15_max_range_km} ± 40 km")
         print(f"  Confidence: {pl15_confidence:.0%}")
-        print(f"  Basis: Rocket equation + drag model (CLASSIFIED_BEST_ESTIMATES.md)")
+        print(f"  Basis: Rocket equation + drag model (docs/PARAMETER_ESTIMATES.md)")
 
         print(f"\nAIM-120D (USA):")
         print(f"  NEZ (head-on): {aim120d_nez_km} km (estimated)")
@@ -445,7 +445,7 @@ def run_all_tests():
     print("\nExcluded Models:")
     print("  ✗ SixthGenRCSModel (NGAD concept, not fielded)")
     print("  ✗ MQ28RCSModel (MQ-28 development, not deployed)")
-    print("\nAll parameters from CLASSIFIED_BEST_ESTIMATES.md")
+    print("\nAll parameters from docs/PARAMETER_ESTIMATES.md")
     print("=" * 70)
 
     # Create test suite

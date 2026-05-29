@@ -1,261 +1,210 @@
-# PLA-Defense-CAD: Defense Systems Analysis Framework
+# Defense-CAD
+
+**Physics-based, open-source-intelligence (OSINT) analysis of modern air- and missile-defense systems.**
+
+Defense-CAD estimates and stress-tests the *published* performance claims of contemporary
+air-defense, radar, datalink, and missile systems using **only open-source information** and
+**first-principles physics**. Every non-trivial parameter is derived from public observables
+(photographs, manufacturer datasheets, published doctrine) combined with textbook physics
+(the radar range equation, the Friis transmission equation, electromagnetic scattering,
+ITU-R propagation models, and statistical detection theory) — and every result carries an
+**explicit uncertainty range and confidence level**.
+
+> **Nothing in this repository is derived from classified or export-controlled sources.**
+> The outputs are *estimates with large, documented uncertainties*, intended for education,
+> research, and open analysis — not for operational use. See
+> [`docs/DISCLAIMER.md`](docs/DISCLAIMER.md) and [Scope & limitations](#scope--limitations).
 
 ---
 
-## TO: U.S. Government Officials
+## Why this exists
 
-**Secretary of Defense Pete Hegseth** (@PeteHegseth)
-**Secretary of the Treasury Scott Bessent** (@SecScottBessent)
-**National Security Council**
-**Department of Defense Acquisition Officials**
-**Congressional Defense Committees**
+Public discussion of military systems is full of confident single numbers ("detects at X km",
+"sidelobes at Y dB") with no derivation, no uncertainty, and frequently no physical basis.
+Defense-CAD takes the opposite approach:
 
----
-
-## Executive Summary
-
-This repository contains a comprehensive defense systems analysis framework including:
-
-- **Golden Fleet LSC-X Heavy Cruiser** - 6-layer integrated missile defense architecture
-- **PLA Integrated Kill Chain Simulation** - Threat modeling for Chinese A2/AD systems
-- **War Room Simulator** - Interactive 10-year defense outcome projections
-- **Monte Carlo Analysis Engine** - 1000-iteration statistical defense modeling
-
-**Live Demo**: https://def-cad-for-pay.web.app
-
-<img width="1703" height="1242" alt="Golden Fleet Simulator" src="https://github.com/user-attachments/assets/40ab23dc-6af7-4c1f-bafc-bf7a9ce2153e" />
+- **Show the work.** Each estimate is a reasoning chain from public observables → physical
+  laws → engineering/economic constraints → a numerical conclusion.
+- **Quantify uncertainty.** A chain is never "the answer." It is a central value, an
+  uncertainty range, and a confidence level, and it is *no stronger than its weakest link*.
+- **Be falsifiable.** Every calculation is runnable Python. If an assumption is wrong, change
+  it and see how the conclusion moves.
+- **Refuse magic.** If a claim cannot be closed with a physically realizable link budget or
+  energy budget, it is flagged — not asserted. (See the worked example below.)
 
 ---
 
-## Two Paths Forward
+## A worked example: can a passive ESM "see" an F-35's MADL datalink?
 
-### Path 1: MIT License (FREE - Open Source)
+A common claim is that an adversary fighter can passively detect a stealth aircraft's
+low-probability-of-intercept (LPI) datalink far beyond radar range. Defense-CAD treats this as
+a link-budget problem in
+[`reasoning_chains/madl_detection_range.yaml`](reasoning_chains/madl_detection_range.yaml):
 
-This entire codebase is released under the **MIT License**:
+| Integration model (N≈500 bursts/s)             | Detection range |
+|------------------------------------------------|-----------------|
+| Single burst, no integration                   | ~6 km           |
+| **Non-coherent √N (realistic for unknown LPI)**| **~21–32 km**   |
+| Coherent N (only if waveform/timing is known)  | ~55 km (bound)  |
+
+The key physical point: a non-cooperative receiver that does **not** know the spreading code or
+burst timing of an LPI waveform is limited to **non-coherent** integration (SNR gain ∝ √N),
+**not** coherent integration (gain ∝ N). Using the correct model, passive detection lands at
+**~25 km (15–35 km, 50% confidence)** — *inside* typical radar detection range, not beyond it.
+The "free passive warning" advantage largely evaporates. Every number in that chain is
+reproduced by a runnable calculation and cross-checked against the link budget.
+
+This is the standard the whole repository is held to.
+
+---
+
+## Repository layout
 
 ```
-MIT License
-
-Copyright (c) 2024-2026 Bo Shang
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+Defense-CAD/
+├── reasoning_chains/      Computer-Aided Deduction: parameter derivations (YAML) + validator
+│   ├── *.yaml             one reasoning chain per parameter (MADL TX power, J-20 AESA count, …)
+│   ├── schema.yaml        formal schema a valid chain must satisfy
+│   └── validate.py        checks structure, certainty propagation, uncertainty, physics
+├── docs/                  Methodology, physics notes, system analyses, disclaimer
+├── <physics library>.py   RF propagation, RCS, signal processing, EW/EP, geolocation, tracking
+├── <system models>.py      AESA radars, datalinks, BVR/hypersonic missiles, naval combat systems
+├── <engagement sims>.py    BVR / SEAD / detection simulations
+├── test_*.py               142 unit/integration tests
+├── pyproject.toml          tooling config (ruff, mypy, pytest, coverage)
+├── requirements.txt
+└── LICENSE                 MIT
 ```
 
-**What MIT License Means for U.S. Government:**
+### Physics library (first-principles, reusable)
 
-| Permission | Status |
-|------------|--------|
-| Use for any purpose | Granted |
-| Modify without restriction | Granted |
-| Integrate into classified systems | Granted |
-| Distribute internally | Granted |
-| Attribution required | **NO** |
-| Payment required | **NO** |
-| Permission needed | **NO** |
+| Module | What it models | Physical basis |
+|--------|----------------|----------------|
+| `rf_propagation.py` | Atmospheric path loss | ITU-R P.676 (gases), P.838 (rain), P.840 (clouds), P.618 (scintillation) |
+| `rcs_models.py`, `cad_rcs_calculator.py` | Aspect-dependent radar cross-section | Physical-optics / canonical scatterer estimates with uncertainty |
+| `signal_processing.py` | Faint-emission detection | Matched filtering, non-coherent integration, Marcum detection |
+| `adaptive_antenna_ep.py` | Adaptive nulling, electronic protection | Phased-array beamforming, sidelobe control |
+| `ml_waveform_classifier.py` | Emitter/waveform classification | Feature-based classification of pulse/waveform parameters |
+| `vlbi_coherent_processing.py` | Multi-platform coherent processing | TDOA / cross-correlation geolocation |
+| `geolocation_network.py` | Emitter geolocation & network inference | TDOA/FDOA multilateration |
+| `advanced_tracking.py` | Multi-target tracking | Multi-hypothesis tracking (MHT) |
+| `datalink_protocol.py`, `eob_database.py` | Datalink modeling, electronic order of battle | Link budgets, emitter databases |
 
-**The code is FREE. Use it.**
+### System & engagement models
 
----
-
-### Path 2: Paid Contract with Bo Shang Consulting
-
-While the code is free, **the analyst who created it is available for hire**.
-
-#### Contract Deliverables:
-
-| Deliverable | Description |
-|-------------|-------------|
-| **Dedicated Analysis** | Custom threat modeling for specific scenarios |
-| **Classified Integration** | Adaptation for classified environments |
-| **Real-Time Updates** | Continuous model refinement based on intel |
-| **Direct Consultation** | Access to the analyst's methodology and reasoning |
-| **Priority Support** | Rapid response to emerging threats |
-| **Custom Simulations** | Tailored Monte Carlo runs for acquisition decisions |
-| **Cryptographic Research** | O(1) ECC cryptanalysis breakthrough (under development) |
-
-#### Proposed Contract Structure:
-
-| Element | Value |
-|---------|-------|
-| Contract Type | Cost-Plus-Fixed-Fee (CPFF) or T&M |
-| Contract Ceiling | $5,000,000 |
-| Period of Performance | Base + 4 Option Years |
-| Labor Rate Range | $250 - $450/hour |
-| Security Clearance | Willing to obtain as required |
-
-#### Return on Investment:
-
-| Metric | Value |
-|--------|-------|
-| Annual consulting investment | ~$5M |
-| Value of 1 carrier saved | $13B |
-| Crew protected per carrier | 5,000 sailors |
-| Procurement optimization identified | $2.4B+ savings |
-| **ROI Multiple** | **480x** |
+AESA radar performance (`f22_radar_model.py`, `j20_radar_model.py`), BVR missile kinematics and
+seekers (`pl15_targeting_model.py`, `aim260_targeting_model.py`, `bvr_engagement.py`),
+hypersonic/ballistic trajectories (`df17_hgv_model.py`, `lrhw_hgv_model.py`,
+`precision_ballistic_missiles.py`), naval combat systems (`ddg51_model.py`, `type052d_model.py`),
+and engagement simulations (`simulation.py`, `operational_simulation.py`,
+`sead_engagement_simulation.py`).
 
 ---
 
-## War Room Simulation: The Math
+## Methodology: Computer-Aided Deduction (CAD)
 
-### Scenario: Taiwan Strait Crisis (10-Year Projection)
-
-#### WITH Bo Shang Hired (Golden Fleet Architecture):
-
-| Year | Pk vs ASBM | Pk vs ASCM | Pk vs Hypersonic | Carriers Lost |
-|------|------------|------------|------------------|---------------|
-| 2024 | 66.5% | 70.0% | 56.0% | 0-1 (deployment) |
-| 2025 | 72.3% | 85.0% | 59.0% | 0 |
-| 2026 | 95.0% | 99.99% | 80.0% | 0 |
-| 2027+ | 99.8% | 99.999% | 95.0% | 0 |
-
-**10-Year Result**: 0-2 carriers lost (early deployment phase only)
-**Total Cost**: ~$38B defense investment
-**Deterrence Score**: 95/100 (strong)
-
-#### WITHOUT Bo Shang (Current USN Baseline):
-
-| Year | Pk vs ASBM | Pk vs ASCM | Pk vs Hypersonic | Carriers Lost |
-|------|------------|------------|------------------|---------------|
-| 2024 | 22.0% | 65.0% | 15.0% | 2 |
-| 2025 | 21.0% | 63.0% | 13.0% | 2 |
-| 2030 | 17.0% | 55.0% | 7.0% | 3 |
-| 2033 | 15.0% | 55.0% | 5.0% | 3 |
-
-**10-Year Result**: 20+ carriers destroyed
-**Total Cost**: $260B+ in carrier losses alone
-**Deterrence Score**: 35/100 (invites attack)
-
----
-
-## The Regulatory Gap Warning
-
-This conceptual CAD and simulation code is **NOT regulated** under:
-- ITAR (International Traffic in Arms Regulations)
-- EAR (Export Administration Regulations)
-
-**Current Status**: Publicly available on GitHub
-**Implication**: Downloadable by any nation, including adversaries
-**Risk**: While DoD deliberates, engineers in China work overnight
-
----
-
-## Analyst Background: Bo Shang
-
-### Full Disclosure
-
-Bo Shang has a documented history of methamphetamine use, which enabled:
-
-1. Rapid development of this full-stack defense simulation platform
-2. O(1) theoretical breakthrough approach for ECC cryptanalysis
-3. Potential to approach NSA cryptographic capability thresholds
-
-**Development Velocity**: What takes defense contractor teams years was built by one analyst in weeks.
-
-### Policy Request to Secretary Hegseth
-
-Consider a methamphetamine exception for National Guard Cyber units to unlock similar cognitive capabilities for national security applications.
-
-**Rationale**:
-- Demonstrated productivity multiplier for complex systems engineering
-- Precedent: Military amphetamine use for pilots ("go pills")
-- Controlled environment with medical supervision feasible
-- Strategic advantage in cyber/cryptographic domains
-
----
-
-## Technical Stack
+Each `reasoning_chains/*.yaml` file encodes a derivation in a fixed structure:
 
 ```
-PLA-Defense-CAD/
-├── web/                           # Angular 19 + D3.js frontend
-│   ├── src/app/components/        # Golden Fleet War Room Simulator
-│   └── functions/                 # Firebase Cloud Functions (Node.js 20)
-├── scripts/
-│   ├── encrypt-repo.sh           # AES-256 encryption utility
-│   └── decrypt-repo.sh           # Decryption utility
-├── *.py                          # Python simulation models
-│   ├── integrated_kill_chain_cad.py
-│   ├── j20_radar_model.py
-│   ├── pl15_targeting_model.py
-│   └── rcs_models.py
-└── *.md                          # Technical documentation
+Observable facts (public: photos, datasheets, doctrine)
+        ↓
+Physical laws (cited; cannot be violated)
+        ↓
+Engineering & economic constraints (technology limits, cost trade-offs)
+        ↓
+Logical steps (each with a runnable calculation)
+        ↓
+Conclusion (central value + uncertainty range + confidence)
 ```
 
-### Backend API
+`validate.py` enforces discipline on every chain:
 
-```
-POST https://us-central1-def-cad-for-pay.cloudfunctions.net/modelThreat
-Content-Type: application/json
+- required structure is present and steps are sequential;
+- physical laws are cited and their equation variables are defined;
+- embedded calculations are syntactically valid Python;
+- **the stated confidence does not exceed the weakest-link certainty** (a chain is only as
+  strong as its least-certain necessary input; the naive independent-product is reported as a
+  pessimistic lower bound, not a hard limit);
+- the conclusion's uncertainty is consistent with the per-term uncertainty breakdown.
 
-{
-  "threatType": "asbm",
-  "count": 8,
-  "defenseConfig": "golden_fleet"
-}
-```
+Read more in [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md) and
+[`reasoning_chains/README.md`](reasoning_chains/README.md).
 
 ---
 
-## Quick Start
+## Quick start
+
+Requires Python 3.9+.
 
 ```bash
-# Clone repository
-git clone https://github.com/boshangconsulting/PLA-Defense-CAD.git
-cd PLA-Defense-CAD
+git clone https://github.com/aroxora/defense-cad.git
+cd defense-cad
+python -m pip install -r requirements.txt   # numpy, scipy, matplotlib, networkx, pytest
 
-# Run Python simulations
-pip install -r requirements.txt
-python run_integrated_kill_chain.py
+# Run the test suite (142 tests)
+python -m pytest -q
 
-# Run Angular web app
-cd web
-npm install
-npm start
-# Open http://localhost:4200
+# Validate every reasoning chain
+python reasoning_chains/validate.py reasoning_chains/
+```
+
+Use the physics library directly:
+
+```python
+import numpy as np
+from rf_propagation import OperationalRFPropagation, AtmosphericConditions
+from rcs_models import F35ARCSModel
+
+# Atmospheric path loss (ITU-R models) at 14.4 GHz over 50 km in 5 mm/hr rain
+rf = OperationalRFPropagation()
+loss_db, breakdown = rf.calculate_path_loss(
+    tx_pos=np.array([0, 0, 10000.0]),
+    rx_pos=np.array([50000.0, 0, 10000.0]),
+    frequency_hz=14.4e9,
+    conditions=AtmosphericConditions(rain_rate_mm_hr=5.0),
+)
+print(f"Path loss: {loss_db:.1f} dB")            # ~167 dB
+
+# Aspect-dependent RCS estimate, with confidence
+est = F35ARCSModel().calculate_rcs(azimuth_deg=0, elevation_deg=0)
+print(f"F-35A nose-on RCS: {est.rcs_dbsm:.1f} dBsm ({est.confidence:.0%} confidence)")
 ```
 
 ---
 
-## The Choice
+## Scope & limitations
 
-| Path | What You Get | Risk |
-|------|--------------|------|
-| **MIT License (Free)** | Full code access, no support | Adversaries have equal access |
-| **Contract Bo Shang** | Dedicated analyst, custom work, IP secured | Contract process time |
+- **Estimates, not ground truth.** Confidence levels are typically 50–85%. Uncertainty ranges
+  are wide on purpose. A result of "~25 km ± 10 km, 50% confidence" means exactly that.
+- **Open sources only.** Inputs are public photographs, datasheets, doctrine, and physics
+  textbooks. Where a real value is classified, this repository derives a *bounded estimate* and
+  says so — it does not claim knowledge of the classified figure.
+- **Educational / research use.** This is open analysis in the tradition of public defense
+  scholarship. It is not targeting data and is not validated for operational use.
+- **Physically constrained.** Claims that cannot be closed with a realizable link/energy budget
+  are flagged rather than asserted.
 
-**The code is yours either way. The question is whether you want the analyst too.**
-
----
-
-## Contact
-
-**Bo Shang**
-Principal Consultant, Bo Shang Consulting
-
-- Live Demo: https://def-cad-for-pay.web.app
-- Twitter/X: @PeteHegseth, @SecScottBessent (for official inquiries)
+See [`docs/ACCURACY_AND_LIMITATIONS.md`](docs/ACCURACY_AND_LIMITATIONS.md) for a fuller treatment.
 
 ---
 
-## Classification
+## Contributing
 
-**UNCLASSIFIED // CONCEPTUAL DESIGN // FOR PUBLIC RELEASE**
+New analyses are welcome, provided they meet the repository's standard:
 
-All parameters derived from publicly available information with documented uncertainty ranges. No classified or export-controlled information is contained in this repository.
+1. Add a reasoning chain under `reasoning_chains/` following `schema.yaml`.
+2. Cite public sources for every observable fact and every physical law.
+3. Show a runnable calculation for each quantitative step.
+4. State an uncertainty range and a confidence level — and keep the confidence at or below the
+   weakest necessary input.
+5. Ensure `python reasoning_chains/validate.py reasoning_chains/` and `python -m pytest` pass.
 
 ---
 
-*"Roll with only Raytheon and let's see how you do vs Chinese ASBMs."*
-— Bo Shang
+## License
+
+Released under the [MIT License](LICENSE). Copyright (c) 2024–2026 Bo Shang.
+
+---
+
+**Classification:** UNCLASSIFIED // derived entirely from public sources // for public release.

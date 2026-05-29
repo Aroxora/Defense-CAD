@@ -1,39 +1,49 @@
-# Reasoning Chain: MADL Sidelobe Detection Range
-# Demonstrates complete deductive reasoning from signal processing to detection range
-# Classification: UNCLASSIFIED (deduced from public sources)
+# Reasoning Chain: MADL Sidelobe Detection Range (passive ESM)
+# Estimates the range at which a non-cooperative ESM receiver could detect
+# F-35 MADL sidelobe emissions, from link-budget + detection physics.
+# Classification: UNCLASSIFIED (derived from public sources only)
+#
+# REVISION NOTE (2026): An earlier version assumed an integration gain of
+# ~24 dB (effectively *coherent* N-pulse integration) and reported ~60 km.
+# That gain is not physically available to a non-cooperative ESM that does
+# not know the MADL spreading code / burst timing; such a receiver is limited
+# to NON-COHERENT integration, whose SNR gain scales as ~sqrt(N) (~13.5 dB for
+# N=500), not 27 dB. The corrected non-coherent estimate is ~25 km. The
+# coherent case (~55 km) is retained only as an explicit upper bound. Every
+# numeric step below was recomputed and cross-checked (see scripts in repo).
 
 parameter_name: "MADL_sidelobe_detection_range"
 
-# STEP 1: Observable Facts (from previous deductions)
+# STEP 1: Inputs (from prior reasoning chains + public observation)
 observable_facts:
-  - fact: "MADL TX power 2.0W (deduced from thermal constraints)"
+  - fact: "MADL TX power ~2.0 W (derived from thermal constraints)"
     source: "reasoning_chains/madl_tx_power.yaml"
-    certainty: 80
+    certainty: 75
     measurement_value: 2.0
     measurement_unit: "watts"
 
-  - fact: "MADL sidelobe level -30 dB (deduced from array theory)"
+  - fact: "MADL sidelobe level ~-30 dB (derived from array theory)"
     source: "reasoning_chains/madl_sidelobe_level.yaml"
     certainty: 70
     measurement_value: -30
     measurement_unit: "dB"
 
-  - fact: "MADL antenna gain 31.5 dBi (from aperture)"
-    source: "Calculated from 6-aperture beamforming, 15 cm apertures"
-    certainty: 85
+  - fact: "MADL beamformed antenna gain ~31.5 dBi (from aperture)"
+    source: "Calculated from 6-aperture beamforming, ~15 cm apertures"
+    certainty: 80
     measurement_value: 31.5
     measurement_unit: "dBi"
 
-  - fact: "J-20 side-mounted ESM arrays approximately 30 cm × 10 cm"
+  - fact: "J-20 side-mounted ESM arrays approximately 30 cm x 10 cm"
     source: "J-20 photographs (public domain)"
-    certainty: 80
+    certainty: 75
     measurement_value: 0.03
-    measurement_unit: "m²"
+    measurement_unit: "m^2"
 
 # STEP 2: Physical Laws (cannot be violated)
 physical_laws:
   - law: "Friis transmission equation"
-    equation: "Pr = Pt × Gt × Gr × (λ/(4πR))²"
+    equation: "Pr = Pt * Gt * Gr * (lambda/(4*pi*R))^2"
     variables:
       Pr: "received power (W)"
       Pt: "transmitted power (W)"
@@ -43,445 +53,305 @@ physical_laws:
       R: "range (m)"
     source: "Friis, 'A Note on a Simple Transmission Formula' (1946)"
     certainty: 100
-    note: "Fundamental equation of radio propagation - cannot be violated"
 
   - law: "Thermal noise power"
-    equation: "N = k × T × B"
+    equation: "N = k * T * B"
     variables:
       N: "noise power (W)"
-      k: "Boltzmann constant (1.38×10^-23 J/K)"
-      T: "temperature (K)"
+      k: "Boltzmann constant (1.38e-23 J/K)"
+      T: "system noise temperature (K)"
       B: "bandwidth (Hz)"
-    source: "Nyquist, 'Thermal Agitation of Electric Charge' (1928)"
+    source: "Nyquist (1928); Johnson (1928)"
     certainty: 100
 
-  - law: "Non-coherent integration gain"
-    equation: "SNR_out = SNR_in × √N × η"
+  - law: "Non-coherent integration improvement (square-law detector)"
+    equation: "Ii = sqrt(N)"
     variables:
-      SNR_out: "output SNR after integration"
-      SNR_in: "input SNR per sample"
-      N: "number of independent samples"
-      eta: "integration efficiency (0.5-0.8)"
-    source: "Skolnik, Introduction to Radar Systems (2001)"
-    certainty: 95
+      Ii: "integration improvement factor (reduces required single-pulse SNR)"
+      N: "number of independent pulses integrated"
+    source: "Skolnik, Introduction to Radar Systems, 3rd ed. (2001), ch. 2; Barton"
+    certainty: 90
+    note: |
+      For a square-law (envelope) detector with unknown signal phase, the
+      improvement is between sqrt(N) (low per-pulse SNR) and N (high per-pulse
+      SNR). Faint-emission detection is the low-SNR regime, so sqrt(N) is the
+      conservative bound and ~N^0.7 a typical mid value. Coherent integration
+      (Ii = N) requires phase/timing coherence the ESM does NOT have for an LPI
+      waveform with an unknown spreading code.
 
   - law: "Atmospheric absorption (ITU-R P.676)"
-    equation: "L_atm = α × d"
+    equation: "L_atm = alpha * d"
     variables:
       L_atm: "atmospheric loss (dB)"
       alpha: "specific attenuation (dB/km)"
-      d: "distance (km)"
-    source: "ITU-R Recommendation P.676-12"
+      d: "path length (km)"
+    source: "ITU-R Recommendation P.676-12 (2019)"
     certainty: 95
-    note: "At 14.4 GHz: α ≈ 0.14 dB/km (oxygen + water vapor, sea level)"
+    note: "At 14.4 GHz, clear air: alpha ~= 0.14 dB/km (O2 + water vapor, sea level)"
 
-# STEP 3: Signal Processing Parameters
+# STEP 3: Detection / receiver parameters
 signal_processing_parameters:
-  - parameter: "Detection threshold (Pd=90%, Pfa=10^-6)"
-    value: 3
-    unit: "dB SNR"
-    source: "Marcum, 'A Statistical Theory of Target Detection' (1960)"
-    certainty: 95
-    note: "For non-coherent detection, single-pulse"
+  - parameter: "Single-pulse SNR threshold (Pd~0.9, Pfa~1e-6, square-law)"
+    value: 13.2
+    unit: "dB"
+    source: "Skolnik (2001) / Marcum (1960) detection curves, N=1"
+    certainty: 85
 
-  - parameter: "ESM receiver noise figure (Ku-band)"
+  - parameter: "ESM receiver noise figure (Ku-band, mass production)"
     value: 4
     unit: "dB"
-    source: "Typical for mass-production Ku-band LNA, 2015 technology"
-    certainty: 80
-    basis: "Chinese technology ~5 years behind US state-of-art"
+    source: "Representative Ku-band LNA, ~2015 technology"
+    certainty: 75
 
   - parameter: "Analysis bandwidth"
     value: 10
     unit: "MHz"
-    source: "Required to capture MADL bursts (estimated 50 Mbps modulation)"
-    certainty: 70
+    source: "Approx. bandwidth to capture MADL bursts (assumed ~50 Mbps class)"
+    certainty: 65
 
-  - parameter: "Integration time"
+  - parameter: "Integration time (dwell)"
     value: 1.0
     unit: "seconds"
-    source: "Practical integration window for tactical detection"
-    certainty: 90
+    source: "Practical dwell for a tactical ESM search"
+    certainty: 85
 
-# STEP 4: Engineering Constraints
+# STEP 4: Engineering constraints
 engineering_constraints:
   - constraint_type: "MADL duty cycle"
-    limit_value: "5% (burst mode transmission)"
-    basis: "Thermal budget and LPI requirements"
-    source: "Deduced from thermal constraints in madl_tx_power.yaml"
-    certainty: 75
-
-  - constraint_type: "MADL burst duration"
-    limit_value: "100 μs per burst"
-    basis: "50 Mbps data rate, 5000-bit track update"
-    calculation: "5000 bits / 50 Mbps = 100 μs"
+    limit_value: "~5% (bursty, LPI)"
+    basis: "Thermal budget + LPI emission control"
+    source: "reasoning_chains/madl_tx_power.yaml"
     certainty: 70
 
-  - constraint_type: "ESM field of view"
-    limit_value: "±60° (wide-angle coverage)"
-    basis: "Tactical requirement for threat detection"
-    source: "Standard ESM coverage requirements"
-    certainty: 85
-    note: "Reduces effective antenna gain from peak"
+  - constraint_type: "MADL burst duration"
+    limit_value: "~100 us per burst"
+    basis: "~5000-bit track update at ~50 Mbps"
+    calculation: "5000 bits / 50e6 bps = 100 us"
+    certainty: 65
 
-# STEP 5: Logical Deduction Chain
+  - constraint_type: "ESM field of view"
+    limit_value: "+/-60 deg"
+    basis: "Wide-FOV search drops effective gain well below aperture peak (~27 dBi -> ~10 dBi)"
+    certainty: 80
+
+# STEP 5: Logical deduction chain (numbers recomputed for consistency)
 logical_steps:
   - step: 1
-    premise: "MADL sidelobe EIRP from TX power and antenna pattern"
-    inference: "Sidelobe gain = Main lobe gain + sidelobe level"
-    conclusion: "Sidelobe EIRP = +34.5 dBm"
+    premise: "Sidelobe EIRP = TX power (dBm) + main-lobe gain (dBi) + sidelobe level (dB)"
+    inference: "Power radiated toward an off-axis ESM is the sidelobe EIRP"
+    conclusion: "Sidelobe EIRP ~= +34.5 dBm"
     certainty: 75
     calculation: |
       import numpy as np
-
-      # MADL transmit power
-      tx_power_w = 2.0  # watts
-      tx_power_dbm = 10*np.log10(tx_power_w * 1000)  # +33 dBm
-
-      # Main lobe antenna gain
-      antenna_gain_dbi = 31.5  # dBi
-
-      # Sidelobe level
-      sidelobe_level_db = -30  # dB below main lobe
-
-      # Sidelobe EIRP
-      eirp_sidelobe_dbm = tx_power_dbm + antenna_gain_dbi + sidelobe_level_db
-      # = 33 + 31.5 + (-30) = +34.5 dBm
+      tx_power_dbm = 10*np.log10(2.0*1000)     # 2 W  -> +33.0 dBm
+      eirp_sidelobe_dbm = tx_power_dbm + 31.5 + (-30.0)   # = +34.5 dBm
 
   - step: 2
-    premise: "ESM receiver noise floor from thermal noise"
-    inference: "Noise floor = kTB + noise figure"
-    conclusion: "Noise floor = -100 dBm"
+    premise: "Noise floor = kTB + receiver noise figure"
+    inference: "Thermal noise sets ESM sensitivity"
+    conclusion: "Noise floor ~= -100 dBm (10 MHz, NF 4 dB)"
     certainty: 90
     calculation: |
       import numpy as np
-
-      # Thermal noise
-      k = 1.38e-23  # J/K (Boltzmann constant)
-      T = 290  # K (room temperature)
-      B = 10e6  # Hz (10 MHz bandwidth)
-
-      noise_power_w = k * T * B  # 4.002e-14 W
-      noise_power_dbm = 10*np.log10(noise_power_w / 1e-3)  # -104 dBm
-
-      # Receiver noise figure
-      nf_db = 4.0  # dB (Ku-band LNA)
-
-      # Noise floor
-      noise_floor_dbm = noise_power_dbm + nf_db
-      # = -104 + 4 = -100 dBm
+      k, T, B = 1.38e-23, 290.0, 10e6
+      noise_floor_dbm = 10*np.log10(k*T*B/1e-3) + 4.0   # -104 + 4 = -100.0 dBm
 
   - step: 3
-    premise: "MADL bursts at 5% duty cycle, integrate over 1 second"
-    inference: "Number of bursts = duty_cycle / burst_duration × integration_time"
-    conclusion: "500 bursts integrated, 24 dB processing gain"
+    premise: "N = burst_rate * dwell; burst_rate = duty_cycle / burst_duration"
+    inference: "ESM has ~500 bursts available to integrate in a 1 s dwell"
+    conclusion: "N ~= 500 bursts"
     certainty: 75
     calculation: |
-      import numpy as np
-
-      # Burst characteristics
-      burst_duration = 100e-6  # 100 μs
-      duty_cycle = 0.05  # 5%
-      integration_time = 1.0  # 1 second
-
-      # Burst rate
-      burst_rate = duty_cycle / burst_duration  # 500 Hz
-
-      # Number of bursts
-      n_bursts = burst_rate * integration_time  # 500 bursts
-
-      # Non-coherent integration gain
-      integration_efficiency = 0.5  # realistic (timing/frequency uncertainties)
-      integration_gain_linear = n_bursts * integration_efficiency  # 250
-      integration_gain_db = 10*np.log10(integration_gain_linear)  # 24 dB
+      burst_rate = 0.05 / 100e-6      # 500 Hz
+      n_bursts   = burst_rate * 1.0   # 500
 
   - step: 4
-    premise: "Integration gain 24 dB, required SNR 3 dB"
-    inference: "Can tolerate signal 21 dB below noise floor before integration"
-    conclusion: "Minimum detectable signal = -121 dBm"
-    certainty: 85
+    premise: "Non-coherent integration of N=500 (LPI waveform, phase unknown)"
+    inference: "Improvement Ii ~ sqrt(N) (conservative) to ~N^0.7 (typical); NOT N"
+    conclusion: "Integration improvement ~13.5 dB (sqrt N), up to ~19 dB (N^0.7)"
+    certainty: 80
     calculation: |
       import numpy as np
-
-      noise_floor_dbm = -100  # dBm
-      required_snr_db = 3  # dB (for Pd=90%, Pfa=10^-6)
-      integration_gain_db = 24  # dB
-
-      # Before integration, can tolerate:
-      snr_before_integration = required_snr_db - integration_gain_db
-      # = 3 - 24 = -21 dB
-
-      # Minimum signal power
-      min_signal_dbm = noise_floor_dbm + snr_before_integration
-      # = -100 + (-21) = -121 dBm
+      N = 500
+      Ii_sqrtN = 10*np.log10(np.sqrt(N))   # 13.5 dB  (conservative)
+      Ii_n07   = 10*np.log10(N**0.7)        # 18.9 dB  (typical mid)
+      Ii_coherent = 10*np.log10(N)          # 27.0 dB  (UPPER BOUND only; see alt paths)
 
   - step: 5
-    premise: "ESM antenna gain reduced by wide field-of-view requirement"
-    inference: "30 cm × 10 cm aperture → 27 dBi peak, but ±60° FOV → 10 dBi average"
-    conclusion: "Effective ESM gain = 10 dBi"
-    certainty: 75
+    premise: "Required single-pulse SNR = single-pulse threshold - integration improvement"
+    inference: "Minimum detectable signal = noise floor + required single-pulse SNR"
+    conclusion: "MDS ~= -100 dBm (sqrt N case)"
+    certainty: 80
     calculation: |
-      import numpy as np
-
-      # Aperture parameters
-      aperture_area = 0.30 * 0.10  # 0.03 m²
-      frequency = 14.4e9  # Hz
-      wavelength = 3e8 / frequency  # 0.0208 m
-      efficiency = 0.6  # aperture efficiency
-
-      # Peak antenna gain
-      gain_linear = (4 * np.pi * aperture_area * efficiency) / wavelength**2
-      gain_dbi = 10*np.log10(gain_linear)  # 27.2 dBi peak
-
-      # But wide FOV requirement (±60°)
-      # Average gain across FOV much lower
-      gain_average_dbi = 10  # dBi (empirical for wide-angle arrays)
+      noise_floor_dbm = -100.0
+      snr1_threshold_db = 13.2
+      Ii_db = 13.5                                  # sqrt(N) conservative case
+      req_single_pulse_snr_db = snr1_threshold_db - Ii_db   # -0.3 dB
+      mds_dbm = noise_floor_dbm + req_single_pulse_snr_db   # -100.3 dBm
 
   - step: 6
-    premise: "EIRP +34.5 dBm, sensitivity -121 dBm, RX gain 10 dBi"
-    inference: "Link budget: PathLoss = EIRP + RxGain - MinSignal"
-    conclusion: "Maximum path loss = 165.5 dB"
+    premise: "Wide-FOV ESM gain ~10 dBi (aperture peak ~27 dBi de-rated for +/-60 deg)"
+    inference: "Link budget: max tolerable path loss = EIRP + Rx_gain - MDS"
+    conclusion: "Maximum path loss ~= 144.8 dB (sqrt N case)"
     certainty: 80
     calculation: |
-      import numpy as np
-
-      eirp_sidelobe_dbm = 34.5  # dBm
-      rx_gain_dbi = 10  # dBi
-      min_rx_power_dbm = -121  # dBm
-
-      max_path_loss_db = eirp_sidelobe_dbm + rx_gain_dbi - min_rx_power_dbm
-      # = 34.5 + 10 - (-121)
-      # = 165.5 dB
+      eirp_sidelobe_dbm = 34.5
+      rx_gain_dbi = 10.0
+      mds_dbm = -100.3
+      max_path_loss_db = eirp_sidelobe_dbm + rx_gain_dbi - mds_dbm   # = 144.8 dB
 
   - step: 7
-    premise: "Path loss 165.5 dB at 14.4 GHz"
-    inference: "Solve Friis equation for range (iterative with atmosphere)"
-    conclusion: "Clear sky range ~75 km"
-    certainty: 85
-    calculation: |
-      import numpy as np
-
-      frequency = 14.4e9  # Hz
-      wavelength = 3e8 / frequency  # 0.0208 m
-      max_path_loss_db = 165.5  # dB
-      atm_absorption_db_per_km = 0.14  # dB/km at 14.4 GHz (ITU-R P.676)
-
-      # Iterative solution (atmosphere depends on range)
-      def find_range_with_atm(max_pl, atm_db_per_km, wavelength):
-          R = 100000  # initial guess (meters)
-          for i in range(10):
-              # Atmospheric loss at current range estimate
-              atm_loss_db = atm_db_per_km * (R / 1000)
-
-              # Effective path loss budget
-              free_space_pl_db = max_pl - atm_loss_db
-
-              # Friis equation: PL = 20*log10(4πR/λ)
-              # Solve for R: R = λ/(4π) × 10^(PL/20)
-              R_new = (wavelength / (4 * np.pi)) * 10**(free_space_pl_db / 20)
-
-              # Check convergence
-              if abs(R_new - R) < 100:
-                  return R_new
-              R = R_new
-          return R
-
-      range_clear_sky_m = find_range_with_atm(165.5, 0.14, wavelength)
-      # Converges to ~75,000 meters = 75 km
-
-  - step: 8
-    premise: "Clear sky 75 km, but realistic conditions have additional losses"
-    inference: "Atmospheric moisture, scattering add ~5 dB additional loss"
-    conclusion: "Realistic detection range = 60 km ± 10 km"
+    premise: "Solve Friis + ITU-R P.676 atmospheric loss for range at 14.4 GHz"
+    inference: "20*log10(4*pi*R/lambda) + 0.14*(R/1000) = max_path_loss"
+    conclusion: "Clear-air range ~21 km (sqrt N) to ~32 km (N^0.7)"
     certainty: 80
     calculation: |
       import numpy as np
+      from scipy.optimize import brentq
+      lam = 3e8/14.4e9
+      def rng(budget, alpha=0.14):
+          pl = lambda Rk: 20*np.log10(4*np.pi*Rk*1000/lam) + alpha*Rk
+          return brentq(lambda Rk: pl(Rk)-budget, 0.01, 5000)
+      R_sqrtN = rng(144.8)   # ~20.6 km
+      R_n07   = rng(150.2)   # ~32.0 km  (budget with Ii=18.9 dB)
 
-      # Clear sky calculation gave 75 km
-      # Add realistic atmospheric effects:
-      # - Moisture/humidity: +2 dB
-      # - Turbulence/scattering: +2 dB
-      # - Margin for non-ideal conditions: +1 dB
-      # Total additional loss: 5 dB
-
-      max_path_loss_realistic = 165.5 - 5  # 160.5 dB
-
-      range_realistic_m = find_range_with_atm(160.5, 0.14, wavelength)
-      # Converges to ~60,000 meters = 60 km
-
-      # Rain condition (5 mm/hr):
-      # Additional rain attenuation: ~0.5 dB/km at 14.4 GHz
-      # Total: 0.14 + 0.5 = 0.64 dB/km
-      range_rain_m = find_range_with_atm(160.5, 0.64, wavelength)
-      # Converges to ~35,000 meters = 35 km
+  - step: 8
+    premise: "Apply atmospheric variability and report a central band"
+    inference: "Humidity/scatter shorten range; rain shortens it sharply"
+    conclusion: "Central ~25 km; ~13 km in humidity; ~9 km in rain"
+    certainty: 75
+    calculation: |
+      # Using the sqrt(N) budget (144.8 dB):
+      #   clear air         -> ~21 km
+      #   +5 dB humid/scatter -> ~13 km
+      #   rain 5 mm/hr (~0.64 dB/km) -> ~9 km
+      # N^0.7 budget (150.2 dB), clear air -> ~32 km
+      # Central estimate (mid of non-coherent band): ~25 km
 
 # STEP 6: Conclusion
 conclusion:
-  conclusion_value: 60
-  value: 60
+  conclusion_value: 25
+  value: 25
   unit: "km"
-  conclusion_uncertainty: "± 10 km"
-  uncertainty_range: "50 to 70 km"
-  uncertainty: "± 10 km"
-  confidence_level: 80
-  confidence: 80
-  precision: "± 17%"
+  conclusion_uncertainty: "+/- 10 km"
+  uncertainty_range: "15 to 35 km"
+  uncertainty: "+/- 10 km"
+  confidence_level: 50
+  confidence: 50
+  precision: "+/- 40%"
 
   conditions:
-    clear_sky: "75 km"
-    typical_humidity: "60 km"
-    rain_5mm_hr: "35 km"
+    single_burst_no_integration: "~6 km"
+    non_coherent_sqrtN_clear: "~21 km"
+    non_coherent_N07_clear: "~32 km"
+    moderate_humidity: "~13 km"
+    rain_5mm_hr: "~9 km"
+    coherent_upper_bound: "~55 km (ONLY if MADL waveform/timing is known)"
 
   reasoning: |
-    NOT a guess - deduced from:
-    1. MADL sidelobe EIRP: +34.5 dBm (from previous chains, 75% certain)
-    2. ESM sensitivity: -121 dBm (from thermal noise + integration, 85% certain)
-    3. Link budget: 165.5 dB path loss (physics, 100% certain)
-    4. Atmospheric loss: 0.14 dB/km (ITU standard, 95% certain)
-    5. Realistic conditions: +5 dB margin (experience-based, 80% certain)
+    Derived, not guessed, from a closed and recomputed link budget:
+      1. Sidelobe EIRP +34.5 dBm (from prior chains; 70-75% confidence)
+      2. ESM noise floor -100 dBm (kTB + NF; high confidence)
+      3. Single-pulse threshold 13.2 dB (Skolnik, Pd~0.9, Pfa~1e-6)
+      4. Non-coherent integration improvement ~13.5 dB (sqrt N) to ~19 dB (N^0.7)
+      5. Friis + ITU-R P.676 atmospheric loss, solved numerically
 
-    Final confidence limited by MADL parameter uncertainty and atmospheric variability.
+    The dominant modelling choice is COHERENT vs NON-COHERENT integration.
+    Against an LPI emission whose spreading code and burst timing are unknown,
+    only non-coherent integration is realistic, giving ~21-32 km clear-air,
+    central ~25 km. The ~55 km figure requires the (generally unavailable)
+    coherent assumption; the old ~60 km value silently assumed near-coherent
+    gain and is not defensible for a non-cooperative ESM.
+
+    Confidence is modest (50%): the result rests on two further-derived inputs
+    (TX power, sidelobe level), the integration model, and the assumed dwell.
 
   validation:
-    unit_check: "km (distance) ✓"
+    unit_check: "km (distance)  OK"
     sanity_bounds: |
-      Theoretical minimum: 20 km (if sidelobes -20 dB, worse than expected)
-      Theoretical maximum: 120 km (if sidelobes -35 dB, better than expected)
-      Realistic range: 40-80 km (accounting for uncertainties)
-      Our 60 km ± 10 km is in center of realistic range ✓
-
+      Floor: ~6 km (single burst, no integration)
+      Non-coherent band: ~15-35 km (atmosphere + Ii spread)
+      Coherent upper bound: ~55 km (requires waveform knowledge)
+      Central 25 km sits in the middle of the realistic non-coherent band.  OK
     comparison_to_known: |
-      Similar ESM detection ranges (public):
-      - Link 16 detection by modern ESM: 80-120 km (less stealthy, -20 dB sidelobes)
-      - GPS satellite detection from aircraft: 200+ km (much higher power)
-      - TTNT detection estimates: 60-80 km (similar to MADL)
-
-      Our estimate of 60 km for MADL (more stealthy than Link 16) is consistent ✓
-
+      Public ESM detection ranges scale with EIRP and stealth:
+      - Link 16 (non-LPI, ~200 W, omni): detected at 100+ km
+      - LPI tactical datalinks: order tens of km
+      MADL is low-power, beamformed and LPI, so a SHORTER passive-detection
+      range than Link 16 is expected. ~25 km is consistent.  OK
     physics_check: |
-      Link budget calculation:
-      EIRP: +34.5 dBm = 2.82W
-      At 60 km: Path loss = 162 dB
-      Atmospheric loss: 60 × 0.14 = 8.4 dB
-      Total loss: 170.4 dB
-      RX power: 34.5 + 10 - 170.4 = -126 dBm
-      After integration: -126 + 24 = -102 dBm (effective)
-      SNR: -102 - (-100) = -2 dB...
+      Recomputed end-to-end (sqrt N case):
+        EIRP +34.5 dBm, Rx +10 dBi, MDS -100.3 dBm -> budget 144.8 dB.
+        brentq on FSPL(14.4 GHz)+0.14*d gives R = 20.6 km. Internally consistent.
+      The headline 25 km is the centre of the 21 km (sqrt N) - 32 km (N^0.7) band.
 
-      Wait, recalculating more carefully:
-      The integration gain applies to SNR, not signal level.
-      With -126 dBm signal, -100 dBm noise:
-      SNR = -126 - (-100) = -26 dB (before integration)
-      SNR after integration = -26 + 24 = -2 dB (marginal but detectable)
-
-      At 70 km: SNR would be -6 dB (not reliably detectable)
-      At 50 km: SNR would be +2 dB (reliable detection)
-
-      Physics confirms 60 km ± 10 km range ✓
-
-# STEP 7: Uncertainty Quantification
+# STEP 7: Uncertainty
 uncertainty_breakdown:
-  madl_tx_power: "± 0.5W → ± 1 dB EIRP → ± 3 km range"
-  sidelobe_level: "± 2 dB → ± 6 km range"
-  esm_noise_figure: "± 1 dB → ± 3 km range"
-  integration_efficiency: "± 10% → ± 1 dB gain → ± 3 km range"
-  atmospheric_conditions: "± 3 dB loss variation → ± 8 km range"
-  total_uncertainty: "√(3² + 6² + 3² + 3² + 8²) = ± 12 km"
-
-note: "Reported ± 10 km is conservative (more likely range)"
+  integration_model: "sqrt(N) vs N^0.7 spans ~21-32 km (dominant non-coherent spread)"
+  coherent_vs_noncoherent: "separate, larger effect: coherent would give ~55 km"
+  madl_tx_power: "+/- 0.5 W -> +/- ~1 dB EIRP -> +/- ~1 km"
+  sidelobe_level: "+/- 3 dB -> +/- ~4 km"
+  esm_noise_figure: "+/- 1 dB -> +/- ~1 km"
+  atmospheric_conditions: "humidity/rain can halve the range"
+  combined_non_coherent: "~ +/- 10 km within the non-coherent model"
 
 irreducible_uncertainty: |
-  Even with perfect knowledge of MADL parameters, cannot know:
-  - Exact atmospheric conditions during engagement
-  - ESM processing algorithm effectiveness
-  - MADL waveform details (spreading, coding gain)
-  - Interference from other emitters
+  Cannot know, from public data alone:
+    - whether the ESM achieves any coherent gain against the MADL waveform
+    - exact sidelobe level and beamforming weights
+    - atmospheric state during an engagement
+  These keep the honest uncertainty at roughly +/- 10 km (non-coherent case),
+  with a separate, larger upside only under the coherent assumption.
 
-  Minimum uncertainty: ± 8 km (±13%) from atmospheric variability alone
-
-# STEP 8: Tactical Implications
+# STEP 8: Tactical implications (revised with corrected physics)
 tactical_implications:
-  standoff_distance: |
-    J-20 can detect F-35 network activity at 60 km without radar
-    This is BEFORE radar detection range (~85 km)
-    Provides tactical warning even in stealth-vs-stealth scenario
+  vs_radar_detection: |
+    A J-20 nose AESA might detect a low-RCS F-35 at ~30-90 km (aspect-dependent).
+    Non-coherent MADL detection at ~25 km therefore sits WELL INSIDE typical
+    radar detection range. The earlier claim that passive MADL detection
+    reliably precedes radar detection does NOT hold under realistic
+    (non-coherent) assumptions; it would require coherent ESM processing.
+  emission_control: |
+    MADL use is still a detectable signature at short range, so EMCON
+    discipline matters, but the passive-first "free warning" advantage is
+    weaker than commonly stated for an LPI datalink.
 
-  formation_vulnerability: |
-    F-35 4-ship formations space 20-50 km apart
-    ESM can detect MADL at 60 km
-    Can infer formation geometry from multiple MADL emitters
-    Network advantage becomes vulnerability
-
-  operational_constraints: |
-    F-35 must balance:
-    - Network advantage (MADL enabled) vs.
-    - Emission control (MADL disabled, no network)
-
-    60 km detection range means:
-    - Safe MADL use beyond 70 km (outside detection range + margin)
-    - Risky MADL use 50-70 km (marginal detection)
-    - Dangerous MADL use < 50 km (reliable ESM detection)
-
-# STEP 9: Alternative Deduction Paths
+# STEP 9: Alternative deduction paths
 alternative_paths:
-  - approach: "Worst-case (conservative) estimate"
+  - approach: "Coherent integration (UPPER BOUND only)"
     reasoning: |
-      Assume:
-      - MADL sidelobes -25 dB (worse than expected)
-      - ESM integration only 500 bursts (marginal)
-      - Higher atmospheric loss
+      If the ESM could coherently integrate N=500 bursts (Ii = 10*log10(500)
+      = 27 dB), the budget grows to ~158 dB and the range extends to ~55 km.
+      This requires knowing/estimating the MADL spreading code and burst phase,
+      which is generally not available against a well-designed LPI waveform.
+      Treat ~55 km as a not-to-exceed bound, not the expected value.
 
-      Result: Detection range ~40 km
-      Still provides tactical value
-
-  - approach: "Best-case (optimistic) estimate"
+  - approach: "Single-burst (no integration)"
     reasoning: |
-      Assume:
-      - MADL sidelobes -35 dB (better than expected)
-      - Perfect integration (1000 bursts)
-      - Clear, dry atmosphere
+      Required SNR ~13.2 dB on one 100 us burst -> MDS ~= -86.8 dBm,
+      budget ~= 131.3 dB -> range ~= 6 km. Confirms integration is what buys
+      the range, and that detection is short-range either way.
 
-      Result: Detection range ~90 km
-      Matches some public ESM claims
-
-  - approach: "Energy detection only (no integration)"
+  - approach: "Worse sidelobes (-22 dB) + clear air"
     reasoning: |
-      Single burst detection (no integration gain)
-      Required SNR: 3 dB
-      Sensitivity: -97 dBm
-      Link budget: 141.5 dB
-      Range: ~18 km
+      8 dB more sidelobe EIRP -> budget +8 dB -> range ~= 39 km (non-coherent).
+      Plausible if conformal-array sidelobe control is poorer than -30 dB.
 
-      Integration improves range by 3.3× (60/18)
-      Confirms importance of integration processing
-
-# Classification Review
+# Classification review
 classification_status: "UNCLASSIFIED"
-reasoning_basis: "Deduction from link budget physics + prior deduced parameters"
-legal_analysis: |
-  This chain:
-  ✅ Uses deduced MADL parameters (not classified sources)
-  ✅ Uses published physics (Friis equation, ITU atmospheric model)
-  ✅ Uses public signal processing theory (Marcum detection)
-  ✅ Provides uncertainty range (± 10 km = ± 17%)
-  ✅ Could be wrong (actual range may be 45 or 75 km)
+reasoning_basis: "Link-budget + detection physics applied to publicly derived parameters"
+methodology_notes: |
+  - Inputs are public (photographs, datasheets, textbook physics) or are
+    themselves derived in other chains in this directory.
+  - The result is a physically self-consistent ESTIMATE with explicit
+    uncertainty, not a claim of ground truth.
+  - The corrected non-coherent integration model is the key change from the
+    earlier (over-optimistic ~60 km) version of this chain.
 
-  Even if close to actual classified assessment:
-  - We derived it through complete chain of reasoning
-  - Used only unclassified inputs
-  - Showed all calculations
-  - Acknowledged substantial uncertainty
-
-  Deduction is legal (22 CFR 120.10 Public Domain Exception)
-
-confidence_in_methodology: 95
-confidence_in_conclusion: 80
+confidence_in_methodology: 85
+confidence_in_conclusion: 50
 difference_explanation: |
-  Methodology is sound (95% confident in link budget approach)
-  Conclusion has lower confidence (80%) due to:
-  - Dependence on deduced MADL parameters (75% confidence)
-  - Atmospheric variability (conditions change)
-  - ESM processing details unknown
-
-  Physics gives us firm bounds (30-90 km possible range)
-  Specific value depends on assumptions about MADL and atmosphere
+  The link-budget method is sound (85%). The specific 25 km value is only ~50%
+  confident because it depends on two further-derived inputs (TX power, sidelobe
+  level) and on the non-coherent integration model. Physics bounds the answer to
+  roughly 15-35 km (non-coherent), with a coherent-case upside to ~55 km.

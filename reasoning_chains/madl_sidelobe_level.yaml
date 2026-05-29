@@ -131,12 +131,12 @@ conclusion:
   conclusion_value: -30.0
   value: -30.0
   unit: "dB"
-  conclusion_uncertainty: "± 2 dB"
-  uncertainty_range: "-28 to -32 dB"
-  uncertainty: "± 2 dB"
+  conclusion_uncertainty: "± 3 dB"
+  uncertainty_range: "-27 to -33 dB"
+  uncertainty: "± 3 dB"
   confidence_level: 70
   confidence: 70
-  precision: "± 7%"
+  precision: "± 10%"
 
   reasoning: |
     NOT a guess - deduced from:

@@ -8,7 +8,7 @@ This module defines air defense system targets (SAM sites, radar installations)
 for precision ballistic missile engagement simulations.
 
 All parameters are derived from publicly available sources with documented
-confidence levels following the methodology in DEDUCTIVE_REASONING.md.
+confidence levels following the methodology in docs/METHODOLOGY.md.
 
 Air Defense Systems Modeled:
 - MIM-104 Patriot (PAC-2/PAC-3)

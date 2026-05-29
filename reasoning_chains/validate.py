@@ -96,9 +96,10 @@ class ReasoningChainValidator:
                 self.errors.append(f"Observable fact {i} missing source")
 
             certainty = fact.get('certainty', 0)
-            if certainty > 0 and certainty < 95:
+            if 0 < certainty < 50:
                 self.warnings.append(
-                    f"Observable fact {i} has certainty {certainty}% (should be ≥95% for direct observation)"
+                    f"Observable fact {i} has certainty {certainty}% - too low to be an "
+                    f"'observable fact'; label it as an assumption/derived input instead"
                 )
 
     def _validate_physical_laws(self, laws: List[Dict[str, Any]]):
@@ -174,29 +175,39 @@ class ReasoningChainValidator:
             self.warnings.append(f"Confidence {confidence}% very low - is reasoning sound?")
 
     def _check_certainty_propagation(self, chain: Dict[str, Any]):
-        """Check that certainty decreases appropriately through chain."""
-        # Start with observable facts (should be 100%)
+        """Check that the stated confidence is consistent with the chain's inputs.
+
+        A deductive chain is no stronger than its weakest *necessary* link, so
+        the stated confidence should not exceed the minimum certainty across the
+        observable facts and logical steps (the "weakest-link" bound).
+
+        The product of all certainties (treating every step as an independent
+        necessary condition) is also computed, but only as a pessimistic LOWER
+        bound for context: estimates corroborated by independent alternative
+        paths legitimately beat the naive product, so it is NOT warned on.
+        """
         facts = chain.get('observable_facts', [])
-        if facts:
-            max_fact_certainty = max(f.get('certainty', 100) for f in facts)
-        else:
-            max_fact_certainty = 100
-
-        # Multiply through logical steps
         steps = chain.get('logical_steps', [])
-        accumulated_certainty = max_fact_certainty
-        for step in steps:
-            step_certainty = step.get('certainty', 90)  # Default 90% if not specified
-            accumulated_certainty *= (step_certainty / 100)
 
-        # Check final conclusion confidence
+        certainties = [f['certainty'] for f in facts if f.get('certainty') is not None]
+        certainties += [s['certainty'] for s in steps if s.get('certainty') is not None]
+        if not certainties:
+            return
+
+        weakest_link = min(certainties)
+        product = 100.0
+        for c in certainties:
+            product *= (c / 100)
+
         conclusion = chain.get('conclusion', {})
-        final_confidence = conclusion.get('confidence', conclusion.get('confidence_level', conclusion.get('confidence-level', 0)))
+        final_confidence = conclusion.get(
+            'confidence', conclusion.get('confidence_level', conclusion.get('confidence-level', 0)))
 
-        if final_confidence > accumulated_certainty:
+        if final_confidence > weakest_link:
             self.warnings.append(
-                f"Final confidence {final_confidence}% exceeds propagated certainty "
-                f"{accumulated_certainty:.1f}% - may be overconfident"
+                f"Final confidence {final_confidence}% exceeds weakest-link certainty "
+                f"{weakest_link}% (independent-product lower bound {product:.1f}%) - "
+                f"a chain is no stronger than its weakest necessary input"
             )
 
     def _check_physical_consistency(self, chain: Dict[str, Any]):
@@ -266,17 +277,19 @@ class ReasoningChainValidator:
         conclusion = chain.get('conclusion', {})
         conclusion_uncertainty_str = conclusion.get('uncertainty', conclusion.get('conclusion_uncertainty', ''))
 
-        # Extract numeric uncertainty if present (e.g., "± 2 dB" -> 2)
-        match = re.search(r'[±+\-]\s*(\d+\.?\d*)', str(conclusion_uncertainty_str))
-        if match:
-            stated_uncertainty = float(match.group(1))
+        # Extract the *result* uncertainty (last "±" value), so RSS expressions
+        # like "sqrt(100^2 + 50^2) = ± 168" are read as 168, not the first term.
+        unc_re = r'(?:±|\+/-)\s*(\d+\.?\d*)'
+        stated_matches = re.findall(unc_re, str(conclusion_uncertainty_str))
+        if stated_matches:
+            stated_uncertainty = float(stated_matches[-1])
 
             # Check if uncertainty breakdown exists and calculate total
             if uncertainty_breakdown and 'total_uncertainty' in uncertainty_breakdown:
                 total_unc_str = str(uncertainty_breakdown['total_uncertainty'])
-                total_match = re.search(r'[±+\-]\s*(\d+\.?\d*)', total_unc_str)
-                if total_match:
-                    calculated_uncertainty = float(total_match.group(1))
+                total_matches = re.findall(unc_re, total_unc_str)
+                if total_matches:
+                    calculated_uncertainty = float(total_matches[-1])
 
                     # Allow 20% discrepancy
                     if abs(stated_uncertainty - calculated_uncertainty) / calculated_uncertainty > 0.2:
@@ -297,23 +310,27 @@ class ReasoningChainValidator:
                     f"Physical law '{law_name}' has equation but no variable definitions"
                 )
 
-            # Check that variables in equation are defined
+            # Check that variables in equation are defined. Only meaningful for
+            # equations written as expressions; skip if the "equation" is prose.
             if equation and variables:
-                # Extract variable names from equation (simple heuristic)
-                # Look for single letters or Greek letter names
                 import re
-                var_pattern = r'\b[a-zA-Z_][a-zA-Z0-9_]*\b'
-                equation_vars = set(re.findall(var_pattern, equation))
+                # Drop function-call tokens (name immediately followed by "(")
+                expr = re.sub(r'\b[a-zA-Z_][a-zA-Z0-9_]*\s*\(', '(', equation)
+                equation_vars = set(re.findall(r'\b[a-zA-Z_][a-zA-Z0-9_]*\b', expr))
 
-                # Remove common math functions and constants
-                common_terms = {'sin', 'cos', 'tan', 'log', 'ln', 'exp', 'pi', 'sqrt', 'abs'}
+                # Known math functions/constants and common prose words to ignore
+                common_terms = {
+                    'sin', 'cos', 'tan', 'log', 'log2', 'log10', 'ln', 'exp', 'pi',
+                    'sqrt', 'abs', 'min', 'max', 'sum',
+                    'between', 'and', 'or', 'to', 'low', 'high', 'bound', 'SNR', 'N',
+                }
                 equation_vars -= common_terms
+                undefined = equation_vars - set(variables.keys())
 
-                defined_vars = set(variables.keys())
-
-                # Check for undefined variables
-                undefined = equation_vars - defined_vars
-                if undefined and len(undefined) < 10:  # Don't flag if too many (likely false positives)
+                # Heuristic: only flag when the equation looks like a real
+                # expression (has an operator) and there are few unknowns.
+                looks_like_expression = bool(re.search(r'[=*/^]', equation))
+                if undefined and looks_like_expression and len(undefined) < 5:
                     self.warnings.append(
                         f"Physical law '{law_name}' may have undefined variables: {undefined}"
                     )

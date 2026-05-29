@@ -63,7 +63,12 @@ physical_laws:
     certainty: 100
 
   - law: "Energy-state approximation (missile kinematics)"
-    equation: "Range = f(ΔV, drag, gravity)"
+    equation: "Range = f(dV, drag, gravity)"
+    variables:
+      Range: "achievable kinematic range (km)"
+      dV: "total velocity change from the rocket motor (m/s)"
+      drag: "aerodynamic drag loss (m/s equivalent)"
+      gravity: "gravity loss for the trajectory (m/s equivalent)"
     note: "Missile range depends on total velocity change minus drag and gravity losses"
     source: "Fleeman, 'Tactical Missile Design' (2006)"
     certainty: 95

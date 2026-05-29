@@ -3,15 +3,17 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pla-defense-cad"
+name = "defense-cad"
 version = "1.0.0"
-description = "Defense CAD simulation and modeling system"
+description = "Physics-based OSINT analysis of air- and missile-defense systems"
 readme = "README.md"
 requires-python = ">=3.9"
-license = {text = "Proprietary"}
+license = {text = "MIT"}
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Scientific/Engineering :: Physics",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
@@ -163,7 +165,6 @@ addopts = [
 markers = [
     "slow: marks tests as slow (deselect with '-m \"not slow\"')",
     "integration: marks integration tests",
-    "contractor: marks contractor-specific tests",
     "simulation: marks simulation tests",
 ]
 filterwarnings = [
