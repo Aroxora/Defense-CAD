@@ -440,6 +440,135 @@ def projectile_tof_s(v0_ms: float, theta_deg: float, g: float = 9.81) -> float:
     return 2 * v0_ms * math.sin(math.radians(theta_deg)) / g
 
 
+# ---------------------------------------------------------------- directed energy (laser)
+def laser_divergence_urad(wavelength_um: float, aperture_m: float, m2: float) -> float:
+    """Diffraction-limited beam divergence half-angle: theta = M2 * 1.22 * lambda / D (urad)."""
+    return m2 * 1.22 * (wavelength_um * 1e-6) / aperture_m * 1e6
+
+
+def laser_spot_radius_m(wavelength_um: float, aperture_m: float, m2: float, range_km: float) -> float:
+    """Far-field spot radius: w = sqrt((D/2)^2 + (theta*R)^2)."""
+    theta = m2 * 1.22 * (wavelength_um * 1e-6) / aperture_m  # rad
+    return math.sqrt((aperture_m / 2) ** 2 + (theta * range_km * 1000.0) ** 2)
+
+
+def laser_irradiance_kw_cm2(power_kw: float, wavelength_um: float, aperture_m: float,
+                            m2: float, alpha_per_km: float, range_km: float) -> float:
+    """Peak irradiance on target: I = P*exp(-alpha R) / (pi w^2), in kW/cm^2."""
+    w = laser_spot_radius_m(wavelength_um, aperture_m, m2, range_km)
+    area_cm2 = math.pi * w * w * 1e4
+    return power_kw * math.exp(-alpha_per_km * range_km) / area_cm2 if area_cm2 > 0 else 0.0
+
+
+# ---------------------------------------------------------------- guidance (collision triangle)
+def collision_lead_angle_deg(vm_ms: float, vt_ms: float, beta_deg: float) -> float:
+    """Lead angle off the LOS for a constant-bearing collision: sin(L) = (Vt/Vm) sin(beta)."""
+    ratio = (vt_ms / vm_ms) * math.sin(math.radians(beta_deg))
+    return math.degrees(math.asin(min(1.0, max(-1.0, ratio))))
+
+
+def collision_closing_speed_ms(vm_ms: float, vt_ms: float, beta_deg: float) -> float:
+    """Closing speed along the LOS: Vc = Vm cos(L) + Vt cos(beta)."""
+    lead = math.radians(collision_lead_angle_deg(vm_ms, vt_ms, beta_deg))
+    return vm_ms * math.cos(lead) + vt_ms * math.cos(math.radians(beta_deg))
+
+
+def pn_lateral_accel_g(vm_ms: float, vt_ms: float, beta_deg: float, n: float,
+                       los_rate_deg_s: float) -> float:
+    """Proportional-navigation lateral acceleration command a = N Vc (LOS rate), in g."""
+    vc = collision_closing_speed_ms(vm_ms, vt_ms, beta_deg)
+    return n * vc * math.radians(los_rate_deg_s) / 9.81
+
+
+# ---------------------------------------------------------------- ISR / SAR & optical
+def sar_azimuth_resolution_m(antenna_az_len_m: float) -> float:
+    """Stripmap SAR azimuth resolution = D_az/2 (independent of range and wavelength)."""
+    return antenna_az_len_m / 2.0
+
+
+def sar_range_resolution_m(bandwidth_mhz: float) -> float:
+    """Slant-range resolution = c / (2 B)."""
+    return C / (2 * bandwidth_mhz * 1e6)
+
+
+def eo_diffraction_gsd_m(wavelength_um: float, aperture_m: float, range_km: float) -> float:
+    """Diffraction-limited optical ground sample distance = 1.22 lambda R / D."""
+    return 1.22 * (wavelength_um * 1e-6) * (range_km * 1000.0) / aperture_m
+
+
+# ---------------------------------------------------------------- propagation (rain, ITU-R P.838)
+# ITU-R P.838-3 horizontal-polarization coefficients, tabulated at standard frequencies.
+# (The legacy inline fit in rf_propagation.py is ~1000x too small; these match the Rec.)
+_P838_F = [1, 2, 4, 6, 8, 10, 12, 15, 20, 25, 30, 35, 40]
+_P838_K = [0.0000259, 0.0000847, 0.0006001, 0.001805, 0.004115, 0.01010, 0.01880,
+           0.03670, 0.07510, 0.1240, 0.1870, 0.2630, 0.3500]
+_P838_A = [0.9691, 1.0664, 1.1206, 1.1216, 1.1500, 1.2760, 1.2170, 1.1540, 1.0990,
+           1.0610, 1.0210, 0.9790, 0.9390]
+
+
+def _interp_logf(freq_ghz: float, ys, logy: bool) -> float:
+    """Piecewise-linear interpolation of a coefficient vs log10(frequency)."""
+    lf = math.log10(max(freq_ghz, _P838_F[0]))
+    xs = [math.log10(f) for f in _P838_F]
+    if lf <= xs[0]:
+        i = 0
+    elif lf >= xs[-1]:
+        i = len(xs) - 2
+    else:
+        i = max(j for j in range(len(xs) - 1) if xs[j] <= lf)
+    t = (lf - xs[i]) / (xs[i + 1] - xs[i])
+    if logy:
+        return 10 ** (math.log10(ys[i]) + t * (math.log10(ys[i + 1]) - math.log10(ys[i])))
+    return ys[i] + t * (ys[i + 1] - ys[i])
+
+
+def rain_k_coeff(freq_ghz: float) -> float:
+    """ITU-R P.838-3 horizontal-pol k coefficient (log-log interpolated, 1-40 GHz)."""
+    return _interp_logf(freq_ghz, _P838_K, logy=True)
+
+
+def rain_alpha_coeff(freq_ghz: float) -> float:
+    """ITU-R P.838-3 horizontal-pol alpha exponent (interpolated vs log frequency)."""
+    return _interp_logf(freq_ghz, _P838_A, logy=False)
+
+
+def rain_specific_attenuation_db_km(freq_ghz: float, rain_mm_hr: float) -> float:
+    """Specific rain attenuation gamma = k R^alpha (dB/km)."""
+    if rain_mm_hr <= 0:
+        return 0.0
+    return rain_k_coeff(freq_ghz) * rain_mm_hr ** rain_alpha_coeff(freq_ghz)
+
+
+def rain_total_attenuation_db(freq_ghz: float, rain_mm_hr: float, path_km: float,
+                              cell_cap_km: float = 20.0) -> float:
+    """Total rain attenuation over an effective path (rain cell extent caps the path)."""
+    return rain_specific_attenuation_db_km(freq_ghz, rain_mm_hr) * min(path_km, cell_cap_km)
+
+
+# ---------------------------------------------------------------- pulse-Doppler radar
+def doppler_shift_hz(freq_ghz: float, radial_velocity_ms: float) -> float:
+    """Two-way Doppler shift f_d = 2 v_r / lambda."""
+    lam = C / (freq_ghz * 1e9)
+    return 2 * radial_velocity_ms / lam
+
+
+def unambiguous_range_km(prf_khz: float) -> float:
+    """Maximum unambiguous range R_u = c / (2 PRF)."""
+    return C / (2 * prf_khz * 1e3) / 1000.0
+
+
+def unambiguous_velocity_ms(freq_ghz: float, prf_khz: float) -> float:
+    """Unambiguous (+/-) velocity v_u = lambda PRF / 4."""
+    lam = C / (freq_ghz * 1e9)
+    return lam * (prf_khz * 1e3) / 4.0
+
+
+def first_blind_speed_ms(freq_ghz: float, prf_khz: float) -> float:
+    """First blind speed v_blind = lambda PRF / 2."""
+    lam = C / (freq_ghz * 1e9)
+    return lam * (prf_khz * 1e3) / 2.0
+
+
 # ---------------------------------------------------------------- cost-benefit value
 def lifecycle_cost_busd(unit_musd: float, qty: int, rnd_musd: float,
                         oandm_musd: float, life_years: int) -> float:

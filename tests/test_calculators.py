@@ -91,6 +91,25 @@ def test_cross_domain_calculators():
     assert abs(c.projectile_range_km(800, 30) - c.projectile_range_km(800, 60)) < 1e-9
 
 
+def test_batch2_calculators():
+    # laser: irradiance falls with range (spot grows, atmosphere strips power)
+    assert c.laser_irradiance_kw_cm2(50, 1.064, 0.3, 1.5, 0.1, 2) > c.laser_irradiance_kw_cm2(50, 1.064, 0.3, 1.5, 0.1, 10)
+    # guidance: lead angle = asin(Vt/Vm) at beam aspect; tail-chase clamp at <=1
+    assert abs(c.collision_lead_angle_deg(1000, 300, 90) - 17.4576) < 0.01
+    assert c.collision_lead_angle_deg(300, 1000, 90) == 90.0  # ratio>1 -> clamps (tail chase)
+    # SAR azimuth = D/2; EO GSD grows with range
+    assert c.sar_azimuth_resolution_m(4) == 2.0
+    assert c.eo_diffraction_gsd_m(0.55, 0.5, 1000) > c.eo_diffraction_gsd_m(0.55, 0.5, 500)
+    # rain: ITU-R P.838-3 anchors (NOT the broken legacy fit)
+    assert abs(c.rain_k_coeff(20) - 0.0751) < 1e-4
+    assert abs(c.rain_alpha_coeff(20) - 1.099) < 1e-3
+    assert 2.0 < c.rain_specific_attenuation_db_km(20, 25) < 3.5  # ~2.6 dB/km, realistic
+    # pulse-Doppler: Ru = c/(2 PRF); unambiguous range falls as PRF rises
+    assert abs(c.unambiguous_range_km(10) - 14.99) < 0.1
+    assert c.unambiguous_range_km(20) < c.unambiguous_range_km(10)
+    assert abs(c.doppler_shift_hz(10, 300) - 2 * 300 / (c.C / 10e9)) < 1e-6
+
+
 def test_missile_defense_and_value_consistency():
     assert abs(c.kill_prob_salvo(0.7, 2) - 0.91) < 1e-9
     assert c.md_exchange_ratio(0.7, 4.3, 1.5, 2)["cost_exchange_ratio"] > 1  # unfavorable

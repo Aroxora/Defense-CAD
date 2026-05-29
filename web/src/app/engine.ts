@@ -374,6 +374,82 @@ export function projectileTofS(v0Ms: number, thetaDeg: number, g = 9.81): number
   return (2 * v0Ms * Math.sin(_rad(thetaDeg))) / g;
 }
 
+// ---------------------------------------------------------------- directed energy (laser)
+export function laserDivergenceUrad(wavelengthUm: number, apertureM: number, m2: number): number {
+  return (m2 * 1.22 * (wavelengthUm * 1e-6)) / apertureM * 1e6;
+}
+export function laserSpotRadiusM(wavelengthUm: number, apertureM: number, m2: number, rangeKm: number): number {
+  const theta = (m2 * 1.22 * (wavelengthUm * 1e-6)) / apertureM;
+  return Math.sqrt((apertureM / 2) ** 2 + (theta * rangeKm * 1000) ** 2);
+}
+export function laserIrradianceKwCm2(powerKw: number, wavelengthUm: number, apertureM: number, m2: number, alphaPerKm: number, rangeKm: number): number {
+  const w = laserSpotRadiusM(wavelengthUm, apertureM, m2, rangeKm);
+  const areaCm2 = Math.PI * w * w * 1e4;
+  return areaCm2 > 0 ? (powerKw * Math.exp(-alphaPerKm * rangeKm)) / areaCm2 : 0;
+}
+
+// ---------------------------------------------------------------- guidance (collision triangle)
+export function collisionLeadAngleDeg(vmMs: number, vtMs: number, betaDeg: number): number {
+  const ratio = (vtMs / vmMs) * Math.sin(_rad(betaDeg));
+  return (Math.asin(Math.min(1, Math.max(-1, ratio))) * 180) / Math.PI;
+}
+export function collisionClosingSpeedMs(vmMs: number, vtMs: number, betaDeg: number): number {
+  const lead = _rad(collisionLeadAngleDeg(vmMs, vtMs, betaDeg));
+  return vmMs * Math.cos(lead) + vtMs * Math.cos(_rad(betaDeg));
+}
+export function pnLateralAccelG(vmMs: number, vtMs: number, betaDeg: number, n: number, losRateDegS: number): number {
+  return (n * collisionClosingSpeedMs(vmMs, vtMs, betaDeg) * _rad(losRateDegS)) / 9.81;
+}
+
+// ---------------------------------------------------------------- ISR / SAR & optical
+export function sarAzimuthResolutionM(antennaAzLenM: number): number {
+  return antennaAzLenM / 2;
+}
+export function sarRangeResolutionM(bandwidthMhz: number): number {
+  return C / (2 * bandwidthMhz * 1e6);
+}
+export function eoDiffractionGsdM(wavelengthUm: number, apertureM: number, rangeKm: number): number {
+  return (1.22 * (wavelengthUm * 1e-6) * (rangeKm * 1000)) / apertureM;
+}
+
+// ---------------------------------------------------------------- propagation (rain, ITU-R P.838-3)
+const P838_F = [1, 2, 4, 6, 8, 10, 12, 15, 20, 25, 30, 35, 40];
+const P838_K = [0.0000259, 0.0000847, 0.0006001, 0.001805, 0.004115, 0.01010, 0.01880, 0.03670, 0.07510, 0.1240, 0.1870, 0.2630, 0.3500];
+const P838_A = [0.9691, 1.0664, 1.1206, 1.1216, 1.1500, 1.2760, 1.2170, 1.1540, 1.0990, 1.0610, 1.0210, 0.9790, 0.9390];
+function interpLogf(freqGhz: number, ys: number[], logy: boolean): number {
+  const lf = Math.log10(Math.max(freqGhz, P838_F[0]));
+  const xs = P838_F.map((f) => Math.log10(f));
+  let i: number;
+  if (lf <= xs[0]) i = 0;
+  else if (lf >= xs[xs.length - 1]) i = xs.length - 2;
+  else { i = 0; for (let j = 0; j < xs.length - 1; j++) if (xs[j] <= lf) i = j; }
+  const t = (lf - xs[i]) / (xs[i + 1] - xs[i]);
+  if (logy) return 10 ** (Math.log10(ys[i]) + t * (Math.log10(ys[i + 1]) - Math.log10(ys[i])));
+  return ys[i] + t * (ys[i + 1] - ys[i]);
+}
+export function rainKCoeff(freqGhz: number): number { return interpLogf(freqGhz, P838_K, true); }
+export function rainAlphaCoeff(freqGhz: number): number { return interpLogf(freqGhz, P838_A, false); }
+export function rainSpecificAttenuationDbKm(freqGhz: number, rainMmHr: number): number {
+  return rainMmHr <= 0 ? 0 : rainKCoeff(freqGhz) * rainMmHr ** rainAlphaCoeff(freqGhz);
+}
+export function rainTotalAttenuationDb(freqGhz: number, rainMmHr: number, pathKm: number, cellCapKm = 20): number {
+  return rainSpecificAttenuationDbKm(freqGhz, rainMmHr) * Math.min(pathKm, cellCapKm);
+}
+
+// ---------------------------------------------------------------- pulse-Doppler radar
+export function dopplerShiftHz(freqGhz: number, radialVelocityMs: number): number {
+  return (2 * radialVelocityMs) / (C / (freqGhz * 1e9));
+}
+export function unambiguousRangeKm(prfKhz: number): number {
+  return C / (2 * prfKhz * 1e3) / 1000;
+}
+export function unambiguousVelocityMs(freqGhz: number, prfKhz: number): number {
+  return (C / (freqGhz * 1e9)) * (prfKhz * 1e3) / 4;
+}
+export function firstBlindSpeedMs(freqGhz: number, prfKhz: number): number {
+  return (C / (freqGhz * 1e9)) * (prfKhz * 1e3) / 2;
+}
+
 // ---------------------------------------------------------------- cost-benefit value
 export function lifecycleCostBusd(unitMusd: number, qty: number, rndMusd: number, oandmMusd: number, lifeYears: number): number {
   return (rndMusd + unitMusd * qty + oandmMusd * qty * lifeYears) / 1000;
@@ -440,4 +516,21 @@ export const PARITY: Record<string, (...a: number[]) => number> = {
   projectileRangeKm: (...a) => projectileRangeKm(a[0], a[1], a[2]),
   projectileApogeeKm: (...a) => projectileApogeeKm(a[0], a[1], a[2]),
   projectileTofS: (...a) => projectileTofS(a[0], a[1], a[2]),
+  laserDivergenceUrad: (...a) => laserDivergenceUrad(a[0], a[1], a[2]),
+  laserSpotRadiusM: (...a) => laserSpotRadiusM(a[0], a[1], a[2], a[3]),
+  laserIrradianceKwCm2: (...a) => laserIrradianceKwCm2(a[0], a[1], a[2], a[3], a[4], a[5]),
+  collisionLeadAngleDeg: (...a) => collisionLeadAngleDeg(a[0], a[1], a[2]),
+  collisionClosingSpeedMs: (...a) => collisionClosingSpeedMs(a[0], a[1], a[2]),
+  pnLateralAccelG: (...a) => pnLateralAccelG(a[0], a[1], a[2], a[3], a[4]),
+  sarAzimuthResolutionM: (...a) => sarAzimuthResolutionM(a[0]),
+  sarRangeResolutionM: (...a) => sarRangeResolutionM(a[0]),
+  eoDiffractionGsdM: (...a) => eoDiffractionGsdM(a[0], a[1], a[2]),
+  rainKCoeff: (...a) => rainKCoeff(a[0]),
+  rainAlphaCoeff: (...a) => rainAlphaCoeff(a[0]),
+  rainSpecificAttenuationDbKm: (...a) => rainSpecificAttenuationDbKm(a[0], a[1]),
+  rainTotalAttenuationDb: (...a) => rainTotalAttenuationDb(a[0], a[1], a[2], a[3]),
+  dopplerShiftHz: (...a) => dopplerShiftHz(a[0], a[1]),
+  unambiguousRangeKm: (...a) => unambiguousRangeKm(a[0]),
+  unambiguousVelocityMs: (...a) => unambiguousVelocityMs(a[0], a[1]),
+  firstBlindSpeedMs: (...a) => firstBlindSpeedMs(a[0], a[1]),
 };
