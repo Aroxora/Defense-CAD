@@ -13,7 +13,7 @@ import { FaviconService } from './favicon.service';
       <div class="brand">
         <span class="logo" aria-hidden="true">◆</span>
         <div>
-          <h1>Project Glasswing</h1>
+          <h1>Defense OSINT <span class="byline">by TrenchWork.org</span></h1>
           <p>A TrenchWork.org Computer Network Defense initiative &mdash; physics-based OSINT
             defense-systems analysis: calculators · procurement · EW · doctrine</p>
         </div>
@@ -34,7 +34,7 @@ import { FaviconService } from './favicon.service';
     <router-outlet></router-outlet>
 
     <footer>
-      <b>Project Glasswing</b> · TrenchWork.org · Computer Network Defense.
+      <b>Defense OSINT by TrenchWork.org</b> · Computer Network Defense.
       Conceptual, OSINT, public-release analysis for education/study &mdash; not operational guidance and not a targeting
       system. Source of truth: the <code>osint_cad</code> Python package; the browser engine is parity-checked against it.
       MIT licensed.

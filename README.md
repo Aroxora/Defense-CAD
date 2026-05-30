@@ -1,4 +1,4 @@
-# Project Glasswing — Computer Network Defense · TrenchWork.org
+# Defense OSINT by TrenchWork.org — Computer Network Defense
 
 *A TrenchWork.org Computer Network Defense initiative.*
 
