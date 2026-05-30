@@ -152,6 +152,10 @@ firebase deploy --only hosting              # project: osint-defense (.firebaser
 CI builds the whole pipeline (Python export → Angular build) on every push
 (`.github/workflows/ci.yml`).
 
-## License
+## License & author
 
-MIT — see [`LICENSE`](LICENSE).
+**GNU AGPL-3.0-only** — see [`LICENSE`](LICENSE). The strong network-copyleft means anyone who
+runs a modified version over a network must make the corresponding source available.
+
+Author: **Bo Shang** &lt;bo@trenchwork.org&gt; · TrenchWork.org
+© 2026 Bo Shang. *Defense OSINT by TrenchWork.org.*

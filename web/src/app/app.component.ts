@@ -37,7 +37,9 @@ import { FaviconService } from './favicon.service';
       <b>Defense OSINT by TrenchWork.org</b> · Computer Network Defense.
       Conceptual, OSINT, public-release analysis for education/study &mdash; not operational guidance and not a targeting
       system. Source of truth: the <code>osint_cad</code> Python package; the browser engine is parity-checked against it.
-      MIT licensed.
+      <br />
+      Licensed under <b>GNU AGPL-3.0-only</b>. © 2026 <b>Bo Shang</b> &mdash;
+      <a href="mailto:bo@trenchwork.org">bo&#64;trenchwork.org</a> · TrenchWork.org
     </footer>
   `,
 })
