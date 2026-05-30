@@ -24,6 +24,7 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
       <a routerLink="/cad-derived" routerLinkActive="active">CAD-derived</a>
       <a routerLink="/ew" routerLinkActive="active">EW Strategy</a>
       <a routerLink="/doctrine" routerLinkActive="active">Doctrine (PLA / DoD)</a>
+      <a routerLink="/reference" routerLinkActive="active">Reference</a>
       <a routerLink="/methodology" routerLinkActive="active">Methodology</a>
     </nav>
 
