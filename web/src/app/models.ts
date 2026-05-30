@@ -79,6 +79,10 @@ export interface CadModelDerived {
     bbox_length_m: number; bbox_width_m: number; bbox_height_m: number;
     divergence_volume_m3: number; volume_note: string; characteristic_length_m: number;
   };
+  rcs_pattern: {
+    model: string; frequency_ghz: number; azimuth_deg: number[]; elevation_deg: number[];
+    pattern_dbsm: number[][]; min_dbsm: number; max_dbsm: number;
+  };
 }
 
 export type CadDerived = Record<string, CadModelDerived>;

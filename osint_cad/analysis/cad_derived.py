@@ -103,12 +103,30 @@ def mesh_properties(model_name: str = "pl15", resolution: int = 16) -> Dict:
     }
 
 
+def rcs_pattern_2d(model_name: str = "pl15", freq_ghz: float = 10.0, num_az: int = 25,
+                   num_el: int = 9, resolution: int = 12) -> Dict:
+    """Full 2D monostatic RCS map (dBsm) over an azimuth x elevation grid, from the mesh."""
+    calc = _build(model_name, resolution).rcs_calculator
+    grid = calc.calculate_2d_rcs_pattern(azimuth_range=(0, 360), elevation_range=(-60, 60),
+                                         num_azimuth=num_az, num_elevation=num_el,
+                                         frequency_ghz=freq_ghz)  # (num_el, num_az) dBsm
+    import numpy as np
+    rows = [[round(float(v), 2) for v in row] for row in grid]
+    az = [round(a, 1) for a in np.linspace(0, 360, num_az).tolist()]
+    el = [round(e, 1) for e in np.linspace(-60, 60, num_el).tolist()]
+    flat = [v for row in rows for v in row]
+    return {"model": model_name, "frequency_ghz": freq_ghz,
+            "azimuth_deg": az, "elevation_deg": el, "pattern_dbsm": rows,
+            "min_dbsm": round(min(flat), 2), "max_dbsm": round(max(flat), 2)}
+
+
 def analyze(model_name: str = "pl15", freq_ghz: float = 10.0, resolution: int = 16) -> Dict:
-    """Bundle the RCS profile, detection envelope, and mesh properties for one model."""
+    """Bundle the RCS profile, detection envelope, mesh properties, and 2D RCS map."""
     return {
         "rcs_profile": rcs_aspect_profile(model_name, freq_ghz, resolution=resolution),
         "detection_envelope": detection_envelope(model_name, freq_ghz, resolution=resolution),
         "mesh_properties": mesh_properties(model_name, resolution=resolution),
+        "rcs_pattern": rcs_pattern_2d(model_name, freq_ghz, resolution=resolution),
     }
 
 

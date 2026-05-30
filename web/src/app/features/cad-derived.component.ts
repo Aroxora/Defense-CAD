@@ -46,6 +46,33 @@ import { ChartComponent, ChartPoint } from '../chart.component';
         </section>
       </div>
 
+      <section class="card" *ngIf="current()?.rcs_pattern as p" style="margin-top:16px">
+        <h3>2D RCS pattern — azimuth × elevation ({{ p.frequency_ghz }} GHz)</h3>
+        <svg [attr.viewBox]="'0 0 ' + heatW + ' ' + heatH" class="heat" role="img"
+             [attr.aria-label]="'Radar cross section heatmap over azimuth and elevation for ' + p.model">
+          <g *ngFor="let row of p.pattern_dbsm; let i = index">
+            <rect *ngFor="let d of row; let j = index"
+                  [attr.x]="padL + j * cw(p)" [attr.y]="padT + i * ch(p)"
+                  [attr.width]="cw(p) + 0.6" [attr.height]="ch(p) + 0.6"
+                  [attr.fill]="color(d, p.min_dbsm, p.max_dbsm)">
+              <title>{{ p.azimuth_deg[j] }}° az, {{ p.elevation_deg[i] }}° el: {{ d }} dBsm</title>
+            </rect>
+          </g>
+          <text [attr.x]="padL" [attr.y]="heatH - 8" class="hlab">0° (nose)</text>
+          <text [attr.x]="padL + (heatW - padL - padR) / 2 - 14" [attr.y]="heatH - 8" class="hlab">180° (tail)</text>
+          <text [attr.x]="heatW - padR - 30" [attr.y]="heatH - 8" class="hlab">360°</text>
+          <text [attr.x]="6" [attr.y]="padT + 8" class="hlab">+60°</text>
+          <text [attr.x]="6" [attr.y]="heatH - padB" class="hlab">−60°</text>
+        </svg>
+        <div class="legend">
+          <span>{{ p.min_dbsm }} dBsm</span>
+          <i class="bar"></i>
+          <span>{{ p.max_dbsm }} dBsm</span>
+        </div>
+        <p class="note">Physical-Optics monostatic RCS swept over azimuth (0–360°) and elevation (−60…60°).
+          Bright = high RCS (beam / broadside specular flashes); dark = low (nose/tail). Hover a cell for the exact value.</p>
+      </section>
+
       <section class="card" *ngIf="current() as c" style="margin-top:16px">
         <h3>Mesh geometric properties</h3>
         <table>
@@ -79,6 +106,16 @@ export class CadDerivedComponent implements OnInit {
     const c = this.current();
     return c ? c.detection_envelope.azimuth_deg.map((a, i) => ({ x: a, y: c.detection_envelope.detection_range_km[i] })) : [];
   });
+
+  // heatmap geometry
+  heatW = 560; heatH = 260; padL = 44; padR = 12; padT = 12; padB = 26;
+  cw(p: { azimuth_deg: number[] }) { return (this.heatW - this.padL - this.padR) / p.azimuth_deg.length; }
+  ch(p: { elevation_deg: number[] }) { return (this.heatH - this.padT - this.padB) / p.elevation_deg.length; }
+  /** Map a dBsm value to a blue→cyan→green→yellow→red colour by normalized level. */
+  color(d: number, min: number, max: number): string {
+    const t = max > min ? Math.min(1, Math.max(0, (d - min) / (max - min))) : 0.5;
+    return `hsl(${240 * (1 - t)}, 85%, ${28 + 30 * t}%)`;
+  }
 
   ngOnInit() {
     this.data.cadDerived().subscribe((d) => {
