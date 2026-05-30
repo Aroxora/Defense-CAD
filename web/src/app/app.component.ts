@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { RouterOutlet, RouterLink, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs';
+import { AnalyticsService } from './analytics.service';
 
 @Component({
   selector: 'app-root',
@@ -38,4 +40,13 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
     </footer>
   `,
 })
-export class AppComponent {}
+export class AppComponent {
+  private analytics = inject(AnalyticsService);
+
+  constructor(router: Router) {
+    // GA4 only auto-logs the initial load; emit a page_view on each client-side route change.
+    router.events
+      .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
+      .subscribe((e) => this.analytics.pageView(e.urlAfterRedirects));
+  }
+}
