@@ -22,6 +22,7 @@ code { color: var(--accent); font-family: 'SFMono-Regular', Consolas, monospace;
 .brand { display: flex; align-items: center; gap: 14px; }
 .brand .logo { color: var(--accent); font-size: 30px; }
 .brand h1 { margin: 0; font-size: 20px; letter-spacing: .5px; }
+.brand h1 .byline { font-size: 13px; font-weight: 400; color: var(--muted); letter-spacing: 0; }
 .brand p { margin: 2px 0 0; color: var(--muted); font-size: 12.5px; }
 .badge { font-size: 11px; letter-spacing: 1px; color: var(--accent); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px; }
 
