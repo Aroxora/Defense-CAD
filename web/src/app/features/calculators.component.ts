@@ -36,12 +36,15 @@ import { CalculatorComponent } from '../calculator.component';
           </label>
           <span class="count">{{ filtered().length }} of {{ all.length }}</span>
         </div>
-        <div class="calc-grid">
-          <a class="calc-card" *ngFor="let c of filtered()" [routerLink]="['/calculators', c.id]">
-            <span class="cat">{{ c.category }}</span>
-            <h4>{{ c.title }}</h4>
-            <p>{{ blurb(c.id) }}</p>
-          </a>
+        <div *ngFor="let g of groupedFiltered()">
+          <h3 class="side-h">{{ g.cat }} <span class="grpcount">{{ g.items.length }}</span></h3>
+          <div class="calc-grid">
+            <a class="calc-card" *ngFor="let c of g.items" [routerLink]="['/calculators', c.id]">
+              <span class="cat">{{ c.category }}</span>
+              <h4>{{ c.title }}</h4>
+              <p>{{ blurb(c.id) }}</p>
+            </a>
+          </div>
         </div>
         <p class="note" *ngIf="!filtered().length">No calculators match “{{ query() }}”.</p>
       </ng-container>
@@ -70,6 +73,10 @@ export class CalculatorsComponent {
   blurb(id: string) { return BLURBS[id] ?? ''; }
 
   categories = computed(() => ['all', ...Array.from(new Set(this.all.map((c) => c.category)))]);
+  groupedFiltered = computed(() => {
+    const cats = Array.from(new Set(this.filtered().map((c) => c.category)));
+    return cats.map((cat) => ({ cat, items: this.filtered().filter((c) => c.category === cat) }));
+  });
   filtered = computed(() => {
     const q = this.query().trim().toLowerCase();
     const k = this.cat();
