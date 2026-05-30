@@ -144,6 +144,16 @@ code { color: var(--accent); font-family: 'SFMono-Regular', Consolas, monospace;
 .calc-nav a:hover { background: var(--panel); color: var(--txt); }
 .calc-nav a.active { background: var(--panel); color: var(--accent); }
 
+/* Reference page */
+.reftab { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 6px; }
+@media (max-width: 700px) { .reftab { grid-template-columns: 1fr; } }
+.reftab h4 { margin: 0 0 6px; font-size: 12px; color: var(--accent); text-transform: uppercase; letter-spacing: .5px; }
+.reftab ul { margin: 0; padding-left: 16px; }
+.reftab li { font-size: 12.5px; color: var(--txt); margin-bottom: 4px; }
+.reftab li em { color: var(--muted); font-style: normal; }
+.chead h3 a { color: var(--txt); }
+.chead h3 a:hover { color: var(--accent); }
+
 /* CAD-derived 2D RCS heatmap */
 .heat { width: 100%; height: auto; display: block; }
 .heat .hlab { fill: var(--muted); font-size: 10px; }

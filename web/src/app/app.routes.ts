@@ -30,5 +30,9 @@ export const routes: Routes = [
     path: 'methodology',
     loadComponent: () => import('./features/methodology.component').then((m) => m.MethodologyComponent),
   },
+  {
+    path: 'reference',
+    loadComponent: () => import('./features/reference.component').then((m) => m.ReferenceComponent),
+  },
   { path: '**', redirectTo: 'portfolio' },
 ];
