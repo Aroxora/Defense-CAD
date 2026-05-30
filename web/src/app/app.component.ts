@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
 import { AnalyticsService } from './analytics.service';
+import { FaviconService } from './favicon.service';
 
 @Component({
   selector: 'app-root',
@@ -42,11 +43,16 @@ import { AnalyticsService } from './analytics.service';
 })
 export class AppComponent {
   private analytics = inject(AnalyticsService);
+  private favicon = inject(FaviconService);
 
   constructor(router: Router) {
-    // GA4 only auto-logs the initial load; emit a page_view on each client-side route change.
+    // On each client-side route change: log a GA4 page_view and update the dynamic favicon
+    // (GA4 only auto-logs the initial load).
     router.events
       .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
-      .subscribe((e) => this.analytics.pageView(e.urlAfterRedirects));
+      .subscribe((e) => {
+        this.analytics.pageView(e.urlAfterRedirects);
+        this.favicon.updateForUrl(e.urlAfterRedirects);
+      });
   }
 }
