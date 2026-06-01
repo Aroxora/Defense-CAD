@@ -1,12 +1,12 @@
 {
-  "generated": "2026-05-29",
+  "generated": "2026-06-01",
   "facts": [
     {
       "key": "f35_frontal_rcs",
       "claim": "F-35 frontal RCS (best public estimate)",
       "value_used": 0.0002,
       "unit": "m2",
-      "checked": "2026-05-29",
+      "checked": "2026-06-01",
       "sources": [
         "Public RCS estimates (Aviation Week, academic)"
       ],
@@ -15,7 +15,7 @@
         "https://www.latimes.com/world-nation/story/2026-05-27/carney-says-canada-will-buy-european-surveillance-planes-over-two-american-options",
         "https://aviationweek.com/defense/missile-defense-weapons/netherlands-seeks-new-tactical-weapon-f-35-fleet",
         "https://www.businessinsider.com/air-force-delayed-a10-warthog-retirement-still-replacing-with-f35-2026-5",
-        "https://www.flightglobal.com/defence/2026/05/mbdas-spear-miniature-cruise-missile-makes-debut-flight-aboard-f-35b/"
+        "https://www.unmannedsystemstechnology.com/2026/05/ga-asi-demonstrates-manned-unmanned-teaming-in-autonomy-exercise/"
       ]
     },
     {
@@ -23,16 +23,16 @@
       "claim": "B-21 Raider average procurement unit cost",
       "value_used": 700.0,
       "unit": "USD_million",
-      "checked": "2026-05-29",
+      "checked": "2026-06-01",
       "sources": [
         "USAF/GAO public estimates"
       ],
       "status": "sources_refreshed",
       "related_news": [
-        "https://www.defenseone.com/ideas/2026/05/pentagons-54-billion-bet-autonomous-warfare/413735/?oref=d1-featured-river-top",
+        "https://www.newsmax.com/newsfront/marines-drone-killer-iran/2026/05/31/id/1258057/",
         "https://www.defenseone.com/technology/2026/05/how-pentagon-plans-spend-50-billion-drone-warfare/413805/?oref=d1-featured-river-top",
-        "https://www.defensedaily.com/space-force-awards-spacex-2-29-billion-contract-for-space-data-network/space/",
-        "https://www.defensedaily.com/space-force-awards-viasat-and-intelsat-general-438-million-for-continued-work-on-pts-g/space/"
+        "https://www.defensedaily.com/spacex-gets-nearly-4-2-billion-nod-from-space-force-for-initial-sb-amti/space/",
+        "https://defensescoop.com/2026/05/29/spacex-amti-contract-space-force/"
       ]
     },
     {
@@ -40,51 +40,51 @@
       "claim": "DDG(X) lead/early unit cost",
       "value_used": 3300.0,
       "unit": "USD_million",
-      "checked": "2026-05-29",
+      "checked": "2026-06-01",
       "sources": [
-        "https://www.defensedaily.com/space-force-awards-viasat-and-intelsat-general-438-million-for-continued-work-on-pts-g/space/",
+        "https://www.designdevelopmenttoday.com/industries/military/news/22967762/general-tool-expands-ohio-facility-to-support-us-navy-destroyer-production",
         "https://www.twz.com/sea/congress-moves-to-block-trump-class-battleship-work-until-its-key-weapons-are-mature",
-        "https://www.nytimes.com/2026/05/23/us/politics/britain-strait-of-hormuz-iran.html",
-        "https://www.artnet.com/artists/george-morrison/untitled-r01aBtJDo58m-CMcb5QNYg2"
+        "https://www.naval-technology.com/news/new-zealand-defence-budget/",
+        "https://www.janes.com/defence-intelligence-insights/defence-news/sea/new-zealands-2026-defence-budget-increases-by-6"
       ],
       "status": "possible_discrepancy",
       "related_news": [
-        "https://www.defensedaily.com/space-force-awards-viasat-and-intelsat-general-438-million-for-continued-work-on-pts-g/space/",
+        "https://www.designdevelopmenttoday.com/industries/military/news/22967762/general-tool-expands-ohio-facility-to-support-us-navy-destroyer-production",
         "https://www.twz.com/sea/congress-moves-to-block-trump-class-battleship-work-until-its-key-weapons-are-mature",
-        "https://www.nytimes.com/2026/05/23/us/politics/britain-strait-of-hormuz-iran.html",
-        "https://www.artnet.com/artists/george-morrison/untitled-r01aBtJDo58m-CMcb5QNYg2"
+        "https://www.naval-technology.com/news/new-zealand-defence-budget/",
+        "https://www.janes.com/defence-intelligence-insights/defence-news/sea/new-zealands-2026-defence-budget-increases-by-6"
       ],
-      "parsed_value": 438.0,
-      "relative_delta": 0.867
+      "parsed_value": 933.15,
+      "relative_delta": 0.717
     },
     {
       "key": "sentinel_program_cost",
       "claim": "Sentinel ICBM R&D/program cost (order of magnitude)",
       "value_used": 40000.0,
       "unit": "USD_million",
-      "checked": "2026-05-29",
+      "checked": "2026-06-01",
       "sources": [
-        "https://www.defenseone.com/ideas/2026/05/pentagons-54-billion-bet-autonomous-warfare/413735/?oref=d1-featured-river-top",
+        "https://www.cnbc.com/amp/2026/05/29/spacex-wins-4point16-billion-space-force-contract-for-threat-detection-satellites.html",
         "https://www.microsoft.com/en-us/security/blog/2026/05/28/the-gentlemen-ransomware-dissecting-a-self-propagating-go-encryptor/",
-        "https://mlq.ai/news/pentagon-agrees-to-spacexs-5x-starlink-price-hike-for-lucas-war-drones-in-iran/",
-        "https://www.tipranks.com/news/company-announcements/sentinelone-restructures-workforce-to-boost-ai-security-growth"
+        "https://aviationweek.com/aerospacedailydepartments/daily-briefs-393",
+        "https://www.seattletimes.com/seattle-news/politics/maybe-the-light-rail-system-weve-got-is-good-enough/"
       ],
       "status": "possible_discrepancy",
       "related_news": [
-        "https://www.defenseone.com/ideas/2026/05/pentagons-54-billion-bet-autonomous-warfare/413735/?oref=d1-featured-river-top",
+        "https://www.cnbc.com/amp/2026/05/29/spacex-wins-4point16-billion-space-force-contract-for-threat-detection-satellites.html",
         "https://www.microsoft.com/en-us/security/blog/2026/05/28/the-gentlemen-ransomware-dissecting-a-self-propagating-go-encryptor/",
-        "https://mlq.ai/news/pentagon-agrees-to-spacexs-5x-starlink-price-hike-for-lucas-war-drones-in-iran/",
-        "https://www.tipranks.com/news/company-announcements/sentinelone-restructures-workforce-to-boost-ai-security-growth"
+        "https://aviationweek.com/aerospacedailydepartments/daily-briefs-393",
+        "https://www.seattletimes.com/seattle-news/politics/maybe-the-light-rail-system-weve-got-is-good-enough/"
       ],
-      "parsed_value": 54000.0,
-      "relative_delta": 0.35
+      "parsed_value": 4160.0,
+      "relative_delta": 0.896
     },
     {
       "key": "df17_terminal_mach",
       "claim": "DF-17 HGV terminal speed (open-source)",
       "value_used": 5.0,
       "unit": "mach",
-      "checked": "2026-05-29",
+      "checked": "2026-06-01",
       "sources": [
         "CSIS Missile Threat; DoD CMPR"
       ],
@@ -93,7 +93,7 @@
         "https://fashionunited.uk/press/fashion/nike-presents-its-new-football-shoes-created-for-speed-the-mercurial-vapor-and-the-mercurial-superfly/2026052688242",
         "https://www.flightglobal.com/archive/2026/05/hermeus-logs-first-supersonic-flight-with-experimental-quarterhorse-jet/",
         "https://www.forbes.com/sites/monicahunter-hart/2026/05/27/this-sam-altmanand-peter-thiel-backed-aviation-company-achieves-supersonic-flight/",
-        "https://www.basenor.com/blogs/news/starlink-streams-live-video-from-starship-at-hypersonic-speeds"
+        "https://www.rferl.org/a/gripen-fighters-ukraine-war-impact-russia-aviation/33768477.html"
       ]
     },
     {
@@ -101,19 +101,19 @@
       "claim": "MADL operating band (open-source, Ku-band)",
       "value_used": 14.4,
       "unit": "GHz",
-      "checked": "2026-05-29",
+      "checked": "2026-06-01",
       "sources": [
         "https://www.rcrwireless.com/20260528/5g/deutsche-telekom-5g-3",
-        "https://www.rcrwireless.com/20260522/analyst-angle/gsma-ctia-us-midband-spectrum-bubley",
         "https://www.jpost.com/defense-and-tech/article-897569",
-        "http://www.jpost.com/defense-and-tech/article-897569"
+        "http://www.jpost.com/defense-and-tech/article-897569",
+        "https://www.unmannedsystemstechnology.com/2026/05/latest-acquisition-to-boost-dtcs-electronic-warfare-resilience/"
       ],
       "status": "possible_discrepancy",
       "related_news": [
         "https://www.rcrwireless.com/20260528/5g/deutsche-telekom-5g-3",
-        "https://www.rcrwireless.com/20260522/analyst-angle/gsma-ctia-us-midband-spectrum-bubley",
         "https://www.jpost.com/defense-and-tech/article-897569",
-        "http://www.jpost.com/defense-and-tech/article-897569"
+        "http://www.jpost.com/defense-and-tech/article-897569",
+        "https://www.unmannedsystemstechnology.com/2026/05/latest-acquisition-to-boost-dtcs-electronic-warfare-resilience/"
       ],
       "parsed_value": 2.1,
       "relative_delta": 0.854
@@ -123,7 +123,7 @@
       "claim": "Columbia-class SSBN unit cost",
       "value_used": 9000.0,
       "unit": "USD_million",
-      "checked": "2026-05-29",
+      "checked": "2026-06-01",
       "sources": [
         "https://www.businessinsider.com/young-submarine-workers-are-leaving-for-less-demanding-jobs-2026-5",
         "https://www.defensenews.com/global/asia-pacific/2026/05/26/australia-starts-high-risk-life-extension-of-its-submarine-fleet/",
@@ -145,16 +145,16 @@
       "claim": "Type 055 full-load displacement",
       "value_used": 13000.0,
       "unit": "tonnes",
-      "checked": "2026-05-29",
+      "checked": "2026-06-01",
       "sources": [
         "USNI/CSIS PLAN analyses"
       ],
       "status": "sources_refreshed",
       "related_news": [
-        "https://www.janes.com/defence-intelligence-insights/defence-news/sea/turkiye-launches-malaysias-first-lms-batch-2-vessel",
         "https://www.navalnews.com/naval-news/2026/05/chinas-new-type-054b-frigate-makes-carrier-strike-group-debut-in-western-pacific/",
         "https://maritime-executive.com/corporate/seaspan-celebrates-one-year-of-progress-on-the-heavy-polar-icebreaker",
-        "https://www.seatrade-maritime.com/dry-bulk/greek-fleet-continued-to-grow-in-2025"
+        "https://www.janes.com/defence-intelligence-insights/defence-news/defence/china-tests-new-600-kgf-engine-for-uavs",
+        "https://www.marinelink.com/news/cma-cgm-takes-delivery-worlds-largest-539624"
       ]
     }
   ]
