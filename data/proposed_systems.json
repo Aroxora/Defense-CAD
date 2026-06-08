@@ -1,215 +1,111 @@
 {
-  "generated": "2026-06-01",
+  "generated": "2026-06-08",
   "systems": [
     {
       "key": "trump_class_battleship",
-      "last_updated": "2026-06-01",
+      "last_updated": "2026-06-08",
       "sources": [
-        "https://www.twz.com/sea/congress-moves-to-block-trump-class-battleship-work-until-its-key-weapons-are-mature",
-        "https://www.naval-technology.com/news/new-zealand-defence-budget/",
-        "https://www.cnn.com/2026/05/27/us/us-navy-last-littoral-combat-ship-hnk-intl-ml",
-        "https://www.politico.com/sponsored/2026/05/28/the-fleet-that-builds-a-nation/"
-      ],
-      "related_news": [
-        "https://www.twz.com/sea/congress-moves-to-block-trump-class-battleship-work-until-its-key-weapons-are-mature",
-        "https://www.naval-technology.com/news/new-zealand-defence-budget/",
-        "https://www.cnn.com/2026/05/27/us/us-navy-last-littoral-combat-ship-hnk-intl-ml",
-        "https://www.politico.com/sponsored/2026/05/28/the-fleet-that-builds-a-nation/"
-      ],
-      "unit_cost_musd": 700.0
+        "Conceptual; cost framed by CBO armored-warship/CVN order of magnitude",
+        "Survivability per public ASBM/ASCM threat analyses (CSIS Missile Threat)"
+      ]
     },
     {
       "key": "b21_raider",
-      "last_updated": "2026-06-01",
+      "last_updated": "2026-06-08",
       "sources": [
-        "https://www.designdevelopmenttoday.com/industries/aerospace/news/22967678/pentagons-unit-x-bets-big-on-supersonic-payload-drops",
-        "https://www.defenseone.com/technology/2026/05/how-pentagon-plans-spend-50-billion-drone-warfare/413805/?oref=d1-featured-river-top",
-        "https://aviationweek.com/aerospacedailydepartments/daily-briefs-393",
-        "https://aviationweek.com/defense/aircraft-propulsion/debrief-making-b-1b-nuclear-capable-again"
-      ],
-      "related_news": [
-        "https://www.designdevelopmenttoday.com/industries/aerospace/news/22967678/pentagons-unit-x-bets-big-on-supersonic-payload-drops",
-        "https://www.defenseone.com/technology/2026/05/how-pentagon-plans-spend-50-billion-drone-warfare/413805/?oref=d1-featured-river-top",
-        "https://aviationweek.com/aerospacedailydepartments/daily-briefs-393",
-        "https://aviationweek.com/defense/aircraft-propulsion/debrief-making-b-1b-nuclear-capable-again"
-      ],
-      "unit_cost_musd": 700.0
+        "USAF/GAO B-21 program public estimates",
+        "CBO long-range strike analyses"
+      ]
     },
     {
       "key": "columbia_ssbn",
-      "last_updated": "2026-06-01",
+      "last_updated": "2026-06-08",
       "sources": [
         "CBO/CRS Columbia-class estimates (public)"
-      ],
-      "related_news": [
-        "https://www.businessinsider.com/young-submarine-workers-are-leaving-for-less-demanding-jobs-2026-5",
-        "https://www.defensenews.com/global/asia-pacific/2026/05/26/australia-starts-high-risk-life-extension-of-its-submarine-fleet/",
-        "https://www.politico.com/sponsored/2026/05/28/the-fleet-that-builds-a-nation/",
-        "https://news.usni.org/2026/05/28/south-korean-attack-boat-arrives-in-canada-ahead-of-submarine-program-decision"
       ]
     },
     {
       "key": "ddgx_destroyer",
-      "last_updated": "2026-06-01",
+      "last_updated": "2026-06-08",
       "sources": [
         "CBO/CRS DDG(X) program estimates (public)"
-      ],
-      "related_news": [
-        "https://www.designdevelopmenttoday.com/industries/military/news/22967762/general-tool-expands-ohio-facility-to-support-us-navy-destroyer-production",
-        "https://www.cnn.com/2026/05/27/us/us-navy-last-littoral-combat-ship-hnk-intl-ml",
-        "https://www.designdevelopmenttoday.com/industries/aerospace/news/22967678/pentagons-unit-x-bets-big-on-supersonic-payload-drops",
-        "https://maritime-executive.com/article/u-s-navy-picks-seven-contenders-for-medium-usv-program"
       ]
     },
     {
       "key": "constellation_ffg",
-      "last_updated": "2026-06-01",
+      "last_updated": "2026-06-08",
       "sources": [
-        "https://www.naval-technology.com/news/new-zealand-defence-budget/",
-        "https://www.navalnews.com/naval-news/2026/05/chinas-new-type-054b-frigate-makes-carrier-strike-group-debut-in-western-pacific/",
-        "https://www.twz.com/sea/congress-moves-to-block-trump-class-battleship-work-until-its-key-weapons-are-mature",
-        "https://www.defensenews.com/global/asia-pacific/2026/05/26/australia-starts-high-risk-life-extension-of-its-submarine-fleet/"
-      ],
-      "related_news": [
-        "https://www.naval-technology.com/news/new-zealand-defence-budget/",
-        "https://www.navalnews.com/naval-news/2026/05/chinas-new-type-054b-frigate-makes-carrier-strike-group-debut-in-western-pacific/",
-        "https://www.twz.com/sea/congress-moves-to-block-trump-class-battleship-work-until-its-key-weapons-are-mature",
-        "https://www.defensenews.com/global/asia-pacific/2026/05/26/australia-starts-high-risk-life-extension-of-its-submarine-fleet/"
-      ],
-      "unit_cost_musd": 700.0
+        "GAO/CRS FFG-62 program reports (public)"
+      ]
     },
     {
       "key": "ngad_fighter",
-      "last_updated": "2026-06-01",
+      "last_updated": "2026-06-08",
       "sources": [
         "USAF NGAD public statements; CSIS/CBO analyses"
-      ],
-      "related_news": [
-        "https://www.designdevelopmenttoday.com/industries/aerospace/news/22967678/pentagons-unit-x-bets-big-on-supersonic-payload-drops",
-        "https://aviationweek.com/defense/aircraft-propulsion/debrief-f-47-good-start-boeing-says",
-        "https://www.unmannedsystemstechnology.com/2026/05/ga-asi-us-air-force-return-yfq-42a-cca-to-flight-testing-following-software-updates/",
-        "https://www.washingtonpost.com/national-security/2026/05/26/house-rolls-out-114-trillion-defense-bill/"
       ]
     },
     {
       "key": "cca_increment1",
-      "last_updated": "2026-06-01",
+      "last_updated": "2026-06-08",
       "sources": [
         "USAF CCA program public statements; CSIS/CBO analyses"
-      ],
-      "related_news": [
-        "https://www.unmannedsystemstechnology.com/2026/05/ga-asi-us-air-force-return-yfq-42a-cca-to-flight-testing-following-software-updates/",
-        "https://aviationweek.com/defense/aircraft-propulsion/ottawa-startup-shaping-canadas-first-autonomous-combat-aircraft",
-        "https://www.janes.com/defence-intelligence-insights/defence-news/air/hanwha-aerospace-announces-4500-lbf-uav-engine-project",
-        "https://aviationweek.com/defense/aircraft-propulsion/boeing-wraps-mq-28-ghost-bat-tests-over-pacific"
       ]
     },
     {
       "key": "sentinel_icbm",
-      "last_updated": "2026-06-01",
+      "last_updated": "2026-06-08",
       "sources": [
         "USAF/GAO Sentinel program; public Nunn-McCurdy reporting"
-      ],
-      "related_news": [
-        "https://www.microsoft.com/en-us/security/blog/2026/05/28/the-gentlemen-ransomware-dissecting-a-self-propagating-go-encryptor/",
-        "https://www.cnbc.com/amp/2026/05/29/spacex-wins-4point16-billion-space-force-contract-for-threat-detection-satellites.html",
-        "https://mlq.ai/news/pentagon-agrees-to-spacexs-5x-starlink-price-hike-for-lucas-war-drones-in-iran/",
-        "https://www.eurasiantimes.com/starlinks-monopoly-turns-cheap-u-s-drones/"
       ]
     },
     {
       "key": "sda_leo_layer",
-      "last_updated": "2026-06-01",
+      "last_updated": "2026-06-08",
       "sources": [
         "Space Development Agency public tranches; CSIS analyses"
-      ],
-      "related_news": [
-        "https://www.defensedaily.com/space-force-awards-spacex-2-29-billion-contract-for-space-data-network/space/",
-        "https://247wallst.com/investing/2026/05/30/spacex-quietly-admits-to-a-threat-it-helped-create-and-cant-stop/",
-        "https://www.defensedaily.com/spacex-gets-nearly-4-2-billion-nod-from-space-force-for-initial-sb-amti/space/",
-        "https://spacenews.com/spacex-wins-2-29-billion-space-force-contract-for-military-data-network/"
       ]
     },
     {
       "key": "type055_destroyer",
-      "last_updated": "2026-06-01",
+      "last_updated": "2026-06-08",
       "sources": [
-        "https://www.navalnews.com/naval-news/2026/05/chinas-new-type-054b-frigate-makes-carrier-strike-group-debut-in-western-pacific/",
-        "https://www.naval-technology.com/news/new-zealand-defence-budget/",
-        "https://www.seatrade-maritime.com/tankers/dynacom-tops-tanker-newbuilding-orders-splashing-out-3-8bn",
-        "https://www.janes.com/defence-intelligence-insights/defence-news/sea/new-zealands-2026-defence-budget-increases-by-6"
-      ],
-      "related_news": [
-        "https://www.navalnews.com/naval-news/2026/05/chinas-new-type-054b-frigate-makes-carrier-strike-group-debut-in-western-pacific/",
-        "https://www.naval-technology.com/news/new-zealand-defence-budget/",
-        "https://www.seatrade-maritime.com/tankers/dynacom-tops-tanker-newbuilding-orders-splashing-out-3-8bn",
-        "https://www.janes.com/defence-intelligence-insights/defence-news/sea/new-zealands-2026-defence-budget-increases-by-6"
-      ],
-      "unit_cost_musd": 700.0
+        "Public PLAN order-of-battle analyses (USNI, CSIS)"
+      ]
     },
     {
       "key": "type003_carrier",
-      "last_updated": "2026-06-01",
+      "last_updated": "2026-06-08",
       "sources": [
         "USNI/CSIS public PLAN carrier analyses"
-      ],
-      "related_news": [
-        "https://www.navalnews.com/naval-news/2026/05/chinas-new-type-054b-frigate-makes-carrier-strike-group-debut-in-western-pacific/",
-        "https://news.usni.org/2026/05/26/chinese-carrier-liaoning-near-philippines-uss-george-washington-leaves-yokosuka-ahead-of-spring-patrol",
-        "https://www.marinelink.com/news/three-oil-lng-tankers-exit-hormuz-539682",
-        "https://www.defensenews.com/news/your-military/2026/05/29/us-navy-to-explore-powering-shore-installations-with-aircraft-carriers/"
       ]
     },
     {
       "key": "df17_hgv",
-      "last_updated": "2026-06-01",
+      "last_updated": "2026-06-08",
       "sources": [
         "CSIS Missile Threat; DoD China Military Power Report"
-      ],
-      "related_news": [
-        "https://maritime-executive.com/article/china-drives-off-dutch-navy-frigate-in-the-paracel-islands",
-        "https://aviationweek.com/space/launch-vehicles-propulsion/scottish-airfield-targets-esa-hypersonic-flight-tests",
-        "https://aviationweek.com/space/launch-vehicles-propulsion/scottish-airfield-targets-esa-hypersonic-flight-test-role",
-        "https://www.reuters.com/world/china/any-conflict-over-taiwan-would-risk-us-china-nuclear-escalation-study-finds-2026-05-28/"
       ]
     },
     {
       "key": "df41_icbm",
-      "last_updated": "2026-06-01",
+      "last_updated": "2026-06-08",
       "sources": [
         "CSIS Missile Threat; DoD China Military Power Report"
-      ],
-      "related_news": [
-        "https://www.reuters.com/graphics/CHINA-MILITARY/NUCLEAR/zjpqmbrlqpx/",
-        "https://www.defensenews.com/global/asia-pacific/2026/05/29/china-is-building-launch-pads-near-its-nuclear-missile-silos/",
-        "https://interestingengineering.com/videos/chinas-122mm-self-propelled-howitzer",
-        "https://www.reuters.com/world/china/any-conflict-over-taiwan-would-risk-us-china-nuclear-escalation-study-finds-2026-05-28/"
       ]
     },
     {
       "key": "j35_fighter",
-      "last_updated": "2026-06-01",
+      "last_updated": "2026-06-08",
       "sources": [
         "USNI/CSIS public PLAAF/PLAN aviation analyses"
-      ],
-      "related_news": [
-        "https://interestingengineering.com/videos/chinas-122mm-self-propelled-howitzer",
-        "https://www.nbcnews.com/politics/national-security/iran-may-used-chinese-missile-shoot-us-fighter-jet-sources-say-rcna347555",
-        "https://www.ynetnews.com/article/syz9kd00gze",
-        "https://www.newsmax.com/newsfront/marines-drone-killer-iran/2026/05/31/id/1258057/"
       ]
     },
     {
       "key": "h20_bomber",
-      "last_updated": "2026-06-01",
+      "last_updated": "2026-06-08",
       "sources": [
         "DoD China Military Power Report; public PLAAF analyses"
-      ],
-      "related_news": [
-        "https://www.nbcnews.com/politics/national-security/iran-may-used-chinese-missile-shoot-us-fighter-jet-sources-say-rcna347555",
-        "https://www.ynetnews.com/article/syz9kd00gze",
-        "https://theaviationist.com/2026/05/27/china-y-20-intercepted-refueling-j-16s-near-taiwan/",
-        "https://www.reuters.com/graphics/CHINA-MILITARY/NUCLEAR/zjpqmbrlqpx/"
       ]
     }
   ]
