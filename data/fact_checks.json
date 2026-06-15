@@ -1,12 +1,12 @@
 {
-  "generated": "2026-06-08",
+  "generated": "2026-06-15",
   "facts": [
     {
       "key": "f35_frontal_rcs",
       "claim": "F-35 frontal RCS (best public estimate)",
       "value_used": 0.0002,
       "unit": "m2",
-      "checked": "2026-06-08",
+      "checked": "2026-06-15",
       "sources": [
         "Public RCS estimates (Aviation Week, academic)"
       ],
@@ -17,7 +17,7 @@
       "claim": "B-21 Raider average procurement unit cost",
       "value_used": 700.0,
       "unit": "USD_million",
-      "checked": "2026-06-08",
+      "checked": "2026-06-15",
       "sources": [
         "USAF/GAO public estimates"
       ],
@@ -28,7 +28,7 @@
       "claim": "DDG(X) lead/early unit cost",
       "value_used": 3300.0,
       "unit": "USD_million",
-      "checked": "2026-06-08",
+      "checked": "2026-06-15",
       "sources": [
         "CBO/CRS DDG(X) reports"
       ],
@@ -39,7 +39,7 @@
       "claim": "Sentinel ICBM R&D/program cost (order of magnitude)",
       "value_used": 40000.0,
       "unit": "USD_million",
-      "checked": "2026-06-08",
+      "checked": "2026-06-15",
       "sources": [
         "USAF/GAO; Nunn-McCurdy reporting"
       ],
@@ -50,7 +50,7 @@
       "claim": "DF-17 HGV terminal speed (open-source)",
       "value_used": 5.0,
       "unit": "mach",
-      "checked": "2026-06-08",
+      "checked": "2026-06-15",
       "sources": [
         "CSIS Missile Threat; DoD CMPR"
       ],
@@ -61,7 +61,7 @@
       "claim": "MADL operating band (open-source, Ku-band)",
       "value_used": 14.4,
       "unit": "GHz",
-      "checked": "2026-06-08",
+      "checked": "2026-06-15",
       "sources": [
         "Public datalink analyses"
       ],
@@ -72,7 +72,7 @@
       "claim": "Columbia-class SSBN unit cost",
       "value_used": 9000.0,
       "unit": "USD_million",
-      "checked": "2026-06-08",
+      "checked": "2026-06-15",
       "sources": [
         "CBO/CRS Columbia reports"
       ],
@@ -83,7 +83,7 @@
       "claim": "Type 055 full-load displacement",
       "value_used": 13000.0,
       "unit": "tonnes",
-      "checked": "2026-06-08",
+      "checked": "2026-06-15",
       "sources": [
         "USNI/CSIS PLAN analyses"
       ],
