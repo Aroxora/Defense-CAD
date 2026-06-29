@@ -1,9 +1,9 @@
 {
-  "generated": "2026-06-22",
+  "generated": "2026-06-29",
   "systems": [
     {
       "key": "trump_class_battleship",
-      "last_updated": "2026-06-22",
+      "last_updated": "2026-06-29",
       "sources": [
         "Conceptual; cost framed by CBO armored-warship/CVN order of magnitude",
         "Survivability per public ASBM/ASCM threat analyses (CSIS Missile Threat)"
@@ -11,7 +11,7 @@
     },
     {
       "key": "b21_raider",
-      "last_updated": "2026-06-22",
+      "last_updated": "2026-06-29",
       "sources": [
         "USAF/GAO B-21 program public estimates",
         "CBO long-range strike analyses"
@@ -19,91 +19,91 @@
     },
     {
       "key": "columbia_ssbn",
-      "last_updated": "2026-06-22",
+      "last_updated": "2026-06-29",
       "sources": [
         "CBO/CRS Columbia-class estimates (public)"
       ]
     },
     {
       "key": "ddgx_destroyer",
-      "last_updated": "2026-06-22",
+      "last_updated": "2026-06-29",
       "sources": [
         "CBO/CRS DDG(X) program estimates (public)"
       ]
     },
     {
       "key": "constellation_ffg",
-      "last_updated": "2026-06-22",
+      "last_updated": "2026-06-29",
       "sources": [
         "GAO/CRS FFG-62 program reports (public)"
       ]
     },
     {
       "key": "ngad_fighter",
-      "last_updated": "2026-06-22",
+      "last_updated": "2026-06-29",
       "sources": [
         "USAF NGAD public statements; CSIS/CBO analyses"
       ]
     },
     {
       "key": "cca_increment1",
-      "last_updated": "2026-06-22",
+      "last_updated": "2026-06-29",
       "sources": [
         "USAF CCA program public statements; CSIS/CBO analyses"
       ]
     },
     {
       "key": "sentinel_icbm",
-      "last_updated": "2026-06-22",
+      "last_updated": "2026-06-29",
       "sources": [
         "USAF/GAO Sentinel program; public Nunn-McCurdy reporting"
       ]
     },
     {
       "key": "sda_leo_layer",
-      "last_updated": "2026-06-22",
+      "last_updated": "2026-06-29",
       "sources": [
         "Space Development Agency public tranches; CSIS analyses"
       ]
     },
     {
       "key": "type055_destroyer",
-      "last_updated": "2026-06-22",
+      "last_updated": "2026-06-29",
       "sources": [
         "Public PLAN order-of-battle analyses (USNI, CSIS)"
       ]
     },
     {
       "key": "type003_carrier",
-      "last_updated": "2026-06-22",
+      "last_updated": "2026-06-29",
       "sources": [
         "USNI/CSIS public PLAN carrier analyses"
       ]
     },
     {
       "key": "df17_hgv",
-      "last_updated": "2026-06-22",
+      "last_updated": "2026-06-29",
       "sources": [
         "CSIS Missile Threat; DoD China Military Power Report"
       ]
     },
     {
       "key": "df41_icbm",
-      "last_updated": "2026-06-22",
+      "last_updated": "2026-06-29",
       "sources": [
         "CSIS Missile Threat; DoD China Military Power Report"
       ]
     },
     {
       "key": "j35_fighter",
-      "last_updated": "2026-06-22",
+      "last_updated": "2026-06-29",
       "sources": [
         "USNI/CSIS public PLAAF/PLAN aviation analyses"
       ]
     },
     {
       "key": "h20_bomber",
-      "last_updated": "2026-06-22",
+      "last_updated": "2026-06-29",
       "sources": [
         "DoD China Military Power Report; public PLAAF analyses"
       ]
