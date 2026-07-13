@@ -1,21 +1,21 @@
 {
-  "generated": "2026-07-06",
+  "generated": "2026-07-13",
   "facts": [
     {
       "key": "f35_frontal_rcs",
       "claim": "F-35 frontal RCS (best public estimate)",
       "value_used": 0.0002,
       "unit": "m2",
-      "checked": "2026-07-06",
+      "checked": "2026-07-13",
       "sources": [
         "Public RCS estimates (Aviation Week, academic)"
       ],
       "status": "sources_refreshed",
       "related_news": [
-        "https://www.flightglobal.com/defence/2026/06/lockheed-martin-to-finalise-european-missile-integration-work-on-f-35-for-uk-and-italy/",
-        "https://www.janes.com/defence-intelligence-insights/defence-news/air/gao-report-finds-f-35-sustainment-challenges-hinder-aircraft-availability",
-        "https://www.reuters.com/business/aerospace-defense/kongsberg-gruppen-signs-400-million-order-kuwait-through-raytheon-us-fms-2026-06-30/",
-        "https://www.ynetnews.com/article/rkalfd117ge"
+        "https://aviationweek.com/defense/maintaining-f-35-electronic-warfare-dominance",
+        "https://africa.businessinsider.com/local/markets/africas-most-powerful-military-unveils-secret-russian-missile-system-from-dollar35/zl9mkg7",
+        "https://nypost.com/2026/07/06/us-news/netanyahu-pleads-with-trump-not-to-give-turkey-f-35s-ahead-of-ankara-nato-summit/",
+        "https://nypost.com/2026/07/08/opinion/trump-mustnt-trust-turkey-strongman-recep-erdogan-with-our-f-35-jets/"
       ]
     },
     {
@@ -23,72 +23,77 @@
       "claim": "B-21 Raider average procurement unit cost",
       "value_used": 700.0,
       "unit": "USD_million",
-      "checked": "2026-07-06",
+      "checked": "2026-07-13",
       "sources": [
-        "USAF/GAO public estimates"
+        "https://aviationweek.com/defense/aircraft-propulsion/us-air-force-keep-two-pilots-b-21s",
+        "https://aviationweek.com/defense/supply-chain/lockheed-martin-buys-ultra-maritime-345-billion",
+        "https://www.washingtonpost.com/opinions/2026/07/11/pentagon-is-finally-buying-smart-will-congress-do-its-part/",
+        "https://aviationweek.com/aerospace/aircraft-propulsion/first-take-july-13-2026"
       ],
-      "status": "sources_refreshed",
+      "status": "possible_discrepancy",
       "related_news": [
-        "https://www.ft.com/content/5599eca5-5b23-4a10-a1fb-03db2d18bc69",
-        "https://www.militarytimes.com/industry/techwatch/2026/07/01/video-shows-a-ukrainian-unit-running-down-a-russian-shahed-the-kind-of-kill-the-us-is-racing-to-reproduce/",
-        "https://www.latimes.com/business/story/2026-07-01/was-elon-musk-really-a-trillionaire-only-on-paper",
-        "https://www.express.co.uk/news/politics/2225357/46bn-taxpayers-money-was-spent"
-      ]
+        "https://aviationweek.com/defense/aircraft-propulsion/us-air-force-keep-two-pilots-b-21s",
+        "https://aviationweek.com/defense/supply-chain/lockheed-martin-buys-ultra-maritime-345-billion",
+        "https://www.washingtonpost.com/opinions/2026/07/11/pentagon-is-finally-buying-smart-will-congress-do-its-part/",
+        "https://aviationweek.com/aerospace/aircraft-propulsion/first-take-july-13-2026"
+      ],
+      "parsed_value": 3450.0,
+      "relative_delta": 3.929
     },
     {
       "key": "ddgx_unit_cost",
       "claim": "DDG(X) lead/early unit cost",
       "value_used": 3300.0,
       "unit": "USD_million",
-      "checked": "2026-07-06",
+      "checked": "2026-07-13",
       "sources": [
-        "CBO/CRS DDG(X) reports"
+        "https://markets.businessinsider.com/news/stocks/hii-christens-guided-missile-destroyer-george-m-neal-ddg-131-1036316438",
+        "https://www.janes.com/defence-intelligence-insights/defence-news/defence/us-navy-intends-to-release-a-musv-request-for-prototype-proposal",
+        "https://www.defensenews.com/news/pentagon-congress/2026/07/06/pentagons-top-new-weapons-programs-are-12-years-behind-schedule-watchdog/",
+        "https://www.yahoo.com/entertainment/celebrity/articles/travis-kelce-taylor-swift-msg-112717254.html"
       ],
-      "status": "sources_refreshed",
+      "status": "possible_discrepancy",
       "related_news": [
-        "https://www.express.co.uk/news/politics/2225357/46bn-taxpayers-money-was-spent",
-        "https://www.janes.com/defence-intelligence-insights/defence-news/sea/modernisation-upgrades-completed-on-guided-missile-destroyers-uss-chung-hoon-and-uss-james-e-williams",
-        "https://www.bbc.com/news/articles/cz9lv0xkz42o",
-        "https://theconversation.com/the-new-technologies-in-the-uk-defence-investment-plan-286791"
-      ]
+        "https://markets.businessinsider.com/news/stocks/hii-christens-guided-missile-destroyer-george-m-neal-ddg-131-1036316438",
+        "https://www.janes.com/defence-intelligence-insights/defence-news/defence/us-navy-intends-to-release-a-musv-request-for-prototype-proposal",
+        "https://www.defensenews.com/news/pentagon-congress/2026/07/06/pentagons-top-new-weapons-programs-are-12-years-behind-schedule-watchdog/",
+        "https://www.yahoo.com/entertainment/celebrity/articles/travis-kelce-taylor-swift-msg-112717254.html"
+      ],
+      "parsed_value": 2100.0,
+      "relative_delta": 0.364
     },
     {
       "key": "sentinel_program_cost",
       "claim": "Sentinel ICBM R&D/program cost (order of magnitude)",
       "value_used": 40000.0,
       "unit": "USD_million",
-      "checked": "2026-07-06",
+      "checked": "2026-07-13",
       "sources": [
-        "https://spacenews.com/gao-flags-satellite-costs-launch-risks-in-space-force-portfolio/",
-        "https://www.defensenews.com/news/pentagon-congress/2026/07/01/pentagons-push-to-field-weapons-faster-risks-outrunning-its-own-oversight-watchdog-finds/",
-        "https://www.defenseone.com/threats/2026/07/iran-war-supplemental-deepens-fy27-budget-uncertainty/414588/",
-        "https://keeptrack.space/space-brief/space-brief-2026-07-05"
+        "USAF/GAO; Nunn-McCurdy reporting"
       ],
-      "status": "possible_discrepancy",
+      "status": "sources_refreshed",
       "related_news": [
-        "https://spacenews.com/gao-flags-satellite-costs-launch-risks-in-space-force-portfolio/",
-        "https://www.defensenews.com/news/pentagon-congress/2026/07/01/pentagons-push-to-field-weapons-faster-risks-outrunning-its-own-oversight-watchdog-finds/",
-        "https://www.defenseone.com/threats/2026/07/iran-war-supplemental-deepens-fy27-budget-uncertainty/414588/",
-        "https://keeptrack.space/space-brief/space-brief-2026-07-05"
-      ],
-      "parsed_value": 5900.0,
-      "relative_delta": 0.853
+        "https://www.defensenews.com/news/pentagon-congress/2026/07/06/pentagons-top-new-weapons-programs-are-12-years-behind-schedule-watchdog/",
+        "https://www.washingtonpost.com/opinions/2026/07/11/pentagon-is-finally-buying-smart-will-congress-do-its-part/",
+        "https://spacenews.com/spacexs-wins-test-pentagons-commitment-to-competition/",
+        "https://fireflyspace.com/news/firefly-aerospace-receives-13-million-nasa-jpl-subcontract-to-build-aeroshell-for-skyfall-mars-mission/"
+      ]
     },
     {
       "key": "df17_terminal_mach",
       "claim": "DF-17 HGV terminal speed (open-source)",
       "value_used": 5.0,
       "unit": "mach",
-      "checked": "2026-07-06",
+      "checked": "2026-07-13",
       "sources": [
         "CSIS Missile Threat; DoD CMPR"
       ],
       "status": "sources_refreshed",
       "related_news": [
-        "https://www.ynetnews.com/travel/article/bkdfxrbmgl",
-        "https://www.newsweek.com/russia-bombards-kyiv-killing-13-in-revenge-strikes-12149683",
-        "https://www.futurefarming.com/tech-in-focus/autonomous-semi-autosteering-systems/tersus-gnss-ag993-modular-autosteer-kit-with-built-in-satellite-correction-fallback/",
-        "https://www.motor1.com/news/800095/street-legal-buggy-costs-corolla/"
+        "https://www.defensenews.com/global/asia-pacific/2026/07/08/china-shows-snazzy-clip-of-df-17-missile-on-state-tv-in-show-of-force/",
+        "https://www.janes.com/defence-intelligence-insights/defence-news/weapons/nato-summit-2026-uk-leads-deep-precision-strike-initiative",
+        "https://www.army-technology.com/news/uk-prsm-long-range-capability/?",
+        "https://zamin.uz/en/technology/211333-venus-aerospace-raises-90-million-for-hypersonic-engines.html"
       ]
     },
     {
@@ -96,38 +101,33 @@
       "claim": "MADL operating band (open-source, Ku-band)",
       "value_used": 14.4,
       "unit": "GHz",
-      "checked": "2026-07-06",
+      "checked": "2026-07-13",
       "sources": [
-        "https://www.developingtelecoms.com/telecom-technology/satellite-communications-networks/20481-chile-updates-and-enhances-satcoms-rules.html",
-        "https://www.reuters.com/business/media-telecom/fcc-says-it-will-move-toward-2027-auction-mid-band-wireless-spectrum-2026-06-30/",
-        "https://www.lightreading.com/regulatory-politics/fcc-s-proposed-upper-c-band-rules-sidestep-spacex-s-request",
-        "https://www.yahoo.com/news/science/articles/james-webb-telescope-may-discovered-151340015.html"
+        "Public datalink analyses"
       ],
-      "status": "possible_discrepancy",
+      "status": "sources_refreshed",
       "related_news": [
-        "https://www.developingtelecoms.com/telecom-technology/satellite-communications-networks/20481-chile-updates-and-enhances-satcoms-rules.html",
-        "https://www.reuters.com/business/media-telecom/fcc-says-it-will-move-toward-2027-auction-mid-band-wireless-spectrum-2026-06-30/",
-        "https://www.lightreading.com/regulatory-politics/fcc-s-proposed-upper-c-band-rules-sidestep-spacex-s-request",
-        "https://www.yahoo.com/news/science/articles/james-webb-telescope-may-discovered-151340015.html"
-      ],
-      "parsed_value": 110.0,
-      "relative_delta": 6.639
+        "https://spacenews.com/apolink-makes-contact-with-first-relay-satellite/",
+        "https://www.ign.com/articles/tp-link-whole-home-mesh-system-wifi-7-router-deal-for-july",
+        "https://www.janes.com/defence-intelligence-insights/defence-news/defence/australia-tests-sm-2aegis-ground-based-air-defence-capability",
+        "https://www.gpsworld.com/tersus-gnss-launches-ag993-modular-autosteer-kit-with-satellite-correction-fallback/"
+      ]
     },
     {
       "key": "columbia_unit_cost",
       "claim": "Columbia-class SSBN unit cost",
       "value_used": 9000.0,
       "unit": "USD_million",
-      "checked": "2026-07-06",
+      "checked": "2026-07-13",
       "sources": [
         "CBO/CRS Columbia reports"
       ],
       "status": "sources_refreshed",
       "related_news": [
-        "https://www.manilatimes.net/2026/07/01/tmt-newswire/globenewswire/piping-contract-awarded-from-bpmi-for-submarine-industrial-base/2376659",
-        "https://www.greenwichtime.com/news/world/article/canada-to-decide-between-german-south-korean-22333476.php",
-        "https://maritime-executive.com/article/poland-buys-three-capable-aip-powered-submarines-from-saab",
-        "https://www.janes.com/defence-intelligence-insights/defence-news/defence/china-launches-strategic-missile-from-nuclear-submarine-into-pacific"
+        "https://www.twz.com/sea/canada-picks-german-type-212-submarine-for-badly-needed-fleet-renewal",
+        "https://www.bbc.com/news/articles/cn4ddppz3jqo",
+        "https://www.manmonthly.com.au/asc-expands-submarine-workforce/",
+        "https://travelweekly.com.au/ess-group-launches-new-superyacht-in-the-mediterranean-the-essoess/"
       ]
     },
     {
@@ -135,16 +135,16 @@
       "claim": "Type 055 full-load displacement",
       "value_used": 13000.0,
       "unit": "tonnes",
-      "checked": "2026-07-06",
+      "checked": "2026-07-13",
       "sources": [
         "USNI/CSIS PLAN analyses"
       ],
       "status": "sources_refreshed",
       "related_news": [
-        "https://www.janes.com/defence-intelligence-insights/defence-news/defence/china-launches-strategic-missile-from-nuclear-submarine-into-pacific",
-        "https://www.automotiveworld.com/news/renault-trucks-extends-e-tech-t-tractor-range-to-660-km/",
-        "https://www.seatrade-maritime.com/dry-bulk/cosco-shipping-development-orders-24-newbuilds",
-        "https://maritime-executive.com/article/cma-cgm-one-and-oocl-introduce-next-generation-containerships"
+        "https://www.marinelink.com/news/adnoc-ls-orders-four-lng-carriers-takes-541123",
+        "https://www.janes.com/defence-intelligence-insights/defence-news/sea/steel-cut-for-portugals-second-logistics-support-ship",
+        "https://www.marinelink.com/news/berg-propulsion-secures-sixvessel-541124",
+        "https://www.marinelink.com/news/russian-vessels-struck-ukraine-azov-sea-541139"
       ]
     }
   ]
