@@ -1,231 +1,213 @@
 {
-  "generated": "2026-07-13",
+  "generated": "2026-07-20",
   "systems": [
     {
       "key": "trump_class_battleship",
-      "last_updated": "2026-07-13",
+      "last_updated": "2026-07-20",
       "sources": [
-        "https://www.janes.com/defence-intelligence-insights/defence-news/defence/us-navy-intends-to-release-a-musv-request-for-prototype-proposal",
-        "https://www.motorbiscuit.com/youtuber-builds-25-foot-rideable-rc-battleship-for-400-and-it-shoots-fireworks/",
-        "https://tech.yahoo.com/transportation/articles/youtuber-builds-25-foot-rideable-150629337.html",
-        "https://afloat.ie/resources/irish-ports/shipyards/item/72129-harland-wolff-pitching-build-major-transport-ships"
+        "Conceptual; cost framed by CBO armored-warship/CVN order of magnitude",
+        "Survivability per public ASBM/ASCM threat analyses (CSIS Missile Threat)"
       ],
       "related_news": [
-        "https://www.janes.com/defence-intelligence-insights/defence-news/defence/us-navy-intends-to-release-a-musv-request-for-prototype-proposal",
-        "https://www.motorbiscuit.com/youtuber-builds-25-foot-rideable-rc-battleship-for-400-and-it-shoots-fireworks/",
-        "https://tech.yahoo.com/transportation/articles/youtuber-builds-25-foot-rideable-150629337.html",
-        "https://afloat.ie/resources/irish-ports/shipyards/item/72129-harland-wolff-pitching-build-major-transport-ships"
-      ],
-      "unit_cost_musd": 2100.0
+        "https://www.navytimes.com/news/your-navy/2026/07/14/the-us-navy-is-eyeing-next-gen-carrier-based-drones-heres-what-they-might-do/",
+        "https://www.sandboxx.us/news/the-navy-may-never-build-any-constellation-class-frigates/",
+        "https://www.defensenews.com/industry/techwatch/2026/07/14/navy-awards-tote-22-billion-to-build-medium-landing-ships/",
+        "https://www.janes.com/defence-intelligence-insights/defence-news/sea/us-navy-awards-medium-landing-ship-vessel-construction-manager-contract"
+      ]
     },
     {
       "key": "b21_raider",
-      "last_updated": "2026-07-13",
+      "last_updated": "2026-07-20",
       "sources": [
-        "https://www.defensenews.com/news/pentagon-congress/2026/07/06/pentagons-top-new-weapons-programs-are-12-years-behind-schedule-watchdog/",
-        "https://aviationweek.com/defense/aircraft-propulsion/us-air-force-keep-two-pilots-b-21s",
-        "https://aviationweek.com/defense/aircraft-propulsion/global-combat-air-program-gains-momentum-uk-secures-funding",
-        "https://www.defensenews.com/global/europe/2026/07/09/uk-eyes-50-billion-in-pooled-nato-funds-for-new-long-range-strike-initiative/"
+        "USAF/GAO B-21 program public estimates",
+        "CBO long-range strike analyses"
       ],
       "related_news": [
-        "https://www.defensenews.com/news/pentagon-congress/2026/07/06/pentagons-top-new-weapons-programs-are-12-years-behind-schedule-watchdog/",
-        "https://aviationweek.com/defense/aircraft-propulsion/us-air-force-keep-two-pilots-b-21s",
-        "https://aviationweek.com/defense/aircraft-propulsion/global-combat-air-program-gains-momentum-uk-secures-funding",
-        "https://www.defensenews.com/global/europe/2026/07/09/uk-eyes-50-billion-in-pooled-nato-funds-for-new-long-range-strike-initiative/"
-      ],
-      "unit_cost_musd": 50000.0
+        "https://www.defensenews.com/industry/techwatch/2026/07/15/us-air-force-turns-to-cheaper-cruise-missiles-it-can-buy-by-the-thousand/",
+        "https://aviationweek.com/defense/aircraft-propulsion/royal-air-forces-cca-program-will-be-attack-dog-crewed-fighters",
+        "https://www.flightglobal.com/defence/2026/07/uk-royal-air-force-studying-total-future-fleet-size-for-nuclear-capable-f-35a/",
+        "https://www.si.com/college/unc/tar-heels-defensive-star-watch-this-season"
+      ]
     },
     {
       "key": "columbia_ssbn",
-      "last_updated": "2026-07-13",
+      "last_updated": "2026-07-20",
       "sources": [
         "CBO/CRS Columbia-class estimates (public)"
       ],
       "related_news": [
-        "https://www.reuters.com/business/aerospace-defense/missile-test-showcases-sensitive-chinese-submarine-capabilities-key-nuclear-2026-07-10/",
-        "https://www.janes.com/defence-intelligence-insights/defence-news/defence/special-report-chinese-slbm-test-underscores-sea-based-nuclear-deterrent-capability",
-        "https://www.naval-technology.com/news/china-test-launches-strategic-slbm/",
-        "https://www.manmonthly.com.au/asc-expands-submarine-workforce/"
+        "https://www.military.com/3.3-billion-coast-guard-contract-boosts-fleet-with-six-new-cutters",
+        "https://www.defensenews.com/industry/techwatch/2026/07/17/us-navy-2-years-behind-on-hypersonic-missile-installation-on-zumwalt-destroyers/",
+        "https://www.janes.com/defence-intelligence-insights/defence-news/sea/germany-approves-tkms-meko-a-200-frigate-design-naval-laser-production",
+        "https://spacenews.com/space-force-triples-launch-contract-ceiling-amid-rising-demand/"
       ]
     },
     {
       "key": "ddgx_destroyer",
-      "last_updated": "2026-07-13",
+      "last_updated": "2026-07-20",
       "sources": [
-        "https://www.janes.com/defence-intelligence-insights/defence-news/defence/us-navy-intends-to-release-a-musv-request-for-prototype-proposal",
-        "https://markets.businessinsider.com/news/stocks/hii-christens-guided-missile-destroyer-george-m-neal-ddg-131-1036316438",
-        "https://www.marinelink.com/blogs/blog/naval-group-ceo-europe-is-buying-more-european-105036",
-        "https://www.defensenews.com/news/pentagon-congress/2026/07/06/pentagons-top-new-weapons-programs-are-12-years-behind-schedule-watchdog/"
+        "CBO/CRS DDG(X) program estimates (public)"
       ],
       "related_news": [
-        "https://www.janes.com/defence-intelligence-insights/defence-news/defence/us-navy-intends-to-release-a-musv-request-for-prototype-proposal",
-        "https://markets.businessinsider.com/news/stocks/hii-christens-guided-missile-destroyer-george-m-neal-ddg-131-1036316438",
-        "https://www.marinelink.com/blogs/blog/naval-group-ceo-europe-is-buying-more-european-105036",
-        "https://www.defensenews.com/news/pentagon-congress/2026/07/06/pentagons-top-new-weapons-programs-are-12-years-behind-schedule-watchdog/"
-      ],
-      "unit_cost_musd": 2100.0
-    },
-    {
-      "key": "constellation_ffg",
-      "last_updated": "2026-07-13",
-      "sources": [
-        "https://www.janes.com/defence-intelligence-insights/defence-news/defence/us-navy-intends-to-release-a-musv-request-for-prototype-proposal",
-        "https://www.marinelink.com/blogs/blog/rheinmetall-freezes-plans-for-naval-hiring-after-germany-scraps-105025",
-        "https://www.marinelink.com/blogs/blog/canada--6-july-105017",
-        "https://www.janes.com/defence-intelligence-insights/defence-news/sea/romania-commissions-new-corvette"
-      ],
-      "related_news": [
-        "https://www.janes.com/defence-intelligence-insights/defence-news/defence/us-navy-intends-to-release-a-musv-request-for-prototype-proposal",
-        "https://www.marinelink.com/blogs/blog/rheinmetall-freezes-plans-for-naval-hiring-after-germany-scraps-105025",
-        "https://www.marinelink.com/blogs/blog/canada--6-july-105017",
-        "https://www.janes.com/defence-intelligence-insights/defence-news/sea/romania-commissions-new-corvette"
-      ],
-      "unit_cost_musd": 2100.0
-    },
-    {
-      "key": "ngad_fighter",
-      "last_updated": "2026-07-13",
-      "sources": [
-        "https://www.flightglobal.com/archive/2026/07/boeing-progressing-with-new-factory-for-advanced-combat-aircraft/",
-        "https://www.defensenews.com/news/pentagon-congress/2026/07/06/pentagons-top-new-weapons-programs-are-12-years-behind-schedule-watchdog/",
-        "https://migflug.com/jetflights/why-f-15-outlived-f-22-replacement/",
-        "https://aviationweek.com/defense/aircraft-propulsion/global-combat-air-program-gains-momentum-uk-secures-funding"
-      ],
-      "related_news": [
-        "https://www.flightglobal.com/archive/2026/07/boeing-progressing-with-new-factory-for-advanced-combat-aircraft/",
-        "https://www.defensenews.com/news/pentagon-congress/2026/07/06/pentagons-top-new-weapons-programs-are-12-years-behind-schedule-watchdog/",
-        "https://migflug.com/jetflights/why-f-15-outlived-f-22-replacement/",
-        "https://aviationweek.com/defense/aircraft-propulsion/global-combat-air-program-gains-momentum-uk-secures-funding"
-      ],
-      "unit_cost_musd": 4.5
-    },
-    {
-      "key": "cca_increment1",
-      "last_updated": "2026-07-13",
-      "sources": [
-        "USAF CCA program public statements; CSIS/CBO analyses"
-      ],
-      "related_news": [
-        "https://aviationweek.com/defense/budget-policy-operations/germany-green-lights-responsive-launch-demo-cca-laser-efforts",
-        "https://aviationweek.com/defense/aircraft-propulsion/bae-systems-exploring-typhoon-cca-control-concepts",
-        "https://www.janes.com/defence-intelligence-insights/defence-news/defence/south-korea-unveils-new-uav-engines",
-        "https://aviationweek.com/defense/aircraft-propulsion/global-combat-air-program-gains-momentum-uk-secures-funding"
+        "https://www.defensenews.com/industry/techwatch/2026/07/17/us-navy-2-years-behind-on-hypersonic-missile-installation-on-zumwalt-destroyers/",
+        "https://www.sandboxx.us/news/the-navy-may-never-build-any-constellation-class-frigates/",
+        "https://news.usni.org/2026/07/13/usni-news-fleet-and-marine-tracker-july-13-2026",
+        "https://www.defensenews.com/industry/techwatch/2026/07/14/navy-awards-tote-22-billion-to-build-medium-landing-ships/"
       ]
     },
     {
-      "key": "sentinel_icbm",
-      "last_updated": "2026-07-13",
+      "key": "constellation_ffg",
+      "last_updated": "2026-07-20",
       "sources": [
-        "https://www.defensenews.com/news/pentagon-congress/2026/07/06/pentagons-top-new-weapons-programs-are-12-years-behind-schedule-watchdog/",
-        "https://www.washingtonpost.com/opinions/2026/07/11/pentagon-is-finally-buying-smart-will-congress-do-its-part/",
-        "https://spacenews.com/spacexs-wins-test-pentagons-commitment-to-competition/",
-        "https://www.defensenews.com/global/europe/2026/07/09/uk-eyes-50-billion-in-pooled-nato-funds-for-new-long-range-strike-initiative/"
+        "GAO/CRS FFG-62 program reports (public)"
       ],
       "related_news": [
-        "https://www.defensenews.com/news/pentagon-congress/2026/07/06/pentagons-top-new-weapons-programs-are-12-years-behind-schedule-watchdog/",
-        "https://www.washingtonpost.com/opinions/2026/07/11/pentagon-is-finally-buying-smart-will-congress-do-its-part/",
-        "https://spacenews.com/spacexs-wins-test-pentagons-commitment-to-competition/",
-        "https://www.defensenews.com/global/europe/2026/07/09/uk-eyes-50-billion-in-pooled-nato-funds-for-new-long-range-strike-initiative/"
+        "https://www.sandboxx.us/news/the-navy-may-never-build-any-constellation-class-frigates/",
+        "https://www.military.com/3.3-billion-coast-guard-contract-boosts-fleet-with-six-new-cutters",
+        "https://rockstarintel.com/all-unreleased-gta-online-the-kortz-center-heist-vehicles-and-prices/",
+        "https://www.janes.com/defence-intelligence-insights/defence-news/sea/germany-approves-tkms-meko-a-200-frigate-design-naval-laser-production"
+      ]
+    },
+    {
+      "key": "ngad_fighter",
+      "last_updated": "2026-07-20",
+      "sources": [
+        "USAF NGAD public statements; CSIS/CBO analyses"
       ],
-      "unit_cost_musd": 4.5
+      "related_news": [
+        "https://www.defensenews.com/industry/techwatch/2026/07/15/us-air-force-turns-to-cheaper-cruise-missiles-it-can-buy-by-the-thousand/",
+        "https://aviationweek.com/defense/aircraft-propulsion/royal-air-forces-cca-program-will-be-attack-dog-crewed-fighters",
+        "https://www.janes.com/defence-intelligence-insights/defence-news/weapons/farnborough-2026-lockheed-martin-unveils-pac-3-ace-low-cost-interceptor",
+        "https://breakingdefense.com/2026/07/canada-to-join-gcap-next-gen-fighter-program-as-observer-reports/"
+      ]
+    },
+    {
+      "key": "cca_increment1",
+      "last_updated": "2026-07-20",
+      "sources": [
+        "https://migflug.com/jetflights/air-force-cca-fq-42a-fq-44a-production-contracts",
+        "https://aerospaceglobalnews.com/news/us-air-force-cca-funding-fy27",
+        "https://insideunmannedsystems.com/air-force-goes-split-buy-fury-and-dark-merlin-both-enter-cca-production",
+        "https://www.airforce-technology.com/projects/collaborative-combat-aircraft-cca-usa"
+      ],
+      "related_news": [
+        "https://migflug.com/jetflights/air-force-cca-fq-42a-fq-44a-production-contracts",
+        "https://aerospaceglobalnews.com/news/us-air-force-cca-funding-fy27",
+        "https://insideunmannedsystems.com/air-force-goes-split-buy-fury-and-dark-merlin-both-enter-cca-production",
+        "https://www.airforce-technology.com/projects/collaborative-combat-aircraft-cca-usa"
+      ],
+      "unit_cost_musd": 30.0
+    },
+    {
+      "key": "sentinel_icbm",
+      "last_updated": "2026-07-20",
+      "sources": [
+        "USAF/GAO Sentinel program; public Nunn-McCurdy reporting"
+      ],
+      "related_news": [
+        "https://www.janes.com/defence-intelligence-insights/defence-news/industry/sentinel-still-on-course-to-achieve-programme-milestones-following-acoustic-testing",
+        "https://markets.businessinsider.com/news/stocks/northrop-grumman-breaks-ground-on-new-facility-to-support-strategic-deterrence-and-advanced-aerospace-missions-in-utah-1036325171",
+        "https://www.defensenews.com/video/2026/07/16/manufacturing-woes-hamper-us-155mm-ammo-production/",
+        "https://www.defensenews.com/industry/techwatch/2026/07/15/us-air-force-turns-to-cheaper-cruise-missiles-it-can-buy-by-the-thousand/"
+      ]
     },
     {
       "key": "sda_leo_layer",
-      "last_updated": "2026-07-13",
+      "last_updated": "2026-07-20",
       "sources": [
         "Space Development Agency public tranches; CSIS analyses"
       ],
       "related_news": [
-        "https://aviationweek.com/space/satellites/debrief-natos-new-halo-brings-sda-network-across-atlantic",
-        "https://spacenews.com/spacexs-wins-test-pentagons-commitment-to-competition/",
-        "https://www.space.com/astronomy/earth/reckless-space-based-data-centers-lack-environmental-review-drawing-criticism",
-        "https://www.space.com/space-exploration/launches-spacecraft/spacex-falcon-9-rocket-35th-mission-starlink-launch"
+        "https://spacenews.com/l3harris-sierra-space-to-build-36-satellites-to-expand-u-s-missile-tracking-network/",
+        "https://www.military.com/1.75-billion-defense-contracts-awarded-missile-tracking-satellites-launching-2028",
+        "https://keeptrack.space/space-brief/week-in-review-2026-07-19",
+        "https://www.defenseone.com/policy/2026/07/space-development-agency-satellite-launches-criticisms/414781/"
       ]
     },
     {
       "key": "type055_destroyer",
-      "last_updated": "2026-07-13",
+      "last_updated": "2026-07-20",
       "sources": [
-        "https://maritime-executive.com/article/russian-navy-conducts-joint-exercise-with-chinese-north-sea-fleet",
-        "https://www.marinelink.com/news/adnoc-ls-orders-four-lng-carriers-takes-541123",
-        "https://www.washingtonpost.com/opinions/2026/07/11/pentagon-is-finally-buying-smart-will-congress-do-its-part/",
-        "https://www.marinelink.com/news/russian-vessels-struck-ukraine-azov-sea-541139"
+        "Public PLAN order-of-battle analyses (USNI, CSIS)"
       ],
       "related_news": [
-        "https://maritime-executive.com/article/russian-navy-conducts-joint-exercise-with-chinese-north-sea-fleet",
-        "https://www.marinelink.com/news/adnoc-ls-orders-four-lng-carriers-takes-541123",
-        "https://www.washingtonpost.com/opinions/2026/07/11/pentagon-is-finally-buying-smart-will-congress-do-its-part/",
-        "https://www.marinelink.com/news/russian-vessels-struck-ukraine-azov-sea-541139"
-      ],
-      "unit_cost_musd": 4.5
+        "https://www.janes.com/defence-intelligence-insights/defence-news/land/type-076-footage-offers-clearest-glimpse-yet-of-chinas-uav-carrier-ambitions",
+        "https://www.sandboxx.us/news/the-navy-may-never-build-any-constellation-class-frigates/",
+        "https://www.defensenews.com/industry/techwatch/2026/07/14/navy-awards-tote-22-billion-to-build-medium-landing-ships/",
+        "https://www.janes.com/defence-intelligence-insights/defence-news/sea/us-navy-awards-medium-landing-ship-vessel-construction-manager-contract"
+      ]
     },
     {
       "key": "type003_carrier",
-      "last_updated": "2026-07-13",
+      "last_updated": "2026-07-20",
       "sources": [
-        "https://www.marinelink.com/news/adnoc-ls-orders-four-lng-carriers-takes-541123",
-        "https://www.oilandgas360.com/adnoc-orders-900-million-in-new-lng-carriers-to-expand-global-fleet/",
-        "https://www.seatrade-maritime.com/tankers/adnoc-boosts-lng-fleet-with-four-ship-order-in-china",
-        "https://www.cnet.com/tech/mobile/peoples-picks-mobile-carriers-2026/"
+        "https://www.janes.com/defence-intelligence-insights/defence-news/land/type-076-footage-offers-clearest-glimpse-yet-of-chinas-uav-carrier-ambitions",
+        "https://www.flightglobal.com/archive/2026/07/air-china-to-take-more-a350-900s-along-with-dozens-of-a320neos-for-subsidiary-shenzhen/",
+        "https://www.seatrade-maritime.com/shipyards/erasmus-extends-feeder-fleet-expansion-with-third-huangpu-wenchong-order",
+        "https://www.defensenews.com/industry/techwatch/2026/07/14/navy-awards-tote-22-billion-to-build-medium-landing-ships/"
       ],
       "related_news": [
-        "https://www.marinelink.com/news/adnoc-ls-orders-four-lng-carriers-takes-541123",
-        "https://www.oilandgas360.com/adnoc-orders-900-million-in-new-lng-carriers-to-expand-global-fleet/",
-        "https://www.seatrade-maritime.com/tankers/adnoc-boosts-lng-fleet-with-four-ship-order-in-china",
-        "https://www.cnet.com/tech/mobile/peoples-picks-mobile-carriers-2026/"
+        "https://www.janes.com/defence-intelligence-insights/defence-news/land/type-076-footage-offers-clearest-glimpse-yet-of-chinas-uav-carrier-ambitions",
+        "https://www.flightglobal.com/archive/2026/07/air-china-to-take-more-a350-900s-along-with-dozens-of-a320neos-for-subsidiary-shenzhen/",
+        "https://www.seatrade-maritime.com/shipyards/erasmus-extends-feeder-fleet-expansion-with-third-huangpu-wenchong-order",
+        "https://www.defensenews.com/industry/techwatch/2026/07/14/navy-awards-tote-22-billion-to-build-medium-landing-ships/"
       ],
-      "unit_cost_musd": 200.0
+      "unit_cost_musd": 6100.0
     },
     {
       "key": "df17_hgv",
-      "last_updated": "2026-07-13",
+      "last_updated": "2026-07-20",
       "sources": [
         "CSIS Missile Threat; DoD China Military Power Report"
       ],
       "related_news": [
-        "https://www.defensenews.com/global/asia-pacific/2026/07/08/china-shows-snazzy-clip-of-df-17-missile-on-state-tv-in-show-of-force/",
-        "https://aviationweek.com/defense/missile-defense-weapons/us-adapts-hypersonic-weapon-strategy-meet-new-priorities",
-        "https://zamin.uz/en/technology/211333-venus-aerospace-raises-90-million-for-hypersonic-engines.html",
-        "https://aviationweek.com/defense/missile-defense-weapons/britains-sovereign-hypersonic-strike-effort-enters-new-phase"
+        "https://www.army-technology.com/news/kratos-dow-funding-hypersonic/",
+        "https://aviationweek.com/defense/missile-defense-weapons/us-army-official-names-anduril-potential-hypersonic-supplier",
+        "https://www.defensenews.com/industry/techwatch/2026/07/17/us-navy-2-years-behind-on-hypersonic-missile-installation-on-zumwalt-destroyers/",
+        "https://www.janes.com/defence-intelligence-insights/defence-news/land/type-076-footage-offers-clearest-glimpse-yet-of-chinas-uav-carrier-ambitions"
       ]
     },
     {
       "key": "df41_icbm",
-      "last_updated": "2026-07-13",
+      "last_updated": "2026-07-20",
       "sources": [
         "CSIS Missile Threat; DoD China Military Power Report"
       ],
       "related_news": [
-        "https://www.jpost.com/international/article-902191",
-        "https://www.naval-technology.com/news/china-test-launches-strategic-slbm/",
-        "https://www.reuters.com/business/aerospace-defense/missile-test-showcases-sensitive-chinese-submarine-capabilities-key-nuclear-2026-07-10/",
-        "https://www.jpost.com/international/article-901662"
+        "https://www.defensenews.com/global/asia-pacific/2026/07/15/first-the-coast-guard-then-an-icbm-china-tests-new-long-term-ways-to-hold-off-rivals-in-asia/",
+        "https://www.securityweek.com/chinas-top-cybersecurity-firms-hit-by-mounting-military-procurement-bans/",
+        "https://www.defensenews.com/global/the-americas/2026/07/17/canada-to-spend-14-billion-on-armored-combat-support-vehicles-built-locally/",
+        "https://www.janes.com/defence-intelligence-insights/defence-news/land/type-076-footage-offers-clearest-glimpse-yet-of-chinas-uav-carrier-ambitions"
       ]
     },
     {
       "key": "j35_fighter",
-      "last_updated": "2026-07-13",
+      "last_updated": "2026-07-20",
       "sources": [
-        "USNI/CSIS public PLAAF/PLAN aviation analyses"
+        "https://www.cnbc.com/2026/07/17/air-china-shenzhen-airlines-order-55-airbus-jets.html",
+        "https://www.defensenews.com/industry/techwatch/2026/07/15/us-air-force-turns-to-cheaper-cruise-missiles-it-can-buy-by-the-thousand/",
+        "https://www.flightglobal.com/archive/2026/07/air-china-to-take-more-a350-900s-along-with-dozens-of-a320neos-for-subsidiary-shenzhen/",
+        "https://www.airandspaceforces.com/us-deploying-f-16-f-35-middle-east-iran-war/"
       ],
       "related_news": [
-        "https://www.foxnews.com/politics/trump-could-hand-prized-stealth-jets-nato-ally-once-seen-alliance-headache",
-        "https://www.ainonline.com/aviation-news/defense/2026-07-08/edgewing-receives-61-billion-gcap-development",
-        "https://www.modernghana.com/news/1509670/trkiyes-f-35-bid-trumps-nato-summit-signals.html",
-        "https://www.jpost.com/international/article-901669"
-      ]
+        "https://www.cnbc.com/2026/07/17/air-china-shenzhen-airlines-order-55-airbus-jets.html",
+        "https://www.defensenews.com/industry/techwatch/2026/07/15/us-air-force-turns-to-cheaper-cruise-missiles-it-can-buy-by-the-thousand/",
+        "https://www.flightglobal.com/archive/2026/07/air-china-to-take-more-a350-900s-along-with-dozens-of-a320neos-for-subsidiary-shenzhen/",
+        "https://www.airandspaceforces.com/us-deploying-f-16-f-35-middle-east-iran-war/"
+      ],
+      "unit_cost_musd": 12400.0
     },
     {
       "key": "h20_bomber",
-      "last_updated": "2026-07-13",
+      "last_updated": "2026-07-20",
       "sources": [
         "DoD China Military Power Report; public PLAAF analyses"
       ],
       "related_news": [
-        "https://www.defensenews.com/news/pentagon-congress/2026/07/06/pentagons-top-new-weapons-programs-are-12-years-behind-schedule-watchdog/",
-        "https://apnews.com/article/china-missile-test-pacific-what-to-know-28df0be8121a5af6e7f281c738c06ba3",
-        "https://www.janes.com/defence-intelligence-insights/defence-news/defence/china-expands-y-20b-transport-aircraft-fleet",
-        "https://www.newsweek.com/china-becomes-second-country-after-us-to-recover-reusable-rocket-12180846"
+        "https://www.janes.com/defence-intelligence-insights/defence-news/land/type-076-footage-offers-clearest-glimpse-yet-of-chinas-uav-carrier-ambitions",
+        "https://www.defensenews.com/global/europe/2026/07/13/helsing-raises-18-billion-in-europes-biggest-defense-startup-round/",
+        "https://www.flightglobal.com/defence/2026/07/germanys-first-quadriga-programme-eurofighter-makes-flight-debut/",
+        "https://www.janes.com/defence-intelligence-insights/defence-news/air/farnborough-2026-bae-systems-showcases-future-pilot-helmet-technology-for-sixth-generation-combat-aircraft"
       ]
     }
   ]

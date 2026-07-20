@@ -1,21 +1,21 @@
 {
-  "generated": "2026-07-13",
+  "generated": "2026-07-20",
   "facts": [
     {
       "key": "f35_frontal_rcs",
       "claim": "F-35 frontal RCS (best public estimate)",
       "value_used": 0.0002,
       "unit": "m2",
-      "checked": "2026-07-13",
+      "checked": "2026-07-20",
       "sources": [
         "Public RCS estimates (Aviation Week, academic)"
       ],
       "status": "sources_refreshed",
       "related_news": [
-        "https://aviationweek.com/defense/maintaining-f-35-electronic-warfare-dominance",
-        "https://africa.businessinsider.com/local/markets/africas-most-powerful-military-unveils-secret-russian-missile-system-from-dollar35/zl9mkg7",
-        "https://nypost.com/2026/07/06/us-news/netanyahu-pleads-with-trump-not-to-give-turkey-f-35s-ahead-of-ankara-nato-summit/",
-        "https://nypost.com/2026/07/08/opinion/trump-mustnt-trust-turkey-strongman-recep-erdogan-with-our-f-35-jets/"
+        "https://www.airandspaceforces.com/us-deploying-f-16-f-35-middle-east-iran-war/",
+        "https://www.jpost.com/israel-news/defense-news/article-902950",
+        "https://aviationweek.com/defense/aircraft-propulsion/uk-exploring-requirements-nuclear-f-35a-mission",
+        "https://aviationweek.com/defense/aircraft-propulsion/uk-still-exploring-requirements-nuclear-f-35a-mission"
       ]
     },
     {
@@ -23,60 +23,55 @@
       "claim": "B-21 Raider average procurement unit cost",
       "value_used": 700.0,
       "unit": "USD_million",
-      "checked": "2026-07-13",
+      "checked": "2026-07-20",
       "sources": [
-        "https://aviationweek.com/defense/aircraft-propulsion/us-air-force-keep-two-pilots-b-21s",
-        "https://aviationweek.com/defense/supply-chain/lockheed-martin-buys-ultra-maritime-345-billion",
-        "https://www.washingtonpost.com/opinions/2026/07/11/pentagon-is-finally-buying-smart-will-congress-do-its-part/",
-        "https://aviationweek.com/aerospace/aircraft-propulsion/first-take-july-13-2026"
+        "USAF/GAO public estimates"
       ],
-      "status": "possible_discrepancy",
+      "status": "sources_refreshed",
       "related_news": [
-        "https://aviationweek.com/defense/aircraft-propulsion/us-air-force-keep-two-pilots-b-21s",
-        "https://aviationweek.com/defense/supply-chain/lockheed-martin-buys-ultra-maritime-345-billion",
-        "https://www.washingtonpost.com/opinions/2026/07/11/pentagon-is-finally-buying-smart-will-congress-do-its-part/",
-        "https://aviationweek.com/aerospace/aircraft-propulsion/first-take-july-13-2026"
-      ],
-      "parsed_value": 3450.0,
-      "relative_delta": 3.929
+        "https://www.janes.com/defence-intelligence-insights/defence-news/weapons/farnborough-2026-lockheed-martin-unveils-pac-3-ace-low-cost-interceptor",
+        "https://www.defensenews.com/industry/techwatch/2026/07/15/us-air-force-turns-to-cheaper-cruise-missiles-it-can-buy-by-the-thousand/",
+        "https://www.nbcnews.com/news/us-news/fatal-ice-shootings-spur-halt-vehicle-stops-thousands-hit-diarrhea-bug-rcna587594",
+        "https://www.kqed.org/news/12090688/newsom-signs-law-to-reduce-costs-of-building-affordable-housing"
+      ]
     },
     {
       "key": "ddgx_unit_cost",
       "claim": "DDG(X) lead/early unit cost",
       "value_used": 3300.0,
       "unit": "USD_million",
-      "checked": "2026-07-13",
+      "checked": "2026-07-20",
       "sources": [
-        "https://markets.businessinsider.com/news/stocks/hii-christens-guided-missile-destroyer-george-m-neal-ddg-131-1036316438",
-        "https://www.janes.com/defence-intelligence-insights/defence-news/defence/us-navy-intends-to-release-a-musv-request-for-prototype-proposal",
-        "https://www.defensenews.com/news/pentagon-congress/2026/07/06/pentagons-top-new-weapons-programs-are-12-years-behind-schedule-watchdog/",
-        "https://www.yahoo.com/entertainment/celebrity/articles/travis-kelce-taylor-swift-msg-112717254.html"
+        "https://www.defensenews.com/industry/techwatch/2026/07/17/us-navy-2-years-behind-on-hypersonic-missile-installation-on-zumwalt-destroyers/",
+        "https://www.sandboxx.us/news/the-navy-may-never-build-any-constellation-class-frigates/",
+        "https://news.usni.org/2026/07/13/usni-news-fleet-and-marine-tracker-july-13-2026",
+        "https://www.military.com/3.3-billion-coast-guard-contract-boosts-fleet-with-six-new-cutters"
       ],
-      "status": "possible_discrepancy",
+      "status": "corroborated",
       "related_news": [
-        "https://markets.businessinsider.com/news/stocks/hii-christens-guided-missile-destroyer-george-m-neal-ddg-131-1036316438",
-        "https://www.janes.com/defence-intelligence-insights/defence-news/defence/us-navy-intends-to-release-a-musv-request-for-prototype-proposal",
-        "https://www.defensenews.com/news/pentagon-congress/2026/07/06/pentagons-top-new-weapons-programs-are-12-years-behind-schedule-watchdog/",
-        "https://www.yahoo.com/entertainment/celebrity/articles/travis-kelce-taylor-swift-msg-112717254.html"
+        "https://www.defensenews.com/industry/techwatch/2026/07/17/us-navy-2-years-behind-on-hypersonic-missile-installation-on-zumwalt-destroyers/",
+        "https://www.sandboxx.us/news/the-navy-may-never-build-any-constellation-class-frigates/",
+        "https://news.usni.org/2026/07/13/usni-news-fleet-and-marine-tracker-july-13-2026",
+        "https://www.military.com/3.3-billion-coast-guard-contract-boosts-fleet-with-six-new-cutters"
       ],
-      "parsed_value": 2100.0,
-      "relative_delta": 0.364
+      "parsed_value": 3300.0,
+      "relative_delta": 0.0
     },
     {
       "key": "sentinel_program_cost",
       "claim": "Sentinel ICBM R&D/program cost (order of magnitude)",
       "value_used": 40000.0,
       "unit": "USD_million",
-      "checked": "2026-07-13",
+      "checked": "2026-07-20",
       "sources": [
         "USAF/GAO; Nunn-McCurdy reporting"
       ],
       "status": "sources_refreshed",
       "related_news": [
-        "https://www.defensenews.com/news/pentagon-congress/2026/07/06/pentagons-top-new-weapons-programs-are-12-years-behind-schedule-watchdog/",
-        "https://www.washingtonpost.com/opinions/2026/07/11/pentagon-is-finally-buying-smart-will-congress-do-its-part/",
-        "https://spacenews.com/spacexs-wins-test-pentagons-commitment-to-competition/",
-        "https://fireflyspace.com/news/firefly-aerospace-receives-13-million-nasa-jpl-subcontract-to-build-aeroshell-for-skyfall-mars-mission/"
+        "https://www.janes.com/defence-intelligence-insights/defence-news/industry/sentinel-still-on-course-to-achieve-programme-milestones-following-acoustic-testing",
+        "https://markets.businessinsider.com/news/stocks/northrop-grumman-breaks-ground-on-new-facility-to-support-strategic-deterrence-and-advanced-aerospace-missions-in-utah-1036325171",
+        "https://www.defensenews.com/video/2026/07/16/manufacturing-woes-hamper-us-155mm-ammo-production/",
+        "https://www.defensenews.com/industry/techwatch/2026/07/17/us-navy-2-years-behind-on-hypersonic-missile-installation-on-zumwalt-destroyers/"
       ]
     },
     {
@@ -84,16 +79,16 @@
       "claim": "DF-17 HGV terminal speed (open-source)",
       "value_used": 5.0,
       "unit": "mach",
-      "checked": "2026-07-13",
+      "checked": "2026-07-20",
       "sources": [
         "CSIS Missile Threat; DoD CMPR"
       ],
       "status": "sources_refreshed",
       "related_news": [
-        "https://www.defensenews.com/global/asia-pacific/2026/07/08/china-shows-snazzy-clip-of-df-17-missile-on-state-tv-in-show-of-force/",
-        "https://www.janes.com/defence-intelligence-insights/defence-news/weapons/nato-summit-2026-uk-leads-deep-precision-strike-initiative",
-        "https://www.army-technology.com/news/uk-prsm-long-range-capability/?",
-        "https://zamin.uz/en/technology/211333-venus-aerospace-raises-90-million-for-hypersonic-engines.html"
+        "https://www.army-technology.com/news/kratos-dow-funding-hypersonic/",
+        "https://www.defensenews.com/industry/techwatch/2026/07/17/us-navy-2-years-behind-on-hypersonic-missile-installation-on-zumwalt-destroyers/",
+        "https://aviationweek.com/defense/missile-defense-weapons/us-army-official-names-anduril-potential-hypersonic-supplier",
+        "https://understandingwar.org/research/middle-east/iran-update-special-report-july-18-2026/"
       ]
     },
     {
@@ -101,50 +96,60 @@
       "claim": "MADL operating band (open-source, Ku-band)",
       "value_used": 14.4,
       "unit": "GHz",
-      "checked": "2026-07-13",
+      "checked": "2026-07-20",
       "sources": [
-        "Public datalink analyses"
+        "https://www.darkreading.com/perimeter/6-ghz-wi-fi-flaws-disrupt-critical-systems",
+        "https://www.naval-technology.com/projects/puma-3-ae/",
+        "https://www.kavout.com/market-lens/why-is-satellite-based-precision-agriculture-a-game-changer-for-farmers",
+        "https://www.flightglobal.com/archive/2026/07/south-korea-to-field-epawss-electronic-countermeasures-system-for-f-15k-fleet/"
       ],
-      "status": "sources_refreshed",
+      "status": "possible_discrepancy",
       "related_news": [
-        "https://spacenews.com/apolink-makes-contact-with-first-relay-satellite/",
-        "https://www.ign.com/articles/tp-link-whole-home-mesh-system-wifi-7-router-deal-for-july",
-        "https://www.janes.com/defence-intelligence-insights/defence-news/defence/australia-tests-sm-2aegis-ground-based-air-defence-capability",
-        "https://www.gpsworld.com/tersus-gnss-launches-ag993-modular-autosteer-kit-with-satellite-correction-fallback/"
-      ]
+        "https://www.darkreading.com/perimeter/6-ghz-wi-fi-flaws-disrupt-critical-systems",
+        "https://www.naval-technology.com/projects/puma-3-ae/",
+        "https://www.kavout.com/market-lens/why-is-satellite-based-precision-agriculture-a-game-changer-for-farmers",
+        "https://www.flightglobal.com/archive/2026/07/south-korea-to-field-epawss-electronic-countermeasures-system-for-f-15k-fleet/"
+      ],
+      "parsed_value": 6.0,
+      "relative_delta": 0.583
     },
     {
       "key": "columbia_unit_cost",
       "claim": "Columbia-class SSBN unit cost",
       "value_used": 9000.0,
       "unit": "USD_million",
-      "checked": "2026-07-13",
+      "checked": "2026-07-20",
       "sources": [
-        "CBO/CRS Columbia reports"
+        "https://www.military.com/3.3-billion-coast-guard-contract-boosts-fleet-with-six-new-cutters",
+        "https://www.nbcnews.com/nightly-news/video/trump-backs-off-strait-of-hormuz-toll-plan-as-cost-of-iran-war-mounts-266676293839",
+        "https://www.defensenews.com/industry/techwatch/2026/07/14/navy-awards-tote-22-billion-to-build-medium-landing-ships/",
+        "https://maritime-executive.com/corporate/turn-services-adds-m-v-war-admiral-to-eight-boat-construction-program"
       ],
-      "status": "sources_refreshed",
+      "status": "possible_discrepancy",
       "related_news": [
-        "https://www.twz.com/sea/canada-picks-german-type-212-submarine-for-badly-needed-fleet-renewal",
-        "https://www.bbc.com/news/articles/cn4ddppz3jqo",
-        "https://www.manmonthly.com.au/asc-expands-submarine-workforce/",
-        "https://travelweekly.com.au/ess-group-launches-new-superyacht-in-the-mediterranean-the-essoess/"
-      ]
+        "https://www.military.com/3.3-billion-coast-guard-contract-boosts-fleet-with-six-new-cutters",
+        "https://www.nbcnews.com/nightly-news/video/trump-backs-off-strait-of-hormuz-toll-plan-as-cost-of-iran-war-mounts-266676293839",
+        "https://www.defensenews.com/industry/techwatch/2026/07/14/navy-awards-tote-22-billion-to-build-medium-landing-ships/",
+        "https://maritime-executive.com/corporate/turn-services-adds-m-v-war-admiral-to-eight-boat-construction-program"
+      ],
+      "parsed_value": 3300.0,
+      "relative_delta": 0.633
     },
     {
       "key": "type055_full_load_t",
       "claim": "Type 055 full-load displacement",
       "value_used": 13000.0,
       "unit": "tonnes",
-      "checked": "2026-07-13",
+      "checked": "2026-07-20",
       "sources": [
         "USNI/CSIS PLAN analyses"
       ],
       "status": "sources_refreshed",
       "related_news": [
-        "https://www.marinelink.com/news/adnoc-ls-orders-four-lng-carriers-takes-541123",
-        "https://www.janes.com/defence-intelligence-insights/defence-news/sea/steel-cut-for-portugals-second-logistics-support-ship",
-        "https://www.marinelink.com/news/berg-propulsion-secures-sixvessel-541124",
-        "https://www.marinelink.com/news/russian-vessels-struck-ukraine-azov-sea-541139"
+        "https://www.seatrade-maritime.com/tankers/record-vlcc-orders-raise-fears-of-2028-tanker-squeeze",
+        "https://www.seatrade-maritime.com/shipyards/erasmus-extends-feeder-fleet-expansion-with-third-huangpu-wenchong-order",
+        "https://www.kitco.com/news/article/2026-07-13/precious-metals-prices-slide-amid-renewed-gulf-strikes-perth-mint-silver",
+        "https://maritime-executive.com/corporate/damen-signs-with-seaspan-for-two-asd-tugs-2813-at-its"
       ]
     }
   ]
