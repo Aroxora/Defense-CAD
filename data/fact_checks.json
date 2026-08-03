@@ -1,21 +1,21 @@
 {
-  "generated": "2026-07-27",
+  "generated": "2026-08-03",
   "facts": [
     {
       "key": "f35_frontal_rcs",
       "claim": "F-35 frontal RCS (best public estimate)",
       "value_used": 0.0002,
       "unit": "m2",
-      "checked": "2026-07-27",
+      "checked": "2026-08-03",
       "sources": [
         "Public RCS estimates (Aviation Week, academic)"
       ],
       "status": "sources_refreshed",
       "related_news": [
-        "https://aerospaceglobalnews.com/news/stealthiest-fighter-jets",
+        "https://simpleflying.com/striking-differences-f-35-f-22",
+        "https://www.19fortyfive.com/2026/03/sorry-stealth-f-22-raptor-and-china-boeing-f-47-ngad-will-be-the-most-powerful-fighter-ever-and-will-have-swarm-weapons",
         "https://meta-defense.fr/en/2026/05/15/su-57-rcs-versus-rafale",
-        "https://www.flyingmag.com/china-touts-j-35-stealth-jet-with-palm-sized-radar-cross-section",
-        "https://www.wionews.com/photos/how-close-does-an-enemy-jet-have-to-get-to-actually-see-the-f-22-on-radar-1782457249351"
+        "https://simpleflying.com/america-5-stealthiest-military-jets-all-time"
       ]
     },
     {
@@ -23,55 +23,60 @@
       "claim": "B-21 Raider average procurement unit cost",
       "value_used": 700.0,
       "unit": "USD_million",
-      "checked": "2026-07-27",
+      "checked": "2026-08-03",
       "sources": [
-        "https://www.politico.com/news/2026/07/21/nasa-nuclear-mars-mission-cost-01005610",
-        "https://www.bbc.com/news/articles/c70gek2kqyno",
-        "https://www.washingtontechnology.com/contracts/2026/07/air-force-picks-3-19b-aerospace-program-support-work/414908/?oref=wt-homepage-river",
-        "https://www.defensenews.com/air/2026/07/21/boeing-on-track-for-2028-air-force-one-delivery-costs-rise/"
+        "https://simpleflying.com/19-b-2-spirits-145-b-21-raiders-bigger-americas-stealth-bomber-fleet-get",
+        "https://www.airforce-technology.com/news/northrop-grumman-delivers-b-21-raider-in-record-time",
+        "https://247wallst.com/military/2025/10/11/the-most-expensive-aircraft-in-the-us-air-force-2",
+        "https://www.defensenews.com/air/2024/04/09/us-air-force-reports-lower-b-21-costs-after-negotiations-with-northrop"
       ],
-      "status": "possible_discrepancy",
+      "status": "corroborated",
       "related_news": [
-        "https://www.politico.com/news/2026/07/21/nasa-nuclear-mars-mission-cost-01005610",
-        "https://www.bbc.com/news/articles/c70gek2kqyno",
-        "https://www.washingtontechnology.com/contracts/2026/07/air-force-picks-3-19b-aerospace-program-support-work/414908/?oref=wt-homepage-river",
-        "https://www.defensenews.com/air/2026/07/21/boeing-on-track-for-2028-air-force-one-delivery-costs-rise/"
+        "https://simpleflying.com/19-b-2-spirits-145-b-21-raiders-bigger-americas-stealth-bomber-fleet-get",
+        "https://www.airforce-technology.com/news/northrop-grumman-delivers-b-21-raider-in-record-time",
+        "https://247wallst.com/military/2025/10/11/the-most-expensive-aircraft-in-the-us-air-force-2",
+        "https://www.defensenews.com/air/2024/04/09/us-air-force-reports-lower-b-21-costs-after-negotiations-with-northrop"
       ],
-      "parsed_value": 2000.0,
-      "relative_delta": 1.857
+      "parsed_value": 700.0,
+      "relative_delta": 0.0
     },
     {
       "key": "ddgx_unit_cost",
       "claim": "DDG(X) lead/early unit cost",
       "value_used": 3300.0,
       "unit": "USD_million",
-      "checked": "2026-07-27",
+      "checked": "2026-08-03",
       "sources": [
-        "CBO/CRS DDG(X) reports"
+        "https://www.twz.com/sea/trump-class-battleship-construction-wont-begin-until-2030s",
+        "https://nationalinterest.org/blog/buzz/us-navys-ddgx-nightmare-explained-1-number-213239",
+        "https://breakingdefense.com/2022/11/next-gen-destroyers-price-tag-could-be-1b-more-than-navys-estimates-cbo",
+        "https://www.nationaldefensemagazine.org/articles/2026/3/4/navys-two-new-ship-programs-pose-different-challenges"
       ],
-      "status": "sources_refreshed",
+      "status": "possible_discrepancy",
       "related_news": [
-        "https://maritime-executive.com/article/gao-audit-digs-up-delays-and-overruns-in-navy-s-hypersonic-missile-program",
-        "https://www.nbcnews.com/politics/trump-administration/iran-war-cost-estimate-37-billion-pete-hegseth-senate-hearing-rcna588619",
-        "https://www.marinelink.com/news/us-navy-biggest-isnt-always-best-541408",
-        "https://www.politico.com/news/2026/07/21/nasa-nuclear-mars-mission-cost-01005610"
-      ]
+        "https://www.twz.com/sea/trump-class-battleship-construction-wont-begin-until-2030s",
+        "https://nationalinterest.org/blog/buzz/us-navys-ddgx-nightmare-explained-1-number-213239",
+        "https://breakingdefense.com/2022/11/next-gen-destroyers-price-tag-could-be-1b-more-than-navys-estimates-cbo",
+        "https://www.nationaldefensemagazine.org/articles/2026/3/4/navys-two-new-ship-programs-pose-different-challenges"
+      ],
+      "parsed_value": 15000.0,
+      "relative_delta": 3.545
     },
     {
       "key": "sentinel_program_cost",
       "claim": "Sentinel ICBM R&D/program cost (order of magnitude)",
       "value_used": 40000.0,
       "unit": "USD_million",
-      "checked": "2026-07-27",
+      "checked": "2026-08-03",
       "sources": [
         "USAF/GAO; Nunn-McCurdy reporting"
       ],
       "status": "sources_refreshed",
       "related_news": [
-        "https://maritime-executive.com/article/gao-audit-digs-up-delays-and-overruns-in-navy-s-hypersonic-missile-program",
-        "https://www.researchprofessionalnews.com/rr-news-uk-research-councils-2026-7-stfc-s-true-cost-overrun-revealed-as-nearly-700m/",
-        "https://www.researchprofessionalnews.com/rr-news-uk-politics-2026-7-research-fortnight-nbsp-22-july-2026/",
-        "https://nasawatch.com/2026/07/23/oig-report-workforce-and-budget-threats-loom/"
+        "https://www.armscontrol.org/act/2024-03/news/sentinel-icbm-exceeds-projected-cost-37-percent",
+        "https://www.defensenews.com/air/2026/02/17/us-air-force-sees-early-2030s-rollout-for-revamped-sentinel-nuclear-missile",
+        "https://spacenews.com/pentagon-greenlights-140-billion-icbm-program-despite-cost-overruns",
+        "https://www.defenseone.com/threats/2024/09/icbm-cost-overrun-collective-failure-usaf-northrop-dod-air-forces-chief-buyer/399315"
       ]
     },
     {
@@ -79,16 +84,16 @@
       "claim": "DF-17 HGV terminal speed (open-source)",
       "value_used": 5.0,
       "unit": "mach",
-      "checked": "2026-07-27",
+      "checked": "2026-08-03",
       "sources": [
         "CSIS Missile Threat; DoD CMPR"
       ],
       "status": "sources_refreshed",
       "related_news": [
-        "https://www.janes.com/defence-intelligence-insights/defence-news/weapons/gao-flags-us-army-missile-programme-delays",
-        "https://www.army-technology.com/news/lockheed-martin-uk-hypersonic-target/",
-        "https://www.janes.com/defence-intelligence-insights/defence-news/weapons/chinese-footage-reveals-previously-unseen-df-26-variant",
-        "https://www.janes.com/defence-intelligence-insights/defence-news/security/farnborough-2026-raytheon-uk-unveils-red-kite-guided-glide-weapon"
+        "https://nationalinterest.org/blog/buzz/chinas-df-17-hypersonic-missile-built-attack-us-bases-and-aircraft-carriers-207934",
+        "https://missilethreat.csis.org/missile/df-17",
+        "https://www.newsweek.com/china-army-reveals-hypersonic-missile-new-video-12102290",
+        "https://defencesecurityasia.com/en/china-arms-iran-kamikaze-drones-hq16-air-defence-df17-us-strike-persian-gulf-power-balance"
       ]
     },
     {
@@ -96,16 +101,16 @@
       "claim": "MADL operating band (open-source, Ku-band)",
       "value_used": 14.4,
       "unit": "GHz",
-      "checked": "2026-07-27",
+      "checked": "2026-08-03",
       "sources": [
         "Public datalink analyses"
       ],
       "status": "sources_refreshed",
       "related_news": [
-        "https://www.shephardmedia.com/news/digital-battlespace/premium-madl-becomes-universal-translator",
+        "https://defense.info/defense-systems/northrop-grumman-radio-terminal-for-the-us-air-force",
+        "https://defense.info/re-shaping-defense-security/2020/01/data-links-for-an-integrated-distributed-force",
         "https://www.airandspaceforces.com/article/the-f-22-and-the-f-35-are-struggling-to-talk-to-each-other-and-to-the-rest-of-usaf",
-        "https://nationalinterest.org/blog/buzz/madl-how-f-35s-talk-each-other-clear-game-changer-193119",
-        "https://defense.info/re-shaping-defense-security/2020/01/data-links-for-an-integrated-distributed-force"
+        "https://nationalinterest.org/blog/buzz/madl-how-f-35s-talk-each-other-clear-game-changer-193119"
       ]
     },
     {
@@ -113,33 +118,38 @@
       "claim": "Columbia-class SSBN unit cost",
       "value_used": 9000.0,
       "unit": "USD_million",
-      "checked": "2026-07-27",
+      "checked": "2026-08-03",
       "sources": [
-        "CBO/CRS Columbia reports"
+        "https://www.navalnews.com/naval-news/2026/06/new-look-at-americas-next-ballistic-missile-submarine",
+        "https://www.19fortyfive.com/2026/07/350000000000-the-us-navys-columbia-class-nuclear-submarine-wont-come-cheap-and-is-already-late",
+        "https://milmag.pl/en/us-awards-nearly-77-billion-dollars-for-columbia-and-virginia-class-submarine-programs",
+        "https://interestingengineering.com/military/us-navy-historic-contract-submarines"
       ],
-      "status": "sources_refreshed",
+      "status": "possible_discrepancy",
       "related_news": [
-        "https://www.themanufacturer.com/articles/babcock-canada-awarded-six-year-vissc-extension/",
-        "https://nypost.com/2026/07/21/lifestyle/college-students-get-first-payout-in-284m-financial-aid-price-fixing-settlement/",
-        "https://www.marinelink.com/news/fincantieri-occar-amend-u-nfs-program-541492",
-        "https://www.aol.ca/articles/college-students-first-payout-284m-142231000.html"
-      ]
+        "https://www.navalnews.com/naval-news/2026/06/new-look-at-americas-next-ballistic-missile-submarine",
+        "https://www.19fortyfive.com/2026/07/350000000000-the-us-navys-columbia-class-nuclear-submarine-wont-come-cheap-and-is-already-late",
+        "https://milmag.pl/en/us-awards-nearly-77-billion-dollars-for-columbia-and-virginia-class-submarine-programs",
+        "https://interestingengineering.com/military/us-navy-historic-contract-submarines"
+      ],
+      "parsed_value": 62000.0,
+      "relative_delta": 5.889
     },
     {
       "key": "type055_full_load_t",
       "claim": "Type 055 full-load displacement",
       "value_used": 13000.0,
       "unit": "tonnes",
-      "checked": "2026-07-27",
+      "checked": "2026-08-03",
       "sources": [
         "USNI/CSIS PLAN analyses"
       ],
       "status": "sources_refreshed",
       "related_news": [
-        "https://www.marinelink.com/blogs/blog/japan-reports-that-a-chinese-destroyer-conducted-a-livefire-105119",
-        "https://www.marinelink.com/news/us-navy-biggest-isnt-always-best-541408",
-        "https://maritime-executive.com/article/china-s-largest-hydrogen-powered-inland-cargo-ship-is-launched",
-        "https://www.seatrade-maritime.com/shipyards/newbuilding-orders-at-chinese-shipyards-surge-173-in-h1"
+        "https://www.twz.com/our-most-detailed-look-yet-at-chinas-type-055-super-destroyer",
+        "https://www.twz.com/news-features/pentagon-warns-of-chinas-increasing-capacity-to-project-naval-power-far-from-home",
+        "https://www.marineinsight.com/10-biggest-and-most-powerful-destroyer-ships-in-the-world",
+        "https://www.newsweek.com/video-shows-china-flexing-naval-power-10000-ton-warships-11319501"
       ]
     }
   ]
