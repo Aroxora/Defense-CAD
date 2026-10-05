@@ -1,73 +1,73 @@
 {
-  "generated": "2026-09-28",
+  "generated": "2026-10-05",
   "systems": [
     {
       "key": "trump_class_battleship",
-      "last_updated": "2026-09-28",
+      "last_updated": "2026-10-05",
       "sources": [
         "https://dsm.forecastinternational.com/2026/05/27/the-navys-golden-fleet-has-a-price-problem",
+        "https://defencesecurityasia.com/en/trump-class-battleship-cost-us-navy-275-billion-bbgx",
         "https://breakingdefense.com/2026/05/trump-class-battleship-will-get-same-nuclear-reactor-as-ford-aircraft-carrier",
-        "https://www.fpri.org/article/2026/05/the-golden-fleet-on-paper-ambition-meets-strategic-contradiction",
-        "https://news.usni.org/2026/05/11/new-navy-shipbuilding-plan-trump-class-battleship-will-be-nuclear-powered-carrier-design-is-under-review"
+        "https://warontherocks.com/why-the-u-s-navy-doesnt-build-battleships-anymore"
       ],
       "related_news": [
         "https://dsm.forecastinternational.com/2026/05/27/the-navys-golden-fleet-has-a-price-problem",
+        "https://defencesecurityasia.com/en/trump-class-battleship-cost-us-navy-275-billion-bbgx",
         "https://breakingdefense.com/2026/05/trump-class-battleship-will-get-same-nuclear-reactor-as-ford-aircraft-carrier",
-        "https://www.fpri.org/article/2026/05/the-golden-fleet-on-paper-ambition-meets-strategic-contradiction",
-        "https://news.usni.org/2026/05/11/new-navy-shipbuilding-plan-trump-class-battleship-will-be-nuclear-powered-carrier-design-is-under-review"
+        "https://warontherocks.com/why-the-u-s-navy-doesnt-build-battleships-anymore"
       ],
       "unit_cost_musd": 17000.0
     },
     {
       "key": "b21_raider",
-      "last_updated": "2026-09-28",
+      "last_updated": "2026-10-05",
       "sources": [
-        "https://www.facebook.com/groups/462611506218630/posts/1093965029749938",
-        "https://www.instagram.com/reel/DdsV1teKDGE",
+        "https://www.facebook.com/themilitarychannelusa/posts/read-the-us-air-force-and-prime-contractor-northrop-grumman-have-initiated-a-maj/122238878846902462",
+        "https://militarnyi.com/en/news/us-considers-opening-second-b-21-raider-production-line",
         "https://simpleflying.com/b21-raider-b2-spirit-lower-operating-cost",
-        "https://militarywatchmagazine.com/article/usaf-2bn-airbase-upgrade-b21-stealth"
+        "https://www.sltrib.com/news/2026/09/10/laytons-northrop-grumman-facility"
       ],
       "related_news": [
-        "https://www.facebook.com/groups/462611506218630/posts/1093965029749938",
-        "https://www.instagram.com/reel/DdsV1teKDGE",
+        "https://www.facebook.com/themilitarychannelusa/posts/read-the-us-air-force-and-prime-contractor-northrop-grumman-have-initiated-a-maj/122238878846902462",
+        "https://militarnyi.com/en/news/us-considers-opening-second-b-21-raider-production-line",
         "https://simpleflying.com/b21-raider-b2-spirit-lower-operating-cost",
-        "https://militarywatchmagazine.com/article/usaf-2bn-airbase-upgrade-b21-stealth"
+        "https://www.sltrib.com/news/2026/09/10/laytons-northrop-grumman-facility"
       ],
-      "unit_cost_musd": 692.0
+      "unit_cost_musd": 700.0
     },
     {
       "key": "columbia_ssbn",
-      "last_updated": "2026-09-28",
+      "last_updated": "2026-10-05",
       "sources": [
         "CBO/CRS Columbia-class estimates (public)"
       ],
       "related_news": [
+        "https://www.bairdmaritime.com/security/naval/naval-submersibles/pentagon-orders-five-additional-columbia-class-ballistic-missile-submarines",
         "https://thedefensepost.com/2026/02/06/columbia-class-submarine-guide",
         "https://www.overtdefense.com/2026/04/01/us-navy-drives-columbia-class-development-with-15-4-billion-investment",
-        "https://www.navalnews.com/naval-news/2026/05/u-s-navy-goes-all-in-on-submarines-in-released-shipbuilding-plan",
-        "https://www.19fortyfive.com/2026/07/350000000000-the-us-navys-columbia-class-nuclear-submarine-wont-come-cheap-and-is-already-late"
+        "https://www.19fortyfive.com/2026/08/the-us-navy-is-spending-311000000000-on-the-nuclear-columbia-class-missile-submarines-and-they-running-very-much-behind-schedule"
       ]
     },
     {
       "key": "ddgx_destroyer",
-      "last_updated": "2026-09-28",
+      "last_updated": "2026-10-05",
       "sources": [
         "https://www.eurasiareview.com/19012026-us-navy-ddgx-next-generation-destroyer-program-background-and-issues-for-congress-analysis",
         "https://militarywatchmagazine.com/article/us-senate-sustain-ddgx-destroyer",
-        "https://www.csis.org/analysis/golden-fleets-battleship-will-never-sail",
-        "https://www.19fortyfive.com/2026/01/the-trump-class-battleship-could-sink-the-navy-for-decades-to-come"
+        "https://news.usni.org/2022/11/10/ddgx-destroyer-could-cost-up-to-3-4b-a-hull-ssnx-attack-boat-up-to-7-2b-says-cbo-report",
+        "https://www.twz.com/sea/trump-class-battleship-construction-wont-begin-until-2030s"
       ],
       "related_news": [
         "https://www.eurasiareview.com/19012026-us-navy-ddgx-next-generation-destroyer-program-background-and-issues-for-congress-analysis",
         "https://militarywatchmagazine.com/article/us-senate-sustain-ddgx-destroyer",
-        "https://www.csis.org/analysis/golden-fleets-battleship-will-never-sail",
-        "https://www.19fortyfive.com/2026/01/the-trump-class-battleship-could-sink-the-navy-for-decades-to-come"
+        "https://news.usni.org/2022/11/10/ddgx-destroyer-could-cost-up-to-3-4b-a-hull-ssnx-attack-boat-up-to-7-2b-says-cbo-report",
+        "https://www.twz.com/sea/trump-class-battleship-construction-wont-begin-until-2030s"
       ],
       "unit_cost_musd": 4400.0
     },
     {
       "key": "constellation_ffg",
-      "last_updated": "2026-09-28",
+      "last_updated": "2026-10-05",
       "sources": [
         "https://www.twz.com/sea/navy-sinks-the-constellation-class-frigate-program",
         "https://dsm.forecastinternational.com/2025/12/19/new-frigate-on-the-horizon-u-s-navy-ditches-constellation-class-for-national-security-cutter-design",
@@ -84,58 +84,54 @@
     },
     {
       "key": "ngad_fighter",
-      "last_updated": "2026-09-28",
+      "last_updated": "2026-10-05",
       "sources": [
-        "https://defensescoop.com/2025/03/21/boeing-ngad-award-air-force-f-47-trump",
-        "https://www.airandspaceforces.com/article/why-the-air-force-paused-ngad-and-whats-next",
-        "https://www.19fortyfive.com/2026/06/f-47-ngad-fighter-will-fly-1000-miles-top-mach-2-and-cost-300-million-each-americas-bet-to-beat-china-in-the-air",
-        "https://www.twz.com/air/20-billion-price-tag-to-complete-development-of-usafs-next-generation-fighter"
+        "https://www.mordorintelligence.com/industry-reports/fighter-aircraft-market",
+        "https://www.marketresearchfuture.com/reports/fighter-aircraft-market-42460",
+        "https://en.wikipedia.org/wiki/Boeing_F-47",
+        "https://www.facebook.com/AviationCircle/posts/yesterday-september-29-the-us-navy-selected-boeing-to-develop-the-fa-xx-its-firs/1055092847524313"
       ],
       "related_news": [
-        "https://defensescoop.com/2025/03/21/boeing-ngad-award-air-force-f-47-trump",
-        "https://www.airandspaceforces.com/article/why-the-air-force-paused-ngad-and-whats-next",
-        "https://www.19fortyfive.com/2026/06/f-47-ngad-fighter-will-fly-1000-miles-top-mach-2-and-cost-300-million-each-americas-bet-to-beat-china-in-the-air",
-        "https://www.twz.com/air/20-billion-price-tag-to-complete-development-of-usafs-next-generation-fighter"
+        "https://www.mordorintelligence.com/industry-reports/fighter-aircraft-market",
+        "https://www.marketresearchfuture.com/reports/fighter-aircraft-market-42460",
+        "https://en.wikipedia.org/wiki/Boeing_F-47",
+        "https://www.facebook.com/AviationCircle/posts/yesterday-september-29-the-us-navy-selected-boeing-to-develop-the-fa-xx-its-firs/1055092847524313"
       ],
-      "unit_cost_musd": 100.0
+      "unit_cost_musd": 300.0
     },
     {
       "key": "cca_increment1",
-      "last_updated": "2026-09-28",
+      "last_updated": "2026-10-05",
       "sources": [
         "https://www.aviationtoday.com/2026/06/18/more-than-20-companies-in-the-running-for-cca-increment-2-air-force-says",
-        "https://www.twz.com/news-features/fleet-of-at-least-500-collaborative-combat-aircraft-by-2032-now-in-usafs-plans",
         "https://defensescoop.com/2026/06/17/air-force-picks-anduril-general-atomics-to-build-first-operational-cca-drones",
-        "https://insideunmannedsystems.com/air-force-goes-split-buy-fury-and-dark-merlin-both-enter-cca-production"
+        "https://www.af.mil/News/Article-Display/Article/4610357/collaborative-combat-aircraft-arrive-at-creech-afb-advancing-operational-integr",
+        "https://defence-industry.eu/u-s-air-force-confirms-anduril-fury-and-general-atomics-vengeance-have-entered-operational-cca-testing-at-creech-afb-in-nevada"
       ],
       "related_news": [
         "https://www.aviationtoday.com/2026/06/18/more-than-20-companies-in-the-running-for-cca-increment-2-air-force-says",
-        "https://www.twz.com/news-features/fleet-of-at-least-500-collaborative-combat-aircraft-by-2032-now-in-usafs-plans",
         "https://defensescoop.com/2026/06/17/air-force-picks-anduril-general-atomics-to-build-first-operational-cca-drones",
-        "https://insideunmannedsystems.com/air-force-goes-split-buy-fury-and-dark-merlin-both-enter-cca-production"
+        "https://www.af.mil/News/Article-Display/Article/4610357/collaborative-combat-aircraft-arrive-at-creech-afb-advancing-operational-integr",
+        "https://defence-industry.eu/u-s-air-force-confirms-anduril-fury-and-general-atomics-vengeance-have-entered-operational-cca-testing-at-creech-afb-in-nevada"
       ],
       "unit_cost_musd": 25.0
     },
     {
       "key": "sentinel_icbm",
-      "last_updated": "2026-09-28",
+      "last_updated": "2026-10-05",
       "sources": [
-        "https://www.standard.net/news/military/2024/feb/20/over-budget-sentinel-icbm-program-triggers-review-faces-cancellation",
-        "https://nationalinterest.org/blog/buzz/sentinel-icbm-could-see-its-first-flight-next-year-ps-041926",
-        "https://www.twz.com/nuclear/troubled-sentinel-icbm-program-still-being-restructured-nearly-two-years-after-cost-breach",
-        "https://www.airandspaceforces.com/air-force-orders-halt-some-work-sentinel-icbm"
+        "USAF/GAO Sentinel program; public Nunn-McCurdy reporting"
       ],
       "related_news": [
-        "https://www.standard.net/news/military/2024/feb/20/over-budget-sentinel-icbm-program-triggers-review-faces-cancellation",
         "https://nationalinterest.org/blog/buzz/sentinel-icbm-could-see-its-first-flight-next-year-ps-041926",
         "https://www.twz.com/nuclear/troubled-sentinel-icbm-program-still-being-restructured-nearly-two-years-after-cost-breach",
-        "https://www.airandspaceforces.com/air-force-orders-halt-some-work-sentinel-icbm"
-      ],
-      "unit_cost_musd": 96000.0
+        "https://www.airandspaceforces.com/air-force-orders-halt-some-work-sentinel-icbm",
+        "https://www.defensenews.com/air/2026/02/17/us-air-force-sees-early-2030s-rollout-for-revamped-sentinel-nuclear-missile"
+      ]
     },
     {
       "key": "sda_leo_layer",
-      "last_updated": "2026-09-28",
+      "last_updated": "2026-10-05",
       "sources": [
         "https://spaceflightnow.com/2025/12/20/space-development-agency-awards-roughly-3-5-billion-to-4-companies-for-72-missile-tracking-and-warning-satellites",
         "https://www.gao.gov/products/gao-26-107085",
@@ -152,50 +148,50 @@
     },
     {
       "key": "type055_destroyer",
-      "last_updated": "2026-09-28",
+      "last_updated": "2026-10-05",
       "sources": [
-        "Public PLAN order-of-battle analyses (USNI, CSIS)"
-      ],
-      "related_news": [
-        "https://www.navalnews.com/naval-news/2023/04/china-now-has-8-type-055-destroyers-in-active-service",
+        "https://defencesecurityasia.com/en/china-hq-26-naval-anti-ballistic-missile-plan-type-055",
         "https://www.usni.org/magazines/proceedings/2023/march/type-055-renhai-class-cruiser-chinas-premier-surface-combatant",
         "https://www.andrewerickson.com/2026/02/cmsi-translation-27-what-is-the-significance-of-the-plan-type-055-destroyer-zunyi-task-forces-distant-deployment-to-australia",
-        "https://www.janes.com/defence-intelligence-insights/defence-news/chinese-navys-first-type-055-class-destroyer-enters-service"
-      ]
+        "https://www.naval-technology.com/news/is-chinas-type-055-a-cruiser-or-a-destroyer"
+      ],
+      "related_news": [
+        "https://defencesecurityasia.com/en/china-hq-26-naval-anti-ballistic-missile-plan-type-055",
+        "https://www.usni.org/magazines/proceedings/2023/march/type-055-renhai-class-cruiser-chinas-premier-surface-combatant",
+        "https://www.andrewerickson.com/2026/02/cmsi-translation-27-what-is-the-significance-of-the-plan-type-055-destroyer-zunyi-task-forces-distant-deployment-to-australia",
+        "https://www.naval-technology.com/news/is-chinas-type-055-a-cruiser-or-a-destroyer"
+      ],
+      "unit_cost_musd": 25.0
     },
     {
       "key": "type003_carrier",
-      "last_updated": "2026-09-28",
+      "last_updated": "2026-10-05",
       "sources": [
-        "https://aerospaceglobalnews.com/news/france-new-nuclear-aircraft-carrier-pa-ng",
-        "https://www.twz.com/sea/chinas-next-aircraft-carrier-is-taking-shape",
-        "https://www.naval-technology.com/news/analysis-what-we-know-about-the-fujian-chinas-new-aircraft-carrier",
-        "https://chinapower.csis.org/china-type-003-fujian-aircraft-carrier"
+        "USNI/CSIS public PLAN carrier analyses"
       ],
       "related_news": [
-        "https://aerospaceglobalnews.com/news/france-new-nuclear-aircraft-carrier-pa-ng",
-        "https://www.twz.com/sea/chinas-next-aircraft-carrier-is-taking-shape",
-        "https://www.naval-technology.com/news/analysis-what-we-know-about-the-fujian-chinas-new-aircraft-carrier",
-        "https://chinapower.csis.org/china-type-003-fujian-aircraft-carrier"
-      ],
-      "unit_cost_musd": 6000.0
+        "https://www.facebook.com/SecretInfrastructure/posts/-chinas-newest-aircraft-carrier-is-changing-what-a-carrier-can-do-%EF%B8%8Fchinas-fujian/1013881371703214",
+        "https://en.wikipedia.org/wiki/Type_004_aircraft_carrier",
+        "https://nationalinterest.org/blog/buzz/these-are-the-countries-with-aircraft-carriers-2026-hk-021526",
+        "https://www.china-arms.com/2026/09/china-j-35-stealth-fighter-production-fujian-industrial-analysis-2026"
+      ]
     },
     {
       "key": "df17_hgv",
-      "last_updated": "2026-09-28",
+      "last_updated": "2026-10-05",
       "sources": [
         "CSIS Missile Threat; DoD China Military Power Report"
       ],
       "related_news": [
         "https://www.janes.com/defence-intelligence-insights/defence-news/defence/china-reveals-upgraded-df-26-missile-new-df-17-configuration",
-        "https://english.nv.ua/nation/df-17-is-a-hypersonic-missile-capable-of-striking-strategic-targets-50630393.html",
-        "https://www.scmp.com/news/china/military/article/3362942/chinas-df-17-hypersonic-glider-ready-strike-anywhere-any-time",
-        "https://www.andrewerickson.com/2025/12/chinas-df-27-conventional-icbm-asbm-threatening-americas-homeland-pacific-ships-and-escalation-risks"
+        "https://www.andrewerickson.com/2025/12/chinas-df-27-conventional-icbm-asbm-threatening-americas-homeland-pacific-ships-and-escalation-risks",
+        "https://www.globaltimes.cn/page/202608/1367431.shtml",
+        "https://www.defensenews.com/global/asia-pacific/2026/07/08/china-shows-snazzy-clip-of-df-17-missile-on-state-tv-in-show-of-force"
       ]
     },
     {
       "key": "df41_icbm",
-      "last_updated": "2026-09-28",
+      "last_updated": "2026-10-05",
       "sources": [
         "CSIS Missile Threat; DoD China Military Power Report"
       ],
@@ -208,32 +204,32 @@
     },
     {
       "key": "j35_fighter",
-      "last_updated": "2026-09-28",
+      "last_updated": "2026-10-05",
       "sources": [
         "https://migflug.com/aircraft/shenyang-fc-31",
         "https://www.aerotime.aero/articles/27553-top-10-most-expensive-fighter-jets",
-        "https://quwa.org/pakistan/air-force/combat-aircraft/what-the-reports-say-about-pakistans-j-35-stealth-fighter-deal",
-        "https://www.19fortyfive.com/2026/08/chinas-new-j-35-stealth-fighter-is-getting-so-many-upgrades-it-will-now-fly-until-2050-to-take-on-the-f-22-f-35-or-even-the-f-47-ngad"
+        "https://migflug.com/afterburner/chinas-fighter-export-machine-kicks-into-gear",
+        "https://www.19fortyfive.com/2026/02/sorry-f-22-and-f-35-chinas-new-j-35-stealth-fighter-can-be-summed-up-in-2-simple-words"
       ],
       "related_news": [
         "https://migflug.com/aircraft/shenyang-fc-31",
         "https://www.aerotime.aero/articles/27553-top-10-most-expensive-fighter-jets",
-        "https://quwa.org/pakistan/air-force/combat-aircraft/what-the-reports-say-about-pakistans-j-35-stealth-fighter-deal",
-        "https://www.19fortyfive.com/2026/08/chinas-new-j-35-stealth-fighter-is-getting-so-many-upgrades-it-will-now-fly-until-2050-to-take-on-the-f-22-f-35-or-even-the-f-47-ngad"
+        "https://migflug.com/afterburner/chinas-fighter-export-machine-kicks-into-gear",
+        "https://www.19fortyfive.com/2026/02/sorry-f-22-and-f-35-chinas-new-j-35-stealth-fighter-can-be-summed-up-in-2-simple-words"
       ],
       "unit_cost_musd": 70.0
     },
     {
       "key": "h20_bomber",
-      "last_updated": "2026-09-28",
+      "last_updated": "2026-10-05",
       "sources": [
         "DoD China Military Power Report; public PLAAF analyses"
       ],
       "related_news": [
         "https://aerospaceglobalnews.com/news/china-h-20-stealth-bomber",
         "https://asiatimes.com/2026/09/chinas-wz-x-drone-hints-at-an-unmanned-stealth-bomber",
-        "https://www.19fortyfive.com/2026/08/chinas-new-h-20-stealth-bomber-looks-frozen-in-time-as-the-us-air-force-can-already-bomb-iran-with-the-b-2-and-the-b-21-raider-is-coming-soon",
-        "https://www.19fortyfive.com/2026/06/if-chinas-h-20-stealth-bomber-ever-flies-america-loses-an-advantage-it-has-held-since-1989"
+        "https://www.twz.com/air/china-just-not-there-yet-on-h-20-stealth-bomber-global-strike-commands-top-general",
+        "https://interestingengineering.com/military/us-fast-tracks-b-21-program-bomber"
       ]
     }
   ]
