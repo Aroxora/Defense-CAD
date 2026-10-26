@@ -1,156 +1,93 @@
 {
-  "generated": "2026-10-19",
+  "generated": "2026-10-26",
   "facts": [
     {
       "key": "f35_frontal_rcs",
       "claim": "F-35 frontal RCS (best public estimate)",
       "value_used": 0.0002,
       "unit": "m2",
-      "checked": "2026-10-19",
+      "checked": "2026-10-26",
       "sources": [
         "Public RCS estimates (Aviation Week, academic)"
       ],
-      "status": "sources_refreshed",
-      "related_news": [
-        "https://simpleflying.com/striking-differences-f-35-f-22",
-        "https://www.sandboxx.us/news/new-details-on-the-f-47-6th-generation-fighter-emerge",
-        "https://www.19fortyfive.com/2026/03/sorry-stealth-f-22-raptor-and-china-boeing-f-47-ngad-will-be-the-most-powerful-fighter-ever-and-will-have-swarm-weapons",
-        "https://meta-defense.fr/en/2026/05/15/su-57-rcs-versus-rafale"
-      ]
+      "status": "lookup_failed"
     },
     {
       "key": "b21_unit_cost",
       "claim": "B-21 Raider average procurement unit cost",
       "value_used": 700.0,
       "unit": "USD_million",
-      "checked": "2026-10-19",
+      "checked": "2026-10-26",
       "sources": [
-        "https://aerocorner.com/comparison/b-2-spirit-vs-b-21-raider",
-        "https://simpleflying.com/construction-project-turning-us-air-force-base-stealth-bomber-hub",
-        "https://www.instagram.com/p/DdpHkbtAbt4",
-        "https://www.instagram.com/reel/Dej09CCN5g4"
+        "USAF/GAO public estimates"
       ],
-      "status": "possible_discrepancy",
-      "related_news": [
-        "https://aerocorner.com/comparison/b-2-spirit-vs-b-21-raider",
-        "https://simpleflying.com/construction-project-turning-us-air-force-base-stealth-bomber-hub",
-        "https://www.instagram.com/p/DdpHkbtAbt4",
-        "https://www.instagram.com/reel/Dej09CCN5g4"
-      ],
-      "parsed_value": 1157.0,
-      "relative_delta": 0.653
+      "status": "lookup_failed"
     },
     {
       "key": "ddgx_unit_cost",
       "claim": "DDG(X) lead/early unit cost",
       "value_used": 3300.0,
       "unit": "USD_million",
-      "checked": "2026-10-19",
+      "checked": "2026-10-26",
       "sources": [
-        "https://www.eurasiareview.com/19012026-us-navy-ddgx-next-generation-destroyer-program-background-and-issues-for-congress-analysis",
-        "https://asiatimes.com/2025/07/us-navys-next-gen-destroyer-looking-like-a-money-pit",
-        "https://nationalinterest.org/blog/buzz/us-navys-ddgx-nightmare-explained-1-number-213239",
-        "https://ukdefencejournal.org.uk/cost-and-risk-questions-raised-over-us-battleship-plan"
+        "CBO/CRS DDG(X) reports"
       ],
-      "status": "possible_discrepancy",
-      "related_news": [
-        "https://www.eurasiareview.com/19012026-us-navy-ddgx-next-generation-destroyer-program-background-and-issues-for-congress-analysis",
-        "https://asiatimes.com/2025/07/us-navys-next-gen-destroyer-looking-like-a-money-pit",
-        "https://nationalinterest.org/blog/buzz/us-navys-ddgx-nightmare-explained-1-number-213239",
-        "https://ukdefencejournal.org.uk/cost-and-risk-questions-raised-over-us-battleship-plan"
-      ],
-      "parsed_value": 4400.0,
-      "relative_delta": 0.333
+      "status": "lookup_failed"
     },
     {
       "key": "sentinel_program_cost",
       "claim": "Sentinel ICBM R&D/program cost (order of magnitude)",
       "value_used": 40000.0,
       "unit": "USD_million",
-      "checked": "2026-10-19",
+      "checked": "2026-10-26",
       "sources": [
         "USAF/GAO; Nunn-McCurdy reporting"
       ],
-      "status": "sources_refreshed",
-      "related_news": [
-        "https://www.armscontrol.org/act/2024-03/news/sentinel-icbm-exceeds-projected-cost-37-percent",
-        "https://www.defensenews.com/air/2026/02/17/us-air-force-sees-early-2030s-rollout-for-revamped-sentinel-nuclear-missile",
-        "https://spacenews.com/pentagon-greenlights-140-billion-icbm-program-despite-cost-overruns",
-        "https://www.defenseone.com/threats/2024/09/icbm-cost-overrun-collective-failure-usaf-northrop-dod-air-forces-chief-buyer/399315"
-      ]
+      "status": "lookup_failed"
     },
     {
       "key": "df17_terminal_mach",
       "claim": "DF-17 HGV terminal speed (open-source)",
       "value_used": 5.0,
       "unit": "mach",
-      "checked": "2026-10-19",
+      "checked": "2026-10-26",
       "sources": [
         "CSIS Missile Threat; DoD CMPR"
       ],
-      "status": "sources_refreshed",
-      "related_news": [
-        "https://www.vietnam.vn/en/ten-lua-df-17-va-hgv-df-zf-toc-do-mach-10-tam-ban-2-500km-xe-rao-he-thong-phong-thu",
-        "https://www.newsweek.com/china-army-reveals-hypersonic-missile-new-video-12102290",
-        "https://www.asianmilitaryreview.com/2026/08/asia-pacific-hypersonic-missile-developments",
-        "https://www.andrewerickson.com/2025/12/chinas-df-27-conventional-icbm-asbm-threatening-americas-homeland-pacific-ships-and-escalation-risks"
-      ]
+      "status": "lookup_failed"
     },
     {
       "key": "madl_band_ghz",
       "claim": "MADL operating band (open-source, Ku-band)",
       "value_used": 14.4,
       "unit": "GHz",
-      "checked": "2026-10-19",
+      "checked": "2026-10-26",
       "sources": [
         "Public datalink analyses"
       ],
-      "status": "sources_refreshed",
-      "related_news": [
-        "https://www.edn.com/f-35-lightning-ii-advanced-electronics-for-stealth-sensors-and-communications",
-        "https://www.shephardmedia.com/news/digital-battlespace/premium-madl-becomes-universal-translator",
-        "https://www.airandspaceforces.com/article/the-f-22-and-the-f-35-are-struggling-to-talk-to-each-other-and-to-the-rest-of-usaf",
-        "https://nationalinterest.org/blog/buzz/madl-how-f-35s-talk-each-other-clear-game-changer-193119"
-      ]
+      "status": "lookup_failed"
     },
     {
       "key": "columbia_unit_cost",
       "claim": "Columbia-class SSBN unit cost",
       "value_used": 9000.0,
       "unit": "USD_million",
-      "checked": "2026-10-19",
+      "checked": "2026-10-26",
       "sources": [
-        "https://www.19fortyfive.com/2026/08/the-us-navy-is-spending-311000000000-on-the-nuclear-columbia-class-missile-submarines-and-they-running-very-much-behind-schedule",
-        "https://www.navalnews.com/naval-news/2026/06/new-look-at-americas-next-ballistic-missile-submarine",
-        "https://news.usni.org/2026/07/29/navy-awards-76-6b-for-9-virginia-5-columbia-subs-to-general-dynamics-hii",
-        "https://www.19fortyfive.com/2026/07/350000000000-the-us-navys-columbia-class-nuclear-submarine-wont-come-cheap-and-is-already-late"
+        "CBO/CRS Columbia reports"
       ],
-      "status": "possible_discrepancy",
-      "related_news": [
-        "https://www.19fortyfive.com/2026/08/the-us-navy-is-spending-311000000000-on-the-nuclear-columbia-class-missile-submarines-and-they-running-very-much-behind-schedule",
-        "https://www.navalnews.com/naval-news/2026/06/new-look-at-americas-next-ballistic-missile-submarine",
-        "https://news.usni.org/2026/07/29/navy-awards-76-6b-for-9-virginia-5-columbia-subs-to-general-dynamics-hii",
-        "https://www.19fortyfive.com/2026/07/350000000000-the-us-navys-columbia-class-nuclear-submarine-wont-come-cheap-and-is-already-late"
-      ],
-      "parsed_value": 11643.0,
-      "relative_delta": 0.294
+      "status": "lookup_failed"
     },
     {
       "key": "type055_full_load_t",
       "claim": "Type 055 full-load displacement",
       "value_used": 13000.0,
       "unit": "tonnes",
-      "checked": "2026-10-19",
+      "checked": "2026-10-26",
       "sources": [
         "USNI/CSIS PLAN analyses"
       ],
-      "status": "sources_refreshed",
-      "related_news": [
-        "https://www.china-arms.com/2026/10/type-055-destroyer-or-cruiser-classification",
-        "https://www.facebook.com/themilitarychannelusa/posts/read-for-decades-assessing-the-balance-of-naval-power-between-the-united-states-/122242293368902462",
-        "https://www.globaltimes.cn/page/202610/1371769.shtml",
-        "http://eng.chinamil.com.cn/2025xb/C_251453/F_251462/16491557.html"
-      ]
+      "status": "lookup_failed"
     }
   ]
 }
